@@ -8,10 +8,10 @@ import javax.swing.JPanel;
 import Controlador.ControllerListInventoryProducts;
 
 public class Inventary extends javax.swing.JPanel {
+
      private GeneralInventary inventarioGeneral = new GeneralInventary();
      private static boolean actived = false;
 
-  
      public Inventary() {
           initComponents();
           panelContenedor.add(inventarioGeneral, BorderLayout.CENTER);

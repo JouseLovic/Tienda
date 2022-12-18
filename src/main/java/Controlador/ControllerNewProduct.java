@@ -1,15 +1,14 @@
 
 package Controlador;
 
-import Dao.ProductoDao;
+import Modelo.DB;
 import Modelo.Producto;
 import Vista_Formulario.PanelNuevoProducto;
 
 public class ControllerNewProduct {
-     
+
+     static PanelNuevoProducto nProducto = new PanelNuevoProducto();
      private static Producto producto;
-     private static ProductoDao productoDao; //Descomenta cuando el localhost este activo sino dara error
-    
      
      public static void borrarCampos(PanelNuevoProducto producto){
           
@@ -37,9 +36,9 @@ public class ControllerNewProduct {
      
      public static void subir(PanelNuevoProducto productoN){
           
-         productoDao = new ProductoDao();
+          DB db = new DB();
+          db.dameConexion();
           
-         
          String id = productoN.getCampoId();
          String desc = productoN.getCampoDesc();
          String talla = productoN.getCampoTalla();
@@ -50,23 +49,17 @@ public class ControllerNewProduct {
          int cantidad = productoN.getCampoCantidad();
          String sexo = productoN.getCampoSexo();
          
-         if(!id.equals("")){
-               producto = new Producto(id, desc, talla, marca, tipo, precio, edadDirigida, cantidad, sexo);
-               productoDao.insertarProducto(producto);
-         }
-         else{
-           
-         }
-         
+          producto = new Producto(id, desc, talla, marca, tipo, precio, edadDirigida, cantidad, sexo);
+          db.insertarProducto(producto);
          
      }
      
      public static void cancelar(){
         //En vez de hacer que cambie de panel, haz que todo lo subido de la tabla se elimine y no haya logrado mandar nada a 
         //la DB
+
+        
      }
-     
-     
-     
+
      
 }

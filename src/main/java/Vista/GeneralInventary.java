@@ -1,10 +1,14 @@
 
 package Vista;
 
+import javax.swing.*;
+import Controlador.*;
+
 public class GeneralInventary extends javax.swing.JPanel {
 
      public GeneralInventary() {
           initComponents();
+          ControllerListInventoryProducts.enviaDatosTabla(tablaGeneral);
      }
 
     
@@ -117,6 +121,29 @@ public class GeneralInventary extends javax.swing.JPanel {
      private void tablaGeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaGeneralMouseClicked
           
      }//GEN-LAST:event_tablaGeneralMouseClicked
+
+     public void setCampoDescYTipoNE(String texto) {
+          campoDescYTipoNE.setText(texto);
+     }
+
+     public void setCampoIdNE(String texto) {
+          campoIdNE.setText(texto);
+     }
+
+     public void setCampoPrecioNE(String texto) {
+          campoPrecioNE.setText(texto);
+     }
+
+     public String getCampoIdNE(){
+          return campoDescYTipoNE.getText();
+     }
+
+     public JTable getTablaGeneral() {
+          return tablaGeneral;
+     }
+
+
+
 
 
      // Variables declaration - do not modify//GEN-BEGIN:variables

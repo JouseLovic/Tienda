@@ -1,87 +1,74 @@
 package Modelo;
 
-import SuperClasses.Product;
+public class Producto  {
 
-public class Producto extends Product {
-
+     private String tamaño;
+     private String marca;
+     private int cantidad;
+     private double precio;
+     private String id;
+     private String desc;
+     private String edadDirigida;
+     private String tipo;
+     private String sexo;
 
     public Producto(String id, String desc, String tamaño, String marca, String tipo, double precio, String edadDirigida, int cantidad, String sexo) {
-        super(id, desc, tamaño, marca, tipo, precio, edadDirigida, cantidad, sexo);
+          this.id = id;
+          this.tamaño = tamaño;
+          this.marca = marca;
+          this.cantidad = cantidad;
+          this.desc = desc;
+          this.precio = precio;
+          this.tipo = tipo;
+          this.edadDirigida = edadDirigida;
+          this.sexo = sexo;
     }
 
      public String getSexo() {
           return sexo;
      }
 
-     public void setSexo(String sexo) {
-          this.sexo = sexo;
-     }
-
-    
      public String getTamaño() {
           return tamaño;
      }
 
-     public void setTamaño(String tamaño) {
-          this.tamaño = tamaño;
-     }
+   
 
      public String getMarca() {
           return marca;
      }
 
-     public void setMarca(String marca) {
-          this.marca = marca;
-     }
+   
 
      public int getCantidad() {
           return cantidad;
      }
 
-     public void setCantidad(int cantidad) {
-          this.cantidad = cantidad;
-     }
 
      public double getPrecio() {
           return precio;
-     }
-
-     public void setPrecio(double precio) {
-          this.precio = precio;
      }
 
      public String getId() {
           return id;
      }
 
-     public void setId(String id) {
-          this.id = id;
-     }
+    
 
      public String getDesc() {
           return desc;
      }
 
-     public void setDesc(String desc) {
-          this.desc = desc;
-     }
 
      public String getEdadDirigida() {
           return edadDirigida;
-     }
-
-     public void setEdadDirigida(String edadDirigida) {
-          this.edadDirigida = edadDirigida;
      }
 
      public String getTipo() {
           return tipo;
      }
 
-     public void setTipo(String tipo) {
-          this.tipo = tipo;
-     }
-   
+
     
     
 }

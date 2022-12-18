@@ -1,19 +1,15 @@
 package Main;
 
-
-
-
-
 import Modelo.*;
 import Vista.*;
 
 
 public class App {
-    public static void main(String[] args) throws Exception {
-        
-         //DB conexion = new DB();
-         //conexion.dameConexion();  si funciona la conexion, solo que debes tener encendido el servidor local
+    public static void main(String[] args) {
          
+         DB db = new DB();
+         db.dameConexion();
+
          Window W = new Window();
          W.setVisible(true);
 

@@ -1,18 +1,17 @@
 
 package Vista_Formulario;
 
+import Controlador.ControllerListInventoryProducts;
 import Controlador.ControllerNewProduct;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
+import Vista.GeneralInventary;
+
+import javax.swing.*;
 
 public class PanelNuevoProducto extends javax.swing.JPanel {
-
-  
+     
      public PanelNuevoProducto() {
-          initComponents();
-          
-          
+          initComponents(); 
+          ControllerListInventoryProducts.enviaDatosTabla(tablaNProductos);
      }
      
      
@@ -253,6 +252,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
 
      private void botonSubirPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSubirPActionPerformed
               ControllerNewProduct.subir(this);
+              ControllerListInventoryProducts.enviaDatosTabla(tablaNProductos);
      }//GEN-LAST:event_botonSubirPActionPerformed
 
 
