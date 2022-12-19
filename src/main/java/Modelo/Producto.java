@@ -6,13 +6,13 @@ public class Producto  {
      private String marca;
      private int cantidad;
      private double precio;
-     private String id;
+     private int id;
      private String desc;
      private String edadDirigida;
      private String tipo;
      private String sexo;
 
-    public Producto(String id, String desc, String tamaño, String marca, String tipo, double precio, String edadDirigida, int cantidad, String sexo) {
+    public Producto(int id, String desc, String tamaño, String marca, String tipo, double precio, String edadDirigida, int cantidad, String sexo) {
           this.id = id;
           this.tamaño = tamaño;
           this.marca = marca;
@@ -32,8 +32,6 @@ public class Producto  {
           return tamaño;
      }
 
-   
-
      public String getMarca() {
           return marca;
      }
@@ -49,11 +47,9 @@ public class Producto  {
           return precio;
      }
 
-     public String getId() {
+     public int getId() {
           return id;
      }
-
-    
 
      public String getDesc() {
           return desc;

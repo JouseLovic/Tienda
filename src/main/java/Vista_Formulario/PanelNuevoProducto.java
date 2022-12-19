@@ -1,21 +1,17 @@
 
 package Vista_Formulario;
 
-import Controlador.ControllerListInventoryProducts;
 import Controlador.ControllerNewProduct;
-import Vista.GeneralInventary;
-
-import javax.swing.*;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 public class PanelNuevoProducto extends javax.swing.JPanel {
-     
+  
      public PanelNuevoProducto() {
-          initComponents(); 
-          ControllerListInventoryProducts.enviaDatosTabla(tablaNProductos);
+          initComponents();
      }
      
      
-
      @SuppressWarnings("unchecked")
      // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
      private void initComponents() {
@@ -164,25 +160,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
 
           tablaNProductos.setModel(new javax.swing.table.DefaultTableModel(
                new Object [][] {
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null},
-                    {null, null, null, null, null, null, null, null}
+
                },
                new String [] {
                     "id", "Descripcion", "Talla", "Marca", "Tipo de producto", "Precio", "Edad dirigida", "Cantidad"
@@ -198,6 +176,11 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           });
           tablaNProductos.setColumnSelectionAllowed(true);
           tablaNProductos.getTableHeader().setReorderingAllowed(false);
+          tablaNProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+               public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    tablaNProductosMouseClicked(evt);
+               }
+          });
           jScrollPane1.setViewportView(tablaNProductos);
           tablaNProductos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
           if (tablaNProductos.getColumnModel().getColumnCount() > 0) {
@@ -252,8 +235,13 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
 
      private void botonSubirPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSubirPActionPerformed
               ControllerNewProduct.subir(this);
-              ControllerListInventoryProducts.enviaDatosTabla(tablaNProductos);
      }//GEN-LAST:event_botonSubirPActionPerformed
+
+     private void tablaNProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaNProductosMouseClicked
+         
+               
+
+     }//GEN-LAST:event_tablaNProductosMouseClicked
 
 
      // Variables declaration - do not modify//GEN-BEGIN:variables

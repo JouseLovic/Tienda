@@ -1,18 +1,17 @@
 package Vista;
 
 import Controlador.*;
-import Modelo.DB;
 import Vista_Formulario.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class Window extends JFrame {
-     
-    private static GeneralInventary inventarioGeneral = new GeneralInventary();
+
     //Productos
 
     private PanelInicial inicio = new PanelInicial();
+    private GeneralInventary inventarioGeneral = new GeneralInventary();
     private PanelNuevoProducto nProducto = new PanelNuevoProducto();
 
     //El menu
@@ -33,7 +32,6 @@ public class Window extends JFrame {
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
         Init();
-        this.addWindowListener(new cierraAbreSesion());
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     }
@@ -144,10 +142,14 @@ public class Window extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if(inicio.isVisible()){
                     ControllerMenu.ocultarPanelInicial(inicio);
+                    inventarioGeneral.refrescaTablaG();
+                    new ModifyInventary().refrescaTablaM();
                     ControllerMenu.mostrarInventario(Window.this);
                 }
                 else{
                     ControllerMenu.BorraPaneles();
+                    inventarioGeneral.refrescaTablaG();
+                    new ModifyInventary().refrescaTablaM();
                     ControllerMenu.mostrarInventario(Window.this);
                 }
             }
@@ -200,11 +202,6 @@ public class Window extends JFrame {
         this.getContentPane().add(panel, BorderLayout.CENTER);
         this.revalidate();
         this.repaint();
-    }
-
-    class cierraAbreSesion extends WindowAdapter{
-       
-
     }
 
 

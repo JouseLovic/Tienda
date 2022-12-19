@@ -11,35 +11,28 @@ public class DB {
     private static final String url = "jdbc:mysql://localhost:3306/tienda";
     private Connection miConexion;
 
-    public DB(){
-        miConexion = null;
-    }
-
     public Connection dameConexion(){
+        miConexion = null;
 
         try {
            miConexion = DriverManager.getConnection(url, user, pass);
-             System.out.println("Conexion exitosa");
-              return miConexion;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Excepción: "+e.getClass());
-             return null;
-        } catch (Exception ex){
-            JOptionPane.showMessageDialog(null, "Excepción: "+ex.getClass());
-            return null;
         }
+         return miConexion;
     }
 
 
     public void insertarProducto(Producto producto){
               
+        Connection conecta = dameConexion();
         PreparedStatement ps = null;
        
           try{
-            
-              ps = miConexion.prepareCall("Insert into productos_generales (id, descripcion, talla, marca, tipo, precio, edadDirigida, cantidad, sexo) values(?,?,?,?,?,?,?,?,?)");
+
+              ps = conecta.prepareCall("Insert into productos_generales (id, descripcion, talla, marca, tipo, precio, edadDirigida, cantidad, sexo) values(?,?,?,?,?,?,?,?,?)");
               
-               String id = producto.getId();
+               int id = producto.getId();
                String desc = producto.getDesc();
                String talla = producto.getTamaño();
                String marca = producto.getMarca();
@@ -49,7 +42,7 @@ public class DB {
                int cantidad = producto.getCantidad();
                String sexo = producto.getSexo();
            
-              ps.setString(1, id);
+              ps.setInt(1, id);
               ps.setString(2, desc);
               ps.setString(3, talla);
               ps.setDouble(6, precio);
@@ -58,7 +51,6 @@ public class DB {
               ps.setString(7, edadDirigda);
               ps.setInt(8, cantidad);
               ps.setString(9, sexo);
-
               ps.execute();
                
               JOptionPane.showMessageDialog(null, "El registro se subio exitosamente");
@@ -69,12 +61,14 @@ public class DB {
         }
 
         public void actualizarProducto(Producto producto){
+
+            Connection conecta = dameConexion();
             PreparedStatement ps = null;
            
               try{
-                 ps = miConexion.prepareCall("Update productos_generales set id = ?, descripcion = ?, talla = ?, marca = ?, tipo = ?, precio = ?, edadDirigida = ?, cantidad = ?, sexo = ?");
+                 ps = conecta.prepareCall("Update productos_generales set id = ?, descripcion = ?, talla = ?, marca = ?, tipo = ?, precio = ?, edadDirigida = ?, cantidad = ?, sexo = ?");
                    
-                String id = producto.getId(); 
+                int id = producto.getId();
                 String desc = producto.getDesc();
                 String talla = producto.getTamaño();
                 String marca = producto.getMarca();
@@ -84,7 +78,7 @@ public class DB {
                 int cantidad = producto.getCantidad();
                 String sexo = producto.getSexo();
                    
-                  ps.setString(1, id);
+                  ps.setInt(1, id);
                   ps.setString(2, desc);
                   ps.setString(3, talla);
                   ps.setString(4, marca);
@@ -102,36 +96,38 @@ public class DB {
                }
     }
 
-    public void eliminar(String id){
+    public void eliminar(int id){
           
+       Connection conecta = dameConexion();
         Statement ps = null;
             
         try{
 
-           ps = miConexion.createStatement();
+           ps = conecta.createStatement();
            ps.executeUpdate("Delete from productos_generales where id = "+id);
-          
             ps.close();
            JOptionPane.showMessageDialog(null, "El registro se ha eliminado exitosamente");
       
         }catch(Exception ex){
-              JOptionPane.showMessageDialog(null, "Un error inesperado a ocurrido en: \n"+ex.getMessage());  
+              JOptionPane.showMessageDialog(null, "Un error inesperado a ocurrido en: \n"+ex.getCause());  
        }
      }
 
      public ArrayList<Producto> dameLista(){
 
+        Connection conecta = dameConexion();
         ArrayList<Producto> lista = new ArrayList<>();
         Statement ps;
         ResultSet rs = null;
-           
+
+
           try{
-              ps = miConexion.createStatement();
-              rs = ps.executeQuery("Select * from productos_generales order by id");
+              ps = conecta.createStatement();
+              rs = ps.executeQuery("select * from productos_generales group by id");
 
                 while(rs.next()){
                    
-                  String id = rs.getString(1);
+                  int id = rs.getInt(1);
                   String Descripcion = rs.getString(2);
                   String talla = rs.getString(3);
                   String marca = rs.getString(4);
@@ -151,8 +147,6 @@ public class DB {
          }
            return lista;
      }
-    
-
 
 
     public void cierraConexion(){

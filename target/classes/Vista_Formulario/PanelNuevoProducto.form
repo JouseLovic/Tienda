@@ -293,7 +293,7 @@
             <Component class="javax.swing.JTable" name="tablaNProductos">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="8" rowCount="19">
+                  <Table columnCount="8" rowCount="0">
                     <Column editable="false" title="id" type="java.lang.Object"/>
                     <Column editable="false" title="Descripcion" type="java.lang.Object"/>
                     <Column editable="false" title="Talla" type="java.lang.Object"/>
@@ -353,6 +353,9 @@
                   <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablaNProductosMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -2,9 +2,7 @@
 package Vista;
 
 import java.awt.BorderLayout;
-
 import javax.swing.JPanel;
-
 import Controlador.ControllerListInventoryProducts;
 
 public class Inventary extends javax.swing.JPanel {
@@ -26,6 +24,7 @@ public class Inventary extends javax.swing.JPanel {
           jLabel3 = new javax.swing.JLabel();
           botonModificar = new javax.swing.JButton();
           botonEliminar = new javax.swing.JButton();
+          botonLimpiaCampos = new javax.swing.JButton();
           panelContenedor = new javax.swing.JPanel();
 
           setLayout(new java.awt.BorderLayout());
@@ -63,6 +62,14 @@ public class Inventary extends javax.swing.JPanel {
           });
           panelCambiador.add(botonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 10, 170, 40));
 
+          botonLimpiaCampos.setText("Limpiar campos");
+          botonLimpiaCampos.addActionListener(new java.awt.event.ActionListener() {
+               public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    botonLimpiaCamposActionPerformed(evt);
+               }
+          });
+          panelCambiador.add(botonLimpiaCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 150, 40));
+
           jPanel1.add(panelCambiador, java.awt.BorderLayout.PAGE_START);
 
           panelContenedor.setBackground(new java.awt.Color(255, 255, 255));
@@ -78,20 +85,27 @@ public class Inventary extends javax.swing.JPanel {
                actived = true;
                panelContenedor.remove(inventarioGeneral);
                botonModificar.setText("General");
+               new ModifyInventary().refrescaTablaM();
                ControllerListInventoryProducts.borrarPaneles(panelContenedor);
                ControllerListInventoryProducts.cambiarPanelInventarioModifi(this);
           }
           else{
                 actived = false;
                 botonModificar.setText("Modificar");
+                inventarioGeneral.refrescaTablaG();
                 ControllerListInventoryProducts.borrarPaneles(panelContenedor);
                 ControllerListInventoryProducts.cambiarPanelInventarioG(this);
           }
      }//GEN-LAST:event_botonModificarActionPerformed
 
      private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
-       
+          ControllerListInventoryProducts.eliminarRegistros(inventarioGeneral);
+          inventarioGeneral.refrescaTablaG();
      }//GEN-LAST:event_botonEliminarActionPerformed
+
+     private void botonLimpiaCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiaCamposActionPerformed
+          ControllerListInventoryProducts.borrarCampos(inventarioGeneral);
+     }//GEN-LAST:event_botonLimpiaCamposActionPerformed
 
      public void setPanelContenedor(JPanel panel) {
           panelContenedor.add(panel, BorderLayout.CENTER);
@@ -107,6 +121,7 @@ public class Inventary extends javax.swing.JPanel {
 
      // Variables declaration - do not modify//GEN-BEGIN:variables
      private javax.swing.JButton botonEliminar;
+     private javax.swing.JButton botonLimpiaCampos;
      private javax.swing.JButton botonModificar;
      private javax.swing.JLabel jLabel3;
      private javax.swing.JPanel jPanel1;
