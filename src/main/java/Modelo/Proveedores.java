@@ -9,17 +9,20 @@ public class Proveedores {
      private String nombre;
      private int edad;
      private int cedula;
+     private String email;
      private String empresa;
      private String Articulos;
      
-     public Proveedores(String nombre, int edad, int cedula, String empresa, String ArticulosQueVende) {
+     public Proveedores(String nombre, int edad, int cedula, String email, String empresa, String ArticulosQueVende) {
           this.nombre = nombre;
           this.edad = edad;
           this.cedula = cedula;
+          this.email = email;
           this.empresa = empresa;
           this.Articulos = ArticulosQueVende;
      }
 
+     
      public String getEmpresa() {
           return empresa;
      }
@@ -38,6 +41,10 @@ public class Proveedores {
 
      public int getCedula() {
           return cedula;
+     }
+
+     public String getEmail() {
+          return email;
      }
      
      

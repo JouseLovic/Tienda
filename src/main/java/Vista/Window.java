@@ -11,7 +11,6 @@ public class Window extends JFrame {
     //Productos
 
     private PanelInicial inicio = new PanelInicial();
-    private GeneralInventary inventarioGeneral = new GeneralInventary();
     private PanelNuevoProducto nProducto = new PanelNuevoProducto();
 
     //El menu
@@ -21,7 +20,7 @@ public class Window extends JFrame {
     private JMenuItem entradaProducto;
     private JMenuItem salidaProductos;
     private JMenuItem RegistroProveedor, RegistroFactura;
-    private JMenuItem entradaYSalida, proveedores, inventario, facturas;
+    private JMenuItem entradaYSalida, proveedores, facturas;
     private JMenuItem atras;
 
 
@@ -49,7 +48,7 @@ public class Window extends JFrame {
         NuevoProducto = new JMenuItem("Añadir productos");
         entradaProducto = new JMenuItem("Entrada de productos"); salidaProductos = new JMenuItem("Salida de productos");
         RegistroFactura = new JMenuItem("Registrar factura"); RegistroProveedor = new JMenuItem("Registrar proveedor");
-        inventario = new JMenuItem("Inventario"); entradaYSalida = new JMenuItem("Entrada y salida"); proveedores = new JMenuItem("Proveedores");
+        entradaYSalida = new JMenuItem("Entrada y salida"); proveedores = new JMenuItem("Proveedores");
         facturas = new JMenuItem("Facturas"); atras = new JMenuItem("Volver al inicio");
 
         menu.add(paginaInicial); menu.add(Producto); menu.add(entrada); menu.add(salida); menu.add(Registro); menu.add(Lista);
@@ -57,7 +56,7 @@ public class Window extends JFrame {
         Producto.add(NuevoProducto);
         entrada.add(entradaProducto); salida.add(salidaProductos);
         Registro.add(RegistroFactura); Registro.add(RegistroProveedor);
-        Lista.add(inventario); Lista.add(entradaYSalida); Lista.add(proveedores); Lista.add(facturas);
+       Lista.add(entradaYSalida); Lista.add(proveedores); Lista.add(facturas);
         this.setJMenuBar(menu);
 
         atras.addActionListener(new ActionListener() {
@@ -137,23 +136,6 @@ public class Window extends JFrame {
             }
         });
 
-        inventario.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(inicio.isVisible()){
-                    ControllerMenu.ocultarPanelInicial(inicio);
-                    inventarioGeneral.refrescaTablaG();
-                    new ModifyInventary().refrescaTablaM();
-                    ControllerMenu.mostrarInventario(Window.this);
-                }
-                else{
-                    ControllerMenu.BorraPaneles();
-                    inventarioGeneral.refrescaTablaG();
-                    new ModifyInventary().refrescaTablaM();
-                    ControllerMenu.mostrarInventario(Window.this);
-                }
-            }
-        });
 
         facturas.addActionListener(new ActionListener() {
             @Override

@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class DB {
+public class DBProd {
 
     private static final String user = "root";
     private static final String pass = "";
@@ -55,19 +55,21 @@ public class DB {
                
               JOptionPane.showMessageDialog(null, "El registro se subio exitosamente");
                ps.close();
-            }catch(Exception ex){
-                  JOptionPane.showMessageDialog(null, "Un error inesperado a ocurrido en: \n"+ex.getMessage());  
-           }
+            }catch(SQLIntegrityConstraintViolationException ex){
+                JOptionPane.showMessageDialog(null, "Un producto ya tiene ese id. Por favor, escriba otro");
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Un error ha ocurrido. Excepcion tipo: "+e.getMessage());
+            }
         }
 
-        public void actualizarProducto(Producto producto){
+        public void actualizarProducto(Producto producto, int idP){
 
             Connection conecta = dameConexion();
             PreparedStatement ps = null;
            
               try{
-                 ps = conecta.prepareCall("Update productos_generales set id = ?, descripcion = ?, talla = ?, marca = ?, tipo = ?, precio = ?, edadDirigida = ?, cantidad = ?, sexo = ?");
-                   
+                 ps = conecta.prepareCall("Update productos_generales set id = ?, descripcion = ?, talla = ?, marca = ?, tipo = ?, precio = ?, edadDirigida = ?, cantidad = ?, sexo = ? where id = "+idP+"");
+                
                 int id = producto.getId();
                 String desc = producto.getDesc();
                 String talla = producto.getTamaño();
@@ -90,7 +92,6 @@ public class DB {
                   ps.executeUpdate();
                   JOptionPane.showMessageDialog(null, "El registro se ha actualizado exitosamente");
                   ps.close();
-
                }catch(Exception ex){
                       JOptionPane.showMessageDialog(null, "Un error inesperado a ocurrido en: \n"+ex.getMessage());  
                }

@@ -43,6 +43,12 @@
           <artifactId>AbsoluteLayout</artifactId>
           <version>SNAPSHOT</version>
       </dependency>
+    <dependency>
+      <groupId>Desplazable</groupId>
+      <artifactId>Desplazable</artifactId>
+      <version>1.0</version>
+      <type>jar</type>
+    </dependency>
   </dependencies>
 
   <build>

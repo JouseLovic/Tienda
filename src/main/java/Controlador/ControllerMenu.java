@@ -12,7 +12,6 @@ public class ControllerMenu {
     
 
     //Listas
-    private static Inventary Inventario = new Inventary();
     private static EntryandOut entradaYSalida = new EntryandOut();
     private static PanelFactura facturas = new PanelFactura();
     private static PanelProveedor proveedor = new PanelProveedor();
@@ -31,12 +30,10 @@ public class ControllerMenu {
     }
 
   
-    private static void ocultarTodosLosPaneles2(Inventary inventario, PanelFactura factura, PanelProveedor proveedores, EntryandOut entradaYSalida, Window w){
-        inventario.setVisible(false);
+    private static void ocultarTodosLosPaneles2(PanelFactura factura, PanelProveedor proveedores, EntryandOut entradaYSalida, Window w){
         factura.setVisible(false);
         proveedores.setVisible(false);
         entradaYSalida.setVisible(false);
-        w.remove(inventario);
         w.remove(factura);
         w.remove(proveedores);
         w.remove(entradaYSalida);
@@ -65,12 +62,6 @@ public class ControllerMenu {
     public static void atras(Window w){
             inicio.setVisible(true);
             w.setPanel(inicio);
-    }
-
-    public static void mostrarInventario(Window w){
-        w.remove(inicio);
-        Inventario.setVisible(true);
-        w.setPanel(Inventario);
     }
 
     public static void mostrarProveedores(Window w){
@@ -117,7 +108,7 @@ public class ControllerMenu {
 
 
     public static void BorraPaneles(){
-       ocultarTodosLosPaneles2(Inventario, facturas, proveedor,entradaYSalida, new Window());
+       ocultarTodosLosPaneles2(facturas, proveedor,entradaYSalida, new Window());
        ocultarTodosLosPaneles3(nProducto, entradas, salidas, NewFacturas, NewProveedor, new Window());
     }
 

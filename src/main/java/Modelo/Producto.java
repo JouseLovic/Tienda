@@ -64,6 +64,35 @@ public class Producto  {
           return tipo;
      }
 
+     @Override
+     public int hashCode() {
+          final int prime = 31;
+          int result = 1;
+          result = prime * result + ((tamaño == null) ? 0 : tamaño.hashCode());
+          result = prime * result + id;
+          return result;
+     }
+
+     @Override
+     public boolean equals(Object obj) {
+          if (this == obj)
+               return true;
+          if (obj == null)
+               return false;
+          if (getClass() != obj.getClass())
+               return false;
+          Producto other = (Producto) obj;
+          if (tamaño == null) {
+               if (other.tamaño != null)
+                    return false;
+          } else if (!tamaño.equals(other.tamaño))
+               return false;
+          if (id != other.id)
+               return false;
+          return true;
+     }
+
+     
 
     
     

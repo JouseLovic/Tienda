@@ -10,6 +10,7 @@ Este es un proyecto que funcionara con base de datos para poder gestionar una ti
 -Y que esa lista este con el precio de cada producto (Esto que se pueda hacer
 con el formulario)
 
+
 Solucionado:
 
 -Añadida la herencia, y sus superclases
