@@ -1,20 +1,27 @@
 
 package Vista_Formulario;
 
-import javax.swing.JTable;
-import javax.swing.JTextField;
+import Controlador.*;
+import javax.swing.JComboBox;
 
 public class PanelEntrada extends javax.swing.JPanel {
 
-  
+     private String idPSeleccionado = null;
+     private boolean campoRemovidos = false;
+     private String confirmaId;
+      private static int actualizame = 0;
+     
      public PanelEntrada() {
           initComponents();
+          ControllerEntradasP.llenaComboBox(this);
+          ControllerEntradasP.enviaDatosTabla(tablaEntradas, "");
      }
 
      @SuppressWarnings("unchecked")
      // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
      private void initComponents() {
 
+          popupMenu1 = new java.awt.PopupMenu();
           jPanel1 = new javax.swing.JPanel();
           labelTitulo = new javax.swing.JLabel();
           labelFactura = new javax.swing.JLabel();
@@ -25,7 +32,7 @@ public class PanelEntrada extends javax.swing.JPanel {
           tablaEntradas = new javax.swing.JTable();
           labelDesc = new javax.swing.JLabel();
           labelPrecio = new javax.swing.JLabel();
-          botonCancelar = new javax.swing.JButton();
+          botonEliminar = new javax.swing.JButton();
           botonLimpiarCampos = new javax.swing.JButton();
           botonSubirF = new javax.swing.JButton();
           campoNFactura = new javax.swing.JTextField();
@@ -34,11 +41,27 @@ public class PanelEntrada extends javax.swing.JPanel {
           campoCantidad = new javax.swing.JTextField();
           campoDescripcion = new javax.swing.JTextField();
           campoPrecio = new javax.swing.JTextField();
-          botonLimpiaTabla = new javax.swing.JButton();
+          jLabel1 = new javax.swing.JLabel();
+          campoSeccionE = new javax.swing.JTextField();
+          jLabel2 = new javax.swing.JLabel();
+          campoMarcaE = new javax.swing.JTextField();
+          jLabel3 = new javax.swing.JLabel();
+          campoProveedor = new javax.swing.JTextField();
+          listaProveedores = new javax.swing.JComboBox<>();
+
+          popupMenu1.setLabel("popupMenu1");
 
           setLayout(new java.awt.BorderLayout());
 
           jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+          jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+               public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    jPanel1MouseClicked(evt);
+               }
+               public void mouseEntered(java.awt.event.MouseEvent evt) {
+                    jPanel1MouseEntered(evt);
+               }
+          });
           jPanel1.setLayout(null);
 
           labelTitulo.setFont(new java.awt.Font("Baskerville Old Face", 0, 24)); // NOI18N
@@ -53,28 +76,28 @@ public class PanelEntrada extends javax.swing.JPanel {
           labelFactura.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
           labelFactura.setText("N° de factura");
           jPanel1.add(labelFactura);
-          labelFactura.setBounds(240, 140, 130, 30);
+          labelFactura.setBounds(190, 90, 130, 30);
 
           labelFecha.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
           labelFecha.setForeground(new java.awt.Color(0, 0, 0));
           labelFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
           labelFecha.setText("Fecha");
           jPanel1.add(labelFecha);
-          labelFecha.setBounds(600, 140, 110, 30);
+          labelFecha.setBounds(530, 100, 110, 30);
 
           labelCodigoProducto.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
           labelCodigoProducto.setForeground(new java.awt.Color(0, 0, 0));
           labelCodigoProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
           labelCodigoProducto.setText("Codigo del producto");
           jPanel1.add(labelCodigoProducto);
-          labelCodigoProducto.setBounds(880, 140, 200, 30);
+          labelCodigoProducto.setBounds(890, 100, 200, 30);
 
           labelCantidad.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
           labelCantidad.setForeground(new java.awt.Color(0, 0, 0));
           labelCantidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
           labelCantidad.setText("Cantidad");
           jPanel1.add(labelCantidad);
-          labelCantidad.setBounds(930, 280, 120, 30);
+          labelCantidad.setBounds(880, 200, 120, 20);
 
           tablaEntradas.setModel(new javax.swing.table.DefaultTableModel(
                new Object [][] {
@@ -108,25 +131,25 @@ public class PanelEntrada extends javax.swing.JPanel {
           labelDesc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
           labelDesc.setText("Descripción");
           jPanel1.add(labelDesc);
-          labelDesc.setBounds(540, 270, 220, 40);
+          labelDesc.setBounds(500, 200, 220, 30);
 
           labelPrecio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
           labelPrecio.setForeground(new java.awt.Color(0, 0, 0));
           labelPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
           labelPrecio.setText("Precio");
           jPanel1.add(labelPrecio);
-          labelPrecio.setBounds(260, 280, 90, 30);
+          labelPrecio.setBounds(190, 210, 90, 30);
 
-          botonCancelar.setText("Cancelar");
-          botonCancelar.addActionListener(new java.awt.event.ActionListener() {
+          botonEliminar.setText("Eliminar");
+          botonEliminar.addActionListener(new java.awt.event.ActionListener() {
                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    botonCancelarActionPerformed(evt);
+                    botonEliminarActionPerformed(evt);
                }
           });
-          jPanel1.add(botonCancelar);
-          botonCancelar.setBounds(230, 410, 150, 50);
+          jPanel1.add(botonEliminar);
+          botonEliminar.setBounds(220, 410, 150, 50);
 
-          botonLimpiarCampos.setText("Limpiar campos");
+          botonLimpiarCampos.setText("Limpiar entrada");
           botonLimpiarCampos.addActionListener(new java.awt.event.ActionListener() {
                public void actionPerformed(java.awt.event.ActionEvent evt) {
                     botonLimpiarCamposActionPerformed(evt);
@@ -135,7 +158,7 @@ public class PanelEntrada extends javax.swing.JPanel {
           jPanel1.add(botonLimpiarCampos);
           botonLimpiarCampos.setBounds(580, 410, 150, 50);
 
-          botonSubirF.setText("Subir factura");
+          botonSubirF.setText("Subir entrada");
           botonSubirF.addActionListener(new java.awt.event.ActionListener() {
                public void actionPerformed(java.awt.event.ActionEvent evt) {
                     botonSubirFActionPerformed(evt);
@@ -144,62 +167,91 @@ public class PanelEntrada extends javax.swing.JPanel {
           jPanel1.add(botonSubirF);
           botonSubirF.setBounds(910, 410, 150, 50);
           jPanel1.add(campoNFactura);
-          campoNFactura.setBounds(210, 190, 190, 40);
+          campoNFactura.setBounds(200, 130, 200, 40);
           jPanel1.add(campoFecha);
-          campoFecha.setBounds(560, 190, 190, 40);
+          campoFecha.setBounds(560, 140, 200, 40);
           jPanel1.add(campoCodigoProducto);
-          campoCodigoProducto.setBounds(870, 190, 230, 40);
+          campoCodigoProducto.setBounds(900, 140, 230, 40);
           jPanel1.add(campoCantidad);
-          campoCantidad.setBounds(870, 330, 230, 40);
+          campoCantidad.setBounds(900, 240, 230, 40);
           jPanel1.add(campoDescripcion);
-          campoDescripcion.setBounds(560, 330, 200, 40);
+          campoDescripcion.setBounds(560, 240, 200, 40);
           jPanel1.add(campoPrecio);
-          campoPrecio.setBounds(210, 330, 190, 40);
+          campoPrecio.setBounds(200, 240, 200, 40);
 
-          botonLimpiaTabla.setText("limpiar tabla");
-          botonLimpiaTabla.addActionListener(new java.awt.event.ActionListener() {
+          jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+          jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+          jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+          jLabel1.setText("Seccion");
+          jPanel1.add(jLabel1);
+          jLabel1.setBounds(200, 300, 64, 22);
+          jPanel1.add(campoSeccionE);
+          campoSeccionE.setBounds(200, 340, 180, 40);
+
+          jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+          jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+          jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+          jLabel2.setText("Marca");
+          jPanel1.add(jLabel2);
+          jLabel2.setBounds(540, 310, 100, 22);
+          jPanel1.add(campoMarcaE);
+          campoMarcaE.setBounds(560, 340, 180, 40);
+
+          jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+          jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+          jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+          jLabel3.setText("Id del proveedor");
+          jPanel1.add(jLabel3);
+          jLabel3.setBounds(880, 310, 160, 22);
+          jPanel1.add(campoProveedor);
+          campoProveedor.setBounds(900, 340, 160, 40);
+
+          listaProveedores.setForeground(new java.awt.Color(0, 0, 0));
+          listaProveedores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Null" }));
+          listaProveedores.addActionListener(new java.awt.event.ActionListener() {
                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    botonLimpiaTablaActionPerformed(evt);
+                    listaProveedoresActionPerformed(evt);
                }
           });
-          jPanel1.add(botonLimpiaTabla);
-          botonLimpiaTabla.setBounds(1110, 40, 130, 40);
+          jPanel1.add(listaProveedores);
+          listaProveedores.setBounds(1070, 340, 70, 40);
 
           add(jPanel1, java.awt.BorderLayout.CENTER);
      }// </editor-fold>//GEN-END:initComponents
 
      private void tablaEntradasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaEntradasMouseClicked
-          
-          
-          
-          
+               ControllerEntradasP.mandaCampos(tablaEntradas, this);
+               listaProveedores.setSelectedItem(null);                    
      }//GEN-LAST:event_tablaEntradasMouseClicked
 
-     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
-          
-          
-          
-          
-     }//GEN-LAST:event_botonCancelarActionPerformed
+     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
+          ControllerEntradasP.eliminar(tablaEntradas);
+     }//GEN-LAST:event_botonEliminarActionPerformed
 
-     private void botonLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiarCamposActionPerformed
-         
+     private void botonLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {                                                       
           
-          
-     }//GEN-LAST:event_botonLimpiarCamposActionPerformed
+     }                                                  
 
      private void botonSubirFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSubirFActionPerformed
-         
-          
-          
+         ControllerEntradasP.insertar(tablaEntradas,this);
      }//GEN-LAST:event_botonSubirFActionPerformed
 
-     private void botonLimpiaTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiaTablaActionPerformed
+     private void listaProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaProveedoresActionPerformed
           
+     }//GEN-LAST:event_listaProveedoresActionPerformed
+
+     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+         tablaEntradas.setSelectionMode(0);
+     }//GEN-LAST:event_jPanel1MouseClicked
+
+     private void jPanel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseEntered
+       
+          if(actualizame==0){
+                ControllerEntradasP.enviaDatosTabla(tablaEntradas, "");
+                actualizame++;
+              }
           
-          
-          
-     }//GEN-LAST:event_botonLimpiaTablaActionPerformed
+     }//GEN-LAST:event_jPanel1MouseEntered
 
      public String getCampoCantidad() {
           return campoCantidad.getText();
@@ -226,26 +278,82 @@ public class PanelEntrada extends javax.swing.JPanel {
           return precio;
      }
 
-     public int getTablaFacturas() {
-          return tablaEntradas.getSelectedRow();
+     public void setCampoCodigoProducto(String texto){
+          this.campoCodigoProducto.setText(texto);
      }
 
+     public void setCampoNFactura(String texto){
+          this.campoNFactura.setText(texto);
+     }
 
+     public String getIdPSeleccionado() {
+          return idPSeleccionado;
+     }
+
+     public void setListaProveedores(JComboBox<String> listaProveedores) {
+          this.listaProveedores = listaProveedores;
+     }
+
+     public String getCampoMarcaE() {
+          return campoMarcaE.getText();
+     }
+
+     public void setCampoMarcaE(String campoMarcaE) {
+          this.campoMarcaE.setText(campoMarcaE);
+     }
+
+     public String getCampoProveedor() {
+          return campoProveedor.getText();
+     }
+
+     public void setCampoProveedor(String campoProveedor) {
+          this.campoProveedor.setText(campoProveedor);
+     }
+
+     public String getCampoSeccionE() {
+          return campoSeccionE.getText();
+     }
+
+     public void setCampoSeccionE(String campoSeccionE) {
+          this.campoSeccionE.setText(campoSeccionE);
+     }
+
+     public String getConfirmaId() {
+          return confirmaId;
+     }
+
+     public void setConfirmaId(String confirmaId) {
+          this.confirmaId = confirmaId;
+     }
+
+     public static void setActualizame(int numero){
+          actualizame = numero;
+     }
+     
+     public static int getActualizame(){
+          return actualizame;
+     }
+     
      
      
      
      
      // Variables declaration - do not modify//GEN-BEGIN:variables
-     private javax.swing.JButton botonCancelar;
-     private javax.swing.JButton botonLimpiaTabla;
+     private javax.swing.JButton botonEliminar;
      private javax.swing.JButton botonLimpiarCampos;
      private javax.swing.JButton botonSubirF;
      private javax.swing.JTextField campoCantidad;
      private javax.swing.JTextField campoCodigoProducto;
      private javax.swing.JTextField campoDescripcion;
      private javax.swing.JTextField campoFecha;
+     private javax.swing.JTextField campoMarcaE;
      private javax.swing.JTextField campoNFactura;
      private javax.swing.JTextField campoPrecio;
+     private javax.swing.JTextField campoProveedor;
+     private javax.swing.JTextField campoSeccionE;
+     private javax.swing.JLabel jLabel1;
+     private javax.swing.JLabel jLabel2;
+     private javax.swing.JLabel jLabel3;
      private javax.swing.JPanel jPanel1;
      private javax.swing.JScrollPane jScrollPane1;
      private javax.swing.JLabel labelCantidad;
@@ -255,6 +363,8 @@ public class PanelEntrada extends javax.swing.JPanel {
      private javax.swing.JLabel labelFecha;
      private javax.swing.JLabel labelPrecio;
      private javax.swing.JLabel labelTitulo;
+     private javax.swing.JComboBox<String> listaProveedores;
+     private java.awt.PopupMenu popupMenu1;
      private javax.swing.JTable tablaEntradas;
      // End of variables declaration//GEN-END:variables
 }

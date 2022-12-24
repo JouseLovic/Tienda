@@ -1,6 +1,9 @@
 package Modelo;
 
 import javax.swing.*;
+
+import Vista.Window;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -18,8 +21,26 @@ public class DBProd {
            miConexion = DriverManager.getConnection(url, user, pass);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Excepción: "+e.getClass());
+            new Window().dispose();
         }
          return miConexion;
+    }
+
+    public void confirmarVendida(String vendido, String idP){
+
+        Connection conecta = dameConexion();
+        PreparedStatement ps = null;
+
+            try {
+                ps = conecta.prepareCall("Update productos_generales set Producto_vendido = ?  where id = '"+idP+"'");
+                ps.setString(1, vendido);
+                ps.executeUpdate();  
+                ps.close();
+                
+            }catch(Exception ex){
+                System.out.println(ex.getClass());
+            }
+
     }
 
 
@@ -30,30 +51,33 @@ public class DBProd {
        
           try{
 
-              ps = conecta.prepareCall("Insert into productos_generales (id, descripcion, talla, marca, tipo, precio, edadDirigida, cantidad, sexo) values(?,?,?,?,?,?,?,?,?)");
+              ps = conecta.prepareCall("Insert into productos_generales (id, descripcion, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, id_proveedor, Producto_vendido) values(?,?,?,?,?,?,?,?,?,?,?)");
               
-               int id = producto.getId();
+               String id = producto.getId();
                String desc = producto.getDesc();
                String talla = producto.getTamaño();
                String marca = producto.getMarca();
-               String tipo = producto.getTipo();
+               String seccion = producto.getSeccion();
                double precio = producto.getPrecio();
                String edadDirigda = producto.getEdadDirigida();
                int cantidad = producto.getCantidad();
                String sexo = producto.getSexo();
+               String idProveedor = producto.getIdProveedor();
+               String vendido = producto.getVendido();
            
-              ps.setInt(1, id);
+              ps.setString(1, id);
               ps.setString(2, desc);
               ps.setString(3, talla);
               ps.setDouble(6, precio);
               ps.setString(4, marca);
-              ps.setString(5, tipo);
+              ps.setString(5, seccion);
               ps.setString(7, edadDirigda);
               ps.setInt(8, cantidad);
               ps.setString(9, sexo);
+              ps.setString(10, idProveedor);
+              ps.setString(11, vendido);
               ps.execute();
                
-              JOptionPane.showMessageDialog(null, "El registro se subio exitosamente");
                ps.close();
             }catch(SQLIntegrityConstraintViolationException ex){
                 JOptionPane.showMessageDialog(null, "Un producto ya tiene ese id. Por favor, escriba otro");
@@ -62,42 +86,47 @@ public class DBProd {
             }
         }
 
-        public void actualizarProducto(Producto producto, int idP){
+        public void actualizarProducto(Producto producto, String idP){
 
             Connection conecta = dameConexion();
             PreparedStatement ps = null;
            
               try{
-                 ps = conecta.prepareCall("Update productos_generales set id = ?, descripcion = ?, talla = ?, marca = ?, tipo = ?, precio = ?, edadDirigida = ?, cantidad = ?, sexo = ? where id = "+idP+"");
+                 ps = conecta.prepareCall("Update productos_generales set id = ?, descripcion = ?, talla = ?, marca = ?, seccion = ?, precio = ?, edadDirigida = ?, cantidad = ?, sexo = ?, id_de_proveedor = ?, Producto_vendido = ?  where id = '"+idP+"'");
                 
-                int id = producto.getId();
+                String id = producto.getId();
                 String desc = producto.getDesc();
                 String talla = producto.getTamaño();
                 String marca = producto.getMarca();
-                String tipo = producto.getTipo();
+                String seccion = producto.getSeccion();
                 double precio = producto.getPrecio();
                 String edadDirigda = producto.getEdadDirigida();
                 int cantidad = producto.getCantidad();
                 String sexo = producto.getSexo();
+                String vendido = producto.getVendido();
+                String idProveedor = producto.getIdProveedor();
                    
-                  ps.setInt(1, id);
+                  ps.setString(1, id);
                   ps.setString(2, desc);
                   ps.setString(3, talla);
                   ps.setString(4, marca);
-                  ps.setString(5, tipo);
+                  ps.setString(5, seccion);
                   ps.setDouble(6, precio);
                   ps.setString(7, edadDirigda);
                   ps.setInt(8, cantidad);
                   ps.setString(9, sexo);
+                  ps.setString(10, idProveedor);
+                  ps.setString(11, vendido);
                   ps.executeUpdate();
-                  JOptionPane.showMessageDialog(null, "El registro se ha actualizado exitosamente");
+
                   ps.close();
                }catch(Exception ex){
                       JOptionPane.showMessageDialog(null, "Un error inesperado a ocurrido en: \n"+ex.getMessage());  
+                      ex.printStackTrace();
                }
     }
 
-    public void eliminar(int id){
+    public void eliminar(String id){
           
        Connection conecta = dameConexion();
         Statement ps = null;
@@ -105,12 +134,10 @@ public class DBProd {
         try{
 
            ps = conecta.createStatement();
-           ps.executeUpdate("Delete from productos_generales where id = "+id);
-            ps.close();
-           JOptionPane.showMessageDialog(null, "El registro se ha eliminado exitosamente");
-      
+           ps.executeUpdate("Delete from productos_generales where id = '"+id+"'");
+           ps.close();
         }catch(Exception ex){
-              JOptionPane.showMessageDialog(null, "Un error inesperado a ocurrido en: \n"+ex.getCause());  
+              JOptionPane.showMessageDialog(null, "Un error inesperado a ocurrido en: \n"+ex.getMessage());  
        }
      }
 
@@ -128,31 +155,75 @@ public class DBProd {
 
                 while(rs.next()){
                    
-                  int id = rs.getInt(1);
+                  String id = rs.getString(1);
                   String Descripcion = rs.getString(2);
                   String talla = rs.getString(3);
                   String marca = rs.getString(4);
-                  String tipo = rs.getString(5);
+                  String seccion = rs.getString(5);
                   Double precio = rs.getDouble(6);
                   String edadDirigida = rs.getString(7);
                   int cantidad = rs.getInt(8);
                   String sexo = rs.getString(9);
+                  String idProveedor = rs.getString(10);
+                  String vendido = rs.getString(11);
               
-                   Producto producto = new Producto(id, Descripcion, talla, marca, tipo, precio, edadDirigida, cantidad, sexo);
+                   Producto producto = new Producto(id, Descripcion, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
                    lista.add(producto);
                  }
                  rs.close();
 
           }catch(Exception ex){
-               JOptionPane.showMessageDialog(null, "Un error inesperado a ocurrido en: \n"+ex.getCause());   
+               JOptionPane.showMessageDialog(null, "Un error inesperado a ocurrido en: \n"+ex.getMessage());   
          }
            return lista;
      }
 
+     public ArrayList<Producto> mostrar(String nombre){
 
-    public void cierraConexion(){
+        Connection conecta = dameConexion();
+        ArrayList<Producto> listaEspecifica = new ArrayList<>();
+        Statement ps = null;
+        ResultSet rs = null;
+
+
+          try{
+              ps = conecta.createStatement();
+
+              if(!nombre.equals(""))  rs = ps.executeQuery("Select * from productos_generales where id like'%"+nombre+"%'");
+              else  rs = ps.executeQuery("Select * from productos_generales group by id");
+
+                while(rs.next()){
+                   
+                    String id = rs.getString(1);
+                    String Descripcion = rs.getString(2);
+                    String talla = rs.getString(3);
+                    String marca = rs.getString(4);
+                    String seccion = rs.getString(5);
+                    Double precio = rs.getDouble(6);
+                    String edadDirigida = rs.getString(7);
+                    int cantidad = rs.getInt(8);
+                    String sexo = rs.getString(9);
+                    String idProveedor = rs.getString(10);
+                    String vendido = rs.getString(11);
+                
+                     Producto producto = new Producto(id, Descripcion, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
+                     listaEspecifica.add(producto);
+                   }
+                   rs.close();
+               cierraConexion(conecta);
+          }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "La operacion mostrar ha fallado por: "+ex.getMessage());
+            cierraConexion(conecta);
+            return null;
+          }
+        return listaEspecifica;
+
+     }
+
+
+    public void cierraConexion(Connection desconecta){
         try{
-            miConexion.close();
+            desconecta.close();
         }catch (Exception ex){
             JOptionPane.showMessageDialog(null, "Error: "+ex.getCause());
         }

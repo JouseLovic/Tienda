@@ -12,15 +12,13 @@ public class ControllerMenu {
     
 
     //Listas
-    private static EntryandOut entradaYSalida = new EntryandOut();
     private static PanelFactura facturas = new PanelFactura();
-    private static PanelProveedor proveedor = new PanelProveedor();
-
+    
     //Formularios
     private static PanelEntrada entradas = new PanelEntrada();
     private static PanelSalida salidas = new PanelSalida();
     private static PanelNuevoProducto nProducto = new PanelNuevoProducto();
-
+    
     //Registros de nuevos proveedores o facturas
     private static PanelNuevaFactura NewFacturas = new PanelNuevaFactura();
     private static PanelNuevoProveedor NewProveedor = new PanelNuevoProveedor();
@@ -30,13 +28,9 @@ public class ControllerMenu {
     }
 
   
-    private static void ocultarTodosLosPaneles2(PanelFactura factura, PanelProveedor proveedores, EntryandOut entradaYSalida, Window w){
-        factura.setVisible(false);
-        proveedores.setVisible(false);
-        entradaYSalida.setVisible(false);
+    private static void ocultarTodosLosPaneles2(PanelFactura factura,  Window w){
+        factura.setVisible(false); 
         w.remove(factura);
-        w.remove(proveedores);
-        w.remove(entradaYSalida);
     }
 
     private static void ocultarTodosLosPaneles3(PanelNuevoProducto nProducto, PanelEntrada entrada, PanelSalida salida, PanelNuevaFactura NFactura, PanelNuevoProveedor NProveedor, Window w){
@@ -62,18 +56,6 @@ public class ControllerMenu {
     public static void atras(Window w){
             inicio.setVisible(true);
             w.setPanel(inicio);
-    }
-
-    public static void mostrarProveedores(Window w){
-        w.remove(inicio);
-        proveedor.setVisible(true);
-        w.setPanel(proveedor);
-    }
-
-    public static void mostrarEntradaYSalida(Window w){
-        w.remove(inicio);
-        entradaYSalida.setVisible(true);
-        w.setPanel(entradaYSalida);
     }
 
     public static void mostrarEntradaP(Window w){
@@ -106,13 +88,8 @@ public class ControllerMenu {
         w.setPanel(NewProveedor);
     }
 
-
     public static void BorraPaneles(){
-       ocultarTodosLosPaneles2(facturas, proveedor,entradaYSalida, new Window());
+       ocultarTodosLosPaneles2(facturas, new Window());
        ocultarTodosLosPaneles3(nProducto, entradas, salidas, NewFacturas, NewProveedor, new Window());
     }
-
-
-
-
 }

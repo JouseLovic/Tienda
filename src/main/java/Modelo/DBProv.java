@@ -1,9 +1,8 @@
 package Modelo;
 
 import java.sql.*;
-import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
+import java.util.*;
+import javax.swing.*;
 
 public class DBProv {
     
@@ -18,7 +17,7 @@ public class DBProv {
         try {
            miConexion = DriverManager.getConnection(url, user, pass);
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Excepción: "+e.getClass());
+           cierraConexion(miConexion);
         }
          return miConexion;
     }
@@ -28,137 +27,176 @@ public class DBProv {
               
         Connection conecta = dameConexion();
         PreparedStatement ps = null;
-       
-          try{
-
-              ps = conecta.prepareCall("Insert into proveedor (id, descripcion, talla, marca, tipo, precio, edadDirigida, cantidad, sexo) values(?,?,?,?,?,?,?,?,?)");
-              
+        
+        try{
+         
+            ps = conecta.prepareCall("Insert into proveedor (id_de_proveedor, nombre, fechaNacimiento, cedula, email, empresa, articulos) values(?,?,?,?,?,?,?)");
+               
+               String idProveedor = proveedor.getIdProveedor();
                String nombre = proveedor.getNombre();
-               int desc = proveedor.getEdad();
-               String talla = proveedor.getTamaño();
-               String marca = proveedor.getMarca();
-               String tipo =proveedor.getTipo();
-               double precio = proveedor.getPrecio();
-               String edadDirigda = proveedor.getEdadDirigida();
-               int cantidad = proveedor.getCantidad();
-               String sexo = proveedor.getSexo();
-           
-              ps.setInt(1, id);
-              ps.setString(2, desc);
-              ps.setString(3, talla);
-              ps.setDouble(6, precio);
-              ps.setString(4, marca);
-              ps.setString(5, tipo);
-              ps.setString(7, edadDirigda);
-              ps.setInt(8, cantidad);
-              ps.setString(9, sexo);
+               String edad = proveedor.getFechaNacimiento();
+               String cedula = proveedor.getCedula();
+               String email = proveedor.getEmail();
+               String empresa = proveedor.getEmpresa();
+               String articulo = proveedor.getArticulos();
+              
+              ps.setString(1, idProveedor);
+              ps.setString(2, nombre);
+              ps.setString(3, edad);
+              ps.setString(4, cedula);
+              ps.setString(5, email);
+              ps.setString(6, empresa);
+              ps.setString(7, articulo);
               ps.execute();
                
               JOptionPane.showMessageDialog(null, "El registro se subio exitosamente");
                ps.close();
+               cierraConexion(conecta);
             }catch(SQLIntegrityConstraintViolationException ex){
-                JOptionPane.showMessageDialog(null, "Un producto ya tiene ese id. Por favor, escriba otro");
+                JOptionPane.showMessageDialog(null, "Ya hay un proveedor con ese nombre. Por favor, escriba otro");
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Un error ha ocurrido. Excepcion tipo: "+e.getMessage());
             }
         }
 
-        public void actualizarProducto(Producto producto, int idP){
-
+        public void actualizaProveedor(Proveedores proveedor, String idProv){
             Connection conecta = dameConexion();
             PreparedStatement ps = null;
-           
-              try{
-                 ps = conecta.prepareCall("Update productos_generales set id = ?, descripcion = ?, talla = ?, marca = ?, tipo = ?, precio = ?, edadDirigida = ?, cantidad = ?, sexo = ? where id = "+idP+"");
-                
-                int id = producto.getId();
-                String desc = producto.getDesc();
-                String talla = producto.getTamaño();
-                String marca = producto.getMarca();
-                String tipo = producto.getTipo();
-                double precio = producto.getPrecio();
-                String edadDirigda = producto.getEdadDirigida();
-                int cantidad = producto.getCantidad();
-                String sexo = producto.getSexo();
+            
+            try{
+            
+                ps = conecta.prepareCall("Update proveedor set id_de_proveedor = ?, nombre = ?, fechaNacimiento = ?, cedula = ?,email = ?, empresa = ?, articulos = ? where id_de_proveedor ='"+idProv+"'");
                    
-                  ps.setInt(1, id);
-                  ps.setString(2, desc);
-                  ps.setString(3, talla);
-                  ps.setString(4, marca);
-                  ps.setString(5, tipo);
-                  ps.setDouble(6, precio);
-                  ps.setString(7, edadDirigda);
-                  ps.setInt(8, cantidad);
-                  ps.setString(9, sexo);
+                   String idProveedor = proveedor.getIdProveedor(); 
+                   String nombre = proveedor.getNombre();
+                   String edad = proveedor.getFechaNacimiento();
+                   String cedula = proveedor.getCedula();
+                   String email = proveedor.getEmail();
+                   String empresa = proveedor.getEmpresa();
+                   String articulo = proveedor.getArticulos();
+                  
+                  ps.setString(1, idProveedor);
+                  ps.setString(2, nombre);
+                  ps.setString(3, edad);
+                  ps.setString(4, cedula);
+                  ps.setString(5, email);
+                  ps.setString(6, empresa);
+                  ps.setString(7, articulo);
                   ps.executeUpdate();
-                  JOptionPane.showMessageDialog(null, "El registro se ha actualizado exitosamente");
-                  ps.close();
-               }catch(Exception ex){
-                      JOptionPane.showMessageDialog(null, "Un error inesperado a ocurrido en: \n"+ex.getMessage());  
-               }
+                   
+                  JOptionPane.showMessageDialog(null, "El registro se actualizó correctamente se subio exitosamente");
+                   ps.close();
+                   cierraConexion(conecta);
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, "Un error ha ocurrido. Excepcion tipo: "+e.getMessage());
+                }
+          
     }
 
-    public void eliminar(int id){
+    public void eliminar(String nombreP){
           
        Connection conecta = dameConexion();
         Statement ps = null;
             
         try{
-
-           ps = conecta.createStatement();
-           ps.executeUpdate("Delete from productos_generales where id = "+id);
+          conecta.setAutoCommit(false);
+            ps = conecta.createStatement();
+            ps.executeUpdate("Delete from proveedor where nombre = '"+nombreP+"'");
+            conecta.commit();
             ps.close();
+            cierraConexion(conecta);
            JOptionPane.showMessageDialog(null, "El registro se ha eliminado exitosamente");
-      
         }catch(Exception ex){
               JOptionPane.showMessageDialog(null, "Un error inesperado a ocurrido en: \n"+ex.getCause());  
+              try {
+                conecta.rollback();
+              } catch (SQLException e) {
+                e.printStackTrace();
+              }
        }
      }
 
-     public ArrayList<Producto> dameLista(){
+     public ArrayList<Proveedores> dameLista(){
+
+      Connection conecta = dameConexion();
+      ArrayList<Proveedores> lista = new ArrayList<>();
+      Statement ps;
+      ResultSet rs = null;
+
+
+        try{
+            ps = conecta.createStatement();
+            rs = ps.executeQuery("select * from proveedores group by empresa");
+
+              while(rs.next()){
+
+              String idProveedor = rs.getString(1);
+              String nombre = rs.getString(2);
+              String fechaNacimiento = rs.getString(3);
+              String cedula = rs.getString(4);
+              String email = rs.getString(5);
+              String empresa = rs.getString(6);
+              String articulos = rs.getString(7);
+                
+                Proveedores proveedor = new Proveedores(idProveedor, nombre, fechaNacimiento, cedula, email, empresa, articulos);
+                 lista.add(proveedor);
+               }
+               rs.close();
+               cierraConexion(conecta);
+        }catch(Exception ex){
+           JOptionPane.showMessageDialog(null, "Un error inesperado a ocurrido en: \n"+ex.getCause());   
+            cierraConexion(conecta);
+          }
+         return lista;
+   }
+  
+     
+     public ArrayList<Proveedores> mostrar(String nombreProv){
 
         Connection conecta = dameConexion();
-        ArrayList<Producto> lista = new ArrayList<>();
+        ArrayList<Proveedores> listaEspecifica = new ArrayList<>();
         Statement ps;
         ResultSet rs = null;
 
 
           try{
               ps = conecta.createStatement();
-              rs = ps.executeQuery("select * from productos_generales group by id");
 
-                while(rs.next()){
-                   
-                  int id = rs.getInt(1);
-                  String Descripcion = rs.getString(2);
-                  String talla = rs.getString(3);
-                  String marca = rs.getString(4);
-                  String tipo = rs.getString(5);
-                  Double precio = rs.getDouble(6);
-                  String edadDirigida = rs.getString(7);
-                  int cantidad = rs.getInt(8);
-                  String sexo = rs.getString(9);
-              
-                   Producto producto = new Producto(id, Descripcion, talla, marca, tipo, precio, edadDirigida, cantidad, sexo);
-                   lista.add(producto);
-                 }
-                 rs.close();
+              if(!nombreProv.equals("")) {rs = ps.executeQuery("select * from proveedor where nombre = '"+nombreProv+"'");
+          }
+              else { rs = ps.executeQuery("Select * from proveedor group by empresa");
+        }
+              while(rs.next()){
 
-          }catch(Exception ex){
-               JOptionPane.showMessageDialog(null, "Un error inesperado a ocurrido en: \n"+ex.getCause());   
-         }
-           return lista;
+                String idProveedor = rs.getString(1);
+                String nombre = rs.getString(2);
+                String edad  = rs.getString(3);
+                String cedula = rs.getString(4); 
+                String email = rs.getString(5);
+                String empresa = rs.getString(6);
+                String articulo= rs.getString(7);
+                
+               
+                Proveedores proveedor = new Proveedores(idProveedor, nombre, edad, cedula, email, empresa, articulo);
+                 listaEspecifica.add(proveedor);
+               }
+               rs.close();
+               cierraConexion(conecta);
+          }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "La operacion mostrar ha fallado por: "+ex.getMessage());
+            return null;
+          }
+        return listaEspecifica;
      }
 
-
-    public void cierraConexion(){
+    public void cierraConexion(Connection conexion){
         try{
-            miConexion.close();
+            conexion.close();
         }catch (Exception ex){
             JOptionPane.showMessageDialog(null, "Error: "+ex.getCause());
         }
 
     }
 
-
-}
+  }
+  

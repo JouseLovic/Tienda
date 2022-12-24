@@ -6,24 +6,32 @@ public class Producto  {
      private String marca;
      private int cantidad;
      private double precio;
-     private int id;
+     private String id;
      private String desc;
      private String edadDirigida;
-     private String tipo;
+     private String seccion;
      private String sexo;
+     private String idProveedor;
+     private String vendido;
 
-    public Producto(int id, String desc, String tamaño, String marca, String tipo, double precio, String edadDirigida, int cantidad, String sexo) {
+    public Producto(String id, String desc, String tamaño, String marca, String seccion, double precio, String edadDirigida, int cantidad, String sexo, String idProveedor, String vendido) {
           this.id = id;
           this.tamaño = tamaño;
           this.marca = marca;
           this.cantidad = cantidad;
           this.desc = desc;
           this.precio = precio;
-          this.tipo = tipo;
+          this.seccion = seccion;
           this.edadDirigida = edadDirigida;
           this.sexo = sexo;
+          this.idProveedor = idProveedor;
+          this.vendido = vendido;
     }
 
+    public String getVendido() {
+     return vendido;
+     }
+    
      public String getSexo() {
           return sexo;
      }
@@ -36,18 +44,15 @@ public class Producto  {
           return marca;
      }
 
-   
-
      public int getCantidad() {
           return cantidad;
      }
-
 
      public double getPrecio() {
           return precio;
      }
 
-     public int getId() {
+     public String getId() {
           return id;
      }
 
@@ -60,16 +65,16 @@ public class Producto  {
           return edadDirigida;
      }
 
-     public String getTipo() {
-          return tipo;
+     public String getSeccion() {
+          return seccion;
      }
 
+    
      @Override
      public int hashCode() {
           final int prime = 31;
           int result = 1;
-          result = prime * result + ((tamaño == null) ? 0 : tamaño.hashCode());
-          result = prime * result + id;
+          result = prime * result + ((id == null) ? 0 : id.hashCode());
           return result;
      }
 
@@ -82,18 +87,17 @@ public class Producto  {
           if (getClass() != obj.getClass())
                return false;
           Producto other = (Producto) obj;
-          if (tamaño == null) {
-               if (other.tamaño != null)
+          if (id == null) {
+               if (other.id != null)
                     return false;
-          } else if (!tamaño.equals(other.tamaño))
-               return false;
-          if (id != other.id)
+          } else if (!id.equals(other.id))
                return false;
           return true;
      }
 
-     
+     public String getIdProveedor() {
+          return idProveedor;
+     }
 
-    
     
 }

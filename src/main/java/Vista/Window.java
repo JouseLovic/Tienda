@@ -2,6 +2,7 @@ package Vista;
 
 import Controlador.*;
 import Vista_Formulario.*;
+import Vista_Register.PanelNuevoProveedor;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -11,12 +12,12 @@ public class Window extends JFrame {
     //Productos
 
     private PanelInicial inicio = new PanelInicial();
-    private PanelNuevoProducto nProducto = new PanelNuevoProducto();
+    private PanelNuevoProveedor nProveedor = new PanelNuevoProveedor();
 
     //El menu
     private JMenuBar menu;
-    private JMenu paginaInicial, Producto, entrada, salida, Registro, Lista;
-    private JMenuItem NuevoProducto;
+    private JMenu paginaInicial, Producto, entrada, salida, Registro;
+    private JMenuItem CRUD;
     private JMenuItem entradaProducto;
     private JMenuItem salidaProductos;
     private JMenuItem RegistroProveedor, RegistroFactura;
@@ -43,38 +44,39 @@ public class Window extends JFrame {
     private void Menu(){
 
         menu = new JMenuBar(); paginaInicial = new JMenu("Inicio");
-        Producto = new JMenu("Producto"); entrada = new JMenu("Entradas"); salida = new JMenu("Salidas"); Registro = new JMenu("Registros");
-        Lista = new JMenu("Gestiones");
-        NuevoProducto = new JMenuItem("Añadir productos");
+        Producto = new JMenu("Inventario"); entrada = new JMenu("Entradas"); salida = new JMenu("Salidas"); Registro = new JMenu("Registros");
+        CRUD = new JMenuItem("Gestion del inventario");
         entradaProducto = new JMenuItem("Entrada de productos"); salidaProductos = new JMenuItem("Salida de productos");
         RegistroFactura = new JMenuItem("Registrar factura"); RegistroProveedor = new JMenuItem("Registrar proveedor");
-        entradaYSalida = new JMenuItem("Entrada y salida"); proveedores = new JMenuItem("Proveedores");
-        facturas = new JMenuItem("Facturas"); atras = new JMenuItem("Volver al inicio");
+        atras = new JMenuItem("Volver al inicio");
 
-        menu.add(paginaInicial); menu.add(Producto); menu.add(entrada); menu.add(salida); menu.add(Registro); menu.add(Lista);
+        menu.add(paginaInicial); menu.add(Producto); menu.add(entrada); menu.add(salida); menu.add(Registro);
         paginaInicial.add(atras);
-        Producto.add(NuevoProducto);
+        Producto.add(CRUD);
         entrada.add(entradaProducto); salida.add(salidaProductos);
         Registro.add(RegistroFactura); Registro.add(RegistroProveedor);
-       Lista.add(entradaYSalida); Lista.add(proveedores); Lista.add(facturas);
         this.setJMenuBar(menu);
 
         atras.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PanelNuevoProducto.setActualizame(0);
+                PanelEntrada.setActualizame(0);
                 ControllerMenu.BorraPaneles();
                 ControllerMenu.atras(Window.this);
             }
         });
 
-        NuevoProducto.addActionListener(new ActionListener() {
+        CRUD.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (inicio.isVisible()) {
+                     PanelEntrada.setActualizame(0);
                     ControllerMenu.ocultarPanelInicial(inicio);
                     ControllerMenu.mostrarNuevoProductos(Window.this);
                 } else {
                     ControllerMenu.BorraPaneles();
+                    PanelEntrada.setActualizame(0);
                     ControllerMenu.mostrarNuevoProductos(Window.this);
                 }
             }
@@ -84,10 +86,12 @@ public class Window extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(inicio.isVisible()){
+                    PanelNuevoProducto.setActualizame(0);
                     ControllerMenu.ocultarPanelInicial(inicio);
                     ControllerMenu.mostrarEntradaP(Window.this);
                 }
                 else{
+                    PanelNuevoProducto.setActualizame(0);
                     ControllerMenu.BorraPaneles();
                     ControllerMenu.mostrarEntradaP(Window.this);
                 }
@@ -98,10 +102,14 @@ public class Window extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(inicio.isVisible()){
+                    PanelEntrada.setActualizame(0);
+                    PanelNuevoProducto.setActualizame(0);
                     ControllerMenu.ocultarPanelInicial(inicio);
                     ControllerMenu.mostrarSalidaP(Window.this);
                 }
                 else{
+                    PanelNuevoProducto.setActualizame(0);
+                    PanelEntrada.setActualizame(0);
                     ControllerMenu.BorraPaneles();
                     ControllerMenu.mostrarSalidaP(Window.this);
                 }
@@ -112,10 +120,14 @@ public class Window extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(inicio.isVisible()){
+                    PanelNuevoProducto.setActualizame(0);
+                    PanelEntrada.setActualizame(0);
                     ControllerMenu.ocultarPanelInicial(inicio);
                     ControllerMenu.mostrarRegistroFacturas(Window.this);
                 }
                 else{
+                    PanelNuevoProducto.setActualizame(0);
+                    PanelEntrada.setActualizame(0);
                     ControllerMenu.BorraPaneles();
                     ControllerMenu.mostrarRegistroFacturas(Window.this);
                 }
@@ -126,58 +138,20 @@ public class Window extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(inicio.isVisible()){
+                    PanelNuevoProducto.setActualizame(0);
+                    PanelEntrada.setActualizame(0);
                     ControllerMenu.ocultarPanelInicial(inicio);
                     ControllerMenu.mostrarRegistroProveedores(Window.this);
                 }
                 else{
+                    PanelNuevoProducto.setActualizame(0);
+                    PanelEntrada.setActualizame(0);
                     ControllerMenu.BorraPaneles();
                     ControllerMenu.mostrarRegistroProveedores(Window.this);
                 }
             }
         });
 
-
-        facturas.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(inicio.isVisible()){
-                    ControllerMenu.ocultarPanelInicial(inicio);
-                    ControllerMenu.mostrarFacturas(Window.this);
-                }
-                else{
-                    ControllerMenu.BorraPaneles();
-                    ControllerMenu.mostrarFacturas(Window.this);
-                }
-            }
-        });
-
-        proveedores.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(inicio.isVisible()){
-                    ControllerMenu.ocultarPanelInicial(inicio);
-                    ControllerMenu.mostrarProveedores(Window.this);
-                }
-                else{
-                    ControllerMenu.BorraPaneles();
-                    ControllerMenu.mostrarProveedores(Window.this);
-                }
-            }
-        });
-
-        entradaYSalida.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(inicio.isVisible()){
-                    ControllerMenu.ocultarPanelInicial(inicio);
-                    ControllerMenu.mostrarEntradaYSalida(Window.this);
-                }
-                else{
-                    ControllerMenu.BorraPaneles();
-                    ControllerMenu.mostrarEntradaYSalida(Window.this);
-                }
-            }
-        });
     }
 
     public void setPanel(JPanel panel){
@@ -185,6 +159,5 @@ public class Window extends JFrame {
         this.revalidate();
         this.repaint();
     }
-
 
 }

@@ -4,22 +4,26 @@ package Modelo;
 import java.util.*;
 import javax.swing.JOptionPane;
 
-public class Proveedores {
+
+public class Proveedores{
      
+     private String id;
      private String nombre;
-     private int edad;
-     private int cedula;
+     private String fechaNacimiento;
+     private String cedula;
      private String email;
      private String empresa;
      private String Articulos;
-     
-     public Proveedores(String nombre, int edad, int cedula, String email, String empresa, String ArticulosQueVende) {
+
+     public Proveedores(String id, String nombre, String fechaNacimiento, String cedula, String email, String empresa, String Articulos) {
+          this.id = id;
           this.nombre = nombre;
-          this.edad = edad;
+          this.fechaNacimiento = fechaNacimiento;
           this.cedula = cedula;
           this.email = email;
           this.empresa = empresa;
-          this.Articulos = ArticulosQueVende;
+          this.Articulos = Articulos;
+          
      }
 
      
@@ -35,16 +39,20 @@ public class Proveedores {
           return nombre;
      }
 
-     public int getEdad() {
-          return edad;
+     public String getFechaNacimiento() {
+          return fechaNacimiento;
      }
 
-     public int getCedula() {
+     public String getCedula() {
           return cedula;
      }
 
      public String getEmail() {
           return email;
+     }
+
+     public String getIdProveedor() {
+          return id;
      }
      
      
