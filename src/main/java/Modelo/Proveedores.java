@@ -1,10 +1,6 @@
 
 package Modelo;
 
-import java.util.*;
-import javax.swing.JOptionPane;
-
-
 public class Proveedores{
      
      private String id;

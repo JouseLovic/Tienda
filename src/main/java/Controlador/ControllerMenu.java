@@ -10,9 +10,6 @@ public class ControllerMenu {
     //Panel inicial
     private static PanelInicial inicio = new PanelInicial();
     
-
-    //Listas
-    private static PanelFactura facturas = new PanelFactura();
     
     //Formularios
     private static PanelEntrada entradas = new PanelEntrada();
@@ -27,13 +24,8 @@ public class ControllerMenu {
         panelPrincipal.setVisible(false);
     }
 
-  
-    private static void ocultarTodosLosPaneles2(PanelFactura factura,  Window w){
-        factura.setVisible(false); 
-        w.remove(factura);
-    }
 
-    private static void ocultarTodosLosPaneles3(PanelNuevoProducto nProducto, PanelEntrada entrada, PanelSalida salida, PanelNuevaFactura NFactura, PanelNuevoProveedor NProveedor, Window w){
+    private static void ocultarTodosLosPaneles(PanelNuevoProducto nProducto, PanelEntrada entrada, PanelSalida salida, PanelNuevaFactura NFactura, PanelNuevoProveedor NProveedor, Window w){
         entrada.setVisible(false);
         salida.setVisible(false);
         NFactura.setVisible(false);
@@ -70,12 +62,6 @@ public class ControllerMenu {
         w.setPanel(salidas);
     }
 
-    public static void mostrarFacturas(Window w){
-        w.remove(inicio);
-        facturas.setVisible(true);
-        w.setPanel(facturas);
-    }
-
     public static void mostrarRegistroFacturas(Window w){
         w.remove(inicio);
         NewFacturas.setVisible(true);
@@ -89,7 +75,6 @@ public class ControllerMenu {
     }
 
     public static void BorraPaneles(){
-       ocultarTodosLosPaneles2(facturas, new Window());
-       ocultarTodosLosPaneles3(nProducto, entradas, salidas, NewFacturas, NewProveedor, new Window());
+       ocultarTodosLosPaneles(nProducto, entradas, salidas, NewFacturas, NewProveedor, new Window());
     }
 }

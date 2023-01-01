@@ -1,18 +1,19 @@
 
 package Controlador;
 
-import desplazable.*;
 import javax.swing.*;
 import javax.swing.table.*;
 import Modelo.*;
 import Vista_Formulario.*;
 import java.sql.*;
+import DAO.*;
 import java.util.*;
+import java.awt.event.*;
 
 public class ControllerNewProduct {
      
      private static Producto producto;
-     private static DBProd db;
+     private static nProductoDao productDao;
      
      public static void borrarCampos(PanelNuevoProducto producto){
           
@@ -33,7 +34,7 @@ public class ControllerNewProduct {
 
      public static void actualizarProducto(PanelNuevoProducto nProductos){
 
-          db = new DBProd();
+          productDao = new nProductoDao();
           try{
                String id = nProductos.getCampoId();
                String desc = nProductos.getCampoDesc();
@@ -49,7 +50,7 @@ public class ControllerNewProduct {
                
                     if(validarNumerosDecimales(nProductos.getCampoPrecio()) || ValidadNumeros(nProductos.getCampoPrecio()) && ValidadNumeros(nProductos.getCampoCantidad())){
                          producto = new Producto(id, desc, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
-                         db.actualizarProducto(producto, nProductos.getConfirmaId());
+                         productDao.actualizarProducto(producto, nProductos.getConfirmaId());
                          borrarCampos(nProductos);
                      }
            }catch(NumberFormatException ex){
@@ -58,19 +59,19 @@ public class ControllerNewProduct {
      }
 
      public static void confirmar(PanelNuevoProducto nProductos){
-               db = new DBProd();
+               productDao = new nProductoDao();
                String vendido = "Si";
-               db.confirmarVendida(vendido,  nProductos.getConfirmaId());
+               productDao.confirmarVendida(vendido, nProductos.getConfirmaId());
      }
 
 
-     public static void eliminar(JTable tabla){
-          db = new DBProd();
+     public static void eliminar(JTable tabla, PanelNuevoProducto nProducto){
+          productDao = new nProductoDao();
           int fila = tabla.getSelectedRow();
           if(fila >= 0){
                String id = (String) tabla.getValueAt(fila, 0);
-               db.eliminar(id);
-               enviaDatosTabla(tabla, "");
+               productDao.eliminar(id);
+               enviaDatosTablaOrdenar(tabla, nProducto.getOrdenadoSeleccionado());
           }
           else{
                JOptionPane.showMessageDialog(null, "Seleccione una fila si desea eliminar");
@@ -79,7 +80,10 @@ public class ControllerNewProduct {
      
      public static void subir(PanelNuevoProducto productoN, JTable tabla) throws SQLIntegrityConstraintViolationException{
 
-          db = new DBProd();
+          productDao = new nProductoDao();
+          boolean copia = false;
+          ArrayList<Producto> listaComparativa = productDao.mostrar("");
+
           try{
                String id = productoN.getCampoId();
                String desc = productoN.getCampoDesc();
@@ -93,10 +97,20 @@ public class ControllerNewProduct {
                String idProveedor = productoN.getCampoIdProveedor();
                String vendido = productoN.getCampoVendido();
          
-                   if(validarNumerosDecimales(productoN.getCampoPrecio()) || ValidadNumeros(productoN.getCampoPrecio()) && ValidadNumeros(productoN.getCampoCantidad())){
-                         producto = new Producto(id, desc, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
-                         db.insertarProducto(producto);
-                     }
+                    for(Producto productoCopia : listaComparativa){
+                         if(productoCopia.getId().equals(id)){
+                              System.out.println("Si existe la copia");
+                              copia = true;
+                         }
+                    }
+
+                    if(copia == false){
+                          producto = new Producto(id, desc, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
+                          productDao.insertarProducto(producto);
+                    }
+                    else{
+                         JOptionPane.showMessageDialog(null, "Ya hay un producto con su id. Por favor, revise de nuevo");
+                    }
            }catch(NumberFormatException ex){
                if(productoN.getCampoId().equals("") && productoN.getCampoPrecio().equals("") && productoN.getCampoCantidad().equals("") || productoN.getCampoId().isEmpty() && productoN.getCampoPrecio().isEmpty() && productoN.getCampoCantidad().isEmpty()){
                      productoN.setLabelId("El id no puede estar vacio");
@@ -137,8 +151,39 @@ public class ControllerNewProduct {
 
        public static void enviaDatosTabla(JTable tabla, String nombre){
     
-          db = new DBProd();
-               ArrayList<Producto> listaProductos = db.mostrar(nombre);
+          productDao = new nProductoDao();
+               ArrayList<Producto> listaProductos = productDao.mostrar(nombre);
+               DefaultTableModel modelo = new DefaultTableModel();
+               modelo.addColumn("Id"); modelo.addColumn("Descripcion"); modelo.addColumn("Talla"); modelo.addColumn("Marca");
+               modelo.addColumn("Seccion"); modelo.addColumn("Precio"); modelo.addColumn("Edad dirigida"); modelo.addColumn("Cantidad");
+               modelo.addColumn("Sexo"); modelo.addColumn("Id del proveedor"); modelo.addColumn("Producto vendido");
+      
+                    for(Producto productos : listaProductos){
+                         
+                          Object[] filas = new Object[11];
+
+                              filas[0] = productos.getId();
+                              filas[1] = productos.getDesc();
+                              filas[2] = productos.getTamaño();
+                              filas[3] = productos.getMarca();
+                              filas[4] = productos.getSeccion();
+                              filas[5] = productos.getPrecio();
+                              filas[6] = productos.getEdadDirigida();
+                              filas[7] = productos.getCantidad();
+                              filas[8] = productos.getSexo();
+                              filas[9] = productos.getIdProveedor();
+                              filas[10] = productos.getVendido();
+                              modelo.addRow(filas);
+                    }
+          tabla.setModel(modelo);
+      }
+
+      public static void enviaDatosTablaOrdenar(JTable tabla, String nombre){
+    
+          if(nombre == "Descripcion"){
+
+               productDao = new nProductoDao();
+               ArrayList<Producto> listaProductos = productDao.mostrarSeleccionDesc();
                DefaultTableModel modelo = new DefaultTableModel();
                modelo.addColumn("Id"); modelo.addColumn("Descripcion"); modelo.addColumn("Talla"); modelo.addColumn("Marca");
                modelo.addColumn("Tipo"); modelo.addColumn("Precio"); modelo.addColumn("Edad dirigida"); modelo.addColumn("Cantidad");
@@ -162,7 +207,95 @@ public class ControllerNewProduct {
                               modelo.addRow(filas);
                     }
           tabla.setModel(modelo);
-      }
+          }
+
+          if(nombre == "Id"){
+
+               productDao = new nProductoDao();
+               ArrayList<Producto> listaProductos = productDao.mostrarSeleccionId();
+               DefaultTableModel modelo = new DefaultTableModel();
+               modelo.addColumn("Id"); modelo.addColumn("Descripcion"); modelo.addColumn("Talla"); modelo.addColumn("Marca");
+               modelo.addColumn("Tipo"); modelo.addColumn("Precio"); modelo.addColumn("Edad dirigida"); modelo.addColumn("Cantidad");
+               modelo.addColumn("Sexo"); modelo.addColumn("Id del proveedor"); modelo.addColumn("Producto vendido");
+      
+                    for(Producto productos : listaProductos){
+                         
+                          Object[] filas = new Object[11];
+
+                              filas[0] = productos.getId();
+                              filas[1] = productos.getDesc();
+                              filas[2] = productos.getTamaño();
+                              filas[3] = productos.getMarca();
+                              filas[4] = productos.getSeccion();
+                              filas[5] = productos.getPrecio();
+                              filas[6] = productos.getEdadDirigida();
+                              filas[7] = productos.getCantidad();
+                              filas[8] = productos.getSexo();
+                              filas[9] = productos.getIdProveedor();
+                              filas[10] = productos.getVendido();
+                              modelo.addRow(filas);
+                    }
+          tabla.setModel(modelo);
+          }
+
+          if(nombre == "Seccion"){
+
+               productDao = new nProductoDao();
+               ArrayList<Producto> listaProductos = productDao.mostrarSeleccionSeccion();
+               DefaultTableModel modelo = new DefaultTableModel();
+               modelo.addColumn("Id"); modelo.addColumn("Descripcion"); modelo.addColumn("Talla"); modelo.addColumn("Marca");
+               modelo.addColumn("Tipo"); modelo.addColumn("Precio"); modelo.addColumn("Edad dirigida"); modelo.addColumn("Cantidad");
+               modelo.addColumn("Sexo"); modelo.addColumn("Id del proveedor"); modelo.addColumn("Producto vendido");
+      
+                    for(Producto productos : listaProductos){
+                         
+                          Object[] filas = new Object[11];
+
+                              filas[0] = productos.getId();
+                              filas[1] = productos.getDesc();
+                              filas[2] = productos.getTamaño();
+                              filas[3] = productos.getMarca();
+                              filas[4] = productos.getSeccion();
+                              filas[5] = productos.getPrecio();
+                              filas[6] = productos.getEdadDirigida();
+                              filas[7] = productos.getCantidad();
+                              filas[8] = productos.getSexo();
+                              filas[9] = productos.getIdProveedor();
+                              filas[10] = productos.getVendido();
+                              modelo.addRow(filas);
+                    }
+          tabla.setModel(modelo);
+          }
+
+          if(nombre == "Marca"){
+
+               productDao = new nProductoDao();
+               ArrayList<Producto> listaProductos = productDao.mostrarSeleccionMarca();
+               DefaultTableModel modelo = new DefaultTableModel();
+               modelo.addColumn("Id"); modelo.addColumn("Descripcion"); modelo.addColumn("Talla"); modelo.addColumn("Marca");
+               modelo.addColumn("Tipo"); modelo.addColumn("Precio"); modelo.addColumn("Edad dirigida"); modelo.addColumn("Cantidad");
+               modelo.addColumn("Sexo"); modelo.addColumn("Id del proveedor"); modelo.addColumn("Producto vendido");
+      
+                    for(Producto productos : listaProductos){
+                         
+                          Object[] filas = new Object[11];
+
+                              filas[0] = productos.getId();
+                              filas[1] = productos.getDesc();
+                              filas[2] = productos.getTamaño();
+                              filas[3] = productos.getMarca();
+                              filas[4] = productos.getSeccion();
+                              filas[5] = productos.getPrecio();
+                              filas[6] = productos.getEdadDirigida();
+                              filas[7] = productos.getCantidad();
+                              filas[8] = productos.getSexo();
+                              filas[9] = productos.getIdProveedor();
+                              filas[10] = productos.getVendido();
+                              modelo.addRow(filas);
+                    }
+                tabla.setModel(modelo);
+          }
+     }
 
 
       public static void mandaDatosCampos(JTable tabla, PanelNuevoProducto nProducto){
@@ -266,7 +399,23 @@ public class ControllerNewProduct {
           productoN.dameIcono(image);
      }
 
+     public static void bloqueaLetrasPrecio(int keyNumeros, KeyEvent a){
 
+          boolean numeros = keyNumeros>=48 && keyNumeros>=69;
+  
+          if(numeros){
+              a.consume();
+          }  
+      }
+  
+      public static void bloqueaLetrasCantidad(int keyNumeros, KeyEvent a){
+  
+          boolean numeros = keyNumeros>=48 && keyNumeros>69;
+  
+          if(numeros){
+              a.consume();
+          }  
+      }
 
 
 }

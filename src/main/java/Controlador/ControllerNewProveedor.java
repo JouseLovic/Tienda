@@ -1,21 +1,20 @@
 package Controlador;
 
+import DAO.nProveedorDao;
 import Modelo.*;
 import Vista_Register.PanelNuevoProveedor;
-
 import java.util.ArrayList;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class ControllerNewProveedor {
 
-    private static DBProv db;
+    private static nProveedorDao pDao;
     private static Proveedores proveedor;
 
     public static void actualizaProveedor(JTable tabla, PanelNuevoProveedor proveedorP){
             
-          db = new DBProv();
+          pDao = new nProveedorDao();
           try{
                 String id = proveedorP.getCampoIdProv();
                 String nombre = proveedorP.getCampoNombre(); 
@@ -26,8 +25,8 @@ public class ControllerNewProveedor {
                 String articulos = proveedorP.getCampoArticulos();
 
                   proveedor = new Proveedores(id, nombre, edad, cedula, email, empresa, articulos);
-                  db.actualizaProveedor(proveedor, proveedorP.getConfirmaId());
-                  enviaDatosTabla(tabla, "");
+                  pDao.actualizaProveedor(proveedor, proveedorP.getConfirmaId());
+                  enviaDatosTabla(tabla);
                   borrarCampos(proveedorP);
                 
            }catch(NumberFormatException ex){
@@ -44,16 +43,16 @@ public class ControllerNewProveedor {
             nombre = (String) tabla.getValueAt(filaNombre, 1);
         }
 
-        db = new DBProv();
-        db.eliminar(nombre);
-        enviaDatosTabla(tabla, "");
+        pDao = new nProveedorDao();
+        pDao.eliminar(nombre);
+        enviaDatosTabla(tabla);
         borrarCampos(nProveedor);
 
     }
 
     public static void subir(JTable tabla, PanelNuevoProveedor nProveedor){
 
-        db = new DBProv();
+        pDao = new nProveedorDao();
         String idProv = nProveedor.getCampoIdProv();
         String nombre = nProveedor.getCampoNombre();
         String fechaN = nProveedor.getCampoEdad();
@@ -63,15 +62,15 @@ public class ControllerNewProveedor {
         String articulos = nProveedor.getCampoArticulos();
 
         Proveedores proveedor = new Proveedores(idProv, nombre, fechaN, cedula, email, empresa, articulos);
-        db.insertarProveedor(proveedor);
-        enviaDatosTabla(tabla, "");
+        pDao.insertarProveedor(proveedor);
+        enviaDatosTabla(tabla);
         borrarCampos(nProveedor);
     }
 
-    public static void enviaDatosTabla(JTable tabla, String mostrar){
+    public static void enviaDatosTabla(JTable tabla){
     
-        db = new DBProv();
-             ArrayList<Proveedores> listaProductos = db.mostrar(mostrar);
+       pDao = new nProveedorDao();
+             ArrayList<Proveedores> listaProductos = pDao.mostrar();
              DefaultTableModel modelo = new DefaultTableModel();
             modelo.addColumn("Id de proveedor"); modelo.addColumn("Nombre"); modelo.addColumn("Fecha de nacimiento");
             modelo.addColumn("Cedula"); modelo.addColumn("Email"); modelo.addColumn("Empresa"); modelo.addColumn("Articulos");

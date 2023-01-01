@@ -67,3 +67,20 @@ Falta colocar una tabla para imagenes y crear un procedimiento almacenado para q
 
 Nota 7.6:  if(condicion, siOcurre, siNoOcurre)
 
+8.0
+Para el inicio y crear un menu (para las listas de inventario de solo vista) puedes crear un tabbedPane (que las ventanas se escondan con un label con su opaque en false) y de los botones, solo cambiaria a su respectivo tabbedPane (pestaña). Evitamos crear locuras 
+
+Nota: tal vez quitarle lo enabled a las pestañas evitaria que el usuario pueda cambiar las pestañas y crea que es un bug. Toca probarlo
+
+8.5
+Para cuando creemos una lista completa que no se modifique, lo que podemos hacer, es que, debamos hacer una clase global, que reciba y mande constantemente. Para esto, usamos una clase que extienda de Thread, y hacer clases (en un package dao) genericas, y de alli, mandarlos con los thread a su respectiva lista. 
+
+Tambien, que para esto, se debe lo que es, es que los parametros de los genericos reciban un arrayList de cualquier cosa. 
+
+El detalle para que no este fastidiando y capaz alentando procesos, es que, esos JPanels que reciban datos con la clase thread, tengan un boolean que le indique al thread si esta o no activo ese panel. Si lo esta, que se detenga, y que si no, que continue cada 3 segundos
+
+9.0
+Falta crear atajos de teclado
+
+
+

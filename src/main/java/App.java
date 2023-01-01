@@ -1,6 +1,6 @@
 
 
-import Modelo.*;
+import Controlador.ControllerMandaTablasGlobal;
 import Vista.*;
 
 
@@ -9,5 +9,8 @@ public class App {
         
          Window W = new Window();
          W.setVisible(true);
+
+         ControllerMandaTablasGlobal hilo = new ControllerMandaTablasGlobal();
+         hilo.start();
     }
 }
