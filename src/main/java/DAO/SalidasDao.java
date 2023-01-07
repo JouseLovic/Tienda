@@ -1,7 +1,6 @@
 package DAO;
 
 import Modelo.*;
-import Vista.Window;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,42 +9,11 @@ import javax.swing.JOptionPane;
 public class SalidasDao {
               
          private DB db;
-          
-        public ArrayList<Clientes> BuscaClientes(){
-          db = new DB();
-          Connection conexion = db.dameConexion();
-          ArrayList<Clientes> listaComparacion = new ArrayList<>();
-    
-          Statement ps = null;
-          ResultSet rs = null;
-    
-          try {
-    
-              ps = conexion.createStatement();
-              rs = ps.executeQuery("Select * from cliente order by cedula asc");
-    
-              while(rs.next()){
-      
-                String nombre = rs.getString(1);
-                String fechaNacimiento = rs.getString(2);
-                String cedula = rs.getString(3);
-                  
-                  Clientes cliente = new Clientes(nombre, fechaNacimiento, cedula);
-                  listaComparacion.add(cliente);
-              }
-              rs.close();
-              ps.close();
-              db.cierraConexion(conexion);
-          } catch (Exception e) {
-             e.printStackTrace();
-          }
-            return listaComparacion;
-        }
-    
+         final String estado = "Salida";
+
         public void insertarSalidaP(SalidasProduct salida, String idProducto, int cantidad_a_restar){
             db = new DB();      
             Connection conecta = db.dameConexion();
-            String estado = "Salida";
 
             String idFactura = salida.getNumFactura();
             String codigoProducto = salida.getCodigoProducto();
@@ -58,12 +26,14 @@ public class SalidasDao {
             CallableStatement restarCantidad = null;
             CallableStatement salidaP = null;
             CallableStatement factura = null;
+            CallableStatement facturaSalida = null;
             
             try{
              conecta.setAutoCommit(false);
               
               restarCantidad = conecta.prepareCall("{call restarCantidadProducto(?,?)}");
               salidaP = conecta.prepareCall("{call creaSalida(?,?,?,?,?,?,?)}");
+              facturaSalida = conecta.prepareCall("{call creaFactura_salida(?,?,?,?,?,?)}");
               factura = conecta.prepareCall("{call creaFactura(?,?,?,?,?)}");
     
                     restarCantidad.setString(1, idProducto);
@@ -77,6 +47,13 @@ public class SalidasDao {
                     salidaP.setInt(6, cantidad);
                     salidaP.setString(7, cedula);
 
+                    facturaSalida.setString(1, idFactura);
+                    facturaSalida.setString(2, fecha);
+                    facturaSalida.setDouble(3, precio);
+                    facturaSalida.setInt(4, cantidad);
+                    facturaSalida.setString(5, idProducto);
+                    facturaSalida.setString(6, cedula);
+
                     factura.setString(1, idFactura);
                     factura.setString(2, fecha);
                     factura.setDouble(3, precio);
@@ -85,10 +62,12 @@ public class SalidasDao {
 
                     salidaP.executeQuery();
                     factura.executeQuery();
+                    facturaSalida.executeQuery();
                     restarCantidad.executeQuery();
                    
                     conecta.commit();//Con esto le confirmamos la transferencia
                     salidaP.close();
+                    facturaSalida.close();
                     factura.close();
                     restarCantidad.close();
                     db.cierraConexion(conecta);
@@ -114,39 +93,126 @@ public class SalidasDao {
             Connection conecta = db.dameConexion();
             CallableStatement salidaP = null;
             CallableStatement factura = null;
-    
+            CallableStatement facturaSalida = null;
+          
             try{
               conecta.setAutoCommit(false);
-              int opcion = JOptionPane.showConfirmDialog(null, "¿Desea eliminar realmente esta entrada? se eliminara la factura y el registro.");
+              int opcion = JOptionPane.showConfirmDialog(null, "¿Desea eliminar realmente esta salida del producto, sin la eliminación de su correspondiente factura?");
               
                 if(opcion == 0){
 
-                  salidaP = conecta.prepareCall("{call eliminaSalida_productos(?)}");
-                  factura = conecta.prepareCall("{call eliminaFactura(?)}");
-
+                  salidaP = conecta.prepareCall("{call eliminaSalida(?)}");
                   salidaP.setString(1, codigoFactura);
-                  factura.setString(1, codigoFactura);
+
+                  salidaP.executeQuery();
 
                   conecta.commit();
-                  JOptionPane.showMessageDialog(null, "El registro se ha eliminado exitosamente");
                   salidaP.close();
-                  factura.close();
                   db.cierraConexion(conecta);
-              }
-              else{
-                System.out.println("No se elimino");
-              }
-            }catch(Exception ex){
+                }
+                else if(opcion == 1){
+                
+                    int opcion2 = JOptionPane.showConfirmDialog(null, "Entonces si desea eliminar la salida junto con sus correspondientes facturas, confirme");
+              
+                        if(opcion2 == 0){
+
+                          salidaP = conecta.prepareCall("{call eliminaSalida(?)}");
+                          factura = conecta.prepareCall("{call eliminaFactura(?)}");
+                          facturaSalida = conecta.prepareCall("{call eliminaFactura_salida(?)}");
+
+                          salidaP.setString(1, codigoFactura);
+                          factura.setString(1, codigoFactura);
+                          facturaSalida.setString(1, codigoFactura);
+
+                          salidaP.executeQuery();
+                          facturaSalida.executeQuery();
+                          factura.executeQuery();
+
+                          conecta.commit();
+                          salidaP.close();
+                          facturaSalida.close();
+                          factura.close();
+                          db.cierraConexion(conecta);
+                        }
+                    }
+              }catch(Exception ex){
                 JOptionPane.showMessageDialog(null, "Un error inesperado a ocurrido en: \n"+ex.getMessage());  
                 try {
                   conecta.rollback();
                 } catch (SQLException e) {
                   e.printStackTrace();
                 }
-           }
-         }
+              }
+          }
+
+        public void updateOut(SalidasProduct productOut, String idFacturaOriginal){
+
+              db = new DB();
+              Connection conexion = db.dameConexion();
+              CallableStatement update = null;
+              CallableStatement facturaUp = null;
+              CallableStatement factura = null;
+
+              String idFactura = productOut.getNumFactura();
+              String idProducto = productOut.getCodigoProducto();
+              String descripcion = productOut.getDescripcionProducto();
+              String fecha = productOut.getFecha();
+              Double precio = productOut.getPrecio();
+              int cantidad = productOut.getCantidad();
+              String idCliente = productOut.getIdCliente();
+
+                try {
+                  
+                  conexion.setAutoCommit(false);
+
+                  update = conexion.prepareCall("{call actualizaSalida(?,?,?,?,?,?,?,?)}");
+                  facturaUp = conexion.prepareCall("{call actualizaFacturaS(?,?,?,?,?,?,?)}");
+                  factura = conexion.prepareCall("{call actualizaFactura(?,?,?,?,?,?)}");
+
+                  update.setString(1, idFactura);
+                  update.setString(2, idProducto);
+                  update.setString(3, descripcion);
+                  update.setString(4, fecha);
+                  update.setDouble(5, precio);
+                  update.setInt(6, cantidad);
+                  update.setString(7, idCliente);
+                  update.setString(8, idFacturaOriginal);
+
+                  facturaUp.setString(1, idFactura);
+                  facturaUp.setString(2, fecha);
+                  facturaUp.setDouble(3, precio);
+                  facturaUp.setInt(4, cantidad);
+                  facturaUp.setString(5, idProducto);
+                  facturaUp.setString(6, idCliente);
+                  facturaUp.setString(7, idFacturaOriginal);
+
+                  factura.setString(1, idFactura);
+                  factura.setString(2, fecha);
+                  factura.setDouble(3, precio);
+                  factura.setInt(4, cantidad);
+                  factura.setString(5, estado);
+                  factura.setString(6, idFacturaOriginal);
+
+                  update.executeUpdate();
+                  facturaUp.executeUpdate();
+                  factura.executeUpdate();
+                  System.out.println("Se actualizó");
+                  conexion.commit();
+                  update.close();
+                  factura.close();
+                  facturaUp.close();
+
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    try {
+                      conexion.rollback();
+                    } catch (SQLException e) {
+                      e.printStackTrace();
+                    }
+                }
+          }
     
-         public ArrayList<SalidasProduct> mostrar(String idF){
+        public ArrayList<SalidasProduct> mostrar(String idF){
             db = new DB();
             Connection conecta = db.dameConexion();
             ArrayList<SalidasProduct> listaEspecifica = new ArrayList<>();

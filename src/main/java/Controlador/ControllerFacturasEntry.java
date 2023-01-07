@@ -1,7 +1,6 @@
 package Controlador;
 
 import Modelo.*;
-import Vista_Formulario.*;
 import Vista_Register.PanelNuevaFactura;
 
 import java.awt.event.*;
@@ -77,9 +76,9 @@ public class ControllerFacturasEntry {
 
         boolean numeros = keyNumeros>=48 && keyNumeros>=69;
 
-        if(numeros){
-            a.consume();
-        }
+            if(numeros){
+                a.consume();
+            }
   
     }
 
@@ -87,9 +86,9 @@ public class ControllerFacturasEntry {
 
         boolean numeros = keyNumeros>=48 && keyNumeros>69;
 
-        if(numeros){
-            a.consume();
-        }
+            if(numeros){
+                 a.consume();
+            }
      
     }
 
@@ -98,8 +97,6 @@ public class ControllerFacturasEntry {
         if(keyTamaño.getText().length()>=11){
             a.consume();
         }
-
-
     }
 
     public static void mandaProveedor(JTable tabla, String proveedor, PanelNuevaFactura factura){
@@ -136,17 +133,14 @@ public class ControllerFacturasEntry {
     }
 
 
-    public static void limpiaCampos(PanelEntrada entrada){
+    public static void limpiaCampos(PanelNuevaFactura entrada){
            entrada.setCampoNFactura("");
-           entrada.setCampoCodigoProducto("");
-           entrada.setCampoDescripcion("");
+           entrada.setCampoDesc("");
            entrada.setCampoFecha("");
-           entrada.setSeleccionLista(0);
+           entrada.setListaProveedor("Null");
            entrada.setCampoPrecio(null);
            entrada.setCampoCantidad("");
-           entrada.setCampoSeccionE("");
-           entrada.setCampoMarcaE("");
-           entrada.setCampoProveedor("");
+           entrada.setCampoIdProveedor("");
     }
 
     

@@ -1,14 +1,12 @@
 package Vista;
 
 import Controlador.*;
-import Modelo.DB;
 import Vista_Formulario.*;
 import Vista_Register.PanelNuevaFactura;
 import Vista_Register.PanelNuevoProveedor;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.Connection;
 
 public class Window extends JFrame {
 

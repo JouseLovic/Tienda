@@ -121,7 +121,7 @@ public class EntradasDao {
                 factura.close();
                 db.cierraConexion(conecta);
             }catch(SQLIntegrityConstraintViolationException ex){
-                JOptionPane.showMessageDialog(null, "Ya hay una factura, o un id de producto con ese identificador. Por favor, escriba otro"+ex.getMessage());
+                JOptionPane.showMessageDialog(null, "Esta intentando introducir una factura u producto ya existente. Si lo que busca es ingresar una cantidad \npara un producto que ya exista, escriba correctamente los valores correspondiente a ese producto que son:\nUna num° de factura nueva, Descripcion, Seccion, Marca y id del proveedor");
                 try {
                   conecta.rollback();//regresamos el estado anterior de los datos en caso de error    
                 } catch (SQLException e) {
@@ -203,7 +203,7 @@ public class EntradasDao {
                   factura.close();
                   db.cierraConexion(conecta);
               }catch(SQLIntegrityConstraintViolationException ex){
-                  JOptionPane.showMessageDialog(null, "Ya hay una factura, o un id de producto con ese identificador. Por favor, escriba otro"+ex.getMessage());
+                  JOptionPane.showMessageDialog(null, "Problema encontrado en 'EntradasDao' debido a: "+ex.getMessage());
                   try {
                     conecta.rollback();//regresamos el estado anterior de los datos en caso de error    
                   } catch (SQLException e) {
@@ -229,7 +229,7 @@ public class EntradasDao {
 
         try{
           conecta.setAutoCommit(false);
-          int opcion = JOptionPane.showConfirmDialog(null, "¿Desea eliminar realmente esta entrada?, se eliminaran la facturas que corresponden a este mismo id ");
+          int opcion = JOptionPane.showConfirmDialog(null, "¿Desea eliminar realmente esta entrada? \nse eliminaran la facturas que corresponden a este mismo id ");
           
           if(opcion == 0){
           entryPs = conecta.prepareCall("{call eliminaEntrada (?)}");
@@ -245,7 +245,6 @@ public class EntradasDao {
           factura.executeQuery();
 
           conecta.commit();
-          JOptionPane.showMessageDialog(null, "El registro se ha eliminado exitosamente");
           entryPs.close();
           factura_E.close();
           factura.close();
@@ -270,7 +269,6 @@ public class EntradasDao {
         ArrayList<EntradaProductos> listaEspecifica = new ArrayList<>();
         Statement ps;
         ResultSet rs = null;
-
 
           try{
               ps = conecta.createStatement();
@@ -298,7 +296,6 @@ public class EntradasDao {
           }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "La operacion mostrar ha fallado por: "+ex.getMessage());
                   db.cierraConexion(conecta);
-                  new Window().cierraPorErrorSQL();
             return null;
           }
         return listaEspecifica;

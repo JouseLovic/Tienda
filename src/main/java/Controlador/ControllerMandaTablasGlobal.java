@@ -1,7 +1,5 @@
 package Controlador;
 
-import Vista_Register.PanelNuevaFactura;
-
 public class ControllerMandaTablasGlobal extends Thread{
 
     @Override

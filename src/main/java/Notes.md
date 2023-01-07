@@ -1,33 +1,15 @@
 
-Este es un proyecto que funcionara con base de datos para poder gestionar una tienda de ropa que tendrá
+Este es un proyecto que busca recrear como una empresa maneja un inventario de productos, de una tienda de ropa que tiene:
 
 -Proveedores
--productos (con sus clases especificas)
--clientes
--entrada y salida de empleados
--empleados
--Lista de cada producto (a traves de un JTable) y los formularios se llenaran con JTabbed para el agregado de la ropa
--Y que esa lista este con el precio de cada producto (Esto que se pueda hacer
-con el formulario)
+-productos 
+-Clientes
+-Entrada y salida de productos
+-Empleados
+-Una base de datos
 
-Solucionado:
 
--Añadida la herencia, y sus superclases
--Añadido mejoras como: clases mas precisas, y patrón MVC
-
-Falta:
-
--La interfaz
--la base de datos
--mejorar los detalles que diferencian un cliente, de un empleado y de un proveedor
--falta cargar las colecciones
--La comparacion de id, para evitar duplicado (aunque esto ya esta porque sobreescribi el hashcode y el equals de products)
-
-Una idea para el llenado del formulario para agregar los datos de una camisa/pantalon/zapatos, etc
-
---Cuando aumente el tamaño de la camisa, por ejemplo, talla M, la imagen aumente, cuando salga una talla S, pues que disminuya
-
-Importante:
+Notas para mejorar la App:
 
 1
  si se activa la ordenanza que este sea un comboBox, para elegir el tipo y que no varie (Ejem: por tipo de ropa, o por marcas)
@@ -82,5 +64,28 @@ El detalle para que no este fastidiando y capaz alentando procesos, es que, esos
 9.0
 Falta crear atajos de teclado
 
+10
+Para las busquedas, las que tengan un filtro, lo mejor sera que se verifique primero el filtro seleccionado y tras esto, decidirá que cosas mostrar. Es simple con un select * from productos_generales where id/descripcion/marca/seccion like '%"+loquepongamos+"'"
 
+Esto es para permitir la versatilidad y que si desea buscar un nombre solo tenga que especificarlo en el comboBox
 
+O tal vez, solo se hagan unos radioButtons, y que cuando escriba, verifique el que se haya seleccionado, a partir de eso, usara el metodo correspondiente
+
+11
+Toca añadir tres spinners en las fechas y que estas mismas siempre tengan la fecha de actual en la que se abra el programa. Ya lo haz hecho, solo es cuestion de darle su respectivo valor a cada spinner
+
+12
+Hay que añadir el precio por unidad de cada producto. Esto tanto para las entradas como para las salidas
+
+13
+Con SWING AVANZADO se pueden hacer animaciones y todo. Lo mejor es ver alguno de esos para mejorar en la parte del diseño de la APP
+
+14
+para poder cambiar entre pestañas de tabbedPane, debemos poner:
+
+nombreDelTabbedPane.setSelectedIndex(0) o nombreDelTabbedPane.setSelectedIndex(1) y asi dependiendo del numero de paneles que tenga el tabbedPane
+
+15
+Para mostrar todos los detalles de los proveedores, solo haz algo simple, que ha cada seleccion, busque la cedula en la base de datos, y que al encontrarlo (esto solo es con un arrayList lleno de los proveedores), te entregue cada detalle. Claro, esto es actualizado a cada click que de en la tabla
+
+Y para que se mantenga actualizada, haz lo mismo con que el panel actualice la tabla

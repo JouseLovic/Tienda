@@ -1,0 +1,10 @@
+digraph "com.example:demo:jar:1.0" { 
+	"com.example:demo:jar:1.0" -> "com.growingio.android:protobuf:aar:3.4.5:compile" ; 
+	"com.example:demo:jar:1.0" -> "com.mysql:mysql-connector-j:jar:8.0.31:compile" ; 
+	"com.example:demo:jar:1.0" -> "unknown.binary:AbsoluteLayout:jar:SNAPSHOT:compile" ; 
+	"com.example:demo:jar:1.0" -> "Desplazable:Desplazable:jar:1.0:compile" ; 
+	"com.example:demo:jar:1.0" -> "junit:junit:jar:4.6:compile" ; 
+	"com.example:demo:jar:1.0" -> "unknown.binary:jcalendar-1.4:jar:SNAPSHOT:compile" ; 
+	"com.growingio.android:protobuf:aar:3.4.5:compile" -> "com.google.protobuf:protobuf-javalite:jar:3.19.4:compile" ; 
+	"com.mysql:mysql-connector-j:jar:8.0.31:compile" -> "com.google.protobuf:protobuf-java:jar:3.19.4:compile" ; 
+ } 

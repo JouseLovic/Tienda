@@ -2,8 +2,6 @@
 package DAO;
 
 import Modelo.*;
-import Vista.Window;
-
 import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -117,6 +115,66 @@ public class nProductoDao {
                }
     }
 
+    public void sumaCantidadOpcion(String idProducto, int cantidad){
+
+      db = new DB();
+      Connection conexion = db.dameConexion();
+      CallableStatement suma = null;
+
+      try {
+        
+        conexion.setAutoCommit(false);
+
+        suma = conexion.prepareCall("{call sumaCantidadProducto(?,?)}");
+
+        suma.setString(1, idProducto);
+        suma.setInt(2, cantidad);
+
+        suma.executeQuery();
+
+        conexion.commit();
+        suma.close();
+        db.cierraConexion(conexion);
+      } catch (Exception e) {
+           e.printStackTrace();
+              try {
+                conexion.rollback();
+              } catch (SQLException e1) {
+                 e1.printStackTrace();
+              }
+      }
+  }
+
+  public void restarCantidadOpcion(String idProducto, int cantidad){
+
+    db = new DB();
+    Connection conexion = db.dameConexion();
+    CallableStatement resta = null;
+
+    try {
+      
+      conexion.setAutoCommit(false);
+
+      resta = conexion.prepareCall("{call restarCantidadProducto(?,?)}");
+
+      resta.setString(1, idProducto);
+      resta.setInt(2, cantidad);
+
+      resta.executeQuery();
+
+      conexion.commit();
+      resta.close();
+      db.cierraConexion(conexion);
+    } catch (Exception e) {
+         e.printStackTrace();
+            try {
+              conexion.rollback();
+            } catch (SQLException e1) {
+               e1.printStackTrace();
+            }
+    }
+}
+
     public void eliminar(String id){
           db = new DB();
        Connection conecta =db. dameConexion();
@@ -145,11 +203,8 @@ public class nProductoDao {
               ps = conecta.createStatement();
 
               if(!nombre.equals("")){  rs = ps.executeQuery("Select * from productos_generales where id like'%"+nombre+"%'");}
-              else { rs = ps.executeQuery("Select * from productos_generales group by id");}
-             
-        
-
-
+              else { rs = ps.executeQuery("Select * from productos_generales order by id");}
+            
                 while(rs.next()){
                    
                     String id = rs.getString(1);

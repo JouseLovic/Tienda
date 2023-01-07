@@ -1,8 +1,6 @@
 
 package Vista_Register;
 
-import javax.naming.ldap.Control;
-
 import Controlador.ControllerNewProveedor;
 
 public class PanelNuevoProveedor extends javax.swing.JPanel {
@@ -15,7 +13,7 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
           ControllerNewProveedor.enviaDatosTabla(tablaProveedores);
      }
 
-     @SuppressWarnings("unchecked")
+     @SuppressWarnings("")
       // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
       private void initComponents() {
 

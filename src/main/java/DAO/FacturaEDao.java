@@ -2,8 +2,6 @@
 package DAO;
 
 import Modelo.*;
-import Vista.Window;
-
 import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
