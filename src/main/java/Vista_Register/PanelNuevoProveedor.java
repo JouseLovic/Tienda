@@ -1,6 +1,8 @@
 
 package Vista_Register;
 
+import javax.swing.ImageIcon;
+
 import Controlador.ControllerNewProveedor;
 
 public class PanelNuevoProveedor extends javax.swing.JPanel {
@@ -29,7 +31,7 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
             botonSubir = new javax.swing.JButton();
             botonLimpiaCampos = new javax.swing.JButton();
             botonQuitaCampos = new javax.swing.JButton();
-            jLabel7 = new javax.swing.JLabel();
+            labelPerson = new javax.swing.JLabel();
             botonColocaImagen = new javax.swing.JButton();
             campoNombre = new javax.swing.JTextField();
             campoEdad = new javax.swing.JTextField();
@@ -133,9 +135,9 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
             });
             jPanel1.add(botonQuitaCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 32, 150, 40));
 
-            jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/default-avatar.png"))); // NOI18N
-            jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 40, 250, 230));
+            labelPerson.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            labelPerson.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/default-avatar.png"))); // NOI18N
+            jPanel1.add(labelPerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 40, 250, 230));
 
             botonColocaImagen.setText("Poner imagen");
             botonColocaImagen.addActionListener(new java.awt.event.ActionListener() {
@@ -328,6 +330,9 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
             PanelNuevoProveedor.actualizame = actualizame;
       }
     
+      public void PhotoPerson(ImageIcon image){
+            labelPerson.setIcon(image);
+      }
      
     
 
@@ -352,11 +357,11 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
       private javax.swing.JLabel jLabel4;
       private javax.swing.JLabel jLabel5;
       private javax.swing.JLabel jLabel6;
-      private javax.swing.JLabel jLabel7;
       private javax.swing.JLabel jLabel8;
       private javax.swing.JPanel jPanel1;
       private javax.swing.JScrollPane jScrollPane2;
       private javax.swing.JLabel labelEmail;
+      private javax.swing.JLabel labelPerson;
       private javax.swing.JTable tablaProveedores;
       // End of variables declaration//GEN-END:variables
 }

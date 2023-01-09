@@ -12,12 +12,14 @@ public class controllerInicial {
       
       //Clicks events 
       public static void presionaFacturas(){
+            PanelProveedores.setActualizameProv(0);
             frameF = new PanelFacturasGenerales();
             frameF.setVisible(true);
             frameF.setLocationRelativeTo(null);
       }
       
       public static void presionaClientes(){
+            PanelProveedores.setActualizameProv(0);
             frameC = new PanelClientes();
             frameC.setVisible(true);
             frameC.setLocationRelativeTo(null);

@@ -2,6 +2,8 @@ package Vista_Formulario;
 
 import Controlador.ControllerNewProduct;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+
 import javax.swing.*;
 
 
@@ -18,7 +20,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           initComponents();
           ControllerNewProduct.enviaDatosTabla(tablaNProductos, "");
           botonActualiza.setEnabled(false);
-          botonConfirma.setEnabled(false);;
+          botonConfirma.setEnabled(false);
      }
      
      
@@ -322,15 +324,18 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                   public void keyReleased(java.awt.event.KeyEvent evt) {
                         campoBuscarKeyReleased(evt);
                   }
+                  public void keyTyped(java.awt.event.KeyEvent evt) {
+                        campoBuscarKeyTyped(evt);
+                  }
             });
             containerComponents.add(campoBuscar);
             campoBuscar.setBounds(970, 20, 250, 40);
 
             jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel1.setText("Buscar id:");
+            jLabel1.setText("Buscar producto:");
             containerComponents.add(jLabel1);
-            jLabel1.setBounds(880, 20, 90, 40);
+            jLabel1.setBounds(820, 20, 150, 40);
 
             jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -411,10 +416,9 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
 
      private void campoBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoBuscarKeyReleased
       ControllerNewProduct.enviaDatosTabla(tablaNProductos, campoBuscar.getText()); 
-      
-      if(campoBuscar.getText().isEmpty()){
-          ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, String.valueOf(ordernadoDeTabla.getSelectedItem()));
-      }
+          if(campoBuscar.getText().isEmpty()){
+               ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, String.valueOf(ordernadoDeTabla.getSelectedItem()));
+          }
      }//GEN-LAST:event_campoBuscarKeyReleased
 
      private void containerComponentsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_containerComponentsMouseEntered
@@ -443,6 +447,11 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           int keyNumeros = evt.getKeyChar();
           ControllerNewProduct.bloqueaLetrasPrecio(keyNumeros, evt);
      }//GEN-LAST:event_campoPrecioKeyTyped
+
+      private void campoBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoBuscarKeyTyped
+      
+          
+      }//GEN-LAST:event_campoBuscarKeyTyped
 
      public String getCampoIdProveedor() {
           return campoIdProveedor.getText();

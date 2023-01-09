@@ -89,3 +89,16 @@ nombreDelTabbedPane.setSelectedIndex(0) o nombreDelTabbedPane.setSelectedIndex(1
 Para mostrar todos los detalles de los proveedores, solo haz algo simple, que ha cada seleccion, busque la cedula en la base de datos, y que al encontrarlo (esto solo es con un arrayList lleno de los proveedores), te entregue cada detalle. Claro, esto es actualizado a cada click que de en la tabla
 
 Y para que se mantenga actualizada, haz lo mismo con que el panel actualice la tabla
+
+
+
+Desarrollo junto a la app de ventas:
+
+Esta es una app de una ventana simple que se encarga de registrar cada producto que compre un cliente, y a la hora de registrarlo/buscarlo, este, de forma automatica decidira si debe registrarlo o no. Si encuentra la cedula, autocompletara el nombre, la edad y
+los demas datos del usuario.
+
+1
+La App con un thread y un event keytyped, ira actualizandose y viendo los posibles candidatos que tengan la misma cedula. Estos se veran como un pequeño comentario que ira contando cuantas coincidencia hay con esa misma cedula
+
+2
+para que se auto complete (en el textfield solo habra 8 digitos para poner), una vez se cuenta completamente toda la cedula, si encuentra en la base de datos a un cliente con esa cedula, tomara los nombres y los datos y los insertara automaticamente

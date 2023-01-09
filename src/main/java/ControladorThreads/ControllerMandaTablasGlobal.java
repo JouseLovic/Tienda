@@ -1,4 +1,8 @@
-package Controlador;
+package ControladorThreads;
+
+import Vista.*;
+import Vista_Formulario.*;
+import Vista_Register.*;
 
 public class ControllerMandaTablasGlobal extends Thread{
 

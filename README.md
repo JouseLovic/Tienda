@@ -3,7 +3,7 @@
 Este es un proyecto que busca recrear un sistema de inventario. Se busca que el usuario tenga la comodidad de hacer agregados de productos sin necesidad 
 de hacer todo de forma manual. 
 
-Cosas que se encuentran integradas en la version actual:
+# Cosas que se encuentran integradas en la version actual:
 
 -Posee manejo de salidas (que tiene en cuenta la modificaciones de las cantidades, y los cambios que se hacen en estas), que solo funciona con productos existentes.
 
@@ -16,7 +16,7 @@ Cosas que se encuentran integradas en la version actual:
 -Posee las listas completas de todas las facturas en la base de datos, de los proveedores, y hasta de los clientes
 
 
-Promesas:
+# Promesas:
 
 -Una mejora de interfaz (mas intuitiva), y mucho mas atractiva
 

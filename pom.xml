@@ -19,14 +19,6 @@
 
   <dependencies>
 
-
-    <dependency>
-      <groupId>com.growingio.android</groupId>
-      <artifactId>protobuf</artifactId>
-      <version>3.4.5</version>
-      <type>aar</type>
-    </dependency>
-
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
@@ -38,21 +30,27 @@
       <version>SNAPSHOT</version>
     </dependency>
     <dependency>
-      <groupId>Desplazable</groupId>
-      <artifactId>Desplazable</artifactId>
-      <version>1.0</version>
-      <type>jar</type>
-    </dependency>
-    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.6</version>
       <type>jar</type>
     </dependency>
     <dependency>
-      <groupId>unknown.binary</groupId>
-      <artifactId>jcalendar-1.4</artifactId>
-      <version>SNAPSHOT</version>
+      <groupId>io.github.fvarrui</groupId>
+      <artifactId>javapackager</artifactId>
+      <version>0.9.4</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.eclipse.sisu</groupId>
+          <artifactId>org.eclipse.sisu.plexus</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>Desplazable</groupId>
+      <artifactId>Desplazable</artifactId>
+      <version>1.0</version>
+      <type>jar</type>
     </dependency>
   </dependencies>
 
