@@ -39,12 +39,6 @@
       <groupId>io.github.fvarrui</groupId>
       <artifactId>javapackager</artifactId>
       <version>0.9.4</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.eclipse.sisu</groupId>
-          <artifactId>org.eclipse.sisu.plexus</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
       <groupId>Desplazable</groupId>
