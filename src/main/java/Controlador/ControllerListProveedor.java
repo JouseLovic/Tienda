@@ -12,7 +12,6 @@ import java.io.*;
 public class ControllerListProveedor {
 
     private static nProveedorDao pDao;
-    private static boolean Exist = false;
 
         public static void enviaDatosTabla(JTable tabla, PanelProveedores panel){
 
