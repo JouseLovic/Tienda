@@ -113,36 +113,11 @@ public class ControllerNewProduct {
                          JOptionPane.showMessageDialog(null, "Ya hay un producto con su id. Por favor, revise de nuevo");
                     }
            }catch(NumberFormatException ex){
-               if(productoN.getCampoId().equals("") && productoN.getCampoPrecio().equals("") && productoN.getCampoCantidad().equals("") || productoN.getCampoId().isEmpty() && productoN.getCampoPrecio().isEmpty() && productoN.getCampoCantidad().isEmpty()){
-                     productoN.setLabelId("El id no puede estar vacio");
-                     productoN.setLabelCantidad("La cantidad no puede estar vacia");
-                     productoN.setLabelPrecio("El precio no puede estar vacio");
-                }
-               if(!productoN.getCampoId().equals("") && productoN.getCampoPrecio().equals("") && productoN.getCampoCantidad().equals("") || !productoN.getCampoId().isEmpty() && productoN.getCampoPrecio().isEmpty() && productoN.getCampoCantidad().isEmpty()){
-                     productoN.setLabelPrecio("El precio no puede estar vacio");
-                     productoN.setLabelCantidad("La cantidad no puede estar vacia");
-               }
-               if(!productoN.getCampoId().equals("") && !productoN.getCampoPrecio().equals("") && productoN.getCampoCantidad().equals("") || !productoN.getCampoId().isEmpty() && !productoN.getCampoPrecio().isEmpty() && productoN.getCampoCantidad().isEmpty()){
-                     productoN.setLabelCantidad("La cantidad no puede estar vacia"); 
-               }
-               if(!productoN.getCampoId().equals("") && productoN.getCampoPrecio().equals("") && !productoN.getCampoCantidad().equals("") || !productoN.getCampoId().isEmpty() && productoN.getCampoPrecio().isEmpty() && !productoN.getCampoCantidad().isEmpty()){
-                     productoN.setLabelPrecio("El precio no puede estar vacio");
-               }
-               if(productoN.getCampoId().equals("") && !productoN.getCampoPrecio().equals("") && !productoN.getCampoCantidad().equals("") || productoN.getCampoId().isEmpty() && !productoN.getCampoPrecio().isEmpty() && !productoN.getCampoCantidad().isEmpty()){
-                     productoN.setLabelId("El id no puede estar vacio");
-               }
-               if(productoN.getCampoId().equals("") && !productoN.getCampoPrecio().equals("") && productoN.getCampoCantidad().equals("") || productoN.getCampoId().isEmpty() && !productoN.getCampoPrecio().isEmpty() && productoN.getCampoCantidad().isEmpty()){
-                    productoN.setLabelId("El id no puede estar vacio");
-                    productoN.setLabelCantidad("La cantidad no puede estar vacia");
-               }
-               if(productoN.getCampoId().equals("") && productoN.getCampoPrecio().equals("") && !productoN.getCampoCantidad().equals("") || productoN.getCampoId().isEmpty() && productoN.getCampoPrecio().isEmpty() && !productoN.getCampoCantidad().isEmpty()){
-                    productoN.setLabelId("El id no puede estar vacio");
-                    productoN.setLabelPrecio("El precio no puede estar vacio");
-               }
-           }
+               System.err.println(ex.getMessage());
+          }
      }
 
-     public static boolean ValidadNumeros(String texto){//para id y cantidad
+       public static boolean ValidadNumeros(String texto){//para id y cantidad
           return texto.matches("^-?[0-9]{0,99999}+$");//los corchetes validan entre el 0, hasta el 99999
        }
 
