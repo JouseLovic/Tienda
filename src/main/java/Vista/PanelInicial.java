@@ -18,8 +18,6 @@ public class PanelInicial extends javax.swing.JPanel {
       private void initComponents() {
 
             jPanel1 = new javax.swing.JPanel();
-            jLabel1 = new javax.swing.JLabel();
-            jLabel2 = new javax.swing.JLabel();
             contenedorFacturas = new javax.swing.JPanel();
             labelFactura = new javax.swing.JLabel();
             containerClients = new javax.swing.JPanel();
@@ -36,18 +34,6 @@ public class PanelInicial extends javax.swing.JPanel {
 
             jPanel1.setBackground(new java.awt.Color(255, 255, 255));
             jPanel1.setLayout(null);
-
-            jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo_vector.png"))); // NOI18N
-            jPanel1.add(jLabel1);
-            jLabel1.setBounds(40, 20, 210, 230);
-
-            jLabel2.setFont(new java.awt.Font("Baskerville Old Face", 0, 56)); // NOI18N
-            jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel2.setText("Koulin");
-            jPanel1.add(jLabel2);
-            jLabel2.setBounds(260, 30, 160, 50);
 
             contenedorFacturas.setBackground(new java.awt.Color(255, 255, 255));
             contenedorFacturas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -97,7 +83,7 @@ public class PanelInicial extends javax.swing.JPanel {
             jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel3.setText("Lista de facturas");
             jPanel1.add(jLabel3);
-            jLabel3.setBounds(340, 170, 250, 40);
+            jLabel3.setBounds(360, 150, 250, 40);
 
             jLabel4.setFont(new java.awt.Font("Baskerville Old Face", 0, 36)); // NOI18N
             jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -153,7 +139,7 @@ public class PanelInicial extends javax.swing.JPanel {
             jPanel2.add(labelReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 140, 40));
 
             jPanel1.add(jPanel2);
-            jPanel2.setBounds(-10, 840, 1310, 100);
+            jPanel2.setBounds(-10, 840, 1310, 130);
 
             add(jPanel1, java.awt.BorderLayout.CENTER);
       }// </editor-fold>//GEN-END:initComponents
@@ -218,8 +204,6 @@ public class PanelInicial extends javax.swing.JPanel {
       private javax.swing.JPanel containerClients;
       private javax.swing.JPanel containerProveedores;
       private javax.swing.JPanel contenedorFacturas;
-      private javax.swing.JLabel jLabel1;
-      private javax.swing.JLabel jLabel2;
       private javax.swing.JLabel jLabel3;
       private javax.swing.JLabel jLabel4;
       private javax.swing.JLabel jLabel5;

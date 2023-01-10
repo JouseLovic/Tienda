@@ -15,7 +15,7 @@ public class DB {
         try {
            miConexion = DriverManager.getConnection(url, user, pass);
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "La aplicación no ha recibido ningun paquete de la base de datos. Por favor, asegurese de que encendio el servidor Apache y MySQL");
+            JOptionPane.showMessageDialog(null, "La aplicación no ha recibido ningun paquete de la base de datos. Por favor, asegurese de que encendió el servidor Apache y MySQL");
             new Window().cierraPorErrorSQL();
         }
          return miConexion;

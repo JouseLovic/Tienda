@@ -1,5 +1,4 @@
-
-Este es un proyecto que busca recrear como una empresa maneja un inventario de productos, de una tienda de ropa que tiene:
+### Este es un proyecto que busca recrear como una empresa maneja un inventario de productos, de una tienda de ropa que tiene:
 
 -Proveedores
 -productos 
@@ -9,7 +8,7 @@ Este es un proyecto que busca recrear como una empresa maneja un inventario de p
 -Una base de datos
 
 
-Notas para mejorar la App:
+## Notas para mejorar la App:
 
 1
  si se activa la ordenanza que este sea un comboBox, para elegir el tipo y que no varie (Ejem: por tipo de ropa, o por marcas)
@@ -90,15 +89,6 @@ Para mostrar todos los detalles de los proveedores, solo haz algo simple, que ha
 
 Y para que se mantenga actualizada, haz lo mismo con que el panel actualice la tabla
 
+16
+Para el modo oscuro de la app, lo que haremos es crear la opcion y que esta misma se lea cada inicio de la app (tal vez sea necesario crear un menu de carga), y que lo que lea, sea una unica linea que contenga "light" or "nocturne/black", con esto, una vez lo lea (a traves de un thread), pasara ciertos parametros (con un metodo global que recibe y manda absolutamente a todos los paneles los colores y claro, esto requiere de muchos set y get modificados)
 
-
-Desarrollo junto a la app de ventas:
-
-Esta es una app de una ventana simple que se encarga de registrar cada producto que compre un cliente, y a la hora de registrarlo/buscarlo, este, de forma automatica decidira si debe registrarlo o no. Si encuentra la cedula, autocompletara el nombre, la edad y
-los demas datos del usuario.
-
-1
-La App con un thread y un event keytyped, ira actualizandose y viendo los posibles candidatos que tengan la misma cedula. Estos se veran como un pequeño comentario que ira contando cuantas coincidencia hay con esa misma cedula
-
-2
-para que se auto complete (en el textfield solo habra 8 digitos para poner), una vez se cuenta completamente toda la cedula, si encuentra en la base de datos a un cliente con esa cedula, tomara los nombres y los datos y los insertara automaticamente

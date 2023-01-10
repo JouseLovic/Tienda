@@ -4,6 +4,7 @@ import Controlador.ControllerNewProduct;
 import java.awt.*;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 
 public class PanelNuevoProducto extends javax.swing.JPanel {
@@ -47,8 +48,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             labelCantidad = new javax.swing.JLabel();
             labelEdadDirigida = new javax.swing.JLabel();
             botonLimpiaCampos = new javax.swing.JButton();
-            jScrollPane1 = new javax.swing.JScrollPane();
-            tablaNProductos = new javax.swing.JTable();
             campoSexo = new javax.swing.JTextField();
             labelSexo = new javax.swing.JLabel();
             labelNombreEmpresa = new javax.swing.JLabel();
@@ -68,10 +67,12 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             filtroDesc = new javax.swing.JRadioButton();
             filtroSeccion = new javax.swing.JRadioButton();
             filtroMarca = new javax.swing.JRadioButton();
+            jScrollPane2 = new javax.swing.JScrollPane();
+            tablaNProductos = new javax.swing.JTable();
 
             setLayout(new java.awt.BorderLayout());
 
-            containerComponents.setBackground(new java.awt.Color(255, 255, 255));
+            containerComponents.setBackground(new java.awt.Color(252, 252, 252));
             containerComponents.addMouseListener(new java.awt.event.MouseAdapter() {
                   public void mouseClicked(java.awt.event.MouseEvent evt) {
                         containerComponentsMouseClicked(evt);
@@ -80,45 +81,50 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         containerComponentsMouseEntered(evt);
                   }
             });
-            containerComponents.setLayout(null);
+            containerComponents.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
             labelId.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelId.setForeground(new java.awt.Color(0, 0, 0));
             labelId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelId.setText("Id");
-            containerComponents.add(labelId);
-            labelId.setBounds(30, 80, 210, 30);
+            containerComponents.add(labelId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 210, 30));
 
             labelDesc.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelDesc.setForeground(new java.awt.Color(0, 0, 0));
             labelDesc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelDesc.setText("Descripción");
-            containerComponents.add(labelDesc);
-            labelDesc.setBounds(380, 80, 140, 30);
+            containerComponents.add(labelDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 140, 30));
 
             labelTalla.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelTalla.setForeground(new java.awt.Color(0, 0, 0));
             labelTalla.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelTalla.setText("Talla");
-            containerComponents.add(labelTalla);
-            labelTalla.setBounds(690, 80, 60, 22);
+            containerComponents.add(labelTalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 60, -1));
 
+            campoId.setHorizontalAlignment(javax.swing.JTextField.CENTER);
             campoId.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyReleased(java.awt.event.KeyEvent evt) {
                         campoIdKeyReleased(evt);
                   }
             });
-            containerComponents.add(campoId);
-            campoId.setBounds(70, 120, 140, 40);
-            containerComponents.add(campoDesc);
-            campoDesc.setBounds(310, 120, 270, 40);
-            containerComponents.add(campoTalla);
-            campoTalla.setBounds(640, 120, 160, 40);
-            containerComponents.add(campoMarca);
-            campoMarca.setBounds(70, 230, 150, 40);
-            containerComponents.add(campoSeccion);
-            campoSeccion.setBounds(300, 230, 200, 40);
+            containerComponents.add(campoId, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 140, 40));
 
+            campoDesc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            containerComponents.add(campoDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 270, 40));
+
+            campoTalla.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            containerComponents.add(campoTalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 120, 160, 40));
+
+            campoMarca.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            containerComponents.add(campoMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 150, 40));
+
+            campoSeccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            containerComponents.add(campoSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 200, 40));
+
+            campoPrecio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            campoPrecio.setDoubleBuffered(true);
+            campoPrecio.setDragEnabled(true);
+            campoPrecio.setOpaque(true);
             campoPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyReleased(java.awt.event.KeyEvent evt) {
                         campoPrecioKeyReleased(evt);
@@ -127,11 +133,12 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         campoPrecioKeyTyped(evt);
                   }
             });
-            containerComponents.add(campoPrecio);
-            campoPrecio.setBounds(860, 120, 160, 40);
-            containerComponents.add(campoEdadDirigida);
-            campoEdadDirigida.setBounds(340, 340, 140, 40);
+            containerComponents.add(campoPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 120, 160, 40));
 
+            campoEdadDirigida.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            containerComponents.add(campoEdadDirigida, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 140, 40));
+
+            campoCantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
             campoCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyReleased(java.awt.event.KeyEvent evt) {
                         campoCantidadKeyReleased(evt);
@@ -140,43 +147,37 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         campoCantidadKeyTyped(evt);
                   }
             });
-            containerComponents.add(campoCantidad);
-            campoCantidad.setBounds(70, 340, 180, 40);
+            containerComponents.add(campoCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 180, 40));
 
             labelPrecio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelPrecio.setForeground(new java.awt.Color(0, 0, 0));
             labelPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelPrecio.setText("Precio");
-            containerComponents.add(labelPrecio);
-            labelPrecio.setBounds(790, 80, 280, 30);
+            containerComponents.add(labelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 80, 280, 30));
 
             labelSeccion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelSeccion.setForeground(new java.awt.Color(0, 0, 0));
             labelSeccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelSeccion.setText("Seccion del producto");
-            containerComponents.add(labelSeccion);
-            labelSeccion.setBounds(290, 190, 200, 30);
+            containerComponents.add(labelSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 200, 30));
 
             labelMarca.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelMarca.setForeground(new java.awt.Color(0, 0, 0));
             labelMarca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelMarca.setText("Marca");
-            containerComponents.add(labelMarca);
-            labelMarca.setBounds(80, 190, 110, 30);
+            containerComponents.add(labelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 110, 30));
 
             labelCantidad.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelCantidad.setForeground(new java.awt.Color(0, 0, 0));
             labelCantidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelCantidad.setText("Cantidad ");
-            containerComponents.add(labelCantidad);
-            labelCantidad.setBounds(0, 300, 320, 30);
+            containerComponents.add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 320, 30));
 
             labelEdadDirigida.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelEdadDirigida.setForeground(new java.awt.Color(0, 0, 0));
             labelEdadDirigida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelEdadDirigida.setText("Edad a la que esta dirigida");
-            containerComponents.add(labelEdadDirigida);
-            labelEdadDirigida.setBounds(300, 300, 230, 30);
+            containerComponents.add(labelEdadDirigida, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 230, 30));
 
             botonLimpiaCampos.setText("Limpiar campos");
             botonLimpiaCampos.addActionListener(new java.awt.event.ActionListener() {
@@ -184,76 +185,22 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         botonLimpiaCamposActionPerformed(evt);
                   }
             });
-            containerComponents.add(botonLimpiaCampos);
-            botonLimpiaCampos.setBounds(720, 430, 180, 40);
+            containerComponents.add(botonLimpiaCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 430, 180, 40));
 
-            jScrollPane1.setRequestFocusEnabled(false);
-
-            tablaNProductos = new javax.swing.JTable(){
-
-                  public boolean isCellEditable(int rowIndex, int columnIndex){
-                        return false;
-                  }
-            };
-            tablaNProductos.setModel(new javax.swing.table.DefaultTableModel(
-                  new Object [][] {
-
-                  },
-                  new String [] {
-                        "id", "Descripcion", "Talla", "Marca", "Seccion", "Precio", "Edad dirigida", "Cantidad", "Sexo", "Id del proveedor", "Producto vendido"
-                  }
-            ) {
-                  boolean[] canEdit = new boolean [] {
-                        false, false, false, false, false, false, false, false, false, false, false
-                  };
-
-                  public boolean isCellEditable(int rowIndex, int columnIndex) {
-                        return canEdit [columnIndex];
-                  }
-            });
-            tablaNProductos.setColumnSelectionAllowed(true);
-            tablaNProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            tablaNProductos.setShowGrid(true);
-            tablaNProductos.getTableHeader().setReorderingAllowed(false);
-            tablaNProductos.addMouseListener(new java.awt.event.MouseAdapter() {
-                  public void mouseReleased(java.awt.event.MouseEvent evt) {
-                        tablaNProductosMouseReleased(evt);
-                  }
-            });
-            tablaNProductos.addKeyListener(new java.awt.event.KeyAdapter() {
-                  public void keyPressed(java.awt.event.KeyEvent evt) {
-                        tablaNProductosKeyPressed(evt);
-                  }
-                  public void keyReleased(java.awt.event.KeyEvent evt) {
-                        tablaNProductosKeyReleased(evt);
-                  }
-            });
-            jScrollPane1.setViewportView(tablaNProductos);
-            tablaNProductos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-            if (tablaNProductos.getColumnModel().getColumnCount() > 0) {
-                  tablaNProductos.getColumnModel().getColumn(0).setMinWidth(30);
-                  tablaNProductos.getColumnModel().getColumn(0).setPreferredWidth(40);
-                  tablaNProductos.getColumnModel().getColumn(0).setMaxWidth(50);
-            }
-
-            containerComponents.add(jScrollPane1);
-            jScrollPane1.setBounds(20, 490, 1230, 420);
-            containerComponents.add(campoSexo);
-            campoSexo.setBounds(570, 230, 80, 40);
+            campoSexo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            containerComponents.add(campoSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 80, 40));
 
             labelSexo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelSexo.setForeground(new java.awt.Color(0, 0, 0));
             labelSexo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelSexo.setText("Sexo");
-            containerComponents.add(labelSexo);
-            labelSexo.setBounds(550, 190, 120, 30);
+            containerComponents.add(labelSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, 120, 30));
 
             labelNombreEmpresa.setFont(new java.awt.Font("Baskerville Old Face", 0, 30)); // NOI18N
             labelNombreEmpresa.setForeground(new java.awt.Color(0, 0, 0));
             labelNombreEmpresa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelNombreEmpresa.setText("Gestion de inventario");
-            containerComponents.add(labelNombreEmpresa);
-            labelNombreEmpresa.setBounds(10, 10, 290, 70);
+            containerComponents.add(labelNombreEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 290, 70));
 
             botonEliminar.setText("Eliminar");
             botonEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -261,8 +208,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         botonEliminarActionPerformed(evt);
                   }
             });
-            containerComponents.add(botonEliminar);
-            botonEliminar.setBounds(90, 430, 170, 40);
+            containerComponents.add(botonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 170, 40));
 
             botonActualiza.setText("Actualizar");
             botonActualiza.addActionListener(new java.awt.event.ActionListener() {
@@ -270,8 +216,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         botonActualizaActionPerformed(evt);
                   }
             });
-            containerComponents.add(botonActualiza);
-            botonActualiza.setBounds(400, 430, 180, 40);
+            containerComponents.add(botonActualiza, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 180, 40));
 
             botonLlave.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
             botonLlave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/llaveDesactivada.png"))); // NOI18N
@@ -288,17 +233,16 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         botonLlaveActionPerformed(evt);
                   }
             });
-            containerComponents.add(botonLlave);
-            botonLlave.setBounds(210, 110, 60, 60);
-            containerComponents.add(campoVendido);
-            campoVendido.setBounds(560, 340, 180, 40);
+            containerComponents.add(botonLlave, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 60, 60));
+
+            campoVendido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            containerComponents.add(campoVendido, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 340, 180, 40));
 
             labelVendido.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelVendido.setForeground(new java.awt.Color(0, 0, 0));
             labelVendido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelVendido.setText("Producto vendido");
-            containerComponents.add(labelVendido);
-            labelVendido.setBounds(540, 300, 220, 30);
+            containerComponents.add(labelVendido, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 220, 30));
 
             botonConfirma.setText("Confirmar productos vendido");
             botonConfirma.addActionListener(new java.awt.event.ActionListener() {
@@ -306,19 +250,17 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         botonConfirmaActionPerformed(evt);
                   }
             });
-            containerComponents.add(botonConfirma);
-            botonConfirma.setBounds(820, 20, 200, 40);
+            containerComponents.add(botonConfirma, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 20, 200, 40));
 
             labelIdProveedor.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelIdProveedor.setForeground(new java.awt.Color(0, 0, 0));
             labelIdProveedor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelIdProveedor.setText("Id del proveedor");
-            containerComponents.add(labelIdProveedor);
-            labelIdProveedor.setBounds(740, 190, 170, 30);
+            containerComponents.add(labelIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, 170, 30));
 
             campoIdProveedor.setEditable(false);
-            containerComponents.add(campoIdProveedor);
-            campoIdProveedor.setBounds(720, 230, 230, 40);
+            campoIdProveedor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            containerComponents.add(campoIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 230, 230, 40));
 
             campoBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -328,21 +270,18 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         campoBuscarKeyTyped(evt);
                   }
             });
-            containerComponents.add(campoBuscar);
-            campoBuscar.setBounds(470, 20, 310, 40);
+            containerComponents.add(campoBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 390, 40));
 
             jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel1.setForeground(new java.awt.Color(0, 0, 0));
             jLabel1.setText("Buscar producto:");
-            containerComponents.add(jLabel1);
-            jLabel1.setBounds(320, 20, 150, 40);
+            containerComponents.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 150, 40));
 
             jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel2.setForeground(new java.awt.Color(0, 0, 0));
             jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel2.setText("Ordernar por: ");
-            containerComponents.add(jLabel2);
-            jLabel2.setBounds(770, 340, 140, 40);
+            containerComponents.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 340, 140, 50));
 
             botonCrear.setText("Subir producto");
             botonCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -350,8 +289,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         botonCrearActionPerformed(evt);
                   }
             });
-            containerComponents.add(botonCrear);
-            botonCrear.setBounds(1060, 430, 160, 40);
+            containerComponents.add(botonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 430, 160, 40));
 
             filtroId.setBackground(new java.awt.Color(255, 255, 255));
             grupo.add(filtroId);
@@ -362,8 +300,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         filtroIdActionPerformed(evt);
                   }
             });
-            containerComponents.add(filtroId);
-            filtroId.setBounds(920, 340, 50, 20);
+            containerComponents.add(filtroId, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 340, 50, 20));
 
             filtroDesc.setBackground(new java.awt.Color(255, 255, 255));
             grupo.add(filtroDesc);
@@ -373,8 +310,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         filtroDescActionPerformed(evt);
                   }
             });
-            containerComponents.add(filtroDesc);
-            filtroDesc.setBounds(1010, 340, 150, 21);
+            containerComponents.add(filtroDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 340, 150, -1));
 
             filtroSeccion.setBackground(new java.awt.Color(255, 255, 255));
             grupo.add(filtroSeccion);
@@ -384,8 +320,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         filtroSeccionActionPerformed(evt);
                   }
             });
-            containerComponents.add(filtroSeccion);
-            filtroSeccion.setBounds(920, 370, 90, 21);
+            containerComponents.add(filtroSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 370, 90, -1));
 
             filtroMarca.setBackground(new java.awt.Color(255, 255, 255));
             grupo.add(filtroMarca);
@@ -395,8 +330,48 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         filtroMarcaActionPerformed(evt);
                   }
             });
-            containerComponents.add(filtroMarca);
-            filtroMarca.setBounds(1010, 370, 90, 21);
+            containerComponents.add(filtroMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 370, 90, -1));
+
+            tablaNProductos = new javax.swing.JTable(){
+
+                  public boolean isCellEditable(int rowIndex, int columnIndex){
+                        return false;
+                  }
+
+            };
+            tablaNProductos.setModel(new javax.swing.table.DefaultTableModel(
+                  new Object [][] {
+
+                  },
+                  new String [] {
+                        "Id", "Descripcion", "Talla", "Marca", "Seccion", "Precio", "Edad Dirigidida", "Cantidad", "Sexo", "Id del proveedor", "Vendido"
+                  }
+            ) {
+                  boolean[] canEdit = new boolean [] {
+                        false, false, false, false, false, false, false, false, false, false, false
+                  };
+
+                  public boolean isCellEditable(int rowIndex, int columnIndex) {
+                        return canEdit [columnIndex];
+                  }
+            });
+            tablaNProductos.setGridColor(new java.awt.Color(255, 255, 255));
+            tablaNProductos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+            tablaNProductos.getTableHeader().setResizingAllowed(false);
+            tablaNProductos.getTableHeader().setReorderingAllowed(false);
+            tablaNProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+                  public void mouseReleased(java.awt.event.MouseEvent evt) {
+                        tablaNProductosMouseReleased(evt);
+                  }
+            });
+            tablaNProductos.addKeyListener(new java.awt.event.KeyAdapter() {
+                  public void keyReleased(java.awt.event.KeyEvent evt) {
+                        tablaNProductosKeyReleased(evt);
+                  }
+            });
+            jScrollPane2.setViewportView(tablaNProductos);
+
+            containerComponents.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 1230, 470));
 
             add(containerComponents, java.awt.BorderLayout.CENTER);
       }// </editor-fold>//GEN-END:initComponents
@@ -730,7 +705,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
       private javax.swing.ButtonGroup grupo;
       private javax.swing.JLabel jLabel1;
       private javax.swing.JLabel jLabel2;
-      private javax.swing.JScrollPane jScrollPane1;
+      private javax.swing.JScrollPane jScrollPane2;
       private javax.swing.JLabel labelCantidad;
       private javax.swing.JLabel labelDesc;
       private javax.swing.JLabel labelEdadDirigida;
