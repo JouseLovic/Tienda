@@ -59,6 +59,9 @@ public class FormularioNCliente extends javax.swing.JDialog {
             jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel2.setText("Registro rápido de clientes");
             jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 280, 40));
+
+            jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+            jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
             jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 540, 10));
             jPanel1.add(campoCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 170, 30));
             jPanel1.add(campoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 170, 30));

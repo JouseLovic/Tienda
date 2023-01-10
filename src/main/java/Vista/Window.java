@@ -50,10 +50,10 @@ public class Window extends JFrame {
     private void Menu(){
 
         menu = new JMenuBar(); paginaInicial = new JMenu("Inicio");
-        Producto = new JMenu("Inventario"); entrada = new JMenu("Entradas"); salida = new JMenu("Salidas"); Registro = new JMenu("Registros");
+        Producto = new JMenu("Inventario"); entrada = new JMenu("Entradas"); salida = new JMenu("Salidas"); Registro = new JMenu("Registrar");
         CRUD = new JMenuItem("Gestion del inventario");
         entradaProducto = new JMenuItem("Entrada de productos"); salidaProductos = new JMenuItem("Salida de productos");
-        RegistroFacturaE = new JMenuItem("Registrar factura de entrada"); RegistroProveedor = new JMenuItem("Registrar proveedor"); 
+        RegistroFacturaE = new JMenuItem("Factura de entrada"); RegistroProveedor = new JMenuItem("Proveedor"); 
         atras = new JMenuItem("Volver al inicio");
 
         menu.add(paginaInicial); menu.add(Producto); menu.add(entrada); menu.add(salida); menu.add(Registro);

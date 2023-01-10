@@ -4,6 +4,8 @@ package DAO;
 import Modelo.*;
 import java.sql.*;
 import java.util.ArrayList;
+
+import javax.security.auth.callback.TextOutputCallback;
 import javax.swing.JOptionPane;
 
 public class nProductoDao {
@@ -151,29 +153,29 @@ public class nProductoDao {
     Connection conexion = db.dameConexion();
     CallableStatement resta = null;
 
-    try {
+        try {
       
-      conexion.setAutoCommit(false);
+          conexion.setAutoCommit(false);
 
-      resta = conexion.prepareCall("{call restarCantidadProducto(?,?)}");
+          resta = conexion.prepareCall("{call restarCantidadProducto(?,?)}");
 
-      resta.setString(1, idProducto);
-      resta.setInt(2, cantidad);
+          resta.setString(1, idProducto);
+          resta.setInt(2, cantidad);
 
-      resta.executeQuery();
+          resta.executeQuery();
 
-      conexion.commit();
-      resta.close();
-      db.cierraConexion(conexion);
-    } catch (Exception e) {
-         e.printStackTrace();
-            try {
-              conexion.rollback();
-            } catch (SQLException e1) {
-               e1.printStackTrace();
-            }
-    }
-}
+          conexion.commit();
+          resta.close();
+          db.cierraConexion(conexion);
+        } catch (Exception e) {
+            e.printStackTrace();
+              try {
+                  conexion.rollback();
+              } catch (SQLException e1) {
+                    e1.printStackTrace();
+              }
+        }
+  }
 
     public void eliminar(String id){
           db = new DB();
@@ -232,7 +234,7 @@ public class nProductoDao {
         return listaEspecifica;
      }
 
-     public ArrayList<Producto> mostrarSeleccionDesc(){
+     public ArrayList<Producto> mostrarSeleccionDesc(String texto){
             db = new DB();
       Connection conecta = db.dameConexion();
       ArrayList<Producto> listaEspecifica = new ArrayList<>();
@@ -241,7 +243,12 @@ public class nProductoDao {
 
         try{
             ps = conecta.createStatement();
-            rs = ps.executeQuery("Select * from productos_generales order by descripcion");
+            if(!texto.equals("")){
+              rs = ps.executeQuery("Select * from productos_generales where descripcion like'%"+texto+"%'");
+            }
+            else if(texto.equals("")){
+              rs = ps.executeQuery("Select * from productos_generales order by descripcion");
+            }
   
               while(rs.next()){
                  
@@ -271,7 +278,7 @@ public class nProductoDao {
    }
 
 
-   public ArrayList<Producto> mostrarSeleccionSeccion(){
+   public ArrayList<Producto> mostrarSeleccionSeccion(String texto){
       db = new DB();
     Connection conecta = db.dameConexion();
     ArrayList<Producto> listaEspecifica = new ArrayList<>();
@@ -280,7 +287,13 @@ public class nProductoDao {
 
       try{
           ps = conecta.createStatement();
-          rs = ps.executeQuery("Select * from productos_generales order by seccion");
+          if(!texto.equals("")){
+            rs = ps.executeQuery("Select * from productos_generales where seccion like'%"+texto+"%'");
+          }
+          else if(texto.equals("")){
+            rs = ps.executeQuery("Select * from productos_generales order by seccion");
+          }
+      
 
             while(rs.next()){
                
@@ -309,7 +322,7 @@ public class nProductoDao {
     return listaEspecifica;
  }
 
-      public ArrayList<Producto> mostrarSeleccionMarca(){
+      public ArrayList<Producto> mostrarSeleccionMarca(String texto){
       db = new DB();
             Connection conecta = db.dameConexion();
             ArrayList<Producto> listaEspecifica = new ArrayList<>();
@@ -318,7 +331,12 @@ public class nProductoDao {
 
                   try{
                         ps = conecta.createStatement();
-                        rs = ps.executeQuery("Select * from productos_generales order by marca");
+                        if(!texto.equals("")){
+                          rs = ps.executeQuery("Select * from productos_generales where marca like'%"+texto+"%'");
+                        }
+                        else if(texto.equals("")){
+                          rs = ps.executeQuery("Select * from productos_generales order by marca");
+                        }
 
                               while(rs.next()){
              
@@ -347,43 +365,49 @@ public class nProductoDao {
       return listaEspecifica;
       }
 
-public ArrayList<Producto> mostrarSeleccionId(){
-      db = new DB();
-  Connection conecta = db.dameConexion();
-  ArrayList<Producto> listaEspecifica = new ArrayList<>();
-  Statement ps = null;
-  ResultSet rs = null;
+    public ArrayList<Producto> mostrarSeleccionId(String texto){
+        db = new DB();
+        Connection conecta = db.dameConexion();
+        ArrayList<Producto> listaEspecifica = new ArrayList<>();
+        Statement ps = null;
+        ResultSet rs = null;
 
-    try{
-        ps = conecta.createStatement();
-        rs = ps.executeQuery("Select * from productos_generales order by id asc");
+            try{
+                ps = conecta.createStatement();
+                if(!texto.equals("")){
+                  rs = ps.executeQuery("Select * from productos_generales where id like'%"+texto+"%'");
+                }
+                else if(texto.equals("")){
+                  rs = ps.executeQuery("Select * from productos_generales order by id asc");
+                }
+  
 
-          while(rs.next()){
+                  while(rs.next()){
              
-              String id = rs.getString(1);
-              String Descripcion = rs.getString(2);
-              String talla = rs.getString(3);
-              String marca = rs.getString(4);
-              String seccion = rs.getString(5);
-              Double precio = rs.getDouble(6);
-              String edadDirigida = rs.getString(7);
-              int cantidad = rs.getInt(8);
-              String sexo = rs.getString(9);
-              String idProveedor = rs.getString(10);
-              String vendido = rs.getString(11);
+                    String id = rs.getString(1);
+                    String Descripcion = rs.getString(2);
+                    String talla = rs.getString(3);
+                    String marca = rs.getString(4);
+                    String seccion = rs.getString(5);
+                    Double precio = rs.getDouble(6);
+                    String edadDirigida = rs.getString(7);
+                    int cantidad = rs.getInt(8);
+                    String sexo = rs.getString(9);
+                    String idProveedor = rs.getString(10);
+                    String vendido = rs.getString(11);
           
-               Producto producto = new Producto(id, Descripcion, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
-               listaEspecifica.add(producto);
-             }
-             rs.close();
-         db.cierraConexion(conecta);
-    }catch(SQLException ex){
-      JOptionPane.showMessageDialog(null, "La operacion mostrar ha fallado por: "+ex.getMessage());
-            db.cierraConexion(conecta);
-          return null;
-    }
-  return listaEspecifica;
-}
+                      Producto producto = new Producto(id, Descripcion, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
+                      listaEspecifica.add(producto);
+                }
+              rs.close();
+              db.cierraConexion(conecta);
+          }catch(SQLException ex){
+              JOptionPane.showMessageDialog(null, "La operacion mostrar ha fallado por: "+ex.getMessage());
+              db.cierraConexion(conecta);
+              return null;
+          }
+    return listaEspecifica;
+  }
 
       
 }
