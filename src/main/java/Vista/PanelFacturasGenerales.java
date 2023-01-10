@@ -18,11 +18,11 @@ public class PanelFacturasGenerales extends javax.swing.JFrame {
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                   layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                  .addGap(0, 827, Short.MAX_VALUE)
+                  .addGap(0, 931, Short.MAX_VALUE)
             );
             layout.setVerticalGroup(
                   layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                  .addGap(0, 673, Short.MAX_VALUE)
+                  .addGap(0, 780, Short.MAX_VALUE)
             );
 
             pack();

@@ -4,7 +4,6 @@ import Controlador.ControllerNewProduct;
 import java.awt.*;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 
 
 public class PanelNuevoProducto extends javax.swing.JPanel {
@@ -20,6 +19,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           seleccionFiltrada = filtroId.getText();
           ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, "");
           campoBuscar.setText(null);
+          setEditableProveedor(false);
           botonActualiza.setEnabled(false);
           botonConfirma.setEnabled(false); 
      }
@@ -69,6 +69,17 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             filtroMarca = new javax.swing.JRadioButton();
             jScrollPane2 = new javax.swing.JScrollPane();
             tablaNProductos = new javax.swing.JTable();
+            jSeparator1 = new javax.swing.JSeparator();
+            jSeparator2 = new javax.swing.JSeparator();
+            jSeparator3 = new javax.swing.JSeparator();
+            jSeparator4 = new javax.swing.JSeparator();
+            jSeparator5 = new javax.swing.JSeparator();
+            jSeparator6 = new javax.swing.JSeparator();
+            jSeparator7 = new javax.swing.JSeparator();
+            jSeparator8 = new javax.swing.JSeparator();
+            jSeparator9 = new javax.swing.JSeparator();
+            jSeparator10 = new javax.swing.JSeparator();
+            jSeparator11 = new javax.swing.JSeparator();
 
             setLayout(new java.awt.BorderLayout());
 
@@ -101,7 +112,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             labelTalla.setText("Talla");
             containerComponents.add(labelTalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 60, -1));
 
-            campoId.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            campoId.setBorder(null);
             campoId.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyReleased(java.awt.event.KeyEvent evt) {
                         campoIdKeyReleased(evt);
@@ -109,19 +120,19 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             });
             containerComponents.add(campoId, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 140, 40));
 
-            campoDesc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            campoDesc.setBorder(null);
             containerComponents.add(campoDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 270, 40));
 
-            campoTalla.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            campoTalla.setBorder(null);
             containerComponents.add(campoTalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 120, 160, 40));
 
-            campoMarca.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            campoMarca.setBorder(null);
             containerComponents.add(campoMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 150, 40));
 
-            campoSeccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            campoSeccion.setBorder(null);
             containerComponents.add(campoSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 200, 40));
 
-            campoPrecio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            campoPrecio.setBorder(null);
             campoPrecio.setDoubleBuffered(true);
             campoPrecio.setDragEnabled(true);
             campoPrecio.setOpaque(true);
@@ -135,10 +146,10 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             });
             containerComponents.add(campoPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 120, 160, 40));
 
-            campoEdadDirigida.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            campoEdadDirigida.setBorder(null);
             containerComponents.add(campoEdadDirigida, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 140, 40));
 
-            campoCantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            campoCantidad.setBorder(null);
             campoCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyReleased(java.awt.event.KeyEvent evt) {
                         campoCantidadKeyReleased(evt);
@@ -187,7 +198,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             });
             containerComponents.add(botonLimpiaCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 430, 180, 40));
 
-            campoSexo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            campoSexo.setBorder(null);
             containerComponents.add(campoSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 80, 40));
 
             labelSexo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -235,7 +246,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             });
             containerComponents.add(botonLlave, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 60, 60));
 
-            campoVendido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            campoVendido.setBorder(null);
             containerComponents.add(campoVendido, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 340, 180, 40));
 
             labelVendido.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -258,8 +269,8 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             labelIdProveedor.setText("Id del proveedor");
             containerComponents.add(labelIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, 170, 30));
 
-            campoIdProveedor.setEditable(false);
-            campoIdProveedor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            campoIdProveedor.setText("Ninguno");
+            campoIdProveedor.setBorder(null);
             containerComponents.add(campoIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 230, 230, 40));
 
             campoBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -360,11 +371,17 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             tablaNProductos.getTableHeader().setResizingAllowed(false);
             tablaNProductos.getTableHeader().setReorderingAllowed(false);
             tablaNProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+                  public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        tablaNProductosMouseClicked(evt);
+                  }
                   public void mouseReleased(java.awt.event.MouseEvent evt) {
                         tablaNProductosMouseReleased(evt);
                   }
             });
             tablaNProductos.addKeyListener(new java.awt.event.KeyAdapter() {
+                  public void keyPressed(java.awt.event.KeyEvent evt) {
+                        tablaNProductosKeyPressed(evt);
+                  }
                   public void keyReleased(java.awt.event.KeyEvent evt) {
                         tablaNProductosKeyReleased(evt);
                   }
@@ -373,12 +390,56 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
 
             containerComponents.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 1230, 470));
 
+            jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+            jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+            containerComponents.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 160, 180, 20));
+
+            jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
+            jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+            containerComponents.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 270, 250, 20));
+
+            jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
+            jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
+            containerComponents.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 290, 20));
+
+            jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
+            jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
+            containerComponents.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 160, 180, 20));
+
+            jSeparator5.setBackground(new java.awt.Color(255, 255, 255));
+            jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
+            containerComponents.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 160, 20));
+
+            jSeparator6.setBackground(new java.awt.Color(255, 255, 255));
+            jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
+            containerComponents.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 160, 20));
+
+            jSeparator7.setBackground(new java.awt.Color(255, 255, 255));
+            jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
+            containerComponents.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, 100, 20));
+
+            jSeparator8.setBackground(new java.awt.Color(255, 255, 255));
+            jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
+            containerComponents.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 170, 20));
+
+            jSeparator9.setBackground(new java.awt.Color(255, 255, 255));
+            jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
+            containerComponents.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 200, 20));
+
+            jSeparator10.setBackground(new java.awt.Color(255, 255, 255));
+            jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
+            containerComponents.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 200, 20));
+
+            jSeparator11.setBackground(new java.awt.Color(255, 255, 255));
+            jSeparator11.setForeground(new java.awt.Color(0, 0, 0));
+            containerComponents.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 220, 20));
+
             add(containerComponents, java.awt.BorderLayout.CENTER);
       }// </editor-fold>//GEN-END:initComponents
 
      private void botonLimpiaCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiaCamposActionPerformed
          ControllerNewProduct.borrarCampos(this);
-         campoIdProveedor.setEditable(false);
+         setEditableProveedor(false);
          botonCrear.setEnabled(true);
          new ControllerNewProduct().paraBotonLimpiar(tablaNProductos, this);
      }//GEN-LAST:event_botonLimpiaCamposActionPerformed
@@ -386,7 +447,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
      private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
           ControllerNewProduct.eliminar(tablaNProductos, this);
           ControllerNewProduct.borrarCampos(this);
-          campoIdProveedor.setEditable(false);
+          setEditableProveedor(false);
           botonCrear.setEnabled(true);
           ControllerNewProduct.paraBotonEliminar(tablaNProductos, this);
      }//GEN-LAST:event_botonEliminarActionPerformed
@@ -395,12 +456,13 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           ControllerNewProduct.actualizarProducto(this);
           ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText());
           new ControllerNewProduct().paraBotonActualizar(tablaNProductos, this);
+          setEditableProveedor(false);
           botonCrear.setEnabled(true);
      }//GEN-LAST:event_botonActualizaActionPerformed
 
      private void tablaNProductosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaNProductosMouseReleased
           new ControllerNewProduct().filaSeleccionada(tablaNProductos, this);
-          campoIdProveedor.setEditable(true);
+          setEditableProveedor(true);
           botonCrear.setEnabled(false);
           ControllerNewProduct.mandaDatosCampos(tablaNProductos, this);
      }//GEN-LAST:event_tablaNProductosMouseReleased
@@ -428,14 +490,14 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
          ControllerNewProduct.confirmar(this);
          ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText());
          tablaNProductos.setSelectionMode(0);
-         campoIdProveedor.setEditable(false);
+         setEditableProveedor(false);
          botonCrear.setEnabled(true);
          botonConfirma.setEnabled(false);
      }//GEN-LAST:event_botonConfirmaActionPerformed
 
      private void tablaNProductosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaNProductosKeyReleased
           new ControllerNewProduct().filaSeleccionada(tablaNProductos, this);
-          campoIdProveedor.setEditable(true);
+          setEditableProveedor(true);
           botonCrear.setEnabled(false);
           ControllerNewProduct.mandaDatosCampos(tablaNProductos, this);
      }//GEN-LAST:event_tablaNProductosKeyReleased
@@ -482,7 +544,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
       }//GEN-LAST:event_botonCrearActionPerformed
 
       private void tablaNProductosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaNProductosKeyPressed
-            ControllerNewProduct.mandaDatosCampos(tablaNProductos, this);
+        ControllerNewProduct.mandaDatosCampos(tablaNProductos, this);
       }//GEN-LAST:event_tablaNProductosKeyPressed
 
       private void filtroIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtroIdActionPerformed
@@ -504,6 +566,10 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             seleccionFiltrada = filtroMarca.getText();
             ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText());   
       }//GEN-LAST:event_filtroMarcaActionPerformed
+
+      private void tablaNProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaNProductosMouseClicked
+            // TODO add your handling code here:
+      }//GEN-LAST:event_tablaNProductosMouseClicked
 
      public String getCampoIdProveedor() {
           return campoIdProveedor.getText();
@@ -630,6 +696,22 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
 
      public void setEditableId(boolean act) {
           campoId.setEditable(act);
+          campoId.setBackground(Color.WHITE);
+          campoId.setForeground(Color.BLACK);
+          if(act==false){
+             campoId.setForeground(Color.GRAY);
+          }
+     }
+     
+      public void setEditableProveedor(boolean act) {
+          campoIdProveedor.setEditable(act);
+          campoIdProveedor.setBackground(Color.WHITE);
+          campoIdProveedor.setForeground(Color.BLACK);
+          campoIdProveedor.setText(null);
+          if(!act){
+             campoIdProveedor.setForeground(Color.GRAY);
+             campoIdProveedor.setText("Ninguno");
+          }  
      }
 
      public String getCampoVendido() {
@@ -669,6 +751,14 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           }
      }
 
+     public void setColorCampoProveedorFore(Color color){
+          this.campoIdProveedor.setForeground(color);
+     }
+
+     public void setColorCampoProveedorBack(Color color){
+          this.campoIdProveedor.setBackground(color);
+     }
+
      public void setCampoBuscar(String texto) {
           this.campoBuscar.setText(texto);
      }
@@ -706,6 +796,17 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
       private javax.swing.JLabel jLabel1;
       private javax.swing.JLabel jLabel2;
       private javax.swing.JScrollPane jScrollPane2;
+      private javax.swing.JSeparator jSeparator1;
+      private javax.swing.JSeparator jSeparator10;
+      private javax.swing.JSeparator jSeparator11;
+      private javax.swing.JSeparator jSeparator2;
+      private javax.swing.JSeparator jSeparator3;
+      private javax.swing.JSeparator jSeparator4;
+      private javax.swing.JSeparator jSeparator5;
+      private javax.swing.JSeparator jSeparator6;
+      private javax.swing.JSeparator jSeparator7;
+      private javax.swing.JSeparator jSeparator8;
+      private javax.swing.JSeparator jSeparator9;
       private javax.swing.JLabel labelCantidad;
       private javax.swing.JLabel labelDesc;
       private javax.swing.JLabel labelEdadDirigida;

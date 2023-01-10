@@ -1,4 +1,3 @@
-
 package Controlador;
 
 import javax.swing.*;
@@ -8,6 +7,7 @@ import Vista_Formulario.*;
 import java.sql.*;
 import DAO.*;
 import java.util.*;
+import java.awt.Color;
 import java.awt.event.*;
 
 public class ControllerNewProduct {
@@ -94,7 +94,7 @@ public class ControllerNewProduct {
                String edadDirigida = productoN.getCampoEdadDirigida();
                int cantidad =  Integer.parseInt(productoN.getCampoCantidad());
                String sexo = productoN.getCampoSexo();
-               String idProveedor = "Ninguno";
+               String idProveedor = "";
                String vendido = productoN.getCampoVendido();
          
                     for(Producto productoCopia : listaComparativa){
@@ -383,6 +383,4 @@ public class ControllerNewProduct {
               a.consume();
           }  
       }
-
-
 }

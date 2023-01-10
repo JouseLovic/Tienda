@@ -9,10 +9,10 @@ public class FacturasEODao {
 
     private static DB db;
 
-    public ArrayList<Factura_entrada> mostrarFacturas(String nombre){
+    public ArrayList<FacturaSalida> mostrarFacturas(String nombre){
         db = new DB();
         Connection conecta = db.dameConexion();
-        ArrayList<Factura_entrada> listaEspecifica = new ArrayList<>();
+        ArrayList<FacturaSalida> listaEspecifica = new ArrayList<>();
         Statement ps = null;
         ResultSet rs = null;
 
@@ -29,11 +29,11 @@ public class FacturasEODao {
                   String fecha = rs.getString(2);
                   Double precio = rs.getDouble(3);
                   int cantidad = rs.getInt(4);
-                  String descripcion = rs.getString(5);
-                  String idProveedor = rs.getString(6);
+                  String idProducto = rs.getString(5);
+                  String cedulas = rs.getString(6);
             
-                  Factura_entrada factura_E = new Factura_entrada(idFactura, fecha, precio, cantidad, descripcion, idProveedor);
-                  listaEspecifica.add(factura_E);
+                  FacturaSalida factura_S = new FacturaSalida(idFactura, fecha, precio, cantidad, idProducto, cedulas);
+                  listaEspecifica.add(factura_S);
                 }
                 rs.close();
                 db.cierraConexion(conecta);
