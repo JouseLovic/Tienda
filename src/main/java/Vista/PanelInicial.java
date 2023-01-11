@@ -7,7 +7,8 @@ import javax.swing.ImageIcon;
 
 public class PanelInicial extends javax.swing.JPanel {
 
-     
+     private static boolean state = true;
+
      public PanelInicial() {
           initComponents();
      }
@@ -198,6 +199,14 @@ public class PanelInicial extends javax.swing.JPanel {
       
       public void setIconP(ImageIcon icono){
             this.labelProveedor.setIcon(icono);
+      }
+
+      public static boolean getState(){
+            return state;
+      }
+
+      public static void setState(boolean states){
+            state = states;
       }
       
       // Variables declaration - do not modify//GEN-BEGIN:variables

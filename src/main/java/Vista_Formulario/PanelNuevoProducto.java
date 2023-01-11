@@ -80,6 +80,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             jSeparator9 = new javax.swing.JSeparator();
             jSeparator10 = new javax.swing.JSeparator();
             jSeparator11 = new javax.swing.JSeparator();
+            jLabel3 = new javax.swing.JLabel();
 
             setLayout(new java.awt.BorderLayout());
 
@@ -434,6 +435,12 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             jSeparator11.setForeground(new java.awt.Color(0, 0, 0));
             containerComponents.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 220, 20));
 
+            jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+            jLabel3.setText("$");
+            containerComponents.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 20, 40));
+
             add(containerComponents, java.awt.BorderLayout.CENTER);
       }// </editor-fold>//GEN-END:initComponents
 
@@ -767,6 +774,16 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           return seleccionFiltrada;
      }
 
+     public void configDark(){
+          containerComponents.setBackground(new Color(47,47,47));
+          jSeparator1.setForeground(Color.WHITE); jSeparator2.setForeground(Color.WHITE);
+          jSeparator3.setForeground(Color.WHITE); jSeparator4.setForeground(Color.WHITE);
+          jSeparator5.setForeground(Color.WHITE); jSeparator6.setForeground(Color.WHITE);
+          jSeparator7.setForeground(Color.WHITE); jSeparator8.setForeground(Color.WHITE);
+          jSeparator9.setForeground(Color.WHITE); jSeparator10.setForeground(Color.WHITE);
+          jSeparator11.setForeground(Color.WHITE);
+     }
+
 
       // Variables declaration - do not modify//GEN-BEGIN:variables
       private javax.swing.JButton botonActualiza;
@@ -795,6 +812,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
       private javax.swing.ButtonGroup grupo;
       private javax.swing.JLabel jLabel1;
       private javax.swing.JLabel jLabel2;
+      private javax.swing.JLabel jLabel3;
       private javax.swing.JScrollPane jScrollPane2;
       private javax.swing.JSeparator jSeparator1;
       private javax.swing.JSeparator jSeparator10;
