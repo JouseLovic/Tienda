@@ -92,3 +92,30 @@ Y para que se mantenga actualizada, haz lo mismo con que el panel actualice la t
 16
 Para el modo oscuro de la app, lo que haremos es crear la opcion y que esta misma se lea cada inicio de la app (tal vez sea necesario crear un menu de carga), y que lo que lea, sea una unica linea que contenga "light" or "nocturne/black", con esto, una vez lo lea (a traves de un thread), pasara ciertos parametros (con un metodo global que recibe y manda absolutamente a todos los paneles los colores y claro, esto requiere de muchos set y get modificados)
 
+17
+Para que realmente cambie a modo oscuro es simple, toma el booleano de panelInicial, y dependiendo de si es Dark o Light pones un true o false. Y ya en el constructor de todos los paneles haces la comprobación y ya. Ya cuando vuelva a cambiarse de dark a light, solo es hacer que la persona reinicie la aplicación y ya todo como nuevo
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+18
+Intenta implementar el formato json aqui, no obstante, hecho a tu manera. Es "sencillo", mete en un array un hashmap con valores fijados por ti:
+
+EJEMPLO:  
+    clave  | valor
+[ {"theme": "dark"} ]
+
+lo que haremos siempre es leer el valor de ese hashmap. En cada seccion del array tendremos un hashmap con lo que necesitemos
+
+[ 
+{ "theme": "dark",
+  "fuente": "arial",
+  "tamaño de letra" : "22"}
+]
+
+para probar el funcionamiento usa el testing y cuantos metodos requieras para que se lea la informacion que necesites. Por el momento solo crear una carpeta en test donde contenga las clases que te permitiran ejecutar dichos metodos de serializacion y de los dao para el array
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+19
+Cuando hagas la ventana para visualizar la tabla cargada desde un archivo de excel, puedes dar 2 opciones. Importar, o salir de la vista. Si elige salir, pues se corta toda la tabla y se vuelve todo por defecto. Si la persona, le da a importar, pues tendra que elegir otras 2 opciones: sobreescribir los registros anteriores (se eliminaran todos los que haya en la base de datos y se crearan los que se tengan en la tabla), o añadir los datos que NO existen en la base de datos, sin eliminar los registros anteriores. Claro, esto hará que ejecute dos algoritmos distintos.

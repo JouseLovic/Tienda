@@ -28,5 +28,13 @@ public class AppTest
        
     }
 
+    @Test
+    public void shouldSaveMyMappingSetting(){
+
+
+
+
+    }
+
 
 }
