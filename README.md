@@ -39,4 +39,20 @@ In this project I use the MVC and the MYSQL database to be able to manage the da
 
 If you want to add your database and use it to test the project, I recommend doing so with phpMyAdmin, since that's what I used to create most of it.
 
+To add the database import in phpMyAdmin, first make sure you have XAMPP (or wampServer) installer and have Apache and MySQL server turned on. 
+
+Sample:
+
+  ![ezgif com-gif-maker](https://user-images.githubusercontent.com/114286961/212016315-24762572-aac7-4572-b334-21d60b98d0ce.gif)
+
+
+To add the database import in phpMyAdmin, first make sure you have XAMPP (or wampServer) installer and have Apache and MySQL server turned on
+
+Sample:
+
+
+  ![gifSQL](https://user-images.githubusercontent.com/114286961/212017470-525da89d-6d1d-4f11-bdff-74314c2acb9f.gif)
+
+
+
 
