@@ -1,32 +1,42 @@
-# Proyecto tienda de ropa
+# clothing store project
 
-Este es un proyecto que busca recrear un sistema de inventario. Se busca que el usuario tenga la comodidad de hacer agregados de productos sin necesidad 
-de hacer todo de forma manual. 
+This is a project that seeks to recreate an inventory system. It is sought that the user has the comfort of adding products without the need
+to do everything manually.
 
-# Cosas que se encuentran integradas en la version actual:
+# Things that are integrated in the current version:
 
--Posee manejo de salidas (que tiene en cuenta la modificaciones de las cantidades, y los cambios que se hacen en estas), que solo funciona con productos existentes.
+-It has output management (which takes into account the modifications of the quantities, and the changes that are made in these), which only works with existing products.
 
--Posee un buen manejo de entradas (que tiene en cuenta si un producto existe o no)
+-It has good input handling (which takes into account whether a product exists or not)
 
--Posee una creacion manual de nuevo productos por si no se necesita registrar una entrada
+-It has a manual creation of new products in case you do not need to register an entry
 
--Posee un registro de facturas, clientes y de proveedores
+-It has a record of invoices, customers and suppliers
 
--Posee las listas completas de todas las facturas en la base de datos, de los proveedores, y hasta de los clientes
+-It has a process of remembering the theme that we have chosen every time the App is started
 
-
-# Promesas:
-
--Una mejora de interfaz (mas intuitiva), y mucho mas atractiva
-
--Un sistema de reportaje de errores
-
--Un login
-
--Atajos de teclado que eviten estas pegado al mouse
+-It has complete lists of all invoices in the database, from suppliers, and even from customers
 
 
-En este proyecto uso el MVC y la base de datos MYSQL para poder manejar los datos y que se puedan hacer consultas de forma simple y fácil. La version actual en la que esta desarrollada es la de java 17 con el JDK de Eclipse Termurin
+# promises:
+
+-An interface improvement (more intuitive), and much more attractive
+
+-A bug reporting system
+
+-a login
+
+-settings
+
+-Load, overwrite, create and show excel tables
+
+-Keyboard shortcuts that avoid being glued to the mouse
+
+
+In this project I use the MVC and the MYSQL database to be able to manage the data and that queries can be made in a simple and easy way. The current version in which it is developed is Java 17 with the Eclipse Termurin JDK
+
+# Note:
+
+If you want to add your database and use it to test the project, I recommend doing so with phpMyAdmin, since that's what I used to create most of it.
 
 
