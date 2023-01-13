@@ -1,30 +1,33 @@
 package Settings;
 
 import java.io.*;
-import java.io.Serializable;
 
-public class LoadSetting implements Serializable{
+import javax.annotation.processing.SupportedOptions;
+
+public class LoadSetting {
     
-    private FileInputStream fileIn;
-    private ObjectInputStream objIn;
-    private Configuration settings;
+    String[] array = null;
+    private FileInputStream fileIn = null;
+    private ObjectInputStream objIn = null;
 
-    public String loadSetting(){
-          
-        settings = null;
-        String Sett = "";
+    public LoadSetting(){
+        array = new String[4];
+    }
+
+    public String[] loadSetting(){
+
         try{
           
-          fileIn = new FileInputStream("src\\main\\java\\Settings\\Configuration.dat");
+          fileIn = new FileInputStream("src\\main\\java\\Settings\\Config.dat");
           objIn = new ObjectInputStream(fileIn); 
           
                 while(fileIn.available() > 0){
-                    settings = (Configuration) objIn.readObject();
-                    Sett = settings.getSetting();
+                    array = (String[]) objIn.readObject();
+                    System.out.println("Array cargado");
+                    return array;
                 }
-          
-                    fileIn.close();
-                    objIn.close();
+                fileIn.close();
+                objIn.close();
         } catch (FileNotFoundException ex) {
             System.err.println(ex.getMessage());
         } catch (IOException ex) {
@@ -32,7 +35,6 @@ public class LoadSetting implements Serializable{
         } catch (ClassNotFoundException ex) {
            System.err.println(ex.getMessage());
         }
-        return Sett;
+        return array;
     }
-
 }

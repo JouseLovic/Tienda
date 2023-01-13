@@ -1,47 +1,29 @@
 package Settings;
 
 import java.io.*;
+import javax.swing.*;
 
-import javax.swing.JOptionPane;
+public class SaveSetting {
+    
+    private FileOutputStream fileOut;
+    private ObjectOutputStream objOut;
+    
 
-public class SaveSetting implements Serializable{
+        public void saveSetting(String[] array){
 
-        private String newTheme;
-        private FileOutputStream fileOut;
-        private ObjectOutputStream objOut;
-
-        public SaveSetting(String theme){
-            this.newTheme = theme;  
-        }
-
-        public String getSave(){
-            return newTheme;
-        }
-
-
-        public void saveSetting(){
-            
-            Configuration Setting = new Configuration(getSave());
-
-                if(Setting.getSetting()==null){
-                    JOptionPane.showMessageDialog(null, "La cadena esta vacia");
-                }
-                else{
-                    try {
-                        fileOut = new FileOutputStream(new File("src\\main\\java\\Settings\\Configuration.dat"));
-                        objOut = new ObjectOutputStream(fileOut);
+                try {
+                    fileOut = new FileOutputStream(new File("src\\main\\java\\Settings\\Config.dat"));
+                    objOut = new ObjectOutputStream(fileOut);
                    
-                        objOut.writeObject(Setting);
-                     
-                        System.out.println("Objeto guardado");
-                        fileOut.close();
-                        objOut.close();
-     
-                    } catch (FileNotFoundException ex) {
-                        System.err.println(ex.getMessage());
-                    } catch (IOException ex) {
-                        System.err.println(ex.getMessage());
-                    }
-            }
+                    objOut.writeObject(array);
+                        
+                    System.out.println("Array guardado");
+                    fileOut.close();
+                    objOut.close();
+                } catch (FileNotFoundException ex) {
+                    System.err.println(ex.getMessage());
+                } catch (IOException ex) {
+                    System.err.println(ex.getMessage());
+                }
         }
-    }
+}

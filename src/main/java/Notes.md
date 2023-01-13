@@ -96,26 +96,14 @@ Para el modo oscuro de la app, lo que haremos es crear la opcion y que esta mism
 Para que realmente cambie a modo oscuro es simple, toma el booleano de panelInicial, y dependiendo de si es Dark o Light pones un true o false. Y ya en el constructor de todos los paneles haces la comprobación y ya. Ya cuando vuelva a cambiarse de dark a light, solo es hacer que la persona reinicie la aplicación y ya todo como nuevo
 
 
-----------------------------------------------------------------------------------------------------------------------------------
-
-18
-Intenta implementar el formato json aqui, no obstante, hecho a tu manera. Es "sencillo", mete en un array un hashmap con valores fijados por ti:
-
-EJEMPLO:  
-    clave  | valor
-[ {"theme": "dark"} ]
-
-lo que haremos siempre es leer el valor de ese hashmap. En cada seccion del array tendremos un hashmap con lo que necesitemos
-
-[ 
-{ "theme": "dark",
-  "fuente": "arial",
-  "tamaño de letra" : "22"}
-]
-
-para probar el funcionamiento usa el testing y cuantos metodos requieras para que se lea la informacion que necesites. Por el momento solo crear una carpeta en test donde contenga las clases que te permitiran ejecutar dichos metodos de serializacion y de los dao para el array
-
-----------------------------------------------------------------------------------------------------------------------------------
 
 19
 Cuando hagas la ventana para visualizar la tabla cargada desde un archivo de excel, puedes dar 2 opciones. Importar, o salir de la vista. Si elige salir, pues se corta toda la tabla y se vuelve todo por defecto. Si la persona, le da a importar, pues tendra que elegir otras 2 opciones: sobreescribir los registros anteriores (se eliminaran todos los que haya en la base de datos y se crearan los que se tengan en la tabla), o añadir los datos que NO existen en la base de datos, sin eliminar los registros anteriores. Claro, esto hará que ejecute dos algoritmos distintos.
+
+20
+El problema de cerrar sin apagar el sistema se resuelve con WindowClosing (WindowAdapter/WindowListener), solo pon el evento y le das que mientras se cierra haga System.exit(0)
+
+21
+El problema del diseño se arregla mejor intercalando entre paneles que mantendran organizados los botones independientemente de como se redimensione la ventana. GridBagLayout, FlowLayout, y borderLayout serán los mas utiles
+
+PD: Si sacas los componentes del panel, cuando quieras agregarlos de nuevo, ve a navegator, busca el componente y arrastralo hacia el contenedor de dicho componente

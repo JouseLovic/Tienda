@@ -9,9 +9,9 @@ import Vista.*;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        Reconfig re = new Reconfig();
+        ReConfig re = new ReConfig();
         String Sett = re.getTheme();
-
+        
         ControllerCompruebaSettings hilo = new ControllerCompruebaSettings();
         //hilo.start();
 

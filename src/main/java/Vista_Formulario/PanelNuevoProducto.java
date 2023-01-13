@@ -41,7 +41,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             campoSeccion = new javax.swing.JTextField();
             campoPrecio = new javax.swing.JTextField();
             campoEdadDirigida = new javax.swing.JTextField();
-            campoCantidad = new javax.swing.JTextField();
             labelPrecio = new javax.swing.JLabel();
             labelSeccion = new javax.swing.JLabel();
             labelMarca = new javax.swing.JLabel();
@@ -81,6 +80,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             jSeparator10 = new javax.swing.JSeparator();
             jSeparator11 = new javax.swing.JSeparator();
             jLabel3 = new javax.swing.JLabel();
+            campoCantidad = new javax.swing.JTextField();
 
             setLayout(new java.awt.BorderLayout());
 
@@ -149,17 +149,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
 
             campoEdadDirigida.setBorder(null);
             containerComponents.add(campoEdadDirigida, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 140, 40));
-
-            campoCantidad.setBorder(null);
-            campoCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
-                  public void keyReleased(java.awt.event.KeyEvent evt) {
-                        campoCantidadKeyReleased(evt);
-                  }
-                  public void keyTyped(java.awt.event.KeyEvent evt) {
-                        campoCantidadKeyTyped(evt);
-                  }
-            });
-            containerComponents.add(campoCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 180, 40));
 
             labelPrecio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelPrecio.setForeground(new java.awt.Color(0, 0, 0));
@@ -440,6 +429,17 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             jLabel3.setText("$");
             containerComponents.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 20, 40));
+
+            campoCantidad.setBorder(null);
+            campoCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+                  public void keyReleased(java.awt.event.KeyEvent evt) {
+                        campoCantidadKeyReleased(evt);
+                  }
+                  public void keyTyped(java.awt.event.KeyEvent evt) {
+                        campoCantidadKeyTyped(evt);
+                  }
+            });
+            containerComponents.add(campoCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 180, 40));
 
             add(containerComponents, java.awt.BorderLayout.CENTER);
       }// </editor-fold>//GEN-END:initComponents
