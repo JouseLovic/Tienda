@@ -67,7 +67,6 @@ Vista\PanelInicial.class
 Vista_Formulario\PanelNuevoProducto$14.class
 Vista_Formulario\PanelNuevoProducto$17.class
 Vista_Formulario\PanelSalida$6.class
-ControladorThreads\ControlallerTheme.class
 Vista_Formulario\PanelNuevoProducto$6.class
 Vista_Formulario\PanelSalida$3.class
 Vista_Register\PanelNuevoProveedor.class
@@ -88,7 +87,6 @@ DAO\SalidasDao.class
 Modelo\Producto.class
 Vista_Formulario\PanelEntrada$8.class
 DAO\nProveedorDao.class
-Pruebas\metodos.class
 Modelo\EntradaProductos.class
 Vista_Formulario\PanelNuevoProducto$15.class
 Vista\PanelClientes.class
@@ -120,4 +118,3 @@ Vista_Formulario\PanelEntrada$13.class
 DAO\nProductoDao.class
 Controlador\ControllerMenu.class
 Vista_Register\PanelNuevaFactura$7.class
-ControladorThreads\ControllerMandaTablasGlobal.class

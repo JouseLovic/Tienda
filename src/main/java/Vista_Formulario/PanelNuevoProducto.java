@@ -547,7 +547,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
 
       private void botonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearActionPerformed
             ControllerNewProduct.subir(this, tablaNProductos);
-            ControllerNewProduct.borrarCampos(this);
       }//GEN-LAST:event_botonCrearActionPerformed
 
       private void tablaNProductosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaNProductosKeyPressed
@@ -750,7 +749,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
      }
 
      public String getCampoBuscar() {
-          if(!campoBuscar.getText().equals("") || !campoBuscar.getText().equals("") || !campoBuscar.getText().equals(null)){
+          if(!campoBuscar.getText().equalsIgnoreCase("") || !campoBuscar.getText().equalsIgnoreCase("") || !campoBuscar.getText().equalsIgnoreCase(null)){
              return campoBuscar.getText();  
           }
           else{

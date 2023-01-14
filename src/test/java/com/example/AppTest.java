@@ -1,7 +1,13 @@
 package com.example;
 
+import java.io.*;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.junit.Test;
-import PruebaSetting.*;
+import org.slf4j.Marker;
+
 import Settings.*;
 import junit.framework.Assert;
 public class AppTest 
@@ -37,10 +43,30 @@ public class AppTest
     @Test
     public void shouldValidateIfConfigTestExist(){
 
-        //este es uno para verificar si un campo existe o no, y siempre se hara desde el inicio de la app, ya que asi si no existe, creamos una conf por default
-        //tambien de una puedes verificar, como crear un directorio si no existe
+        
+        File file = new File("");
+        
 
 
     }
+
+
+
+
+    //It´s working good
+    @Test
+    public void validateGmail(){
+
+        String email = "HectorJosé@gmail.com";
+        Pattern patron = Pattern.compile("^(([a-zA-z0-9])(?!.*\\s).*@gmail.com)$");
+        Matcher match = patron.matcher(email);
+        if(match.find()){
+            System.out.println("Encontró");
+        }
+        Assert.assertEquals(true, match.matches());
+
+    }
+
+
 
 }

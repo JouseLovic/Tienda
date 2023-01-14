@@ -4,16 +4,15 @@ import javax.swing.*;
 import javax.swing.table.*;
 import Modelo.*;
 import Vista_Formulario.*;
-import java.sql.*;
 import DAO.*;
 import java.util.*;
-import java.awt.Color;
 import java.awt.event.*;
 
 public class ControllerNewProduct {
      
      private static Producto producto;
      private static nProductoDao productDao;
+     private static boolean sexValidate = false;
      
      public static void borrarCampos(PanelNuevoProducto producto){
           
@@ -82,6 +81,8 @@ public class ControllerNewProduct {
 
           productDao = new nProductoDao();
           boolean copia = false;
+          boolean voidFields = false;
+          sexValidate = false;
           ArrayList<Producto> listaComparativa = productDao.mostrar("");
 
           try{
@@ -96,7 +97,18 @@ public class ControllerNewProduct {
                String sexo = productoN.getCampoSexo();
                String idProveedor = "";
                String vendido = productoN.getCampoVendido();
-         
+               
+
+                    if(id == null || desc == null || talla == null || marca == null || seccion == null || precio < 0 || edadDirigida == null || cantidad < 0 || sexo == null || vendido == null){
+                         //usa aqui un metodo para mandar a un label de advertencia en la pantalla sobre que algun campo esta vacio
+                         voidFields = true;
+                    }
+                    else{
+                         voidFields = false;
+                    }
+
+                    sexValidate = validarSexo(sexo);
+                    
                     for(Producto productoCopia : listaComparativa){
                          if(productoCopia.getId().equals(id)){
                               JOptionPane.showMessageDialog(null, "El producto ya existe");
@@ -104,18 +116,30 @@ public class ControllerNewProduct {
                          }
                     }
 
-                    if(copia == false && idProveedor != ""){
+                    if(!copia && !voidFields && sexValidate){
                           producto = new Producto(id, desc, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
                           productDao.insertarProducto(producto);
                           enviaDatosTablaOrdenar(tabla, productoN.getOrdenadoSeleccionado(), productoN.getCampoBuscar());
+                          borrarCampos(productoN);
                     }
-                    else{
+                    else if(copia){
                          JOptionPane.showMessageDialog(null, "Ya hay un producto con su id. Por favor, revise de nuevo");
+                    }
+                    else if(!sexValidate){
+                         JOptionPane.showMessageDialog(null, "El campo donde especifico el sexo al que esta dirigido el producto, es incorrecto.");
                     }
            }catch(NumberFormatException ex){
                System.err.println(ex.getMessage());
           }
      }
+
+       public static boolean validarSexo(String sexo){
+
+          if(sexo.equalsIgnoreCase("f") || sexo.equalsIgnoreCase("m") || sexo.equalsIgnoreCase("mf") || sexo.equalsIgnoreCase("fm")){
+               return true;
+          }
+          return false;
+       }
 
        public static boolean ValidadNumeros(String texto){//para id y cantidad
           return texto.matches("^-?[0-9]{0,99999}+$");//los corchetes validan entre el 0, hasta el 99999
@@ -383,4 +407,5 @@ public class ControllerNewProduct {
               a.consume();
           }  
       }
+
 }
