@@ -72,7 +72,6 @@ public class Window extends JFrame {
                 PanelNuevaFactura.setEstado(false);
                 PanelProveedores.setActualizameProv(0);
                 PanelNuevoProveedor.setActualizame(0);
-                PanelInicial.setState(true);
                 ControllerMenu.BorraPaneles();
                 ControllerMenu.atras(Window.this);
             }
@@ -87,7 +86,6 @@ public class Window extends JFrame {
                     PanelNuevaFactura.setEstado(false);
                     PanelNuevoProveedor.setActualizame(0);
                     PanelProveedores.setActualizameProv(0);
-                    PanelInicial.setState(false);
                     ControllerMenu.ocultarPanelInicial(inicio);
                     ControllerMenu.mostrarNuevoProductos(Window.this);
                 } else {
@@ -97,7 +95,6 @@ public class Window extends JFrame {
                     PanelNuevaFactura.setActualizame(0);
                     PanelProveedores.setActualizameProv(0);
                     PanelNuevoProveedor.setActualizame(0);
-                    PanelInicial.setState(false);
                     ControllerMenu.mostrarNuevoProductos(Window.this);
                 }
             }
@@ -111,7 +108,6 @@ public class Window extends JFrame {
                     PanelNuevaFactura.setActualizame(0);
                     PanelNuevaFactura.setEstado(false);
                     PanelNuevoProveedor.setActualizame(0);
-                    PanelInicial.setState(false);
                     ControllerMenu.ocultarPanelInicial(inicio);
                     PanelProveedores.setActualizameProv(0);
                     ControllerMenu.mostrarEntradaP(Window.this);
@@ -122,7 +118,6 @@ public class Window extends JFrame {
                     PanelNuevaFactura.setEstado(false);
                     PanelNuevoProveedor.setActualizame(0);
                     PanelProveedores.setActualizameProv(0);
-                    PanelInicial.setState(false);
                     ControllerMenu.BorraPaneles();
                     ControllerMenu.mostrarEntradaP(Window.this);
                 }
@@ -139,7 +134,6 @@ public class Window extends JFrame {
                     PanelNuevoProveedor.setActualizame(0);
                     PanelNuevaFactura.setEstado(false);
                     PanelProveedores.setActualizameProv(0);
-                    PanelInicial.setState(false);
                     ControllerMenu.ocultarPanelInicial(inicio);
                     ControllerMenu.mostrarSalidaP(Window.this);
                 }
@@ -149,7 +143,6 @@ public class Window extends JFrame {
                     PanelNuevaFactura.setActualizame(0);
                     PanelNuevoProveedor.setActualizame(0);
                     PanelNuevaFactura.setEstado(false);
-                    PanelInicial.setState(false);
                     PanelProveedores.setActualizameProv(0);
                     ControllerMenu.BorraPaneles();
                     ControllerMenu.mostrarSalidaP(Window.this);
@@ -166,7 +159,6 @@ public class Window extends JFrame {
                     PanelNuevaFactura.setEstado(true);
                     PanelNuevoProveedor.setActualizame(0);
                     ControllerMenu.ocultarPanelInicial(inicio);
-                    PanelInicial.setState(false);
                     PanelProveedores.setActualizameProv(0);
                     ControllerMenu.mostrarRegistroFacturas(Window.this);
                 }
@@ -191,7 +183,6 @@ public class Window extends JFrame {
                     PanelNuevaFactura.setActualizame(0);
                     PanelProveedores.setActualizameProv(0);
                     PanelNuevaFactura.setEstado(false);
-                    PanelInicial.setState(false);
                     ControllerMenu.ocultarPanelInicial(inicio);
                     ControllerMenu.mostrarRegistroProveedores(Window.this);
                 }
@@ -199,7 +190,6 @@ public class Window extends JFrame {
                     PanelNuevoProducto.setActualizame(0);
                     PanelEntrada.setActualizame(0);
                     PanelNuevaFactura.setActualizame(0);
-                    PanelInicial.setState(false);
                     PanelProveedores.setActualizameProv(0);
                     PanelNuevaFactura.setEstado(false);
                     ControllerMenu.BorraPaneles();

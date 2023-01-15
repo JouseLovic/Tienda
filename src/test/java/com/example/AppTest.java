@@ -5,6 +5,8 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.swing.JOptionPane;
+
 import org.junit.Test;
 import org.slf4j.Marker;
 
@@ -26,7 +28,7 @@ public class AppTest
     @Test
     public void shouldReadMyArraySetting(){
 
-        ReConfig configTest = new ReConfig();
+        ReSettings configTest = new ReSettings();
         String[] settings = configTest.getSetting();
         String tema = settings[0];
         String fuente = settings[1];
@@ -42,16 +44,48 @@ public class AppTest
     //This is for create a directory if not exist, and create a file config default if not exist in the directory
     @Test
     public void shouldValidateIfConfigTestExist(){
+    
+        File directorio = new File("C:\\KOULIN\\Settings");
+        File directoryImages = new File("C:\\KOULIN\\Images");
+        File fileSetting = new File("C:\\KOULIN\\Settings\\Config.dat");
+        
+        if (!directorio.exists()) {
+            if (directorio.mkdirs()) {
+                System.out.println("Directorio creado");
+            } else {
+                System.out.println("Error al crear directorio");
+            }
+        }
+        if(!directoryImages.exists()){
+            if (directoryImages.mkdirs()) {
+                System.out.println("Directorio creado");
+            } else {
+                System.out.println("Error al crear directorio");
+            }
+        }
+        if(!fileSetting.exists()){
+            String[] nArray = {"Light", "Arial", "Plain", "22"};
+            SaveSetting save = new SaveSetting();
+            save.saveSetting(nArray);
+        }
+    }
+
+    @Test
+    public void shouldCreateImagesDefaultOfProgram(){
 
         
-        File file = new File("");
+        try {
+            FileOutputStream fileOut = new FileOutputStream("");
+            FileInputStream fileIn = new FileInputStream("");
+        } catch (FileNotFoundException e) {
+           
+            e.printStackTrace();
+        }
+        
         
 
 
     }
-
-
-
 
     //It´s working good
     @Test

@@ -2,12 +2,12 @@ package Settings;
 
 import java.util.Arrays;
 
-public class ReConfig {
-    
+public class ReSettings {
+
     private String[] Settings = null;
     private LoadSetting load = null;
 
-    public ReConfig(){
+    public ReSettings(){
         load = new LoadSetting();
         Settings = new String[4];
         Settings = load.loadSetting();
@@ -38,6 +38,6 @@ public class ReConfig {
         return "ReConfigTest [Settings=" + Arrays.toString(Settings) + "]";
     }
 
-    
 
 }
+

@@ -4,7 +4,6 @@ package Vista;
 import Controlador.controllerInicial;
 import java.awt.Color;
 import javax.swing.ImageIcon;
-
 public class PanelInicial extends javax.swing.JPanel {
 
      private static boolean state = true;
@@ -201,7 +200,7 @@ public class PanelInicial extends javax.swing.JPanel {
             this.labelProveedor.setIcon(icono);
       }
 
-      public static boolean getState(){
+      public boolean getState(){
             return state;
       }
 

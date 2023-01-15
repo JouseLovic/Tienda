@@ -12,7 +12,7 @@ public class SaveSetting {
         public void saveSetting(String[] array){
 
                 try {
-                    fileOut = new FileOutputStream(new File("src\\main\\java\\Settings\\Config.dat"));
+                    fileOut = new FileOutputStream(new File("C:\\KOULIN\\Settings\\Config.dat"));
                     objOut = new ObjectOutputStream(fileOut);
                    
                     objOut.writeObject(array);

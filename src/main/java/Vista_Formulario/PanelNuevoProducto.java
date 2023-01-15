@@ -1,6 +1,9 @@
 package Vista_Formulario;
 
 import Controlador.ControllerNewProduct;
+import Controlador.controllerInicial;
+import Vista.PanelInicial;
+
 import java.awt.*;
 
 import javax.swing.*;
@@ -19,6 +22,9 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           seleccionFiltrada = filtroId.getText();
           ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, "");
           campoBuscar.setText(null);
+               if(ControllerNewProduct.state()==false){
+                    configDark();
+               }
           setEditableProveedor(false);
           botonActualiza.setEnabled(false);
           botonConfirma.setEnabled(false); 

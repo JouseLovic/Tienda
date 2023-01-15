@@ -61,5 +61,6 @@ public class controllerInicial {
             ImageIcon image = new ImageIcon(getClass().getResource("/images/Proveedor.png"));
             panel.setIconP(image);
       }
-      
+
+  
 }

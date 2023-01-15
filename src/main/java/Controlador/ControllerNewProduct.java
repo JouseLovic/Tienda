@@ -3,6 +3,7 @@ package Controlador;
 import javax.swing.*;
 import javax.swing.table.*;
 import Modelo.*;
+import Vista.PanelInicial;
 import Vista_Formulario.*;
 import DAO.*;
 import java.util.*;
@@ -406,6 +407,13 @@ public class ControllerNewProduct {
           if(numeros){
               a.consume();
           }  
+      }
+
+      public static boolean state(){
+          boolean state;
+          PanelInicial inicio = new PanelInicial();
+          state = inicio.getState();
+          return state;
       }
 
 }

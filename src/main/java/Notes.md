@@ -105,3 +105,6 @@ El problema de cerrar sin apagar el sistema se resuelve con WindowClosing (Windo
 El problema del diseño se arregla mejor intercalando entre paneles que mantendran organizados los botones independientemente de como se redimensione la ventana. GridBagLayout, FlowLayout, y borderLayout serán los mas utiles
 
 PD: Si sacas los componentes del panel, cuando quieras agregarlos de nuevo, ve a navegator, busca el componente y arrastralo hacia el contenedor de dicho componente
+
+21
+En el login que haga, estaria bien que que un arhivo especial se dedique a guardar los nombres y contraseñas de cada sesión. Esto de solo una, mejor dicho. Es sencillo, ese jframe leera al inicio el archivo, si encuentra algo, leera. Buscará el nombre en la base de datos y, si coincide con algun registro, mostrará una ventana pequeña emergente, que notificara de si quiere continuar la sesión iniciada. Obvio tendra que poner la contraseña y con eso listo, tendrá acceso. Lo importante es que cada sesión guarde el nombre y la contraseña. Hasta se puede evitar lo de la contraseña, y que si lo desea, solo la inicie (esto lo que hace, es que se llenara el textField nombre con el de la sesion anterior, y lo mismo con la contraseña para su textField respectivo, lo demas es que se iniciara un pequeño panel traslucido con una animacion de carga, para que luego se cierre y pueda continuar)

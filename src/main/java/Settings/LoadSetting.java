@@ -18,12 +18,11 @@ public class LoadSetting {
 
         try{
           
-          fileIn = new FileInputStream("src\\main\\java\\Settings\\Config.dat");
+          fileIn = new FileInputStream("C:\\KOULIN\\Settings\\Config.dat");
           objIn = new ObjectInputStream(fileIn); 
           
                 while(fileIn.available() > 0){
                     array = (String[]) objIn.readObject();
-                    System.out.println("Array cargado");
                     return array;
                 }
                 fileIn.close();
