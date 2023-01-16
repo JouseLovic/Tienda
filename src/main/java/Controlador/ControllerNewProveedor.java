@@ -3,8 +3,12 @@ package Controlador;
 import DAO.nProveedorDao;
 import Modelo.*;
 import Vista_Register.PanelNuevoProveedor;
-import java.util.ArrayList;
+import java.util.*;
+import java.awt.*;
+import java.io.*;
+import java.util.regex.*;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 public class ControllerNewProveedor {
@@ -53,6 +57,8 @@ public class ControllerNewProveedor {
     public static void subir(JTable tabla, PanelNuevoProveedor nProveedor){
 
         pDao = new nProveedorDao();
+        boolean validate = false, emailExist = false, cedulaExist = false, idExist = false, voidFields = false;
+        ArrayList<Proveedores> listaCompara = pDao.mostrar();
         String idProv = nProveedor.getCampoIdProv();
         String nombre = nProveedor.getCampoNombre();
         String fechaN = nProveedor.getCampoEdad();
@@ -61,10 +67,61 @@ public class ControllerNewProveedor {
         String empresa = nProveedor.getCampoEmpresa();
         String articulos = nProveedor.getCampoArticulos();
 
-        Proveedores proveedor = new Proveedores(idProv, nombre, fechaN, cedula, email, empresa, articulos);
-        pDao.insertarProveedor(proveedor);
-        enviaDatosTabla(tabla);
-        borrarCampos(nProveedor);
+        validate = compruebaGmail(email);
+
+            if(idProv.equals("") || nombre.equals("") || fechaN.equals("") || cedula.equals("") || email.equals("") || empresa.equals("") || articulos.equals("")){
+                JOptionPane.showMessageDialog(null, "Asegurese que ningún campo este vacío");
+                voidFields = true;                
+            } 
+
+            for(Proveedores proveedorE : listaCompara){
+                if(proveedorE.getCedula().equalsIgnoreCase(cedula)){
+                    JOptionPane.showMessageDialog(null, "Esta cedula pertenece al proveedor: "+proveedorE.getNombre());
+                    cedulaExist = true;
+                }
+                if(proveedorE.getEmail().equals(email)){
+                    emailExist = true;
+                }
+                if(proveedorE.getIdProveedor().equalsIgnoreCase(idProv)){
+                    idExist = true;
+                }
+            }
+
+            if(validate && !cedulaExist && !emailExist && !idExist && !voidFields){
+                Proveedores proveedor = new Proveedores(idProv, nombre, fechaN, cedula, email, empresa, articulos);
+                pDao.insertarProveedor(proveedor);
+                enviaDatosTabla(tabla);
+                borrarCampos(nProveedor);
+            }
+            if(!validate  && !email.equalsIgnoreCase("")){
+                nProveedor.setLabelEmail("¡Email no valido!");
+                nProveedor.setRequestFocusEmail();
+            }
+            else if(emailExist){
+                nProveedor.setLabelEmail("Este email ya existe");
+                nProveedor.setRequestFocusEmail();
+            }
+            if(idExist){
+                nProveedor.setLabelIdProv("Id ya existente");
+            }
+            if(cedulaExist){
+                nProveedor.setLabelCedula("Cedula ya existente");
+            }
+    }
+
+    public static void defaultLabelEmail(JLabel labelEmail){
+        labelEmail.setText("Email");
+        labelEmail.setForeground(Color.BLACK);
+    }
+
+    public static void defaultLabelIdProv(JLabel labelProv){
+        labelProv.setText("Id del proveedor");
+        labelProv.setForeground(Color.BLACK);
+    }
+
+    public static void defaultLabelCedula(JLabel labelCedula){
+        labelCedula.setText("Cedula");
+        labelCedula.setForeground(Color.BLACK);
     }
 
     public static void enviaDatosTabla(JTable tabla){
@@ -91,10 +148,40 @@ public class ControllerNewProveedor {
         tabla.setModel(modelo);
     }
 
-    public static void mueveCampos(JTable tabla, PanelNuevoProveedor nProveedor){
+    
+        public static void cambiaImagen(PanelNuevoProveedor panel){
+            
+            JFileChooser fileC = new JFileChooser();
+            fileC.setCurrentDirectory(new File(""));
+
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Image", "png", "jpg");
+            fileC.setFileFilter(filter);
+
+                int action = fileC.showOpenDialog(null);
+                    if(action == JFileChooser.APPROVE_OPTION){
+                            File path = new File((String.valueOf(fileC.getCurrentDirectory().getAbsoluteFile())));
+                            try {
+                                FileInputStream fileIn = new FileInputStream(path);
 
 
-        
+                            } catch (FileNotFoundException e) {
+                                System.out.println(e.getMessage());
+                            }
+
+                    }
+        }
+
+
+
+    public static boolean compruebaGmail(String email){
+
+        Pattern patron = Pattern.compile("^(([a-zA-z0-9])(?!.*\\s).*@gmail.com)$");
+        Matcher match = patron.matcher(email);
+
+            if(match.find()){
+                return true;
+            }
+        return false;
     }
 
 
@@ -116,6 +203,7 @@ public class ControllerNewProveedor {
 
     
     public static void borrarCampos(PanelNuevoProveedor proveedor){
+        proveedor.setDefaultsLabels("Email", "Cedula", "Id del proveedor");
         proveedor.setCampoIdProv("");
         proveedor.setCampoNombre("");
         proveedor.setCampoEdad("");
@@ -127,10 +215,6 @@ public class ControllerNewProveedor {
 
     public static boolean validaNumeros(String texto){
         return texto.matches("^-?[0-9]{0,100}+$");
-     }
-
-     public static boolean validaEmail(String texto){
-        return texto.matches("");
      }
 
 }

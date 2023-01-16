@@ -4,6 +4,7 @@ package Vista_Register;
 import javax.swing.ImageIcon;
 
 import Controlador.ControllerNewProveedor;
+import java.awt.Color;
 
 public class PanelNuevoProveedor extends javax.swing.JPanel {
 
@@ -23,7 +24,7 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
             jLabel1 = new javax.swing.JLabel();
             jLabel2 = new javax.swing.JLabel();
             jLabel3 = new javax.swing.JLabel();
-            jLabel4 = new javax.swing.JLabel();
+            labelCedula = new javax.swing.JLabel();
             jLabel5 = new javax.swing.JLabel();
             jLabel6 = new javax.swing.JLabel();
             botonEliminar = new javax.swing.JButton();
@@ -41,7 +42,7 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
             jLabel8 = new javax.swing.JLabel();
             campoEmail = new javax.swing.JTextField();
             labelEmail = new javax.swing.JLabel();
-            jLabel10 = new javax.swing.JLabel();
+            labelIdProv = new javax.swing.JLabel();
             campoIdProv = new javax.swing.JTextField();
             jScrollPane2 = new javax.swing.JScrollPane();
             tablaProveedores = new javax.swing.JTable();
@@ -61,9 +62,8 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
 
             jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel1.setText("Nombre");
-            jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 140, 30));
+            jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 220, 30));
 
             jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -77,17 +77,15 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
             jLabel3.setText("Proveedores");
             jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 210, 40));
 
-            jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-            jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel4.setText("Cedula");
-            jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, 150, 30));
+            labelCedula.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+            labelCedula.setForeground(new java.awt.Color(0, 0, 0));
+            labelCedula.setText("Cedula");
+            jPanel1.add(labelCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 130, 170, 30));
 
             jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel5.setText("Empresa");
-            jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 90, -1));
+            jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 90, -1));
 
             jLabel6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -145,9 +143,18 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
                         botonColocaImagenActionPerformed(evt);
                   }
             });
-            jPanel1.add(botonColocaImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 290, 130, -1));
+            jPanel1.add(botonColocaImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 290, 130, 30));
             jPanel1.add(campoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 220, 40));
             jPanel1.add(campoEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, 150, 40));
+
+            campoCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+                  public void keyPressed(java.awt.event.KeyEvent evt) {
+                        campoCedulaKeyPressed(evt);
+                  }
+                  public void keyReleased(java.awt.event.KeyEvent evt) {
+                        campoCedulaKeyReleased(evt);
+                  }
+            });
             jPanel1.add(campoCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 170, 170, 40));
             jPanel1.add(campoEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 210, 40));
             jPanel1.add(campoArticulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 270, 280, 40));
@@ -157,19 +164,35 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
             jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel8.setText("-");
             jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 20, 30));
+
+            campoEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+                  public void keyPressed(java.awt.event.KeyEvent evt) {
+                        campoEmailKeyPressed(evt);
+                  }
+                  public void keyReleased(java.awt.event.KeyEvent evt) {
+                        campoEmailKeyReleased(evt);
+                  }
+            });
             jPanel1.add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 190, 40));
 
             labelEmail.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelEmail.setForeground(new java.awt.Color(0, 0, 0));
-            labelEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelEmail.setText("Email");
-            jPanel1.add(labelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 120, -1));
+            jPanel1.add(labelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 190, -1));
 
-            jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-            jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel10.setText("Id de proveedor");
-            jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 130, 30));
+            labelIdProv.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+            labelIdProv.setForeground(new java.awt.Color(0, 0, 0));
+            labelIdProv.setText("Id del proveedor");
+            jPanel1.add(labelIdProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 170, 30));
+
+            campoIdProv.addKeyListener(new java.awt.event.KeyAdapter() {
+                  public void keyPressed(java.awt.event.KeyEvent evt) {
+                        campoIdProvKeyPressed(evt);
+                  }
+                  public void keyReleased(java.awt.event.KeyEvent evt) {
+                        campoIdProvKeyReleased(evt);
+                  }
+            });
             jPanel1.add(campoIdProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 140, 40));
 
             tablaProveedores.setModel(new javax.swing.table.DefaultTableModel(
@@ -235,7 +258,7 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
      }//GEN-LAST:event_botonQuitaCamposActionPerformed
 
      private void botonColocaImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonColocaImagenActionPerformed
-          
+           ControllerNewProveedor.cambiaImagen(this);
      }//GEN-LAST:event_botonColocaImagenActionPerformed
 
      private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
@@ -256,6 +279,30 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
       private void tablaProveedoresKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaProveedoresKeyReleased
           ControllerNewProveedor.mandaDatos(tablaProveedores, this);
       }//GEN-LAST:event_tablaProveedoresKeyReleased
+
+      private void campoEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoEmailKeyReleased
+            ControllerNewProveedor.defaultLabelEmail(labelEmail);
+      }//GEN-LAST:event_campoEmailKeyReleased
+
+      private void campoEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoEmailKeyPressed
+            ControllerNewProveedor.defaultLabelEmail(labelEmail);
+      }//GEN-LAST:event_campoEmailKeyPressed
+
+      private void campoIdProvKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoIdProvKeyReleased
+            ControllerNewProveedor.defaultLabelIdProv(labelIdProv);
+      }//GEN-LAST:event_campoIdProvKeyReleased
+
+      private void campoIdProvKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoIdProvKeyPressed
+            ControllerNewProveedor.defaultLabelIdProv(labelIdProv);
+      }//GEN-LAST:event_campoIdProvKeyPressed
+
+      private void campoCedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoCedulaKeyReleased
+            ControllerNewProveedor.defaultLabelCedula(labelCedula);
+      }//GEN-LAST:event_campoCedulaKeyReleased
+
+      private void campoCedulaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoCedulaKeyPressed
+            ControllerNewProveedor.defaultLabelCedula(labelCedula);
+      }//GEN-LAST:event_campoCedulaKeyPressed
  
      
      public String getCampoArticulos() {
@@ -333,6 +380,34 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
       public void PhotoPerson(ImageIcon image){
             labelPerson.setIcon(image);
       }
+      
+      public void setLabelEmail(String texto){
+            this.labelEmail.setText(texto);
+            this.labelEmail.setForeground(Color.RED);
+      }
+      
+      public void setLabelIdProv(String texto){
+            this.labelIdProv.setText(texto);
+            this.labelIdProv.setForeground(Color.RED);
+      }
+      
+      public void setLabelCedula(String texto){
+            this.labelCedula.setText(texto);
+            this.labelCedula.setForeground(Color.RED);
+      }
+      
+      public void setDefaultsLabels(String email, String cedula, String proveedor){
+            this.labelCedula.setText(cedula);
+            this.labelCedula.setForeground(Color.BLACK);
+            this.labelIdProv.setText(email);
+            this.labelIdProv.setForeground(Color.BLACK);
+            this.labelEmail.setText(proveedor);
+            this.labelEmail.setForeground(Color.BLACK);
+      }
+      
+      public void setRequestFocusEmail(){
+            this.campoEmail.requestFocus();
+      }
      
     
 
@@ -351,16 +426,16 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
       private javax.swing.JTextField campoIdProv;
       private javax.swing.JTextField campoNombre;
       private javax.swing.JLabel jLabel1;
-      private javax.swing.JLabel jLabel10;
       private javax.swing.JLabel jLabel2;
       private javax.swing.JLabel jLabel3;
-      private javax.swing.JLabel jLabel4;
       private javax.swing.JLabel jLabel5;
       private javax.swing.JLabel jLabel6;
       private javax.swing.JLabel jLabel8;
       private javax.swing.JPanel jPanel1;
       private javax.swing.JScrollPane jScrollPane2;
+      private javax.swing.JLabel labelCedula;
       private javax.swing.JLabel labelEmail;
+      private javax.swing.JLabel labelIdProv;
       private javax.swing.JLabel labelPerson;
       private javax.swing.JTable tablaProveedores;
       // End of variables declaration//GEN-END:variables

@@ -78,10 +78,7 @@ public class ControllerListProveedor {
             panel.setEditableNomb();
         }
 
-
-        /**
-         * @param JouseLovic
-         */
+        
         public static void cambiaImagen(PanelProveedores panel){
             
             JFileChooser fileC = new JFileChooser();

@@ -4,10 +4,10 @@ import Controlador.ControllerNewProduct;
 import java.awt.*;
 import javax.swing.*;
 
-
 public class PanelNuevoProducto extends javax.swing.JPanel {
   
      private static int actualizame = 0;
+     private static int request = 0;
      private boolean llaveActiva = false;
      private boolean campoActivo = true;
      private String confirmaId;
@@ -18,9 +18,9 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           seleccionFiltrada = filtroId.getText();
           ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, "");
           campoBuscar.setText(null);
-               if(ControllerNewProduct.state()==false){
-                    configDark();
-               }
+            if(ControllerNewProduct.state()==false){
+               configDark();
+            }
           setEditableProveedor(false);
           botonActualiza.setEnabled(false);
           botonConfirma.setEnabled(false); 
@@ -269,11 +269,11 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
 
             campoBuscar.setBorder(null);
             campoBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+                  public void keyPressed(java.awt.event.KeyEvent evt) {
+                        campoBuscarKeyPressed(evt);
+                  }
                   public void keyReleased(java.awt.event.KeyEvent evt) {
                         campoBuscarKeyReleased(evt);
-                  }
-                  public void keyTyped(java.awt.event.KeyEvent evt) {
-                        campoBuscarKeyTyped(evt);
                   }
             });
             containerComponents.add(campoBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 390, 40));
@@ -366,9 +366,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             tablaNProductos.getTableHeader().setResizingAllowed(false);
             tablaNProductos.getTableHeader().setReorderingAllowed(false);
             tablaNProductos.addMouseListener(new java.awt.event.MouseAdapter() {
-                  public void mouseClicked(java.awt.event.MouseEvent evt) {
-                        tablaNProductosMouseClicked(evt);
-                  }
                   public void mouseReleased(java.awt.event.MouseEvent evt) {
                         tablaNProductosMouseReleased(evt);
                   }
@@ -499,7 +496,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
      }//GEN-LAST:event_campoCantidadKeyReleased
 
      private void botonLlaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLlaveActionPerformed
-       new ControllerNewProduct().activacionDeLlave(this);
+          new ControllerNewProduct().activacionDeLlave(this);
      }//GEN-LAST:event_botonLlaveActionPerformed
 
      private void botonConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmaActionPerformed
@@ -533,6 +530,11 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText());
                 actualizame++;
               }
+          if(request == 0){
+               campoId.requestFocus(); 
+               request = 1;
+          }
+
      }//GEN-LAST:event_containerComponentsMouseEntered
 
      private void containerComponentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_containerComponentsMouseClicked
@@ -549,10 +551,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           int keyNumeros = evt.getKeyChar();
           ControllerNewProduct.bloqueaLetrasPrecio(keyNumeros, evt);
      }//GEN-LAST:event_campoPrecioKeyTyped
-
-      private void campoBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoBuscarKeyTyped
-          
-      }//GEN-LAST:event_campoBuscarKeyTyped
 
       private void botonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearActionPerformed
             ControllerNewProduct.subir(this, tablaNProductos);
@@ -582,9 +580,14 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText());   
       }//GEN-LAST:event_filtroMarcaActionPerformed
 
-      private void tablaNProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaNProductosMouseClicked
-            // TODO add your handling code here:
-      }//GEN-LAST:event_tablaNProductosMouseClicked
+      private void campoBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoBuscarKeyPressed
+           ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText()); 
+               botonCrear.setEnabled(false);
+                    if(campoBuscar.getText().isEmpty()){
+                          ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, "");
+                         botonCrear.setEnabled(true);
+          }
+      }//GEN-LAST:event_campoBuscarKeyPressed
 
      public String getCampoIdProveedor() {
           return campoIdProveedor.getText();
@@ -717,6 +720,8 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
              campoId.setForeground(Color.GRAY);
           }
      }
+
+
      
       public void setEditableProveedor(boolean act) {
           campoIdProveedor.setEditable(act);
@@ -791,7 +796,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           jSeparator9.setForeground(Color.WHITE); jSeparator10.setForeground(Color.WHITE);
           jSeparator11.setForeground(Color.WHITE);
      }
-
 
       // Variables declaration - do not modify//GEN-BEGIN:variables
       private javax.swing.JButton botonActualiza;

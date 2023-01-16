@@ -35,6 +35,9 @@ public class ControllerNewProduct {
      public static void actualizarProducto(PanelNuevoProducto nProductos){
 
           productDao = new nProductoDao();
+          ArrayList<Producto> listaCompara = null;
+          boolean exist = false;
+          listaCompara = productDao.mostrar("");
           try{
                String id = nProductos.getCampoId();
                String desc = nProductos.getCampoDesc();
@@ -47,12 +50,11 @@ public class ControllerNewProduct {
                String sexo = nProductos.getCampoSexo();
                String idProveedor = nProductos.getCampoIdProveedor();
                String vendido = nProductos.getCampoVendido();
-               
-                    if(validarNumerosDecimales(nProductos.getCampoPrecio()) || ValidadNumeros(nProductos.getCampoPrecio()) && ValidadNumeros(nProductos.getCampoCantidad())){
+
                          producto = new Producto(id, desc, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
                          productDao.actualizarProducto(producto, nProductos.getConfirmaId());
                          borrarCampos(nProductos);
-                     }
+                     
            }catch(NumberFormatException ex){
                JOptionPane.showMessageDialog(null, "Precio y cantidad no pueden estar vacios");
            }
@@ -101,7 +103,6 @@ public class ControllerNewProduct {
                
 
                     if(id == null || desc == null || talla == null || marca == null || seccion == null || precio < 0 || edadDirigida == null || cantidad < 0 || sexo == null || vendido == null){
-                         //usa aqui un metodo para mandar a un label de advertencia en la pantalla sobre que algun campo esta vacio
                          voidFields = true;
                     }
                     else{
