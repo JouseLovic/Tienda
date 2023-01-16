@@ -7,7 +7,6 @@ import javax.swing.*;
 public class PanelNuevoProducto extends javax.swing.JPanel {
   
      private static int actualizame = 0;
-     private static int request = 0;
      private boolean llaveActiva = false;
      private boolean campoActivo = true;
      private String confirmaId;
@@ -530,11 +529,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText());
                 actualizame++;
               }
-          if(request == 0){
-               campoId.requestFocus(); 
-               request = 1;
-          }
-
      }//GEN-LAST:event_containerComponentsMouseEntered
 
      private void containerComponentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_containerComponentsMouseClicked
