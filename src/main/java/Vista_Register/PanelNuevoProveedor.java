@@ -146,18 +146,18 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(botonColocaImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 290, 130, -1));
-            jPanel1.add(campoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 220, 30));
-            jPanel1.add(campoEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, 150, 30));
-            jPanel1.add(campoCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 170, 170, 30));
-            jPanel1.add(campoEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 210, 30));
-            jPanel1.add(campoArticulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 270, 280, 30));
+            jPanel1.add(campoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 220, 40));
+            jPanel1.add(campoEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, 150, 40));
+            jPanel1.add(campoCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 170, 170, 40));
+            jPanel1.add(campoEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 210, 40));
+            jPanel1.add(campoArticulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 270, 280, 40));
 
             jLabel8.setFont(new java.awt.Font("Arial", 1, 35)); // NOI18N
             jLabel8.setForeground(new java.awt.Color(102, 102, 102));
             jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel8.setText("-");
-            jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 20, 20));
-            jPanel1.add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 190, 30));
+            jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 20, 30));
+            jPanel1.add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 190, 40));
 
             labelEmail.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelEmail.setForeground(new java.awt.Color(0, 0, 0));
@@ -170,7 +170,7 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
             jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel10.setText("Id de proveedor");
             jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 130, 30));
-            jPanel1.add(campoIdProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 140, 30));
+            jPanel1.add(campoIdProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 140, 40));
 
             tablaProveedores.setModel(new javax.swing.table.DefaultTableModel(
                   new Object [][] {

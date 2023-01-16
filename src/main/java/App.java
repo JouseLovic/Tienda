@@ -1,10 +1,7 @@
-package Main;
 import javax.swing.UIManager;
+import com.formdev.flatlaf.*;
 
-import com.formdev.flatlaf.FlatDarkLaf;
-import com.formdev.flatlaf.FlatLightLaf;
-
-import Settings.*;
+import Controlador.ReSettings;
 import Vista.*;
 public class App {
     public static void main(String[] args) throws Exception {

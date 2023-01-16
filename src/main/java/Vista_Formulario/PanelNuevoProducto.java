@@ -1,11 +1,7 @@
 package Vista_Formulario;
 
 import Controlador.ControllerNewProduct;
-import Controlador.controllerInicial;
-import Vista.PanelInicial;
-
 import java.awt.*;
-
 import javax.swing.*;
 
 
@@ -87,6 +83,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             jSeparator11 = new javax.swing.JSeparator();
             jLabel3 = new javax.swing.JLabel();
             campoCantidad = new javax.swing.JTextField();
+            jSeparator12 = new javax.swing.JSeparator();
 
             setLayout(new java.awt.BorderLayout());
 
@@ -233,7 +230,8 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             botonLlave.setFocusPainted(false);
             botonLlave.setFocusable(false);
             botonLlave.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            botonLlave.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/llaveDesactivada.png"))); // NOI18N
+            botonLlave.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/llaveDesactivadaOscura.png"))); // NOI18N
+            botonLlave.setRequestFocusEnabled(false);
             botonLlave.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/llaveDesactivada.png"))); // NOI18N
             botonLlave.addActionListener(new java.awt.event.ActionListener() {
                   public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -269,6 +267,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             campoIdProveedor.setBorder(null);
             containerComponents.add(campoIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 230, 230, 40));
 
+            campoBuscar.setBorder(null);
             campoBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyReleased(java.awt.event.KeyEvent evt) {
                         campoBuscarKeyReleased(evt);
@@ -400,7 +399,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
 
             jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
             jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 160, 180, 20));
+            containerComponents.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 390, 20));
 
             jSeparator5.setBackground(new java.awt.Color(255, 255, 255));
             jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
@@ -446,6 +445,10 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                   }
             });
             containerComponents.add(campoCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 180, 40));
+
+            jSeparator12.setBackground(new java.awt.Color(255, 255, 255));
+            jSeparator12.setForeground(new java.awt.Color(0, 0, 0));
+            containerComponents.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 160, 180, 20));
 
             add(containerComponents, java.awt.BorderLayout.CENTER);
       }// </editor-fold>//GEN-END:initComponents
@@ -822,6 +825,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
       private javax.swing.JSeparator jSeparator1;
       private javax.swing.JSeparator jSeparator10;
       private javax.swing.JSeparator jSeparator11;
+      private javax.swing.JSeparator jSeparator12;
       private javax.swing.JSeparator jSeparator2;
       private javax.swing.JSeparator jSeparator3;
       private javax.swing.JSeparator jSeparator4;

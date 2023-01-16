@@ -372,8 +372,9 @@
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/llaveDesactivada.png"/>
+              <Image iconType="3" name="/images/llaveDesactivadaOscura.png"/>
             </Property>
+            <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/images/llaveDesactivada.png"/>
             </Property>

@@ -6,10 +6,8 @@ import Vista_Register.*;
 
 public class ControllerMenu {
 
-
     //Panel inicial
     private static PanelInicial inicio = new PanelInicial();
-    
     
     //Formularios
     private static PanelEntrada entradas = new PanelEntrada();
