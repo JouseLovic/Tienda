@@ -32,12 +32,61 @@ to do everything manually.
 
 -Keyboard shortcuts that avoid being glued to the mouse
 
+# Features
+ 
+--On the inventory
 
-In this project I use the MVC and the MYSQL database to be able to manage the data and that queries can be made in a simple and easy way. The current version in which it is developed is Java 17 with the Eclipse Termurin JDK
+    -Recognizes if the product already exists.
+
+    -It warns and blocks the creation of a product if a field is empty or invalid.
+
+    -Allows updating the id without any kind of error.
+
+    -Warns if when entering the gender of the product, it is incorrect or if you are trying to force the creation of a product with invalid data.
+
+    -Simple navigation by keys (up, down) through the table, without always needing the mouse.
+
+    -Search for products that fit the filter that we have chosen for the table.
+
+--In entrances
+
+    -Recognizes if a product exists or not. If it does, it will ask the user if what he wants is to add the quantity of a product to its stock. If you press "Yes", it will create a simple and new record, where it will say the amount that entered and in inventory the amount that we entered will have been added.
+
+    -Blocks any invoice that is repeated.
+
+    -It does not allow adding to the stock of a product if the values:. description, id, section, brand and provider are not specific.
+
+    -Fast navigation by keyboard with the table
+
+--In departures
+
+    -Avoid the output of any product that does NOT exist in stock.
+
+    -By recognizing if the amount that we enter is greater than that found in the stock of a product, and blocks the output.
+
+    -If we update the amount of any record, you will notice if the amount is higher or lower than the one previously entered. 
+
+    If it is less, it will add the quantity to the stock. If it is greater, it will be subtracted (this is only when updating).
+
+    -Blocks any creation by means of an invoice that already exists.
+
+--In supplier registry
+
+    -Blocks creation if any field is empty.
+
+    -Recognizes which field is the one that gives the error and warns directly (still incomplete).
+
+    -Search, analyze and prevent the creation of a supplier with an ID that is registered for another person
+    -If the email has some kind of space, unrecognizable symbol, or is missing: "@gmail.com" blocks the creation and warns (still incomplete for other types of  emails).
+
+    -If the email already exists, it blocks and warns.
+
+    -A photo can be added to the record (Function not completed).
+
 
 # Note:
 
-If you want to add your database and use it to test the project, I recommend doing so with phpMyAdmin, since that's what I used to create most of it.
+In this project I use the MVC and the MYSQL database to be able to manage the data and that queries can be made in a simple and easy way. The current version in which it is developed is Java 17 with the Eclipse Termurin JDK. If you want to add your database and use it to test the project, I recommend doing so with phpMyAdmin, since that's what I used to create most of it.
 
 To add the database import in phpMyAdmin, first make sure you have XAMPP (or wampServer) installer and have Apache and MySQL server turned on. Sample:
 
