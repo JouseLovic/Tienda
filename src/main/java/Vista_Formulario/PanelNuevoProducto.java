@@ -183,6 +183,8 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             containerComponents.add(labelEdadDirigida, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 230, 30));
 
             botonLimpiaCampos.setText("Limpiar campos");
+            botonLimpiaCampos.setFocusPainted(false);
+            botonLimpiaCampos.setRequestFocusEnabled(false);
             botonLimpiaCampos.addActionListener(new java.awt.event.ActionListener() {
                   public void actionPerformed(java.awt.event.ActionEvent evt) {
                         botonLimpiaCamposActionPerformed(evt);
@@ -191,6 +193,11 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             containerComponents.add(botonLimpiaCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 430, 180, 40));
 
             campoSexo.setBorder(null);
+            campoSexo.addKeyListener(new java.awt.event.KeyAdapter() {
+                  public void keyReleased(java.awt.event.KeyEvent evt) {
+                        campoSexoKeyReleased(evt);
+                  }
+            });
             containerComponents.add(campoSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 80, 40));
 
             labelSexo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -206,6 +213,8 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             containerComponents.add(labelNombreEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 290, 70));
 
             botonEliminar.setText("Eliminar");
+            botonEliminar.setFocusPainted(false);
+            botonEliminar.setRequestFocusEnabled(false);
             botonEliminar.addActionListener(new java.awt.event.ActionListener() {
                   public void actionPerformed(java.awt.event.ActionEvent evt) {
                         botonEliminarActionPerformed(evt);
@@ -214,6 +223,8 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             containerComponents.add(botonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 170, 40));
 
             botonActualiza.setText("Actualizar");
+            botonActualiza.setFocusPainted(false);
+            botonActualiza.setRequestFocusEnabled(false);
             botonActualiza.addActionListener(new java.awt.event.ActionListener() {
                   public void actionPerformed(java.awt.event.ActionEvent evt) {
                         botonActualizaActionPerformed(evt);
@@ -289,6 +300,8 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             containerComponents.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 340, 140, 50));
 
             botonCrear.setText("Subir producto");
+            botonCrear.setFocusPainted(false);
+            botonCrear.setRequestFocusEnabled(false);
             botonCrear.addActionListener(new java.awt.event.ActionListener() {
                   public void actionPerformed(java.awt.event.ActionEvent evt) {
                         botonCrearActionPerformed(evt);
@@ -451,8 +464,9 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
 
      private void botonLimpiaCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiaCamposActionPerformed
          ControllerNewProduct.borrarCampos(this);
-         setEditableProveedor(false);
-         botonCrear.setEnabled(true);
+         labelSexo.setText("Sexo");
+         labelSexo.setForeground(Color.BLACK);
+         setEditableProveedor(false);   
          new ControllerNewProduct().paraBotonLimpiar(tablaNProductos, this);
      }//GEN-LAST:event_botonLimpiaCamposActionPerformed
 
@@ -460,7 +474,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           ControllerNewProduct.eliminar(tablaNProductos, this);
           ControllerNewProduct.borrarCampos(this);
           setEditableProveedor(false);
-          botonCrear.setEnabled(true);
           ControllerNewProduct.paraBotonEliminar(tablaNProductos, this);
      }//GEN-LAST:event_botonEliminarActionPerformed
 
@@ -475,7 +488,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
      private void tablaNProductosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaNProductosMouseReleased
           new ControllerNewProduct().filaSeleccionada(tablaNProductos, this);
           setEditableProveedor(true);
-          botonCrear.setEnabled(false);
           ControllerNewProduct.mandaDatosCampos(tablaNProductos, this);
      }//GEN-LAST:event_tablaNProductosMouseReleased
 
@@ -503,14 +515,12 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
          ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText());
          tablaNProductos.setSelectionMode(0);
          setEditableProveedor(false);
-         botonCrear.setEnabled(true);
          botonConfirma.setEnabled(false);
      }//GEN-LAST:event_botonConfirmaActionPerformed
 
      private void tablaNProductosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaNProductosKeyReleased
           new ControllerNewProduct().filaSeleccionada(tablaNProductos, this);
           setEditableProveedor(true);
-          botonCrear.setEnabled(false);
           ControllerNewProduct.mandaDatosCampos(tablaNProductos, this);
      }//GEN-LAST:event_tablaNProductosKeyReleased
 
@@ -547,7 +557,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
      }//GEN-LAST:event_campoPrecioKeyTyped
 
       private void botonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearActionPerformed
-            ControllerNewProduct.subir(this, tablaNProductos);
+            ControllerNewProduct.subir(this, tablaNProductos, labelId);
       }//GEN-LAST:event_botonCrearActionPerformed
 
       private void tablaNProductosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaNProductosKeyPressed
@@ -576,12 +586,15 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
 
       private void campoBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoBuscarKeyPressed
            ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText()); 
-               botonCrear.setEnabled(false);
                     if(campoBuscar.getText().isEmpty()){
                           ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, "");
-                         botonCrear.setEnabled(true);
           }
       }//GEN-LAST:event_campoBuscarKeyPressed
+
+      private void campoSexoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoSexoKeyReleased
+          labelSexo.setText("Sexo");
+          labelSexo.setForeground(Color.BLACK);
+      }//GEN-LAST:event_campoSexoKeyReleased
 
      public String getCampoIdProveedor() {
           return campoIdProveedor.getText();
@@ -714,8 +727,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
              campoId.setForeground(Color.GRAY);
           }
      }
-
-
      
       public void setEditableProveedor(boolean act) {
           campoIdProveedor.setEditable(act);
@@ -779,6 +790,20 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
      
      public String getOrdenadoSeleccionado(){
           return seleccionFiltrada;
+     }
+
+     public void setRequestFocusCampoId(){
+          new ControllerNewProduct().activacionDeLlave(this);
+          campoId.requestFocus();
+     }
+
+     public void setLabelSexoAdvertencia(String texto){
+          this.labelSexo.setText(texto);
+          this.labelSexo.setForeground(Color.RED);
+     }
+
+     public void setRequestFocusCampoSexo(){
+          campoSexo.requestFocus();
      }
 
      public void configDark(){

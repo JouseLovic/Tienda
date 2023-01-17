@@ -54,6 +54,21 @@ public class AppTest
         }
     }
 
+     //It´s working good
+     @Test
+     public void validateHotmail(){
+ 
+         String email = "HectorJosé@hotmail.com";
+         Pattern patron = Pattern.compile("^(([a-zA-z0-9])(?!.*\\s).*@hotmail.com)$");
+         Matcher match = patron.matcher(email);
+            if(match.find()){
+                System.out.println("Encontró");
+            }
+         Assert.assertEquals(true, match.matches());
+ 
+     }
+ 
+
     //It´s working good
     @Test
     public void validateGmail(){
@@ -61,9 +76,9 @@ public class AppTest
         String email = "HectorJosé@gmail.com";
         Pattern patron = Pattern.compile("^(([a-zA-z0-9])(?!.*\\s).*@gmail.com)$");
         Matcher match = patron.matcher(email);
-        if(match.find()){
-            System.out.println("Encontró");
-        }
+            if(match.find()){
+                System.out.println("Encontró");
+            }
         Assert.assertEquals(true, match.matches());
 
     }

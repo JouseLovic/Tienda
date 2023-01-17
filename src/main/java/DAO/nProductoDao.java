@@ -4,8 +4,6 @@ package DAO;
 import Modelo.*;
 import java.sql.*;
 import java.util.ArrayList;
-
-import javax.security.auth.callback.TextOutputCallback;
 import javax.swing.JOptionPane;
 
 public class nProductoDao {

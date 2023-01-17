@@ -7,13 +7,16 @@ import Vista.PanelInicial;
 import Vista_Formulario.*;
 import DAO.*;
 import java.util.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class ControllerNewProduct {
      
      private static Producto producto;
      private static nProductoDao productDao;
-     private static boolean sexValidate = false;
+     private static boolean sexValidate;
+     private static int intentos = 0;
+     private static boolean voidFields;
      
      public static void borrarCampos(PanelNuevoProducto producto){
           
@@ -35,9 +38,6 @@ public class ControllerNewProduct {
      public static void actualizarProducto(PanelNuevoProducto nProductos){
 
           productDao = new nProductoDao();
-          ArrayList<Producto> listaCompara = null;
-          boolean exist = false;
-          listaCompara = productDao.mostrar("");
           try{
                String id = nProductos.getCampoId();
                String desc = nProductos.getCampoDesc();
@@ -51,9 +51,9 @@ public class ControllerNewProduct {
                String idProveedor = nProductos.getCampoIdProveedor();
                String vendido = nProductos.getCampoVendido();
 
-                         producto = new Producto(id, desc, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
-                         productDao.actualizarProducto(producto, nProductos.getConfirmaId());
-                         borrarCampos(nProductos);
+                    producto = new Producto(id, desc, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
+                    productDao.actualizarProducto(producto, nProductos.getConfirmaId());
+                    borrarCampos(nProductos);
                      
            }catch(NumberFormatException ex){
                JOptionPane.showMessageDialog(null, "Precio y cantidad no pueden estar vacios");
@@ -80,11 +80,11 @@ public class ControllerNewProduct {
           }
      }
      
-     public static void subir(PanelNuevoProducto productoN, JTable tabla){
+     public static void subir(PanelNuevoProducto productoN, JTable tabla, JLabel label){
 
           productDao = new nProductoDao();
           boolean copia = false;
-          boolean voidFields = false;
+          voidFields = false;
           sexValidate = false;
           ArrayList<Producto> listaComparativa = productDao.mostrar("");
 
@@ -100,20 +100,13 @@ public class ControllerNewProduct {
                String sexo = productoN.getCampoSexo();
                String idProveedor = "";
                String vendido = productoN.getCampoVendido();
-               
 
-                    if(id == null || desc == null || talla == null || marca == null || seccion == null || precio < 0 || edadDirigida == null || cantidad < 0 || sexo == null || vendido == null){
-                         voidFields = true;
-                    }
-                    else{
-                         voidFields = false;
-                    }
 
+                    voidFields = validateVoidFields(id, desc, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
                     sexValidate = validarSexo(sexo);
                     
                     for(Producto productoCopia : listaComparativa){
                          if(productoCopia.getId().equals(id)){
-                              JOptionPane.showMessageDialog(null, "El producto ya existe");
                               copia = true;
                          }
                     }
@@ -125,30 +118,48 @@ public class ControllerNewProduct {
                           borrarCampos(productoN);
                     }
                     else if(copia){
-                         JOptionPane.showMessageDialog(null, "Ya hay un producto con su id. Por favor, revise de nuevo");
+                         label.setText("Id ya existente");
+                         label.setForeground(Color.RED);
+                         productoN.setRequestFocusCampoId();
                     }
-                    else if(!sexValidate){
-                         JOptionPane.showMessageDialog(null, "El campo donde especifico el sexo al que esta dirigido el producto, es incorrecto.");
+                    if(!sexValidate){
+                         intentos++;
+                         productoN.setLabelSexoAdvertencia("Sexo invalido");
+                         productoN.setRequestFocusCampoSexo();
+                              if(intentos == 3){
+                                   JOptionPane.showMessageDialog(null, "Esta intentando crear un sexo con mas de 3 caracteres\nU esta ingresando caracteres diferentes de: M, F, MF o FM");
+                              }
+                              else if(intentos == 6){
+                                   JOptionPane.showMessageDialog(null, "Por favor, revise el manual de usuario. Tiene "+intentos+" intentos. No logrará nada ingresando datos no validos");
+                                   intentos = 0;
+                              }
                     }
            }catch(NumberFormatException ex){
-               System.err.println(ex.getMessage());
+               JOptionPane.showMessageDialog(null, "You cannot leave any field empty");
+               System.out.println(ex.getMessage());
+          }
+     }
+
+     public static boolean validateVoidFields(String id, String desc, String talla, String marca, String seccion, double precio, String edadDirigida, int cantidad, String sexo, String idProveedor, String vendido){
+
+          if(id.equals("") || desc.equals("") || talla.equals("") || marca.equals("") || seccion.equals("") || precio < 0 || edadDirigida.equals("") || cantidad < 0 || sexo.equals("") || vendido.equals("")){
+               JOptionPane.showMessageDialog(null,"You cannot leave any field empty");
+               return true;
+          }
+          else{
+               return false;
           }
      }
 
        public static boolean validarSexo(String sexo){
 
-          if(sexo.equalsIgnoreCase("f") || sexo.equalsIgnoreCase("m") || sexo.equalsIgnoreCase("mf") || sexo.equalsIgnoreCase("fm")){
-               return true;
-          }
+               if(sexo.equalsIgnoreCase("f") || sexo.equalsIgnoreCase("m")){
+                    return true;
+               }
+               else if(sexo.equalsIgnoreCase("mf") || sexo.equalsIgnoreCase("fm")){
+                    return true;
+               }
           return false;
-       }
-
-       public static boolean ValidadNumeros(String texto){//para id y cantidad
-          return texto.matches("^-?[0-9]{0,99999}+$");//los corchetes validan entre el 0, hasta el 99999
-       }
-
-       public static boolean validarNumerosDecimales(String texto){//este es para que permitas a precio ser un double
-          return texto.matches("^-?[0-9]+([\\.][0-9]+)$");//los parentesis es como "es opcional que este esto"
        }
 
        public static void enviaDatosTabla(JTable tabla, String nombre){

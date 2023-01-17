@@ -273,6 +273,8 @@
         <Component class="javax.swing.JButton" name="botonLimpiaCampos">
           <Properties>
             <Property name="text" type="java.lang.String" value="Limpiar campos"/>
+            <Property name="focusPainted" type="boolean" value="false"/>
+            <Property name="requestFocusEnabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonLimpiaCamposActionPerformed"/>
@@ -289,6 +291,9 @@
               <Border info="null"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoSexoKeyReleased"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="570" y="230" width="80" height="40"/>
@@ -332,6 +337,8 @@
         <Component class="javax.swing.JButton" name="botonEliminar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
+            <Property name="focusPainted" type="boolean" value="false"/>
+            <Property name="requestFocusEnabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonEliminarActionPerformed"/>
@@ -345,6 +352,8 @@
         <Component class="javax.swing.JButton" name="botonActualiza">
           <Properties>
             <Property name="text" type="java.lang.String" value="Actualizar"/>
+            <Property name="focusPainted" type="boolean" value="false"/>
+            <Property name="requestFocusEnabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonActualizaActionPerformed"/>
@@ -512,6 +521,8 @@
         <Component class="javax.swing.JButton" name="botonCrear">
           <Properties>
             <Property name="text" type="java.lang.String" value="Subir producto"/>
+            <Property name="focusPainted" type="boolean" value="false"/>
+            <Property name="requestFocusEnabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCrearActionPerformed"/>
