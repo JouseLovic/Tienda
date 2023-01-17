@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ba3a3333-6e0c-4eac-b79f-50fb2f15fc1e" name="Changes" comment="&#10;Reorganized folders for better optimization and faster navigation between files">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/ControllerEntradasP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/ControllerEntradasP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/ControllerFacturasEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/ControllerFacturasEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/ControllerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/ControllerMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/ControllerNewProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/ControllerNewProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/ControllerNewProveedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/ControllerNewProveedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/ControllerSalidasP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/ControllerSalidasP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/ReSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/ReSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/nProductoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/nProductoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Notes.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Settings/Readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Settings/Readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Vista/PanelFacturasGenerales.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista/PanelFacturasGenerales.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Vista/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/ControllerEntradasP.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/ControllerEntradasP.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/ControllerFacturasEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/ControllerFacturasEntry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/ControllerListProveedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/ControllerListProveedor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/ControllerMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/ControllerMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/ControllerNewProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/ControllerNewProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/ControllerNewProveedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/ControllerNewProveedor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/ControllerSalidasP.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/ControllerSalidasP.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/SaveSetting.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/SaveSetting.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/controllerInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/controllerInicial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/ClientesDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/ClientesDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/EntradasDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/EntradasDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/FacturaEDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/FacturaEDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/FacturasEODao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/FacturasEODao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/SalidasDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/SalidasDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/nProductoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/nProductoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/nProveedorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/nProveedorDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/Clientes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/Clientes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/DB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/EntradaProductos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/EntradaProductos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/Factura.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/Factura.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/FacturaSalida.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/FacturaSalida.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/Factura_entrada.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/Factura_entrada.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/Producto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/Producto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/Proveedores.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/Proveedores.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/SalidasProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/SalidasProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/FormularioNCliente$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/FormularioNCliente$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/FormularioNCliente$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/FormularioNCliente$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/FormularioNCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/FormularioNCliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelFacturasGenerales.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelFacturasGenerales.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelInicial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/example/AppTest.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Cat &lt;114286961+jouselovic@users.noreply.github.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="84f20fa0-69a3-4adc-a50c-3908c224281f" />
+        <option name="url" value="https://github.com/JouseLovic/tienda.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/Controlador/ControllerEntradasP.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Controlador/ControllerNewProduct.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Controlador/ControllerNewProveedor.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Controlador/ControllerSalidasP.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/DAO/nProductoDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Vista/PanelFacturasGenerales.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Vista/PanelInicial.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Vista/Window.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Vista_Formulario/PanelNuevoProducto.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/com/example/AppTest.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2KKf1zAoQmcU2I7JsGmG7tppYML" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Documents/Librerias/AbsoluteLayout.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  }
+}</component>
+  <component name="RunManager" selected="JUnit.AppTest.validateHotmail">
+    <configuration name="Execute App" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="App" />
+      <module name="demo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.shouldReadMyArraySetting" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example" />
+      <option name="MAIN_CLASS_NAME" value="com.example.AppTest" />
+      <option name="METHOD_NAME" value="shouldReadMyArraySetting" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.validateHotmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example" />
+      <option name="MAIN_CLASS_NAME" value="com.example.AppTest" />
+      <option name="METHOD_NAME" value="validateHotmail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AppTest.validateHotmail" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ba3a3333-6e0c-4eac-b79f-50fb2f15fc1e" name="Changes" comment="" />
+      <created>1673727984731</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1673727984731</updated>
+    </task>
+    <task id="LOCAL-00001" summary="NA">
+      <created>1673932440605</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1673932440605</updated>
+    </task>
+    <task id="LOCAL-00002" summary="&#10;Reorganized folders for better optimization and faster navigation between files">
+      <created>1673934780587</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1673934780587</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="NA" />
+    <MESSAGE value="&#10;Reorganized folders for better optimization and faster navigation between files" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;Reorganized folders for better optimization and faster navigation between files" />
+  </component>
+</project>

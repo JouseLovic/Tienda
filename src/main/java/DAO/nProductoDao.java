@@ -4,6 +4,8 @@ package DAO;
 import Modelo.*;
 import java.sql.*;
 import java.util.ArrayList;
+
+import javax.security.auth.callback.TextOutputCallback;
 import javax.swing.JOptionPane;
 
 public class nProductoDao {
@@ -23,20 +25,19 @@ public class nProductoDao {
                 ps.close();
                 
             }catch(Exception ex){
-                System.out.println(ex.getClass());
+                System.out.println(ex.getCause());
+                JOptionPane.showMessageDialog(null, "Error en la clase 'nProductoDao' debido a: "+ex.getMessage());
             }
 
     }
 
     public void insertarProducto(Producto producto){
-         db = new DB();     
-        Connection conecta = db.dameConexion();
-        PreparedStatement ps = null;
+         db = new DB();
+         Connection conecta = db.dameConexion();
+         PreparedStatement ps = null;
         
        
           try{
-            //te toca ir a db_entrada y en eliminar y crear, añadir los nuevos procedimientos
-            //ademas de volver a crear el boton subir
 
               ps = conecta.prepareCall("Insert into productos_generales (id, descripcion, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, id_proveedor, Producto_vendido) values(?,?,?,?,?,?,?,?,?,?,?)");
               

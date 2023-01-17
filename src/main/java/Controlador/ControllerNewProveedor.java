@@ -2,7 +2,7 @@ package Controlador;
 
 import DAO.nProveedorDao;
 import Modelo.*;
-import Vista.Vista_Register.PanelNuevoProveedor;
+import Vista_Register.PanelNuevoProveedor;
 import java.util.*;
 import java.awt.*;
 import java.io.*;

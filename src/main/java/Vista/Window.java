@@ -1,8 +1,9 @@
 package Vista;
 
 import Controlador.*;
-import Vista.Vista_Formulario.*;
-import Vista.Vista_Register.*;
+import Vista_Formulario.*;
+import Vista_Register.PanelNuevaFactura;
+import Vista_Register.PanelNuevoProveedor;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

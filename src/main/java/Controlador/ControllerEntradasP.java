@@ -2,7 +2,7 @@ package Controlador;
 
 import Modelo.*;
 import DAO.*;
-import Vista.Vista_Formulario.PanelEntrada;
+import Vista_Formulario.*;
 import java.sql.*;
 import java.util.*;
 import javax.swing.*;

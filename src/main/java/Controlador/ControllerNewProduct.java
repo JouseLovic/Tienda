@@ -4,22 +4,27 @@ import javax.swing.*;
 import javax.swing.table.*;
 import Modelo.*;
 import Vista.PanelInicial;
-import Vista.Vista_Formulario.*;
+import Vista_Formulario.*;
 import DAO.*;
-import java.util.*;
+
 import java.awt.*;
+import java.util.*;
 import java.awt.event.*;
 
 public class ControllerNewProduct {
      
      private static Producto producto;
      private static nProductoDao productDao;
-     private static boolean sexValidate;
      private static int intentos = 0;
      private static boolean voidFields;
+     private static boolean sexValidate;
      
      public static void borrarCampos(PanelNuevoProducto producto){
-          
+
+          producto.setLabelIdDefault("ID");
+          producto.setLabelSexoDefault("Sexo");
+          producto.setLabelCantidadDefault("Cantidad");
+          producto.setLabelPrecioDefault("Precio");
           producto.setCampoDesc("");
           producto.setCampoCantidad("");
           producto.setCampoEdadDirigida("");
@@ -31,13 +36,15 @@ public class ControllerNewProduct {
           producto.setCampoSexo("");
           producto.setCampoIdProveedor("");
           producto.setCampoTalla("");
-          producto.setCampoVendido("");
           
      }
 
      public static void actualizarProducto(PanelNuevoProducto nProductos){
 
           productDao = new nProductoDao();
+          ArrayList<Producto> listaCompara = null;
+          boolean exist = false;
+          listaCompara = productDao.mostrar("");
           try{
                String id = nProductos.getCampoId();
                String desc = nProductos.getCampoDesc();
@@ -49,11 +56,11 @@ public class ControllerNewProduct {
                int cantidad =  Integer.parseInt(nProductos.getCampoCantidad());
                String sexo = nProductos.getCampoSexo();
                String idProveedor = nProductos.getCampoIdProveedor();
-               String vendido = nProductos.getCampoVendido();
+               String vendido = nProductos.getVendido();
 
-                    producto = new Producto(id, desc, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
-                    productDao.actualizarProducto(producto, nProductos.getConfirmaId());
-                    borrarCampos(nProductos);
+                         producto = new Producto(id, desc, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
+                         productDao.actualizarProducto(producto, nProductos.getConfirmaId());
+                         borrarCampos(nProductos);
                      
            }catch(NumberFormatException ex){
                JOptionPane.showMessageDialog(null, "Precio y cantidad no pueden estar vacios");
@@ -99,12 +106,20 @@ public class ControllerNewProduct {
                int cantidad =  Integer.parseInt(productoN.getCampoCantidad());
                String sexo = productoN.getCampoSexo();
                String idProveedor = "";
-               String vendido = productoN.getCampoVendido();
+               String vendido = "No ";
 
+                voidFields = validateIfFieldsIsEmpty(id, desc, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
+                sexValidate = validarSexo(sexo);
 
-                    voidFields = validateVoidFields(id, desc, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
-                    sexValidate = validarSexo(sexo);
-                    
+                if(precio == 0){
+                    productoN.setLabelPrecio("El precio no puede estar vacio");
+                    voidFields = true;
+                }
+                if(cantidad == 0){
+                    productoN.setLabelCantidad("La cantidad no puede estar vacia");
+                    voidFields = true;
+                }
+
                     for(Producto productoCopia : listaComparativa){
                          if(productoCopia.getId().equals(id)){
                               copia = true;
@@ -118,51 +133,58 @@ public class ControllerNewProduct {
                           borrarCampos(productoN);
                     }
                     else if(copia){
-                         label.setText("Id ya existente");
-                         label.setForeground(Color.RED);
-                         productoN.setRequestFocusCampoId();
+                        label.setText("ID ya existente");
+                        label.setForeground(Color.RED);
+                        productoN.setRequestFocusCampoId();
                     }
-                    if(!sexValidate){
-                         intentos++;
-                         productoN.setLabelSexoAdvertencia("Sexo invalido");
-                         productoN.setRequestFocusCampoSexo();
-                              if(intentos == 3){
-                                   JOptionPane.showMessageDialog(null, "Esta intentando crear un sexo con mas de 3 caracteres\nU esta ingresando caracteres diferentes de: M, F, MF o FM");
-                              }
-                              else if(intentos == 6){
-                                   JOptionPane.showMessageDialog(null, "Por favor, revise el manual de usuario. Tiene "+intentos+" intentos. No logrará nada ingresando datos no validos");
-                                   intentos = 0;
-                              }
+                    if(!sexValidate) {
+                        productoN.setLabelSexoAdvertencia("Dato invalido");
+                        intentos++;
+                        productoN.setRequestFocusCampoSexo();
+                        if (intentos == 3) {
+                            JOptionPane.showMessageDialog(null, "Esta intentando crear un sexo con mas de 3 caracteres\nU esta ingresando caracteres diferentes de: M, F, MF o FM");
+                        } else if (intentos == 6) {
+                            JOptionPane.showMessageDialog(null, "Por favor, revise el manual de usuario. Tiene " + intentos + " intentos. No logrará nada ingresando datos no validos");
+                            intentos = 0;
+                        }
+                    }
+                    if(id.equals("")) {
+                        label.setText("ID vacio");
+                        label.setForeground(Color.RED);
+                        productoN.setRequestFocusCampoId();
                     }
            }catch(NumberFormatException ex){
-               JOptionPane.showMessageDialog(null, "You cannot leave any field empty");
-               System.out.println(ex.getMessage());
+              JOptionPane.showMessageDialog(null, "Yout cannot leave any fields empty");
+               System.err.println(ex.getMessage());
           }
      }
 
-     public static boolean validateVoidFields(String id, String desc, String talla, String marca, String seccion, double precio, String edadDirigida, int cantidad, String sexo, String idProveedor, String vendido){
-
-          if(id.equals("") || desc.equals("") || talla.equals("") || marca.equals("") || seccion.equals("") || precio < 0 || edadDirigida.equals("") || cantidad < 0 || sexo.equals("") || vendido.equals("")){
-               JOptionPane.showMessageDialog(null,"You cannot leave any field empty");
+        public static boolean validateIfFieldsIsEmpty(String id, String desc, String talla, String marca, String seccion, Double precio, String edadDirigida, int cantidad, String sexo, String idProveedor, String vendido){
+           if(id.equals("") || desc.equals("") || talla.equals("") || marca.equals("") || seccion.equals("") || precio < 0 || edadDirigida.equals("") || cantidad < 0 || sexo.equals("") || vendido.equals("")){
+               JOptionPane.showMessageDialog(null, "You cannot leave any fields empty");
                return true;
-          }
-          else{
+           }
+           else{
                return false;
-          }
-     }
-
-       public static boolean validarSexo(String sexo){
-
-               if(sexo.equalsIgnoreCase("f") || sexo.equalsIgnoreCase("m")){
-                    return true;
-               }
-               else if(sexo.equalsIgnoreCase("mf") || sexo.equalsIgnoreCase("fm")){
-                    return true;
-               }
-          return false;
+           }
        }
 
-       public static void enviaDatosTabla(JTable tabla, String nombre){
+       public static void labelDefault(JLabel label, String texto){
+         label.setText(texto);
+         label.setForeground(Color.BLACK);
+       }
+        public static boolean validarSexo(String sexo){
+
+          if(sexo.equalsIgnoreCase("f") || sexo.equalsIgnoreCase("m")){
+               return true;
+          } else if(sexo.equalsIgnoreCase("mf") || sexo.equalsIgnoreCase("fm")){
+                    return true;
+          }
+          else {
+              return false;
+          }
+     }
+        public static void enviaDatosTabla(JTable tabla, String nombre){
     
           productDao = new nProductoDao();
                ArrayList<Producto> listaProductos = productDao.mostrar(nombre);
@@ -326,7 +348,7 @@ public class ControllerNewProduct {
                nProducto.setCampoCantidad(String.valueOf(tabla.getValueAt(fila, 7)));
                nProducto.setCampoSexo(String.valueOf(tabla.getValueAt(fila, 8)));
                nProducto.setCampoIdProveedor((String) tabla.getValueAt(fila, 9));
-               nProducto.setCampoVendido(String.valueOf(tabla.getValueAt(fila, 10)));
+               nProducto.setVendido((String) tabla.getValueAt(fila, 10));
           }
       }
 

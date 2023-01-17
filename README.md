@@ -17,6 +17,7 @@ to do everything manually.
 
 -It has complete lists of all invoices in the database, from suppliers, and even from customers
 
+
 # promises:
 
 -An interface improvement (more intuitive), and much more attractive
@@ -33,7 +34,7 @@ to do everything manually.
 
 # Features
  
---On the inventory
+-On the inventory
 
     -Recognizes if the product already exists.
 
@@ -41,15 +42,18 @@ to do everything manually.
 
     -Allows updating the id without any kind of error.
 
-    -Warns if when entering the gender of the product, it is incorrect or if you are trying to force the creation of a product with invalid data.
+    -Warns if when entering the gender of the product, it is incorrect or if you are trying to force the creation
+    of a product with invalid data.
 
     -Simple navigation by keys (up, down) through the table, without always needing the mouse.
 
     -Search for products that fit the filter that we have chosen for the table.
 
---In entrances
+-In entrances
 
-    -Recognizes if a product exists or not. If it does, it will ask the user if what he wants is to add the quantity of a product to its stock. If you press "Yes", it will create a simple and new record, where it will say the amount that entered and in inventory the amount that we entered will have been added.
+    -Recognizes if a product exists or not. If it does, it will ask the user if what he wants is to add the quantity of a product to its stock. 
+    If you press "Yes", it will create a simple and new record, where it will say the amount that entered and in inventory the amount that we entered will 
+    have been added.
 
     -Blocks any invoice that is repeated.
 
@@ -57,7 +61,7 @@ to do everything manually.
 
     -Fast navigation by keyboard with the table
 
---In departures
+-In departures
 
     -Avoid the output of any product that does NOT exist in stock.
 
@@ -69,18 +73,20 @@ to do everything manually.
 
     -Blocks any creation by means of an invoice that already exists.
 
---In supplier registry
+-In supplier registry
 
     -Blocks creation if any field is empty.
 
     -Recognizes which field is the one that gives the error and warns directly (still incomplete).
 
     -Search, analyze and prevent the creation of a supplier with an ID that is registered for another person
-    -If the email has some kind of space, unrecognizable symbol, or is missing: "@gmail.com" blocks the creation and warns (still incomplete for other types of emails).
+    -If the email has some kind of space, unrecognizable symbol, or is missing: "@gmail.com" blocks the creation and warns 
+    (still incomplete for other types of  emails).
 
     -If the email already exists, it blocks and warns.
 
     -A photo can be added to the record (Function not completed).
+
 
 # Note:
 
