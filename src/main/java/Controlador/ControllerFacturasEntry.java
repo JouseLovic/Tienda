@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.*;
-import Vista_Register.PanelNuevaFactura;
+import Vista.Vista_Register.PanelNuevaFactura;
 
 import java.awt.event.*;
 import java.sql.*;

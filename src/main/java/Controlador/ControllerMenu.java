@@ -1,8 +1,8 @@
 package Controlador;
 
 import Vista.*;
-import Vista_Formulario.*;
-import Vista_Register.*;
+import Vista.Vista_Formulario.*;
+import Vista.Vista_Register.*;
 
 public class ControllerMenu {
 

@@ -4,7 +4,7 @@ import javax.swing.*;
 import javax.swing.table.*;
 import Modelo.*;
 import Vista.PanelInicial;
-import Vista_Formulario.*;
+import Vista.Vista_Formulario.*;
 import DAO.*;
 import java.util.*;
 import java.awt.*;
