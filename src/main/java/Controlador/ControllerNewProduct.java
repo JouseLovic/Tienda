@@ -121,7 +121,7 @@ public class ControllerNewProduct {
                 }
 
                     for(Producto productoCopia : listaComparativa){
-                         if(productoCopia.getId().equals(id)){
+                         if(productoCopia.getId().equalsIgnoreCase(id)){
                               copia = true;
                          }
                     }
@@ -215,7 +215,7 @@ public class ControllerNewProduct {
 
       public static void enviaDatosTablaOrdenar(JTable tabla, String nombre, String texto){
     
-          if(nombre == "Descripcion"){
+          if(nombre.equals("Descripcion")){
 
                productDao = new nProductoDao();
                ArrayList<Producto> listaProductos = productDao.mostrarSeleccionDesc(texto);
@@ -244,7 +244,7 @@ public class ControllerNewProduct {
           tabla.setModel(modelo);
           }
 
-          if(nombre == "ID"){
+          if(nombre.equals("ID")){
 
                productDao = new nProductoDao();
                ArrayList<Producto> listaProductos = productDao.mostrarSeleccionId(texto);
@@ -273,7 +273,7 @@ public class ControllerNewProduct {
           tabla.setModel(modelo);
           }
 
-          if(nombre == "Seccion"){
+          if(nombre.equals("Seccion")){
 
                productDao = new nProductoDao();
                ArrayList<Producto> listaProductos = productDao.mostrarSeleccionSeccion(texto);
@@ -302,7 +302,7 @@ public class ControllerNewProduct {
           tabla.setModel(modelo);
           }
 
-          if(nombre == "Marca"){
+          if(nombre.equals("Marca")){
 
                productDao = new nProductoDao();
                ArrayList<Producto> listaProductos = productDao.mostrarSeleccionMarca(texto);

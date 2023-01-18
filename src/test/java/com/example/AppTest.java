@@ -78,6 +78,23 @@ public class AppTest
         Assert.assertEquals(true, match.matches());
     }
 
+    @Test
+    public void createAExcel(){
+
+        ControllerFileExcel fileExcel = new ControllerFileExcel();
+        boolean Exist = fileExcel.createdAFileExcel();
+        Assert.assertEquals(true, Exist);
+    }
+
+    @Test
+    public void ReadAExcelFile(){
+
+
+        ControllerFileExcel fileExcel = new ControllerFileExcel();
+        fileExcel.readFileExcel();
+
+    }
+
 
 
 }

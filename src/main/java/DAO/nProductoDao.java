@@ -203,8 +203,12 @@ public class nProductoDao {
           try{
               ps = conecta.createStatement();
 
-              if(!nombre.equals("")){  rs = ps.executeQuery("Select * from productos_generales where id like'%"+nombre+"%'");}
-              else { rs = ps.executeQuery("Select * from productos_generales order by id");}
+              if(!nombre.equalsIgnoreCase("")){
+                  rs = ps.executeQuery("Select * from productos_generales where id like'%"+nombre+"%'");
+              }
+              else {
+                  rs = ps.executeQuery("Select * from productos_generales order by id");
+              }
             
                 while(rs.next()){
                    
@@ -242,10 +246,10 @@ public class nProductoDao {
 
         try{
             ps = conecta.createStatement();
-            if(!texto.equals("")){
+            if(!texto.equalsIgnoreCase("")){
               rs = ps.executeQuery("Select * from productos_generales where descripcion like'%"+texto+"%'");
             }
-            else if(texto.equals("")){
+            else if(texto.equalsIgnoreCase("")){
               rs = ps.executeQuery("Select * from productos_generales order by descripcion");
             }
   
@@ -330,10 +334,10 @@ public class nProductoDao {
 
                   try{
                         ps = conecta.createStatement();
-                        if(!texto.equals("")){
+                        if(!texto.equalsIgnoreCase("")){
                           rs = ps.executeQuery("Select * from productos_generales where marca like'%"+texto+"%'");
                         }
-                        else if(texto.equals("")){
+                        else if(texto.equalsIgnoreCase("")){
                           rs = ps.executeQuery("Select * from productos_generales order by marca");
                         }
 
@@ -373,10 +377,10 @@ public class nProductoDao {
 
             try{
                 ps = conecta.createStatement();
-                if(!texto.equals("")){
+                if(!texto.equalsIgnoreCase("")){
                   rs = ps.executeQuery("Select * from productos_generales where id like'%"+texto+"%'");
                 }
-                else if(texto.equals("")){
+                else if(texto.equalsIgnoreCase("")){
                   rs = ps.executeQuery("Select * from productos_generales order by id asc");
                 }
   

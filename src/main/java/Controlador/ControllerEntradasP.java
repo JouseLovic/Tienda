@@ -67,7 +67,7 @@ public class ControllerEntradasP {
             String idProveedor = entrada.getCampoProveedor();
 
                 for (Producto productos : comparativa){
-                    if(productos.getId().equals(codigoP) && productos.getDesc().equals(desc) && productos.getSeccion().equals(seccion) && productos.getMarca().equals(marca) && productos.getIdProveedor().equals(idProveedor)){
+                    if(productos.getId().equalsIgnoreCase(codigoP) && productos.getDesc().equalsIgnoreCase(desc) && productos.getSeccion().equalsIgnoreCase(seccion) && productos.getMarca().equalsIgnoreCase(marca) && productos.getIdProveedor().equals(idProveedor)){
                         int opcion = JOptionPane.showConfirmDialog(null, "¿Desea sumar la cantidad de entrada al producto ya existente que tiene el id de: "+codigoP+"?");
                             if(opcion == 0){
                                 Exist = true;
@@ -75,22 +75,22 @@ public class ControllerEntradasP {
                                 break;
                             }
                         }
-                        else if(productos.getId().equals(codigoP) && !productos.getDesc().equals(desc)){
+                        else if(productos.getId().equalsIgnoreCase(codigoP) && !productos.getDesc().equalsIgnoreCase(desc)){
                             compruebaCampos(productos, entrada, desc, seccion, marca, idProveedor);
                             Exist = true;
                         }
 
-                        else if(productos.getId().equals(codigoP) && !productos.getSeccion().equals(seccion)){
+                        else if(productos.getId().equalsIgnoreCase(codigoP) && !productos.getSeccion().equalsIgnoreCase(seccion)){
                             compruebaCampos(productos, entrada, desc, seccion, marca, idProveedor);
                             Exist = true;
                         }
 
-                        else if(productos.getId().equals(codigoP) && !productos.getIdProveedor().equals(idProveedor)){
+                        else if(productos.getId().equalsIgnoreCase(codigoP) && !productos.getIdProveedor().equalsIgnoreCase(idProveedor)){
                             compruebaCampos(productos, entrada, desc, seccion, marca, idProveedor);
                             Exist = true;
                         }
 
-                        else if(productos.getId().equals(codigoP) && !productos.getMarca().equals(marca)){
+                        else if(productos.getId().equalsIgnoreCase(codigoP) && !productos.getMarca().equalsIgnoreCase(marca)){
                             compruebaCampos(productos, entrada, desc, seccion, marca, idProveedor);
                             Exist = true;
                         }     
@@ -203,7 +203,7 @@ public class ControllerEntradasP {
                 entrada.setCampoDescripcion("");
                 entrada.setCampoFecha("");
                 entrada.setSeleccionLista(0);
-                entrada.setCampoPrecio(null);
+                entrada.setCampoPrecio("");
                 entrada.setCampoCantidad("");
                 entrada.setCampoSeccionE("");
                 entrada.setCampoMarcaE("");
