@@ -1,8 +1,10 @@
 package Modelo;
 
+import java.util.Objects;
+
 public class Producto  {
 
-     private String tamaño;
+     private String talla;
      private String marca;
      private int cantidad;
      private double precio;
@@ -14,9 +16,9 @@ public class Producto  {
      private String idProveedor;
      private String vendido;
 
-    public Producto(String id, String desc, String tamaño, String marca, String seccion, double precio, String edadDirigida, int cantidad, String sexo, String idProveedor, String vendido) {
+    public Producto(String id, String desc, String talla, String marca, String seccion, double precio, String edadDirigida, int cantidad, String sexo, String idProveedor, String vendido) {
           this.id = id;
-          this.tamaño = tamaño;
+          this.talla = talla;
           this.marca = marca;
           this.cantidad = cantidad;
           this.desc = desc;
@@ -37,7 +39,7 @@ public class Producto  {
      }
 
      public String getTamaño() {
-          return tamaño;
+          return talla;
      }
 
      public String getMarca() {
@@ -69,33 +71,24 @@ public class Producto  {
           return seccion;
      }
 
-    
-     @Override
-     public int hashCode() {
-          final int prime = 31;
-          int result = 1;
-          result = prime * result + ((id == null) ? 0 : id.hashCode());
-          return result;
-     }
 
-     @Override
-     public boolean equals(Object obj) {
-          if (this == obj)
-               return true;
-          if (obj == null)
-               return false;
-          if (getClass() != obj.getClass())
-               return false;
-          Producto other = (Producto) obj;
-          if (id == null) {
-               if (other.id != null)
-                    return false;
-          } else if (!id.equals(other.id))
-               return false;
-          return true;
-     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Producto producto)) {
+            return false;
+        }
+        return getId().equals(producto.getId());
+    }
 
-     public String getIdProveedor() {
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
+
+    public String getIdProveedor() {
           return idProveedor;
      }
 

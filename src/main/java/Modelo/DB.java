@@ -31,7 +31,6 @@ public class DB {
             } catch (SQLException e) {
               e.printStackTrace();
             }
-            new Window().cierraPorErrorSQL();
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "Hubo un error inesperado debido a: "+ex.getMessage());
         }
