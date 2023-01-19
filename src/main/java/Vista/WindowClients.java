@@ -1,13 +1,12 @@
-
 package Vista;
 
-public class PanelFacturasGenerales extends javax.swing.JFrame {
+public class WindowClients extends javax.swing.JFrame {
 
-    
-      public PanelFacturasGenerales() {
+      public WindowClients() {
             initComponents();
       }
 
+      
       @SuppressWarnings("")
       // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
       private void initComponents() {
@@ -18,11 +17,11 @@ public class PanelFacturasGenerales extends javax.swing.JFrame {
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                   layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                  .addGap(0, 931, Short.MAX_VALUE)
+                  .addGap(0, 979, Short.MAX_VALUE)
             );
             layout.setVerticalGroup(
                   layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                  .addGap(0, 780, Short.MAX_VALUE)
+                  .addGap(0, 796, Short.MAX_VALUE)
             );
 
             pack();

@@ -1,23 +1,27 @@
 package Vista_Formulario;
 
 import Controlador.ControllerNewProduct;
+
 import java.awt.*;
 import javax.swing.*;
 
-public class PanelNuevoProducto extends javax.swing.JPanel {
+public class PanelNewProduct extends javax.swing.JPanel {
   
-     private static int actualizame = 0, cantidadAux;
+     private static int cantidadAux;
      //This boolean is for show a image key or other image key
      private boolean llaveActiva = false;
      //This boolean is for verified if campoId isEditable or not
      private boolean campoActivo = true;
 
+     //this boolean is for validate if panelInicial is visible or not
+     private static boolean isVisible;
+     private static String seleccionFiltrada = "";
      private String confirmaId;
      private String vendido;
      private double precioAux = 0;
-     private String seleccionFiltrada = "";
+
      
-     public PanelNuevoProducto() {
+     public PanelNewProduct() {
           initComponents();
           seleccionFiltrada = filtroId.getText();
           ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, "");
@@ -25,6 +29,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             if(ControllerNewProduct.state()==false){
                configDark();
             }
+            isVisible = true;
           setEditableProveedor(false);
           botonActualiza.setEnabled(false);
           botonConfirma.setEnabled(false); 
@@ -92,9 +97,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             containerComponents.addMouseListener(new java.awt.event.MouseAdapter() {
                   public void mouseClicked(java.awt.event.MouseEvent evt) {
                         containerComponentsMouseClicked(evt);
-                  }
-                  public void mouseEntered(java.awt.event.MouseEvent evt) {
-                        containerComponentsMouseEntered(evt);
                   }
             });
             containerComponents.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -499,14 +501,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           }
      }//GEN-LAST:event_campoBuscarKeyReleased
 
-     private void containerComponentsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_containerComponentsMouseEntered
-            
-          if(actualizame==0){
-               ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText());
-                actualizame++;
-              }
-     }//GEN-LAST:event_containerComponentsMouseEntered
-
      private void containerComponentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_containerComponentsMouseClicked
           tablaNProductos.setSelectionMode(0);
           botonConfirma.setEnabled(false);
@@ -711,13 +705,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           this.vendido = texto;
      }
 
-     public static int getActu(){
-          return actualizame;
-     }
-
-     public static void setActualizame(int numero){
-          actualizame = numero;
-     }
 
      public void setActualiza(boolean act) {
           botonActualiza.setEnabled(act);
@@ -807,6 +794,20 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
         this.campoId.requestFocus();
     }
 
+    public static boolean getIsVisible(){
+         return isVisible;
+    }
+
+    public static void setIsVisible(boolean state){
+         isVisible = state;
+    }
+
+    public static synchronized void chargeTable(){
+        ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, "");
+    }
+
+
+
     public void configDark(){
           containerComponents.setBackground(new Color(47,47,47));
           jSeparator1.setForeground(Color.WHITE); jSeparator2.setForeground(Color.WHITE);
@@ -824,7 +825,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
       private javax.swing.JButton botonEliminar;
       private javax.swing.JButton botonLimpiaCampos;
       private javax.swing.JButton botonLlave;
-      private javax.swing.JTextField campoBuscar;
+      private static javax.swing.JTextField campoBuscar;
       private javax.swing.JTextField campoCantidad;
       private javax.swing.JTextField campoDesc;
       private javax.swing.JTextField campoEdadDirigida;

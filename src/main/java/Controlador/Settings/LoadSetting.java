@@ -1,4 +1,6 @@
-package Controlador;
+package Controlador.Settings;
+import Controlador.Settings.SaveSetting;
+
 import java.io.*;
 
 public class LoadSetting {

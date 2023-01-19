@@ -1,7 +1,10 @@
 import javax.swing.UIManager;
+
+import ControladorThreads.ControllerProducts;
+import ControladorThreads.ControllerVendors;
 import com.formdev.flatlaf.*;
 
-import Controlador.ReSettings;
+import Controlador.Settings.ReSettings;
 import Vista.*;
 public class App {
     public static void main(String[] args) throws Exception {
@@ -26,6 +29,11 @@ public class App {
                 System.err.println( "Error al inicializar LaF" );
             }
         }
+
+        ControllerProducts productsThread = new ControllerProducts();
+        ControllerVendors provThread = new ControllerVendors();
+        productsThread.start();
+        provThread.start();
         
          Window W = new Window();
          W.setVisible(true);

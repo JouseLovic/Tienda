@@ -6,27 +6,25 @@ import javax.swing.ImageIcon;
 
 public class controllerInicial {
       
-      private static PanelFacturasGenerales frameF;
-      private static PanelClientes frameC;
-      private static PanelProveedores frameP;
+      private static WindowGeneralInvoices frameF;
+      private static WindowClients frameC;
+      private static WindowVendors frameP;
       
       //Clicks events 
       public static void presionaFacturas(){
-            PanelProveedores.setActualizameProv(0);
-            frameF = new PanelFacturasGenerales();
+            frameF = new WindowGeneralInvoices();
             frameF.setVisible(true);
             frameF.setLocationRelativeTo(null);
       }
       
       public static void presionaClientes(){
-            PanelProveedores.setActualizameProv(0);
-            frameC = new PanelClientes();
+            frameC = new WindowClients();
             frameC.setVisible(true);
             frameC.setLocationRelativeTo(null);
       }
 
       public static void presionaProveedores(){
-            frameP = new PanelProveedores();
+            frameP = new WindowVendors();
             frameP.setVisible(true);
             frameP.setLocationRelativeTo(null);
       }

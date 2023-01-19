@@ -2,14 +2,20 @@
 package Vista;
 
 import Controlador.controllerInicial;
-import java.awt.Color;
+import Vista_Formulario.*;
+import Vista.*;
+import java.awt.*;
 import javax.swing.ImageIcon;
+
 public class PanelInicial extends javax.swing.JPanel {
 
      private static boolean state = true;
+     private WindowVendors proveedor = new WindowVendors();
 
      public PanelInicial() {
           initComponents();
+          PanelNewProduct.setIsVisible(false);
+          WindowVendors.setIsVisibleProv(false);
      }
 
      

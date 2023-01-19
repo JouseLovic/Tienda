@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.regex.*;
 import org.junit.Test;
 
+import Controlador.Settings.*;
 import Controlador.*;
 import junit.framework.Assert;
 public class AppTest 

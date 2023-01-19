@@ -13,7 +13,7 @@ public class ControllerListProveedor {
 
     private static nProveedorDao pDao;
 
-        public static void enviaDatosTabla(JTable tabla, PanelProveedores panel){
+        public static void enviaDatosTabla(JTable tabla){
 
                 pDao = new nProveedorDao();
                 ArrayList<Proveedores> listaProveedores = pDao.mostrar();

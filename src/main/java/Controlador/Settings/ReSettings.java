@@ -1,4 +1,4 @@
-package Controlador;
+package Controlador.Settings;
 
 import java.util.Arrays;
 
