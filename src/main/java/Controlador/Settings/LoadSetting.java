@@ -1,5 +1,4 @@
 package Controlador.Settings;
-import Controlador.Settings.SaveSetting;
 
 import java.io.*;
 
@@ -42,8 +41,12 @@ public class LoadSetting {
         File fileSetting = new File(uri);
         
         if (!directorio.exists()) {
-             directorio.mkdirs();   
-            System.out.println("Directorio creado");  
+             if(directorio.mkdirs()) {
+                 System.out.println("Directorio creado");
+             }
+             else{
+                 System.out.println("Error al crear el directorio");
+             }
         }
         if(!fileSetting.exists()){
             String[] nArray = {"Light", "Arial", "Plain", "22"};

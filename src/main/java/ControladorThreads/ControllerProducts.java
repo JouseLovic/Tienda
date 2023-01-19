@@ -1,6 +1,7 @@
 package ControladorThreads;
 
-import Vista_Formulario.PanelNewProduct;
+import Vista_Formulario.PanelNuevoProducto;
+import Vista_Formulario.PanelNuevoProducto;
 
 public class ControllerProducts extends Thread{
 
@@ -10,8 +11,8 @@ public class ControllerProducts extends Thread{
                 while(true) {
                     try {
                         Thread.sleep(100);
-                        if (!PanelNewProduct.getIsVisible()) {
-                            PanelNewProduct.chargeTable();
+                        if (!PanelNuevoProducto.getIsVisible()) {
+                            PanelNuevoProducto.chargeTable();
                         }
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);

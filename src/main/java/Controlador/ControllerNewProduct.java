@@ -19,7 +19,7 @@ public class ControllerNewProduct {
      private static boolean voidFields;
      private static boolean sexValidate;
      
-     public static void borrarCampos(PanelNewProduct producto){
+     public static void borrarCampos(PanelNuevoProducto producto){
 
           producto.setLabelIdDefault("ID");
           producto.setLabelSexoDefault("Sexo");
@@ -39,7 +39,7 @@ public class ControllerNewProduct {
           
      }
 
-     public static void actualizarProducto(PanelNewProduct nProductos){
+     public static void actualizarProducto(PanelNuevoProducto nProductos){
 
           productDao = new nProductoDao();
           ArrayList<Producto> listaCompara = null;
@@ -67,14 +67,14 @@ public class ControllerNewProduct {
            }
      }
 
-     public static void confirmar(PanelNewProduct nProductos){
+     public static void confirmar(PanelNuevoProducto nProductos){
                productDao = new nProductoDao();
                String vendido = "Si";
                productDao.confirmarVendida(vendido, nProductos.getConfirmaId());
      }
 
 
-     public static void eliminar(JTable tabla, PanelNewProduct nProducto){
+     public static void eliminar(JTable tabla, PanelNuevoProducto nProducto){
           productDao = new nProductoDao();
           int fila = tabla.getSelectedRow();
           if(fila >= 0){
@@ -87,7 +87,7 @@ public class ControllerNewProduct {
           }
      }
      
-     public static void subir(PanelNewProduct productoN, JTable tabla, JLabel label){
+     public static void subir(PanelNuevoProducto productoN, JTable tabla, JLabel label){
 
           productDao = new nProductoDao();
           boolean copia = false;
@@ -333,7 +333,7 @@ public class ControllerNewProduct {
      }
 
 
-      public static void mandaDatosCampos(JTable tabla, PanelNewProduct nProducto){
+      public static void mandaDatosCampos(JTable tabla, PanelNuevoProducto nProducto){
           
           int fila = tabla.getSelectedRow();
           if(fila>=0){
@@ -352,7 +352,7 @@ public class ControllerNewProduct {
           }
       }
 
-      public void activacionDeLlave(PanelNewProduct valida){
+      public void activacionDeLlave(PanelNuevoProducto valida){
           if(!valida.isLlaveActiva() && !valida.isCampoActivo()){
                ImageIcon image = new ImageIcon(getClass().getResource("/images/llaveActivada.png"));
                valida.setBotonLlave(image);
@@ -386,7 +386,7 @@ public class ControllerNewProduct {
          }
       }
 
-     public static void paraBotonEliminar(JTable tabla, PanelNewProduct productoN){
+     public static void paraBotonEliminar(JTable tabla, PanelNuevoProducto productoN){
           tabla.setSelectionMode(0);
           productoN.setActualiza(false);
           productoN.setCampoActivo(true);
@@ -394,7 +394,7 @@ public class ControllerNewProduct {
           productoN.setEditableId(true);
      }
 
-     public void paraBotonActualizar(JTable tabla, PanelNewProduct productoN){
+     public void paraBotonActualizar(JTable tabla, PanelNuevoProducto productoN){
           tabla.setSelectionMode(0);
           productoN.setCampoActivo(true);
           productoN.setLlaveActiva(false);
@@ -404,7 +404,7 @@ public class ControllerNewProduct {
           productoN.dameIcono(image);
      }
 
-     public void paraBotonLimpiar(JTable tabla, PanelNewProduct productoN){
+     public void paraBotonLimpiar(JTable tabla, PanelNuevoProducto productoN){
           tabla.setSelectionMode(0);
           productoN.setActualiza(false);
           productoN.setConfirmaVendido(false);
@@ -415,7 +415,7 @@ public class ControllerNewProduct {
           productoN.dameIcono(image);
      }
 
-     public void filaSeleccionada(JTable tabla, PanelNewProduct productoN){
+     public void filaSeleccionada(JTable tabla, PanelNuevoProducto productoN){
           productoN.setActualiza(true);
           productoN.setConfirmaVendido(true);
           productoN.setEditableId(false);

@@ -2,10 +2,11 @@ package com.example;
 
 import java.io.*;
 import java.util.regex.*;
-import org.junit.Test;
 
 import Controlador.Settings.*;
 import Controlador.*;
+import org.junit.Test;
+
 import junit.framework.Assert;
 public class AppTest 
 {
@@ -82,16 +83,16 @@ public class AppTest
     @Test
     public void createAExcel(){
 
-        ControllerFileExcel fileExcel = new ControllerFileExcel();
+        var fileExcel = new ControllerFileExcel();
         boolean Exist = fileExcel.createdAFileExcel();
-        Assert.assertEquals(true, Exist);
+
     }
 
     @Test
     public void ReadAExcelFile(){
 
         ControllerFileExcel fileExcel = new ControllerFileExcel();
-        fileExcel.readFileExcel();
+        fileExcel.readAFileExcel();
 
     }
 

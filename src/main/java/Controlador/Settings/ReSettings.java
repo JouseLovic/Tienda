@@ -1,5 +1,7 @@
 package Controlador.Settings;
 
+import Controlador.Settings.LoadSetting;
+
 import java.util.Arrays;
 
 public class ReSettings {

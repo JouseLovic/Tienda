@@ -151,7 +151,6 @@ public class Window extends JFrame {
                 else{
                     PanelEntrada.setActualizame(0);
                     PanelNuevaFactura.setEstado(true);
-                    PanelNewProduct.setIsVisible(false);
                     PanelNuevoProveedor.setActualizame(0);
                     ControllerMenu.BorraPaneles();
                     ControllerMenu.mostrarRegistroFacturas(Window.this);

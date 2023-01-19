@@ -1,50 +1,46 @@
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Modelo\Clientes.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Vista\PanelClientes.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Vista\WindowGeneralInvoices.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Vista_Formulario\PanelNewProduct.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Modelo\FacturaSalida.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\ControladorThreads\ControllerProducts.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Controlador\controllerInicial.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Controlador\ControllerNewProduct.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Modelo\Factura_entrada.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Controlador\ControllerMenu.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\DAO\ClientesDao.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\App.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Modelo\Empleados.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Vista\Window.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Vista_Formulario\PanelEntrada.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\DAO\FacturasEODao.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Vista\WindowVendors.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Controlador\ControllerListEntryandOut.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Vista\PanelRemakeInicial.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\ControladorThreads\ControllerVendors.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Controlador\Settings\SaveSetting.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Controlador\ControllerSalidasP.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Modelo\Producto.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Controlador\ControllerEntradasP.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Modelo\DB.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Modelo\EntradaProductos.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\DAO\EntradasDao.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\ControladorThreads\ControllerFacturas.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Modelo\Proveedores.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Modelo\Factura.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Controlador\ControllerListVendors.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Controlador\ControllerNewProveedor.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Vista\FormularioNCliente.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Controlador\ControllerFacturasEntry.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Controlador\ControllerListProveedor.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Vista\WindowClients.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\DAO\nProveedorDao.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Controlador\ControllerFileExcel.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Controlador\Settings\LoadSetting.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Vista\PanelFacturasGenerales.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Modelo\SalidasProduct.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Vista_Register\PanelNuevoProveedor.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Controlador\Settings\ReSettings.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\DAO\nProductoDao.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Vista_Formulario\PanelSalida.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Vista\PanelProveedores.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Vista_Register\PanelNuevaFactura.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\Vista\PanelInicial.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\DAO\FacturaEDao.java
-C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\DAO\SalidasDao.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Modelo\DB.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Controlador\ControllerEntradasP.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Vista\FormularioNCliente.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Vista\Window.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Vista_Formulario\PanelEntrada.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Modelo\Factura.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Modelo\Producto.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Controlador\ControllerListEntryandOut.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\App.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\DAO\FacturasEODao.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\ControladorThreads\ControllerVendors.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Settings\ReConfig.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Vista_Formulario\PanelNuevoProducto.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Controlador\ControllerFacturasEntry.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Controlador\ControllerNewProveedor.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\DAO\ClientesDao.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\ControladorThreads\ControllerFacturas.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Controlador\controllerInicial.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Vista_Formulario\PanelSalida.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Vista_Register\PanelNuevaFactura.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Vista\PanelProveedores.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Vista\PanelClientes.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Controlador\ControllerListProveedor.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\DAO\nProductoDao.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Modelo\FacturaSalida.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Controlador\ControllerNewProduct.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Vista\PanelFacturasGenerales.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Vista_Register\PanelNuevoProveedor.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Modelo\Empleados.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\DAO\SalidasDao.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Settings\SaveSetting.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Controlador\ControllerMenu.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Modelo\Factura_entrada.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Modelo\EntradaProductos.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Modelo\Clientes.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Modelo\SalidasProduct.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Settings\LoadSetting.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Vista\PanelInicial.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\DAO\EntradasDao.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\ControladorThreads\ControllerProducts.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Vista\PanelRemakeInicial.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\DAO\FacturaEDao.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Controlador\ControllerSalidasP.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\DAO\nProveedorDao.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\ControladorThreads\ControllerCompruebaSettings.java
+c:\Users\Usuario\Downloads\Proyectos VSCODE\demo\src\main\java\Modelo\Proveedores.java

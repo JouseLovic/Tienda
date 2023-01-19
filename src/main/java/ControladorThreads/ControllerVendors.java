@@ -1,6 +1,7 @@
 package ControladorThreads;
 
-import Vista.WindowVendors;
+import Vista.PanelProveedores;
+import Vista.PanelProveedores;
 
 public class ControllerVendors extends Thread{
 
@@ -10,8 +11,8 @@ public class ControllerVendors extends Thread{
         while(true){
             try {
                 Thread.sleep(100);
-                if(!WindowVendors.getIsVisibleProv()){
-                    WindowVendors.chargeTable();
+                if(!PanelProveedores.getIsVisibleProv()){
+                    PanelProveedores.chargeTable();
                 }
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
