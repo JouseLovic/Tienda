@@ -4,43 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba3a3333-6e0c-4eac-b79f-50fb2f15fc1e" name="Changes" comment="Now there are two thread charge automatically in the table of &quot;PanelNuevoProductos&quot; and in the table of &quot;PanelProveedores&quot;">
+    <list default="true" id="ba3a3333-6e0c-4eac-b79f-50fb2f15fc1e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/ControllerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/ControllerMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/ControllerNewProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/ControllerNewProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/Settings/LoadSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/Settings/LoadSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/Settings/ReSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/Settings/ReSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/controllerInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/controllerInicial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControladorThreads/ControllerProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorThreads/ControllerProducts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControladorThreads/ControllerVendors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorThreads/ControllerVendors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vista/PanelInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista/PanelInicial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/EntradasDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/EntradasDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/nProveedorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/nProveedorDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modelo/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modelo/DB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Vista/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vista/WindowClients.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vista_Formulario/PanelNewProduct.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/ControllerMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/ControllerMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/ControllerNewProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/ControllerNewProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/controllerInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/controllerInicial.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ControladorThreads/ControllerProducts.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControladorThreads/ControllerProducts.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ControladorThreads/ControllerVendors.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControladorThreads/ControllerVendors.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelInicial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/EntradasDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/EntradasDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAO/nProveedorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/nProveedorDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/DB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$6.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/demo-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/demo-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.AppTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.example.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.example.AppTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/example/AppTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +75,7 @@
     <setting file="file://$PROJECT_DIR$/src/main/java/Controlador/controllerInicial.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ControladorThreads/ControllerProducts.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ControladorThreads/ControllerVendors.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/DAO/nProveedorDao.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/Vista/PanelInicial.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/Vista/PanelProveedores.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/Vista/Window.java" root0="SKIP_INSPECTION" />
@@ -265,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674012345033</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Now there are two thread charge automatically in the table of &quot;PanelNuevoProductos&quot; and in the table of &quot;PanelProveedores&quot;">
+      <created>1674104359758</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1674104359758</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -277,17 +267,6 @@
               <option name="CUSTOM_BOOLEAN_PROPERTIES">
                 <map>
                   <entry key="Show.Git.Branches" value="true" />
-                </map>
-              </option>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/master" />
-                      </list>
-                    </value>
-                  </entry>
                 </map>
               </option>
             </State>

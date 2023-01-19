@@ -1,6 +1,9 @@
 package Modelo;
 
 import javax.swing.*;
+
+import ControladorThreads.ControllerProducts;
+import ControladorThreads.ControllerVendors;
 import Vista.Window;
 import java.sql.*;
 
@@ -15,8 +18,8 @@ public class DB {
         try {
            miConexion = DriverManager.getConnection(url, user, pass);
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "La aplicación no ha recibido ningun paquete de la base de datos. Por favor, asegurese de que encendió el servidor Apache y MySQL");
-            new Window().cierraPorErrorSQL();
+            JOptionPane.showMessageDialog(null, "La aplicación no ha recibido ningun paquete de la base de datos. \nPor favor, asegurese de que encendió el servidor Apache y MySQL");
+            System.exit(0);
         }
          return miConexion;
     }
@@ -24,16 +27,9 @@ public class DB {
     public void cierraConexion(Connection desconecta){
         try{
             desconecta.close();
-          }catch (NullPointerException ex){
-            JOptionPane.showMessageDialog(null, "¡Error! \n"+"El estado de la conexion con la base de datos es: "+ex.getMessage()+"\n"+"Encienda el servidor junto con MySQL y reabra la aplicación");
-            try {
-                desconecta.close();
             } catch (SQLException e) {
               e.printStackTrace();
             }
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Hubo un error inesperado debido a: "+ex.getMessage());
-        }
     }
 
 

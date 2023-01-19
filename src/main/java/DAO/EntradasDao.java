@@ -44,7 +44,6 @@ public class EntradasDao {
       } catch (SQLException e) {
          e.printStackTrace();
          JOptionPane.showMessageDialog(null, "Ha ocurrido un error en la clase 'EntradasDao' debido a: "+e.getCause());
-         new Window().cierraPorErrorSQL();
       }catch(NullPointerException ex){
         ex.printStackTrace();
         JOptionPane.showMessageDialog(null, "La conexion es nula. Por favor, asegurese de que el servidor este encendido");        

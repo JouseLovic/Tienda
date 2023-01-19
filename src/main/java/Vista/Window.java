@@ -42,11 +42,6 @@ public class Window extends JFrame {
     }
 
 
-    public void cierraPorErrorSQL(){
-        System.exit(0);
-    }
-
-
     private void Menu(){
 
         menu = new JMenuBar(); paginaInicial = new JMenu("Inicio");

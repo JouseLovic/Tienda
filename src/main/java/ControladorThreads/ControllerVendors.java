@@ -3,6 +3,8 @@ package ControladorThreads;
 import Vista.PanelProveedores;
 import Vista.PanelProveedores;
 
+import javax.naming.ldap.Control;
+
 public class ControllerVendors extends Thread{
 
     @Override
@@ -17,9 +19,6 @@ public class ControllerVendors extends Thread{
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-
-
-
 
         }
 

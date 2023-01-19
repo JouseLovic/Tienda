@@ -139,7 +139,6 @@ public class nProveedorDao {
                db.cierraConexion(conecta);
           }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "La operacion mostrar ha fallado por: "+ex.getMessage());
-            new Window().cierraPorErrorSQL();
             return null;
           }catch(NullPointerException ex){
             ex.printStackTrace();
