@@ -1,4 +1,6 @@
 import javax.swing.UIManager;
+
+import ControladorThreads.ControllerProducts;
 import com.formdev.flatlaf.*;
 
 import Controlador.ReSettings;
@@ -26,6 +28,9 @@ public class App {
                 System.err.println( "Error al inicializar LaF" );
             }
         }
+
+        ControllerProducts productsThread = new ControllerProducts();
+        productsThread.start();
         
          Window W = new Window();
          W.setVisible(true);

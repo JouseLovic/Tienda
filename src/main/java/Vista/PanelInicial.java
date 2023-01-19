@@ -2,7 +2,9 @@
 package Vista;
 
 import Controlador.controllerInicial;
-import java.awt.Color;
+import Vista_Formulario.PanelNuevoProducto;
+
+import java.awt.*;
 import javax.swing.ImageIcon;
 public class PanelInicial extends javax.swing.JPanel {
 
@@ -10,6 +12,7 @@ public class PanelInicial extends javax.swing.JPanel {
 
      public PanelInicial() {
           initComponents();
+          PanelNuevoProducto.setIsVisible(false);
      }
 
      
