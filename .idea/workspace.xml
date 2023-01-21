@@ -4,25 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba3a3333-6e0c-4eac-b79f-50fb2f15fc1e" name="Changes" comment="">
+    <list default="true" id="ba3a3333-6e0c-4eac-b79f-50fb2f15fc1e" name="Changes" comment="Other changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControladorThreads/ControllerVendors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorThreads/ControllerVendors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/EntradasDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/EntradasDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/nProveedorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/nProveedorDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modelo/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modelo/DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vista/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ControladorThreads/ControllerProducts.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControladorThreads/ControllerProducts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ControladorThreads/ControllerVendors.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControladorThreads/ControllerVendors.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/EntradasDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/EntradasDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/nProveedorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/nProveedorDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/DB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/controllerInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/controllerInicial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControladorThreads/ControllerProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorThreads/ControllerProducts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modelo/Empleados.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Vista/PanelInicial.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista/PanelInicial.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Vista/PanelInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista/PanelInicial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Vista/PanelRemakeInicial.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Vista/PanelRemakeInicial.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/controllerInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/controllerInicial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelInicial$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelInicial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelRemakeInicial.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/demo-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/demo-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.AppTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.example.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.example.AppTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/example/AppTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,11 +81,15 @@
     <setting file="file://$PROJECT_DIR$/src/main/java/ControladorThreads/ControllerProducts.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ControladorThreads/ControllerVendors.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/DAO/nProveedorDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Vista/PanelFacturasGenerales.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/Vista/PanelInicial.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/Vista/PanelProveedores.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/Vista/Window.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Vista_Formulario/PanelNuevoProducto.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Vista_Register/PanelNuevoProveedor.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/test/java/com/example/AppTest.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/tienda.sql" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../../../jdks/jdk-17.0.5+8/lib/src.zip!/java.desktop/java/awt/AWTEventMulticaster.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
