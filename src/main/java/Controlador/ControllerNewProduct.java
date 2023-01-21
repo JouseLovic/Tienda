@@ -354,7 +354,7 @@ public class ControllerNewProduct {
 
       public void activacionDeLlave(PanelNuevoProducto valida){
           if(!valida.isLlaveActiva() && !valida.isCampoActivo()){
-               ImageIcon image = new ImageIcon(getClass().getResource("/images/llaveActivada.png"));
+               ImageIcon image = new ImageIcon("src\\main\\java\\images\\llaveActivada.png");
                valida.setBotonLlave(image);
                valida.setLlaveActiva(false);
                valida.setCampoActivo(true);
@@ -365,20 +365,20 @@ public class ControllerNewProduct {
                         JOptionPane.showMessageDialog(null, "Seleccione una fila si desea usar esta opción");
                         valida.setEditableId(true);
                    }else if(!valida.getCampoId().isEmpty()){
-                        ImageIcon image = new ImageIcon(getClass().getResource("/images/llaveDesactivada.png"));
+                        ImageIcon image = new ImageIcon("src\\main\\java\\images\\llaveDesactivada.png");
                         valida.setBotonLlave(image);
                         valida.setLlaveActiva(false);
                         valida.setCampoActivo(false);
                         valida.setEditableId(false);
                    }
          }else if(valida.isLlaveActiva() && !valida.isCampoActivo()){
-               ImageIcon image = new ImageIcon(getClass().getResource("/images/llaveActivada.png"));
+               ImageIcon image = new ImageIcon("src\\main\\java\\images\\llaveActivada.png");
                valida.setBotonLlave(image);
                valida.setLlaveActiva(true);
                valida.setCampoActivo(true);
                valida.setEditableId(true);
          }else if(!valida.isLlaveActiva() && valida.isCampoActivo()){
-              ImageIcon image = new ImageIcon(getClass().getResource("/images/llaveDesactivada.png"));
+              ImageIcon image = new ImageIcon("src\\main\\java\\images\\llaveDesactivada.png");
               valida.setBotonLlave(image);
               valida.setLlaveActiva(false);
               valida.setCampoActivo(true);
@@ -400,7 +400,7 @@ public class ControllerNewProduct {
           productoN.setLlaveActiva(false);
           productoN.setActualiza(false);
           productoN.setEditableId(true);
-          ImageIcon image = new ImageIcon(getClass().getResource("/images/llaveDesactivada.png"));
+          ImageIcon image = new ImageIcon("src\\main\\java\\images\\llaveDesactivada.png");
           productoN.dameIcono(image);
      }
 
@@ -411,7 +411,7 @@ public class ControllerNewProduct {
           productoN.setCampoActivo(true);
           productoN.setLlaveActiva(false);
           productoN.setEditableId(true);
-          ImageIcon image = new ImageIcon(getClass().getResource("/images/llaveDesactivada.png"));
+          ImageIcon image = new ImageIcon("src\\main\\java\\images\\llaveDesactivada.png");
           productoN.dameIcono(image);
      }
 
@@ -421,7 +421,7 @@ public class ControllerNewProduct {
           productoN.setEditableId(false);
           productoN.setLlaveActiva(false);
           productoN.setCampoActivo(false);
-          ImageIcon image = new ImageIcon(getClass().getResource("/images/llaveDesactivada.png"));
+          ImageIcon image = new ImageIcon("src\\main\\java\\images\\llaveDesactivada.png");
           productoN.dameIcono(image);
      }
 

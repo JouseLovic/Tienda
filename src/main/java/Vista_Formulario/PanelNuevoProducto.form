@@ -355,7 +355,7 @@
               <Font name="Dialog" size="18" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/llaveDesactivada.png"/>
+              <Image iconType="2" name="C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\images\llaveDesactivada.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -366,11 +366,11 @@
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/llaveDesactivadaOscura.png"/>
+              <Image iconType="2" name="C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\images\llaveDesactivadaOscura.png"/>
             </Property>
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/llaveDesactivada.png"/>
+              <Image iconType="2" name="C:\Users\Usuario\Downloads\ProyectosIDEA\demo\src\main\java\images\llaveDesactivada.png"/>
             </Property>
           </Properties>
           <Events>

@@ -224,16 +224,16 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             containerComponents.add(botonActualiza, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 180, 40));
 
             botonLlave.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-            botonLlave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/llaveDesactivada.png"))); // NOI18N
+            botonLlave.setIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\llaveDesactivada.png")); // NOI18N
             botonLlave.setBorder(null);
             botonLlave.setBorderPainted(false);
             botonLlave.setContentAreaFilled(false);
             botonLlave.setFocusPainted(false);
             botonLlave.setFocusable(false);
             botonLlave.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            botonLlave.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/llaveDesactivadaOscura.png"))); // NOI18N
+            botonLlave.setPressedIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\llaveDesactivadaOscura.png")); // NOI18N
             botonLlave.setRequestFocusEnabled(false);
-            botonLlave.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/llaveDesactivada.png"))); // NOI18N
+            botonLlave.setRolloverIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\llaveDesactivada.png")); // NOI18N
             botonLlave.addActionListener(new java.awt.event.ActionListener() {
                   public void actionPerformed(java.awt.event.ActionEvent evt) {
                         botonLlaveActionPerformed(evt);

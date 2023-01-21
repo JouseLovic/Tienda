@@ -134,7 +134,7 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
             jPanel1.add(botonQuitaCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 32, 150, 40));
 
             labelPerson.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            labelPerson.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/default-avatar.png"))); // NOI18N
+            labelPerson.setIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\default-avatar.png")); // NOI18N
             jPanel1.add(labelPerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 40, 250, 230));
 
             botonColocaImagen.setText("Poner imagen");
