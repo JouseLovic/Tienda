@@ -49,7 +49,7 @@ public class PanelInicial extends javax.swing.JPanel {
             contenedorFacturas.setLayout(new java.awt.BorderLayout());
 
             labelFacturas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            labelFacturas.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\ProyectosIDEA\\demo\\src\\main\\java\\images\\401182.png")); // NOI18N
+            labelFacturas.setIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\401182.png")); // NOI18N
             contenedorFacturas.add(labelFacturas, java.awt.BorderLayout.CENTER);
 
             jPanel1.add(contenedorFacturas);
@@ -64,7 +64,7 @@ public class PanelInicial extends javax.swing.JPanel {
             containerClients.setLayout(new java.awt.BorderLayout());
 
             labelClientes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            labelClientes.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\ProyectosIDEA\\demo\\src\\main\\java\\images\\5906150.png")); // NOI18N
+            labelClientes.setIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\5906150.png")); // NOI18N
             containerClients.add(labelClientes, java.awt.BorderLayout.CENTER);
 
             jPanel1.add(containerClients);
@@ -93,7 +93,7 @@ public class PanelInicial extends javax.swing.JPanel {
             containerProveedores.setLayout(new java.awt.BorderLayout());
 
             jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\ProyectosIDEA\\demo\\src\\main\\java\\images\\Proveedor.png")); // NOI18N
+            jLabel1.setIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\Proveedor.png")); // NOI18N
             containerProveedores.add(jLabel1, java.awt.BorderLayout.CENTER);
 
             jPanel1.add(containerProveedores);
