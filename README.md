@@ -59,18 +59,6 @@ to do everything manually.
 
 * Fast navigation by keyboard with the table
 
-### In departures
-
-* Avoid the output of any product that does NOT exist in stock.
-
-* By recognizing if the amount that we enter is greater than that found in the stock of a product, and blocks the output.
-
-* If we update the amount of any record, you will notice if the amount is higher or lower than the one previously entered. 
-
-* If it is less, it will add the quantity to the stock. If it is greater, it will be subtracted (this is only when updating).
-
-* Blocks any creation by means of an invoice that already exists.
-
 ### In supplier registry
 
 * Blocks creation if any field is empty.
