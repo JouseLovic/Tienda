@@ -122,3 +122,13 @@ traslucido con una animacion de carga, para que luego se cierre y pueda continua
 Para que la imagen de carga mientras se hace el proceso de sobreescrito de la tabla de registros, funcione bien, usaremos es un metodo 
 que retorne un boolean y que haya un pequeño thread que mientras se realiza la animacion verifique si es true o false. 
 Si es false, dará error, si da true la imagen se tornara en un check "Archivo carga"
+
+23
+Para la carga constante del panel inicial, usaremos varios threads, ya que de todas formas el usuario solo vera esos datos, no haran nada mas
+
+24
+Para que en la cantidad de salidas y entradas (tambien la de ventas) siempre se vuelva a cero, haremos un metodo (en el mismo thread) que
+verificara que dia es. En el archivo de config guardaremos la fecha que se registro anteriormente. Tras esto, se validara si es el mismo dia
+contando tanto el mes como el dia. Si detecta que es el mismo, no creara un registro nuevo, sino que continuará actualizando el mismo. Por el
+contrario, si no es el mismo dia que la ves pasara, creara otro nuevo registro, con la fecha de ese dia, y la cantidad en 0 (eso hasta que
+en la otra app de ventas se comiencen a hacer ventas a clientes)

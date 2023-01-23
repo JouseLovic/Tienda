@@ -44,7 +44,7 @@ public class ControllerNewProduct {
           productDao = new nProductoDao();
           ArrayList<Producto> listaCompara = null;
           boolean exist = false;
-          listaCompara = productDao.mostrar("");
+          listaCompara = productDao.mostrarTodos("");
           try{
                String id = nProductos.getCampoId();
                String desc = nProductos.getCampoDesc();
@@ -67,10 +67,20 @@ public class ControllerNewProduct {
            }
      }
 
-     public static void confirmar(PanelNuevoProducto nProductos){
-               productDao = new nProductoDao();
-               String vendido = "Si";
-               productDao.confirmarVendida(vendido, nProductos.getConfirmaId());
+     public static boolean confirmar(PanelNuevoProducto nProductos) {
+         productDao = new nProductoDao();
+
+         int responce = JOptionPane.showConfirmDialog(null, "¿Desea realmente dar de alta este producto?");
+
+         if (responce == 0) {
+             String vendido = "Si";
+             productDao.confirmarVendida(vendido, nProductos.getConfirmaId());
+             return true;
+         }
+         else{
+             System.out.println("Producto no dado de alta");
+             return false;
+         }
      }
 
 
@@ -93,7 +103,7 @@ public class ControllerNewProduct {
           boolean copia = false;
           voidFields = false;
           sexValidate = false;
-          ArrayList<Producto> listaComparativa = productDao.mostrar("");
+          ArrayList<Producto> listaComparativa = productDao.mostrarTodos("");
 
           try{
                String id = productoN.getCampoId();
@@ -112,11 +122,11 @@ public class ControllerNewProduct {
                 sexValidate = validarSexo(sexo);
 
                 if(precio == 0){
-                    productoN.setLabelPrecio("El precio no puede estar vacio");
+                    productoN.setLabelPrecio("Precio invalido");
                     voidFields = true;
                 }
                 if(cantidad == 0){
-                    productoN.setLabelCantidad("La cantidad no puede estar vacia");
+                    productoN.setLabelCantidad("Cantidad invalida");
                     voidFields = true;
                 }
 
@@ -187,7 +197,7 @@ public class ControllerNewProduct {
         public static void enviaDatosTabla(JTable tabla, String nombre){
     
           productDao = new nProductoDao();
-               ArrayList<Producto> listaProductos = productDao.mostrar(nombre);
+               ArrayList<Producto> listaProductos = productDao.mostrarTodos(nombre);
                DefaultTableModel modelo = new DefaultTableModel();
                modelo.addColumn("Id"); modelo.addColumn("Descripcion"); modelo.addColumn("Talla"); modelo.addColumn("Marca");
                modelo.addColumn("Seccion"); modelo.addColumn("Precio"); modelo.addColumn("Edad dirigida"); modelo.addColumn("Cantidad");
@@ -213,7 +223,7 @@ public class ControllerNewProduct {
           tabla.setModel(modelo);
       }
 
-      public static void enviaDatosTablaOrdenar(JTable tabla, String nombre, String texto){
+      public static void enviaDatosTablaOrdenar(JTable tabla, String nombre, String texto) throws ArrayIndexOutOfBoundsException, IndexOutOfBoundsException {
     
           if(nombre.equals("Descripcion")){
 
@@ -348,7 +358,7 @@ public class ControllerNewProduct {
                nProducto.setCampoCantidad(String.valueOf(tabla.getValueAt(fila, 7)));
                nProducto.setCampoSexo(String.valueOf(tabla.getValueAt(fila, 8)));
                nProducto.setCampoIdProveedor((String) tabla.getValueAt(fila, 9));
-               nProducto.setVendido((String) tabla.getValueAt(fila, 10));
+               nProducto.setVendido(String.valueOf(tabla.getValueAt(fila, 10)));
           }
       }
 
@@ -440,7 +450,18 @@ public class ControllerNewProduct {
   
           if(numeros){
               a.consume();
-          }  
+          }
+      }
+
+      public static void limitWordsFields(int keyNumeros, KeyEvent a){
+
+        if(keyNumeros == 3){
+            a.consume();
+        }
+      }
+
+      public static void moveFieldsOrigin(JPanel panel){
+
       }
 
       public static boolean state(){
@@ -449,5 +470,7 @@ public class ControllerNewProduct {
           state = inicio.getState();
           return state;
       }
+
+
 
 }

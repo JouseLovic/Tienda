@@ -15,9 +15,11 @@ public class PanelEntrada extends javax.swing.JPanel {
      
      private String confirmaId;
      private static int actualizame = 0;
+     private static boolean isVisibleEntries;
      
      public PanelEntrada() {
           initComponents();
+          isVisibleEntries = false;
           ControllerEntradasP.llenaComboBox(listaProveedores);
           ControllerEntradasP.enviaDatosTabla(tablaEntradas, "");
      }
@@ -488,11 +490,16 @@ public class PanelEntrada extends javax.swing.JPanel {
             this.labelDesc.setText(texto);
             this.labelDesc.setForeground(Color.RED);
       }
-     
-     
-     
-     
-      // Variables declaration - do not modify//GEN-BEGIN:variables
+
+     public static boolean isIsVisibleEntries() {
+         return isVisibleEntries;
+     }
+
+     public static void setIsVisibleEntries(boolean isVisibleEntries) {
+         PanelEntrada.isVisibleEntries = isVisibleEntries;
+     }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
       private javax.swing.JButton botonEliminar;
       private javax.swing.JButton botonLimpiarCampos;
       private javax.swing.JButton botonSubirF;

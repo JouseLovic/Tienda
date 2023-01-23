@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class PanelNuevoProducto extends javax.swing.JPanel {
   
-     private static int cantidadAux;
+     private static int contador = 0, cantidadAux;
      //This boolean is for show a image key or other image key
      private boolean llaveActiva = false;
      //This boolean is for verified if campoId isEditable or not
@@ -91,6 +91,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             jLabel3 = new javax.swing.JLabel();
             campoCantidad = new javax.swing.JTextField();
             jSeparator12 = new javax.swing.JSeparator();
+            botonEditar = new javax.swing.JButton();
 
             setLayout(new java.awt.BorderLayout());
 
@@ -105,7 +106,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             labelId.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelId.setForeground(new java.awt.Color(0, 0, 0));
             labelId.setText("ID");
-            containerComponents.add(labelId, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 210, 30));
+            containerComponents.add(labelId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 210, 30));
 
             labelDesc.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelDesc.setForeground(new java.awt.Color(0, 0, 0));
@@ -116,7 +117,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             labelTalla.setForeground(new java.awt.Color(0, 0, 0));
             labelTalla.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelTalla.setText("Talla");
-            containerComponents.add(labelTalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 60, -1));
+            containerComponents.add(labelTalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 60, -1));
 
             campoId.setBorder(null);
             campoId.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -124,19 +125,19 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         campoIdKeyReleased(evt);
                   }
             });
-            containerComponents.add(campoId, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 140, 40));
+            containerComponents.add(campoId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 170, 30));
 
             campoDesc.setBorder(null);
-            containerComponents.add(campoDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 270, 40));
+            containerComponents.add(campoDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 270, 30));
 
             campoTalla.setBorder(null);
-            containerComponents.add(campoTalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 120, 160, 40));
+            containerComponents.add(campoTalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, 140, 30));
 
             campoMarca.setBorder(null);
-            containerComponents.add(campoMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 150, 40));
+            containerComponents.add(campoMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 170, 30));
 
             campoSeccion.setBorder(null);
-            containerComponents.add(campoSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 200, 40));
+            containerComponents.add(campoSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, 180, 30));
 
             campoPrecio.setBorder(null);
             campoPrecio.setDoubleBuffered(true);
@@ -150,35 +151,35 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         campoPrecioKeyTyped(evt);
                   }
             });
-            containerComponents.add(campoPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, 160, 40));
+            containerComponents.add(campoPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 160, 30));
 
             campoEdadDirigida.setBorder(null);
-            containerComponents.add(campoEdadDirigida, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 140, 40));
+            containerComponents.add(campoEdadDirigida, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 140, 30));
 
             labelPrecio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelPrecio.setForeground(new java.awt.Color(0, 0, 0));
             labelPrecio.setText("Precio");
-            containerComponents.add(labelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 280, 30));
+            containerComponents.add(labelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 280, 30));
 
             labelSeccion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelSeccion.setForeground(new java.awt.Color(0, 0, 0));
             labelSeccion.setText("Seccion del producto");
-            containerComponents.add(labelSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 200, 30));
+            containerComponents.add(labelSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, 180, 30));
 
             labelMarca.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelMarca.setForeground(new java.awt.Color(0, 0, 0));
             labelMarca.setText("Marca");
-            containerComponents.add(labelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 150, 30));
+            containerComponents.add(labelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 150, 30));
 
             labelCantidad.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelCantidad.setForeground(new java.awt.Color(0, 0, 0));
             labelCantidad.setText("Cantidad ");
-            containerComponents.add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 210, 30));
+            containerComponents.add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 250, 30));
 
             labelEdadDirigida.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelEdadDirigida.setForeground(new java.awt.Color(0, 0, 0));
-            labelEdadDirigida.setText("Edad a la que esta dirigida");
-            containerComponents.add(labelEdadDirigida, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 230, 30));
+            labelEdadDirigida.setText("Edad dirigida");
+            containerComponents.add(labelEdadDirigida, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 110, 30));
 
             botonLimpiaCampos.setText("Limpiar campos");
             botonLimpiaCampos.addActionListener(new java.awt.event.ActionListener() {
@@ -186,26 +187,29 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         botonLimpiaCamposActionPerformed(evt);
                   }
             });
-            containerComponents.add(botonLimpiaCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 430, 180, 40));
+            containerComponents.add(botonLimpiaCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 560, 180, 40));
 
             campoSexo.setBorder(null);
             campoSexo.addKeyListener(new java.awt.event.KeyAdapter() {
+                  public void keyPressed(java.awt.event.KeyEvent evt) {
+                        campoSexoKeyPressed(evt);
+                  }
                   public void keyReleased(java.awt.event.KeyEvent evt) {
                         campoSexoKeyReleased(evt);
                   }
             });
-            containerComponents.add(campoSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 80, 40));
+            containerComponents.add(campoSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 80, 30));
 
             labelSexo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelSexo.setForeground(new java.awt.Color(0, 0, 0));
             labelSexo.setText("Sexo");
-            containerComponents.add(labelSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, 120, 30));
+            containerComponents.add(labelSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, 120, 30));
 
             labelNombreEmpresa.setFont(new java.awt.Font("Baskerville Old Face", 0, 30)); // NOI18N
             labelNombreEmpresa.setForeground(new java.awt.Color(0, 0, 0));
             labelNombreEmpresa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelNombreEmpresa.setText("Gestion de inventario");
-            containerComponents.add(labelNombreEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 290, 70));
+            containerComponents.add(labelNombreEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 270, 40));
 
             botonEliminar.setText("Eliminar");
             botonEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -213,7 +217,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         botonEliminarActionPerformed(evt);
                   }
             });
-            containerComponents.add(botonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 170, 40));
+            containerComponents.add(botonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 560, 170, 40));
 
             botonActualiza.setText("Actualizar");
             botonActualiza.addActionListener(new java.awt.event.ActionListener() {
@@ -221,42 +225,42 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         botonActualizaActionPerformed(evt);
                   }
             });
-            containerComponents.add(botonActualiza, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 180, 40));
+            containerComponents.add(botonActualiza, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 560, 180, 40));
 
             botonLlave.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-            botonLlave.setIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\llaveDesactivada.png")); // NOI18N
+            botonLlave.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\ProyectosIDEA\\demo\\src\\main\\java\\images\\llaveDesactivada.png")); // NOI18N
             botonLlave.setBorder(null);
             botonLlave.setBorderPainted(false);
             botonLlave.setContentAreaFilled(false);
             botonLlave.setFocusPainted(false);
             botonLlave.setFocusable(false);
             botonLlave.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            botonLlave.setPressedIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\llaveDesactivadaOscura.png")); // NOI18N
+            botonLlave.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\ProyectosIDEA\\demo\\src\\main\\java\\images\\llaveDesactivadaOscura.png")); // NOI18N
             botonLlave.setRequestFocusEnabled(false);
-            botonLlave.setRolloverIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\llaveDesactivada.png")); // NOI18N
+            botonLlave.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\ProyectosIDEA\\demo\\src\\main\\java\\images\\llaveDesactivada.png")); // NOI18N
             botonLlave.addActionListener(new java.awt.event.ActionListener() {
                   public void actionPerformed(java.awt.event.ActionEvent evt) {
                         botonLlaveActionPerformed(evt);
                   }
             });
-            containerComponents.add(botonLlave, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 60, 60));
+            containerComponents.add(botonLlave, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 60, 50));
 
-            botonConfirma.setText("Confirmar productos vendido");
+            botonConfirma.setText("Confirmar alta de pedido");
             botonConfirma.addActionListener(new java.awt.event.ActionListener() {
                   public void actionPerformed(java.awt.event.ActionEvent evt) {
                         botonConfirmaActionPerformed(evt);
                   }
             });
-            containerComponents.add(botonConfirma, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 20, 200, 40));
+            containerComponents.add(botonConfirma, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 510, 180, 40));
 
             labelIdProveedor.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelIdProveedor.setForeground(new java.awt.Color(0, 0, 0));
             labelIdProveedor.setText("Id del proveedor");
-            containerComponents.add(labelIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 190, 170, 30));
+            containerComponents.add(labelIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 170, 30));
 
             campoIdProveedor.setText("Ninguno");
             campoIdProveedor.setBorder(null);
-            containerComponents.add(campoIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 230, 230, 40));
+            containerComponents.add(campoIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 180, 30));
 
             campoBuscar.setBorder(null);
             campoBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -267,18 +271,18 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         campoBuscarKeyReleased(evt);
                   }
             });
-            containerComponents.add(campoBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 390, 40));
+            containerComponents.add(campoBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 320, 40));
 
             jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel1.setForeground(new java.awt.Color(0, 0, 0));
             jLabel1.setText("Buscar producto:");
-            containerComponents.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 150, 40));
+            containerComponents.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 150, 40));
 
             jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel2.setForeground(new java.awt.Color(0, 0, 0));
             jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel2.setText("Ordernar por: ");
-            containerComponents.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 340, 140, 50));
+            containerComponents.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 140, 40));
 
             botonCrear.setText("Subir producto");
             botonCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -286,7 +290,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         botonCrearActionPerformed(evt);
                   }
             });
-            containerComponents.add(botonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 430, 160, 40));
+            containerComponents.add(botonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 560, 160, 40));
 
             filtroId.setBackground(new java.awt.Color(255, 255, 255));
             grupo.add(filtroId);
@@ -297,7 +301,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         filtroIdActionPerformed(evt);
                   }
             });
-            containerComponents.add(filtroId, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 340, 50, 20));
+            containerComponents.add(filtroId, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 440, 50, 20));
 
             filtroDesc.setBackground(new java.awt.Color(255, 255, 255));
             grupo.add(filtroDesc);
@@ -307,7 +311,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         filtroDescActionPerformed(evt);
                   }
             });
-            containerComponents.add(filtroDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 340, 150, -1));
+            containerComponents.add(filtroDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 440, 150, -1));
 
             filtroSeccion.setBackground(new java.awt.Color(255, 255, 255));
             grupo.add(filtroSeccion);
@@ -317,7 +321,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         filtroSeccionActionPerformed(evt);
                   }
             });
-            containerComponents.add(filtroSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 370, 90, -1));
+            containerComponents.add(filtroSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 460, 70, -1));
 
             filtroMarca.setBackground(new java.awt.Color(255, 255, 255));
             grupo.add(filtroMarca);
@@ -327,7 +331,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         filtroMarcaActionPerformed(evt);
                   }
             });
-            containerComponents.add(filtroMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 370, 90, -1));
+            containerComponents.add(filtroMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 90, -1));
 
             tablaNProductos = new javax.swing.JTable(){
 
@@ -371,53 +375,53 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             });
             jScrollPane2.setViewportView(tablaNProductos);
 
-            containerComponents.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 1230, 470));
+            containerComponents.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 1020, 340));
 
             jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
             jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 180, 20));
+            containerComponents.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 160, 20));
 
             jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
             jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 270, 250, 20));
+            containerComponents.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 180, 20));
 
             jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
             jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 290, 20));
+            containerComponents.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 270, 20));
 
             jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
             jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 390, 20));
+            containerComponents.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 320, 20));
 
             jSeparator5.setBackground(new java.awt.Color(255, 255, 255));
             jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 160, 20));
+            containerComponents.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 170, 20));
 
             jSeparator6.setBackground(new java.awt.Color(255, 255, 255));
             jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 160, 20));
+            containerComponents.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 140, 20));
 
             jSeparator7.setBackground(new java.awt.Color(255, 255, 255));
             jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, 100, 20));
+            containerComponents.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 80, 20));
 
             jSeparator8.setBackground(new java.awt.Color(255, 255, 255));
             jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 170, 20));
+            containerComponents.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 170, 20));
 
             jSeparator9.setBackground(new java.awt.Color(255, 255, 255));
             jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 200, 20));
+            containerComponents.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 180, 20));
 
             jSeparator11.setBackground(new java.awt.Color(255, 255, 255));
             jSeparator11.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 220, 20));
+            containerComponents.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, 180, 20));
 
             jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             jLabel3.setForeground(new java.awt.Color(0, 0, 0));
             jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             jLabel3.setText("$");
-            containerComponents.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 340, 20, 40));
+            containerComponents.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 20, 30));
 
             campoCantidad.setBorder(null);
             campoCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -428,11 +432,14 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         campoCantidadKeyTyped(evt);
                   }
             });
-            containerComponents.add(campoCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 180, 40));
+            containerComponents.add(campoCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 180, 30));
 
             jSeparator12.setBackground(new java.awt.Color(255, 255, 255));
             jSeparator12.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 160, 180, 20));
+            containerComponents.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 140, 20));
+
+            botonEditar.setText("jButton1");
+            containerComponents.add(botonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 13, 40, 30));
 
             add(containerComponents, java.awt.BorderLayout.CENTER);
       }// </editor-fold>//GEN-END:initComponents
@@ -480,11 +487,13 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
      }//GEN-LAST:event_botonLlaveActionPerformed
 
      private void botonConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmaActionPerformed
-         ControllerNewProduct.confirmar(this);
-         ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText());
-         tablaNProductos.setSelectionMode(0);
-         setEditableProveedor(false);
-         botonConfirma.setEnabled(false);
+         boolean selection = ControllerNewProduct.confirmar(this);
+            if(selection) {
+                ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText());
+                tablaNProductos.setSelectionMode(0);
+                setEditableProveedor(false);
+                botonConfirma.setEnabled(false);
+            }
      }//GEN-LAST:event_botonConfirmaActionPerformed
 
      private void tablaNProductosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaNProductosKeyReleased
@@ -558,6 +567,10 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           ControllerNewProduct.bloqueaLetrasCantidad(keyNumeros, evt);
       }//GEN-LAST:event_campoCantidadKeyTyped
 
+      private void campoSexoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoSexoKeyPressed
+           
+      }//GEN-LAST:event_campoSexoKeyPressed
+
      public String getCampoIdProveedor() {
           return campoIdProveedor.getText();
      }
@@ -623,7 +636,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
      }
 
      public void setCampoPrecio(String texto) {
-          campoPrecio.setText(texto);
+          campoPrecio.setText(String.valueOf(texto));
      }
 
      public String getCampoTalla() {
@@ -703,7 +716,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
      }
 
      public void setVendido(String texto) {
-          this.vendido = texto;
+          this.vendido = String.valueOf(texto);
      }
 
 
@@ -724,7 +737,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
              return campoBuscar.getText();  
           }
           else{
-               return null;
+               return "";
           }
      }
 
@@ -807,7 +820,13 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
         ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, "");
     }
 
+    public static int getContador() {
+        return contador;
+    }
 
+    public static void setContador(int contador) {
+        PanelNuevoProducto.contador = contador;
+    }
 
     public void configDark(){
           containerComponents.setBackground(new Color(47,47,47));
@@ -823,6 +842,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
       private javax.swing.JButton botonActualiza;
       private javax.swing.JButton botonConfirma;
       private javax.swing.JButton botonCrear;
+      private javax.swing.JButton botonEditar;
       private javax.swing.JButton botonEliminar;
       private javax.swing.JButton botonLimpiaCampos;
       private javax.swing.JButton botonLlave;

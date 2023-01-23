@@ -4,27 +4,28 @@ import Controlador.*;
 import Vista_Formulario.*;
 import Vista_Register.PanelNuevaFactura;
 import Vista_Register.PanelNuevoProveedor;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class Window extends JFrame {
 
-    //Productos
 
     private PanelInicial inicio = new PanelInicial();
+    private JPanel panelContent, panelMenu;
+    private JButton buttonCRUD, buttonHome, buttonEntries, buttonBill, buttonVendors, buttonSettings, buttonReports;
+    private JLabel username, levelUser;
+    private String userLogin, level;
 
-    //El menu
     private JMenuBar menu;
-    private JMenu paginaInicial, Producto, entrada, salida, Registro;
+    private JMenu Producto, entrada, Registro;
     private JMenuItem CRUD;
     private JMenuItem entradaProducto;
-    private JMenuItem salidaProductos;
     private JMenuItem RegistroProveedor, RegistroFacturaE;
-    private JMenuItem atras;
 
 
-    public Window() {
+    public Window() {//Para que username y leveluser tenga el usuario que entró, simplemente le damos parametros al constructor y esos valores se los damos
       
         Dimension Screen = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(Screen);
@@ -36,31 +37,61 @@ public class Window extends JFrame {
     }
     
     private void Init() {
-        this.getContentPane().add(inicio); //por default debe ser "inicio" el que este añadido a la ventana
+        panelContent = new JPanel();
+        panelContent.setLayout(new BorderLayout());
+        this.getContentPane().add(panelContent); //por default debe ser "inicio" el que este añadido a la ventana
+        MenuPanel();
+        addInicio(inicio);
         Menu();
+
 
     }
 
+    private void MenuPanel(){
 
-    private void Menu(){
+        panelMenu = new JPanel();
+        panelMenu.setLayout(null);
+        panelMenu.setPreferredSize(new Dimension(200, 1200));
+        panelMenu.setBackground(new Color(82,116,255));
+        panelMenu.setVisible(true);
 
-        menu = new JMenuBar(); paginaInicial = new JMenu("Inicio");
-        Producto = new JMenu("Inventario"); entrada = new JMenu("Entradas"); salida = new JMenu("Salidas"); Registro = new JMenu("Registrar");
-        CRUD = new JMenuItem("Gestion del inventario");
-        entradaProducto = new JMenuItem("Entrada de productos"); salidaProductos = new JMenuItem("Salida de productos");
-        RegistroFacturaE = new JMenuItem("Factura de entrada"); RegistroProveedor = new JMenuItem("Proveedor"); 
-        atras = new JMenuItem("Volver al inicio");
+        panelContent.add(panelMenu, BorderLayout.WEST);
 
-        menu.add(paginaInicial); menu.add(Producto); menu.add(entrada); menu.add(salida); menu.add(Registro);
-        paginaInicial.add(atras);
-        Producto.add(CRUD);
-        entrada.add(entradaProducto); salida.add(salidaProductos);
-        Registro.add(RegistroFacturaE); Registro.add(RegistroProveedor); 
-        this.setJMenuBar(menu);
+    }
 
-        atras.addActionListener(new ActionListener() {
+    private void addInicio(JPanel panel){
+        panelContent.add(panel, BorderLayout.CENTER);
+    }
+
+    private void Menu() {
+
+        username = new JLabel("User: ");
+        username.setForeground(Color.WHITE);
+        username.setHorizontalAlignment(0);
+        username.setBounds(10, 100, 80, 30);
+
+        levelUser = new JLabel("Level: ");
+        levelUser.setForeground(Color.WHITE);
+        levelUser.setHorizontalAlignment(0);
+        levelUser.setBounds(10, 120, 80, 30);
+
+        panelMenu.add(username);
+        panelMenu.add(levelUser);
+
+        buttonHome = new JButton("Home");
+        buttonHome.setFocusable(false);
+        buttonHome.setFocusPainted(false);
+        buttonHome.setBorder(BorderFactory.createEmptyBorder());
+        buttonHome.setHorizontalAlignment(0);
+        buttonHome.setForeground(Color.WHITE);
+        buttonHome.setBackground(new Color(58, 95, 245));
+        buttonHome.setBounds(0, 180, 200, 45);
+        panelMenu.add(buttonHome);
+        buttonHome.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void mouseReleased(MouseEvent e) {
+                buttonHome.setBackground(new Color(132, 156, 255));
+                ControllerMenu.ocultarPanelInicial(panelContent, inicio);
                 PanelEntrada.setActualizame(0);
                 PanelNuevaFactura.setActualizame(0);
                 PanelNuevaFactura.setEstado(false);
@@ -68,17 +99,51 @@ public class Window extends JFrame {
                 ControllerMenu.BorraPaneles();
                 ControllerMenu.atras(Window.this);
             }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                buttonHome.setBackground(new Color(99, 139, 220));
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                buttonHome.setBackground(new Color(132, 156, 255));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (PanelInicial.isIsVisibleInitial()) {
+                    buttonHome.setBackground(new Color(58, 95, 245));
+                } else {
+                    buttonHome.setBackground(new Color(82, 116, 255));
+                }
+            }
         });
 
-        CRUD.addActionListener(new ActionListener() {
+        buttonCRUD = new JButton("Gestion de inventario");
+        buttonCRUD.setFocusable(false);
+        buttonCRUD.setFocusPainted(false);
+        buttonCRUD.setBorder(BorderFactory.createEmptyBorder());
+        buttonCRUD.setHorizontalAlignment(0);
+        buttonCRUD.setForeground(Color.WHITE);
+        buttonCRUD.setBackground(new Color(82, 116, 255));
+        buttonCRUD.setBounds(0, 235, 200, 45);
+        panelMenu.add(buttonCRUD);
+        buttonCRUD.addMouseListener(new MouseAdapter() {
+
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void mouseReleased(MouseEvent e) {
+                buttonBill.setBackground(new Color(82, 116, 255));
+                buttonEntries.setBackground(new Color(82, 116, 255));
+                buttonHome.setBackground(new Color(82, 116, 255));
+                buttonVendors.setBackground(new Color(82, 116, 255));
+                buttonCRUD.setBackground(new Color(58, 95, 245));
                 if (inicio.isVisible()) {
                     PanelEntrada.setActualizame(0);
                     PanelNuevaFactura.setActualizame(0);
                     PanelNuevaFactura.setEstado(false);
                     PanelNuevoProveedor.setActualizame(0);
-                    ControllerMenu.ocultarPanelInicial(inicio);
+                    ControllerMenu.ocultarPanelInicial(panelContent, inicio);
                     ControllerMenu.mostrarNuevoProductos(Window.this);
                 } else {
                     ControllerMenu.BorraPaneles();
@@ -89,19 +154,52 @@ public class Window extends JFrame {
                     ControllerMenu.mostrarNuevoProductos(Window.this);
                 }
             }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                buttonCRUD.setBackground(new Color(99, 139, 220));
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                buttonCRUD.setBackground(new Color(132, 156, 255));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (PanelNuevoProducto.getIsVisible()) {
+                    buttonCRUD.setBackground(new Color(58, 95, 245));
+                } else {
+                    buttonCRUD.setBackground(new Color(82, 116, 255));
+                }
+
+            }
         });
 
-        entradaProducto.addActionListener(new ActionListener() {
+        buttonEntries = new JButton("Entradas de productos");
+        buttonEntries.setFocusable(false);
+        buttonEntries.setFocusPainted(false);
+        buttonEntries.setBorder(BorderFactory.createEmptyBorder());
+        buttonEntries.setHorizontalAlignment(0);
+        buttonEntries.setForeground(Color.WHITE);
+        buttonEntries.setBackground(new Color(82, 116, 255));
+        buttonEntries.setBounds(0, 290, 200, 45);
+        panelMenu.add(buttonEntries);
+        buttonEntries.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if(inicio.isVisible()){
+            public void mouseReleased(MouseEvent e) {
+                buttonBill.setBackground(new Color(82, 116, 255));
+                buttonHome.setBackground(new Color(82, 116, 255));
+                buttonVendors.setBackground(new Color(82, 116, 255));
+                buttonCRUD.setBackground(new Color(82, 116, 255));
+                buttonEntries.setBackground(new Color(58, 95, 245));
+                if (inicio.isVisible()) {
                     PanelNuevaFactura.setActualizame(0);
                     PanelNuevaFactura.setEstado(false);
                     PanelNuevoProveedor.setActualizame(0);
-                    ControllerMenu.ocultarPanelInicial(inicio);
+                    ControllerMenu.ocultarPanelInicial(panelContent, inicio);
                     ControllerMenu.mostrarEntradaP(Window.this);
-                }
-                else{
+                } else {
                     PanelNuevaFactura.setActualizame(0);
                     PanelNuevaFactura.setEstado(false);
                     PanelNuevoProveedor.setActualizame(0);
@@ -109,41 +207,51 @@ public class Window extends JFrame {
                     ControllerMenu.mostrarEntradaP(Window.this);
                 }
             }
-        });
 
-        salidaProductos.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if(inicio.isVisible()){
-                    PanelEntrada.setActualizame(0);
-                    PanelNuevaFactura.setActualizame(0);
-                    PanelNuevoProveedor.setActualizame(0);
-                    PanelNuevaFactura.setEstado(false);
-                    ControllerMenu.ocultarPanelInicial(inicio);
-                    ControllerMenu.mostrarSalidaP(Window.this);
-                }
-                else{
-                    PanelEntrada.setActualizame(0);
-                    PanelNuevaFactura.setActualizame(0);
-                    PanelNuevoProveedor.setActualizame(0);
-                    PanelNuevaFactura.setEstado(false);
-                    ControllerMenu.BorraPaneles();
-                    ControllerMenu.mostrarSalidaP(Window.this);
+            public void mousePressed(MouseEvent e) {
+                buttonEntries.setBackground(new Color(99, 139, 220));
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                buttonEntries.setBackground(new Color(132, 156, 255));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (PanelEntrada.isIsVisibleEntries()) {
+                    buttonEntries.setBackground(new Color(58, 95, 245));
+                } else {
+                    buttonEntries.setBackground(new Color(82, 116, 255));
                 }
             }
         });
 
-        RegistroFacturaE.addActionListener(new ActionListener() {
+        buttonBill = new JButton("Facturas por entradas");
+        buttonBill.setFocusable(false);
+        buttonBill.setFocusPainted(false);
+        buttonBill.setBorder(BorderFactory.createEmptyBorder());
+        buttonBill.setHorizontalAlignment(0);
+        buttonBill.setForeground(Color.WHITE);
+        buttonBill.setBackground(new Color(82, 116, 255));
+        buttonBill.setBounds(0, 345, 200, 45);
+        panelMenu.add(buttonBill);
+        buttonBill.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if(inicio.isVisible()){
+            public void mouseReleased(MouseEvent e) {
+                buttonCRUD.setBackground(new Color(82, 116, 255));
+                buttonEntries.setBackground(new Color(82, 116, 255));
+                buttonHome.setBackground(new Color(82, 116, 255));
+                buttonVendors.setBackground(new Color(82, 116, 255));
+                buttonBill.setBackground(new Color(58, 95, 245));
+                if (inicio.isVisible()) {
                     PanelEntrada.setActualizame(0);
                     PanelNuevaFactura.setEstado(true);
                     PanelNuevoProveedor.setActualizame(0);
-                    ControllerMenu.ocultarPanelInicial(inicio);
+                    ControllerMenu.ocultarPanelInicial(panelContent, inicio);
                     ControllerMenu.mostrarRegistroFacturas(Window.this);
-                }
-                else{
+                } else {
                     PanelEntrada.setActualizame(0);
                     PanelNuevaFactura.setEstado(true);
                     PanelNuevoProveedor.setActualizame(0);
@@ -151,34 +259,85 @@ public class Window extends JFrame {
                     ControllerMenu.mostrarRegistroFacturas(Window.this);
                 }
             }
-        });
 
-        RegistroProveedor.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if(inicio.isVisible()){
-                    PanelEntrada.setActualizame(0);
-                    PanelNuevaFactura.setActualizame(0);
-                    PanelNuevaFactura.setEstado(false);
-                    ControllerMenu.ocultarPanelInicial(inicio);
-                    ControllerMenu.mostrarRegistroProveedores(Window.this);
-                }
-                else{
-                    PanelEntrada.setActualizame(0);
-                    PanelNuevaFactura.setActualizame(0);
-                    PanelNuevaFactura.setEstado(false);
-                    ControllerMenu.BorraPaneles();
-                    ControllerMenu.mostrarRegistroProveedores(Window.this);
+            public void mousePressed(MouseEvent e) {
+                buttonBill.setBackground(new Color(99, 139, 220));
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                buttonBill.setBackground(new Color(132, 156, 255));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (PanelNuevaFactura.isIsVisibleNFactura()) {
+                    buttonBill.setBackground(new Color(58, 95, 245));
+                } else {
+                    buttonBill.setBackground(new Color(82, 116, 255));
                 }
             }
         });
 
+        buttonVendors = new JButton("Proveedores");
+        buttonVendors.setFocusable(false);
+        buttonVendors.setFocusPainted(false);
+        buttonVendors.setBorder(BorderFactory.createEmptyBorder());
+        buttonVendors.setHorizontalAlignment(0);
+        buttonVendors.setForeground(Color.WHITE);
+        buttonVendors.setBackground(new Color(82, 116, 255));
+        buttonVendors.setBounds(0, 400, 200, 45);
+        panelMenu.add(buttonVendors);
+        buttonVendors.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                buttonCRUD.setBackground(new Color(82, 116, 255));
+                buttonEntries.setBackground(new Color(82, 116, 255));
+                buttonHome.setBackground(new Color(82, 116, 255));
+                buttonBill.setBackground(new Color(82, 116, 255));
+                buttonVendors.setBackground(new Color(58, 95, 245));
+                    if(inicio.isVisible()){
+                        PanelEntrada.setActualizame(0);
+                        PanelNuevaFactura.setActualizame(0);
+                        PanelNuevaFactura.setEstado(false);
+                        ControllerMenu.ocultarPanelInicial(panelContent, inicio);
+                        ControllerMenu.mostrarRegistroProveedores(Window.this);
+                    }
+                    else{
+                        PanelEntrada.setActualizame(0);
+                        PanelNuevaFactura.setActualizame(0);
+                        PanelNuevaFactura.setEstado(false);
+                        ControllerMenu.BorraPaneles();
+                        ControllerMenu.mostrarRegistroProveedores(Window.this);
+                    }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                buttonVendors.setBackground(new Color(99, 139, 220));
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                buttonVendors.setBackground(new Color(132, 156, 255));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (PanelNuevoProveedor.isIsVisibleNProv()) {
+                    buttonVendors.setBackground(new Color(58, 95, 245));
+                } else {
+                    buttonVendors.setBackground(new Color(82, 116, 255));
+                }
+            }
+        });
     }
 
     public void setPanel(JPanel panel){
-        this.getContentPane().add(panel, BorderLayout.CENTER);
-        this.revalidate();
-        this.repaint();
+        this.panelContent.add(panel, BorderLayout.CENTER);
+        panelContent.revalidate();
+        panelContent.repaint();
     }
 
 }

@@ -53,7 +53,7 @@ public class ControllerEntradasP {
         sumaCantidad = false;
         ArrayList<Producto> comparativa = null;
         nDao = new nProductoDao();
-        comparativa = nDao.mostrar("");
+        comparativa = nDao.mostrarTodos("");
         
          try{
             String nFactura = entrada.getCampoNFactura();

@@ -7,9 +7,11 @@ public class PanelNuevaFactura extends javax.swing.JPanel {
 
       private static int actualizame = 0;
       private static boolean estado;
+      private static boolean isVisibleNFactura;
     
       public PanelNuevaFactura() {
             initComponents();
+            isVisibleNFactura = false;
             ControllerFacturasEntry.enviaDatosTabla(tablaFacturasE, "");
             ControllerFacturasEntry.llenaComboBox(listaProveedores);
       }
@@ -313,9 +315,15 @@ public class PanelNuevaFactura extends javax.swing.JPanel {
       public static boolean getEstado(){
             return estado;
       }
-      
-      
-      
+
+      public static boolean isIsVisibleNFactura() {
+            return isVisibleNFactura;
+      }
+
+      public static void setIsVisibleNFactura(boolean isVisibleNFactura) {
+            PanelNuevaFactura.isVisibleNFactura = isVisibleNFactura;
+      }
+
       // Variables declaration - do not modify//GEN-BEGIN:variables
       private javax.swing.JTextField campoCantidad;
       private javax.swing.JTextField campoDesc;

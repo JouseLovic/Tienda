@@ -2,7 +2,6 @@ package com.example;
 
 import java.io.*;
 import java.util.regex.*;
-
 import Controlador.Settings.*;
 import Controlador.*;
 import org.junit.Test;

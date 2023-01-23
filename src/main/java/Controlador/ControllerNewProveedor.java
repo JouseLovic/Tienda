@@ -131,7 +131,6 @@ public class ControllerNewProveedor {
              DefaultTableModel modelo = new DefaultTableModel();
             modelo.addColumn("Id de proveedor"); modelo.addColumn("Nombre"); modelo.addColumn("Fecha de nacimiento");
             modelo.addColumn("Cedula"); modelo.addColumn("Email"); modelo.addColumn("Empresa"); modelo.addColumn("Articulos");
-
                   for(Proveedores proveedor : listaProductos){
                        
                         Object[] filas = new Object[7];
@@ -145,7 +144,11 @@ public class ControllerNewProveedor {
                            filas[6] = proveedor.getArticulos();
                            modelo.addRow(filas);
                   }
-        tabla.setModel(modelo);
+                  tabla.setModel(modelo);
+                  tabla.getColumn("Id de proveedor").setPreferredWidth(10);
+                  tabla.getColumn("Fecha de nacimiento").setPreferredWidth(35);
+                  tabla.getColumn("Cedula").setPreferredWidth(10);
+                  tabla.getColumn("Empresa").setPreferredWidth(10);
     }
 
     

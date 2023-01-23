@@ -192,7 +192,33 @@ public class nProductoDao {
        }
      }
 
-     public ArrayList<Producto> mostrar(String nombre){
+    public synchronized int mostrarCantidad(){
+        db = new DB();
+        int cantidadAux = 0;
+        Connection conecta = db.dameConexion();
+        Statement ps = null;
+        ResultSet rs = null;
+
+        try{
+            ps = conecta.createStatement();
+            rs = ps.executeQuery("Select * from productos_generales");
+
+            while(rs.next()){
+
+                int cantidad = rs.getInt(8);
+                cantidadAux += (cantidad);
+            }
+            rs.close();
+            db.cierraConexion(conecta);
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "La operacion mostrar ha fallado por: "+ex.getMessage());
+            db.cierraConexion(conecta);
+            return 0;
+        }
+        return cantidadAux;
+    }
+
+     public ArrayList<Producto> mostrarTodos(String nombre){
       db = new DB();
         Connection conecta = db.dameConexion();
         ArrayList<Producto> listaEspecifica = new ArrayList<>();
@@ -223,7 +249,7 @@ public class nProductoDao {
                     String sexo = rs.getString(9);
                     String idProveedor = rs.getString(10);
                     String vendido = rs.getString(11);
-                
+
                      Producto producto = new Producto(id, Descripcion, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
                      listaEspecifica.add(producto);
                    }

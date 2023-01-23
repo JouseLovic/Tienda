@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2023 at 08:10 AM
+-- Generation Time: Jan 23, 2023 at 02:57 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -29,7 +29,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `actualizaFactura` (IN `idFactura` V
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `actualizaFacturaE` (IN `idFactura` VARCHAR(50), IN `fechaE` VARCHAR(30), IN `precioE` DOUBLE, IN `cantidadE` INT, IN `descripcion` VARCHAR(255), IN `idProveedor` VARCHAR(100), IN `idFacturaOrigen` VARCHAR(50))   Update factura_entrada set id_de_factura = idFactura, fecha = fechaE, precio = precioE, cantidad_productos = cantidadE, productos = descripcion, id_proveedor = idProveedor where id_de_factura = idFacturaOrigen$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `actualizaFacturaS` (IN `idFactura` VARCHAR(50), IN `fechaS` VARCHAR(30), IN `precioS` DOUBLE, IN `cantidadS` INT(11), IN `idProducto` VARCHAR(50), IN `idCliente` VARCHAR(11), IN `idFacturaOrigen` VARCHAR(50))   update factura_salida set id_de_factura = idFactura, fecha = fechaS, precio = precioS, cantidad = cantidadS, id_producto = idProducto, cedula_cliente = idCliente where id_de_factura = idFacturaOrigen$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `actualizaFacturaS` (IN `idFactura` VARCHAR(50), IN `fechaS` VARCHAR(30), IN `precioS` DOUBLE, IN `cantidadS` INT(11), IN `idProducto` VARCHAR(50), IN `idCliente` VARCHAR(11), IN `idFacturaOrigen` VARCHAR(50))   update factura_salida set fecha = fechaS, precio = precioS, cantidad = cantidadS, id_producto = idProducto, cedula_cliente = idCliente where id_de_factura = idFacturaOrigen$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `actualizaSalida` (IN `idFactura` VARCHAR(50), IN `idProducto` VARCHAR(50), IN `pDescripcion` VARCHAR(100), IN `fechaS` VARCHAR(30), IN `precioS` DOUBLE, IN `cantidadS` INT(11), IN `idCliente` VARCHAR(11), IN `idFacturaOriginal` VARCHAR(50))   update salida_de_productos set id_de_factura = idFactura, id_producto = idProducto, descripcion = pDescripcion, fecha = fechaS, precio = precioS, cantidad = cantidadS, cedula_cliente = idCliente where id_de_factura = idFacturaOriginal$$
 
@@ -81,9 +81,11 @@ CREATE TABLE `cliente` (
 
 INSERT INTO `cliente` (`nombre`, `fecha_nacimiento`, `cedula`) VALUES
 ('\0\0\0K\0\0\0a\0\0\0m\0\0\0i\0\0\0l\0\0\0o\0\0\0 \0\0\0S\0\0\0a\0\0\0m\0\0\0u\0\0\0e\0\0\0l', '30/01/2001', '18.298.394'),
+('Juaquin Perez', '15/05/2001', '18.937.492'),
 ('\0\0\0E\0\0\0d\0\0\0u\0\0\0a\0\0\0r\0\0\0d\0\0\0o\0\0\0 \0\0\0C\0\0\0a\0\0\0m\0\0\0i\0\0\0l\0\0\0o', '03/03/2005', '20.397.923'),
 ('\0\0\0H\0\0\0e\0\0\0r\0\0\0n\0\0\0e\0\0\0s\0\0\0t\0\0\0o\0\0\0 \0\0\0R\0\0\0o\0\0\0j\0\0\0a\0\0\0s', '11/08/2002', '21.738.023'),
-('\0\0\0R\0\0\0i\0\0\0c\0\0\0a\0\0\0r\0\0\0d\0\0\0o\0\0\0 \0\0\0D\0\0\0i\0\0\0a\0\0\0z', '20/03/2004', '30.283.983');
+('\0\0\0R\0\0\0i\0\0\0c\0\0\0a\0\0\0r\0\0\0d\0\0\0o\0\0\0 \0\0\0D\0\0\0i\0\0\0a\0\0\0z', '20/03/2004', '30.283.983'),
+('Jorge Delgado', '15/03/2003', '30.526.907');
 
 -- --------------------------------------------------------
 
@@ -108,8 +110,11 @@ CREATE TABLE `entrada_de_productos` (
 --
 
 INSERT INTO `entrada_de_productos` (`id_de_factura`, `codigoProducto`, `descripcion_Producto`, `fecha`, `precio`, `cantidad`, `seccion`, `marca`, `id_proveedor`) VALUES
+('2304232947F', 'AR-40', 'Sueters rojos', '26/11/2008', 3000, 1000, 'invierno', 'Adidas', '209M'),
 ('2818232947F', '2001D', 'Pantalones', '20/11/2004', 2555, 300, 'Deportiva', 'Gucci', '201M'),
 ('28232947F', '19283M', 'Pantalones', '20/11/2004', 2555, 300, 'Deportiva', 'Gucci', '201M'),
+('54287332947F', 'AF-401', 'Jeans veige', '01/05/2010', 2000, 200, 'Otoñal', 'Adidas', '205M'),
+('5494232947F', 'AR-45', 'Sueters cortos', '03/04/2009', 1740, 725, 'Verano', 'Gucci', '206M'),
 ('5682232229F', 'MD2835', 'Zapatos', '11/12/2007', 3000, 500, 'invierno', 'Gucci', '202M'),
 ('56829239F', 'MD2836', 'Zapatos', '11/12/2007', 2000, 100, 'Deportiva', 'Nike', '204M'),
 ('5682972239F', 'MD2837', 'Camisetas', '11/12/2007', 2000, 100, 'Deportiva', 'Nike', '202M');
@@ -134,9 +139,15 @@ CREATE TABLE `factura` (
 
 INSERT INTO `factura` (`id_de_factura`, `fecha`, `precio`, `cantidad`, `E_S`) VALUES
 ('12322812278F', '10/11/2016', 2500, 50, 'Salida'),
+('2039827493F', '19/02/2009', 2000, 40, 'Salida'),
+('20478304493F', '09/07/2010', 1000, 10, 'Salida'),
+('22039827493F', '19/02/2009', 2500, 50, 'Salida'),
+('2304232947F', '26/11/2008', 3000, 1000, 'Entrada'),
 ('2322111228F', '10/11/2015', 2500, 10, 'Salida'),
 ('2818232947F', '20/11/2004', 2555, 300, 'Entrada'),
 ('28232947F', '20/11/2004', 2555, 300, 'Entrada'),
+('54287332947F', '01/05/2010', 2000, 200, 'Entrada'),
+('5494232947F', '03/04/2009', 1740, 725, 'Entrada'),
 ('5682232229F', '11/12/2007', 3000, 500, 'Entrada'),
 ('56829239F', '11/12/2007', 2000, 100, 'Entrada'),
 ('5682972239F', '11/12/2007', 2000, 100, 'Entrada');
@@ -161,8 +172,11 @@ CREATE TABLE `factura_entrada` (
 --
 
 INSERT INTO `factura_entrada` (`id_de_factura`, `fecha`, `precio`, `cantidad_productos`, `productos`, `id_proveedor`) VALUES
+('2304232947F', '26/11/2008', 3000, 1000, 'Sueters rojos', '209M'),
 ('2818232947F', '20/11/2004', 2555, 300, 'Pantalones', '201M'),
 ('28232947F', '20/11/2004', 2555, 300, 'Pantalones', '201M'),
+('54287332947F', '01/05/2010', 2000, 200, 'Jeans veige', '205M'),
+('5494232947F', '03/04/2009', 1740, 725, 'Sueters cortos', '206M'),
 ('5682232229F', '11/12/2007', 3000, 500, 'Zapatos', '202M'),
 ('56829239F', '11/12/2007', 2000, 100, 'Zapatos', '204M'),
 ('5682972239F', '11/12/2007', 2000, 100, 'Camisetas', '202M');
@@ -187,7 +201,12 @@ CREATE TABLE `factura_salida` (
 --
 
 INSERT INTO `factura_salida` (`Id_de_factura`, `fecha`, `precio`, `cantidad`, `id_producto`, `cedula_cliente`) VALUES
-('12322812278F', '10/11/2016', 2500, 50, '2001D', '18.298.394');
+('12322812278F', '10/11/2016', 2500, 50, '2001D', '18.298.394'),
+('2039827493F', '19/02/2009', 2000, 40, 'AR-40', '30.526.907'),
+('22039827493F', '19/02/2009', 2500, 50, 'AR-40', '30.526.907'),
+('2028304493F', '19/02/2009', 2000, 50, '1928M', '30.526.907'),
+('20397493F', '19/02/2009', 2000, 80, '1928M', '30.526.907'),
+('20478304493F', '09/07/2010', 1000, 10, 'AF-401', '30.526.907');
 
 -- --------------------------------------------------------
 
@@ -214,9 +233,13 @@ CREATE TABLE `productos_generales` (
 --
 
 INSERT INTO `productos_generales` (`id`, `descripcion`, `talla`, `marca`, `seccion`, `precio`, `edadDirigida`, `cantidad`, `sexo`, `id_proveedor`, `Producto_vendido`) VALUES
-('19283M', 'Pantalones', 'M', 'Gucci', 'Deportiva', 60, '20-25', 250, 'M', '201M', 'No'),
-('2001D', 'Pantalones azules', 'N', 'Gucci', 'Deportiva', 200, '20-17', 915, 'M', '201M', 'No'),
+('1928M', 'Pantalones', 'M', 'Gucci', 'Deportiva', 60, '20-25', 260, 'M', '201M', 'No'),
+('2001D', 'Pantalones azules', 'N', 'Gucci', 'Deportiva', 200, '20-17', 970, 'M', '201M', 'No'),
+('4001MDF', 'Sueter de seda', 'M', 'Gucci', 'Otoñal', 150.25, '20-30', 500, 'M', '', 'No'),
 ('4010F', 'Camisetas negras', 'M', 'Gucci', 'Deportiva', 50.25, '20-25', 155, 'FM', '', 'No'),
+('AF-401', 'Jeans veige', 'None', 'Adidas', 'Otoñal', 0, 'None', 160, 'N', '205M', 'No'),
+('AR-40', 'Sueters rojos', 'None', 'Adidas', 'invierno', 0, 'None', 910, 'N', '209M', 'No'),
+('AR-45', 'Sueters cortos', 'None', 'Gucci', 'Verano', 0, 'None', 725, 'N', '206M', 'No'),
 ('MD2835', 'Zapatos', 'M', 'Gucci', 'invierno', 70.2, '19-24', 500, 'F', '202M', 'No'),
 ('MD2836', 'Zapatos', 'L', 'Nike', 'Deportiva', 40.3, '25-30', 600, 'M', '204M', 'No'),
 ('MD2837', 'Camisetas', 'S', 'Nike', 'Deportiva', 50, '20-17', 3201, 'F', '202M', 'No');
@@ -246,9 +269,11 @@ INSERT INTO `proveedor` (`id_proveedor`, `nombre`, `fechaNacimiento`, `cedula`, 
 ('202M', 'Christian Rojas', '10/11/2001', '9.345.847', 'Christian@gmail.com', 'Haritas corp', 'Zapatos de cuero'),
 ('203M', 'Christian Alfaron', '10/11/2005', '10.234.958', 'ChristianMarks@gmail.com', 'Knagu corp', 'Camisetas'),
 ('204M', 'Edgar Ramirez', '20/11/2003', '3.473.984', 'EdgarRaKS@gmail.com', 'JKlaun corp', 'Shorts/Sueters inviernales'),
-('205M', 'Julian Rojas', '11/07/1996', '2.348.392', 'RojasJ@gmail.com', 'Nike', 'Zapatos invernales'),
+('205M', 'Kartman shold', '20/11/1997', '3.473.985', 'KartmanTA@gmail.com', 'Navigation corp', 'Pantalones (jeans)'),
 ('206M', 'Karmalosky Rusmar', '11/11/2003', '32.293.974', 'Ruskosky@gmail.com', 'Rusk corp', 'Sueters de piel'),
-('207M', 'Hector Marcus', '17/03/2001', '30.293.298', 'HMarcus@gmail.com', 'Pasta Alegre ', 'Shorts de verano');
+('207M', 'Hector Marcus', '17/03/2001', '30.293.298', 'HMarcus@gmail.com', 'Pasta Alegre ', 'Shorts de verano'),
+('208M', 'Arnaldo Villa Luis', '20/11/2001', '23.573.941', 'ArnescoTomat@gmail.com', 'Ruskamon corp', 'Sueters de invierno'),
+('209M', 'Jorge Santos', '11/07/1996', '3.348.392', 'JorgeCalmic@gmail.com', 'Nike', 'Sueters veraniegos');
 
 -- --------------------------------------------------------
 
@@ -271,6 +296,8 @@ CREATE TABLE `salida_de_productos` (
 --
 
 INSERT INTO `salida_de_productos` (`id_de_factura`, `id_producto`, `descripcion`, `fecha`, `precio`, `cantidad`, `cedula_cliente`) VALUES
+('2039827493F', 'AR-40', 'Sueters rojos', '19/02/2009', 2000, 40, '30.526.907'),
+('22039827493F', 'AR-40', 'Sueters rojos', '19/02/2009', 2500, 50, '30.526.907'),
 ('2322111228F', '2001D', 'Pantalones', '10/11/2015', 2500, 10, '18.298.394');
 
 -- --------------------------------------------------------
