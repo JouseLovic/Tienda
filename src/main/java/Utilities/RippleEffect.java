@@ -1,4 +1,4 @@
-package swing.shadow.util;
+package Utilities;
 
 import java.awt.AlphaComposite;
 import java.awt.Color;

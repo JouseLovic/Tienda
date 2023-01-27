@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.JButton;
 import javax.swing.border.EmptyBorder;
 import Utilities.ShadowRenderer;
-import swing.shadow.util.RippleEffect;
+import Utilities.RippleEffect;
 
 public class Button extends JButton {
 

@@ -1,8 +1,7 @@
 package Utilities;
 
-import java.awt.Color;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import Utilities.GraphicsUtilities;
 
 public class ShadowRenderer {
 
