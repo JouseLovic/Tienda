@@ -24,10 +24,6 @@ to do everything manually.
 
 - A bug reporting system
 
-- a login
-
-- settings
-
 - Load, overwrite, create and show excel tables
 
 - Keyboard shortcuts that avoid being glued to the mouse
@@ -36,6 +32,9 @@ to do everything manually.
 ## Features
  
 ### On the inventory
+
+![Screenshot](https://user-images.githubusercontent.com/114286961/215176130-64aa35f6-fc25-4735-8a82-3a1e23dbfe41.png)
+
 
 * Recognizes if the product already exists.
 
