@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bd8b4db-9d39-4beb-acf4-b6dea870a78a" name="Changes" comment="Version 7.0.1&#10;&#10;Added classes">
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+    <list default="true" id="3bd8b4db-9d39-4beb-acf4-b6dea870a78a" name="Changes" comment="Added utilities">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Settings/Config.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Settings/Config.dat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -20,6 +23,10 @@
     <setting file="file://$PROJECT_DIR$/src/main/java/Controlador/ControllerLogin.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/Controlador/ControllerSettings.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/DAO/UserDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Utilities/Button.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Utilities/GraphicsUtilities.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Utilities/RippleEffect.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Utilities/ShadowRenderer.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/Vista/PanelSettings.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/Vista/WindowLogin.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/test/java/com/example/AppTest.java" root0="SKIP_INSPECTION" />
@@ -128,7 +135,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674846641151</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added utilities">
+      <created>1674847119717</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674847119717</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added utilities">
+      <created>1674847331610</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1674847331610</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -146,7 +167,8 @@
     <MESSAGE value="Version 7.0&#10;&#10;Added the basic login (incomplete), and added finally the settings panel. Something's no works pretty well, but, i working in it" />
     <MESSAGE value="Version 7.0&#10;&#10;Added the basic login (incomplete), and added finally the settings panel. Something's no works pretty well, but, I'm working in it" />
     <MESSAGE value="Version 7.0.1&#10;&#10;Added classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 7.0.1&#10;&#10;Added classes" />
+    <MESSAGE value="Added utilities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added utilities" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

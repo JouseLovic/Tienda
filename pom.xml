@@ -53,11 +53,6 @@
     </dependency>
 
     <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-      <version>1.4</version>
-    </dependency>
-    <dependency>
       <groupId>Desplazable</groupId>
       <artifactId>Desplazable</artifactId>
       <version>1.0</version>

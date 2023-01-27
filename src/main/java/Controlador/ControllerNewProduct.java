@@ -23,7 +23,7 @@ public class ControllerNewProduct {
      public ControllerNewProduct(){}
 
      public ControllerNewProduct(boolean stateLanguage) {
-        if(!stateLanguage){
+        if(stateLanguage){
             tableColumnId = "Id";
             tableColumnDesc = "Description";
             tableColumnTalla = "Size";
