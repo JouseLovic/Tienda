@@ -4,146 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bd8b4db-9d39-4beb-acf4-b6dea870a78a" name="Changes" comment="Version 7.0&#10;&#10;Added the basic login (incomplete), and added finally the settings panel. Something's no works pretty well, but, I'm working in it">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="3bd8b4db-9d39-4beb-acf4-b6dea870a78a" name="Changes" comment="Version 7.0.1&#10;&#10;Added classes">
       <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/AbsoluteLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/barbecue_1_5_beta1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/flatlaf_3_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jna_5_5_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_0_31.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_19_2023_12_09_AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_19_2023_12_09_AM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/ControllerEntradasP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/ControllerEntradasP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/ControllerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/ControllerMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/ControllerNewProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/ControllerNewProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/Settings/LoadSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/Settings/LoadSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/Settings/ReSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controlador/Settings/ReSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControladorThreads/ControllerProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControladorThreads/ControllerProducts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/EntradasDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/EntradasDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/FacturasEODao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modelo/FacturaSalida.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Notes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Settings/Config.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Settings/Config.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vista/PanelInicial.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista/PanelInicial.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vista/PanelInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista/PanelInicial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vista/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vista_Formulario/PanelEntrada.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista_Formulario/PanelEntrada.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vista_Formulario/PanelEntrada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista_Formulario/PanelEntrada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vista_Formulario/PanelNuevoProducto.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista_Formulario/PanelNuevoProducto.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vista_Formulario/PanelNuevoProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista_Formulario/PanelNuevoProducto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vista_Register/PanelNuevaFactura.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista_Register/PanelNuevaFactura.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vista_Register/PanelNuevaFactura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista_Register/PanelNuevaFactura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vista_Register/PanelNuevoProveedor.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista_Register/PanelNuevoProveedor.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vista_Register/PanelNuevoProveedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vista_Register/PanelNuevoProveedor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/images/1924873.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/images/401182.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/images/401182Oscura.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/images/5906150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/images/5906150Oscura.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/images/Logo_vector.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/images/Proveedor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/images/ProveedorOscura.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/ControllerEntradasP.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/ControllerEntradasP.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/ControllerFacturasEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/ControllerFacturasEntry.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/ControllerListProveedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/ControllerListProveedor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/ControllerMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/ControllerMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/ControllerNewProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/ControllerNewProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/ControllerNewProveedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/ControllerNewProveedor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controlador/Settings/ReSettings.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controlador/Settings/ReSettings.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ControladorThreads/ControllerProducts.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControladorThreads/ControllerProducts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/ClientesDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/ClientesDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/EntradasDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/EntradasDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/FacturaEDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAO/FacturaEDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DAO/FacturasEODao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/Clientes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/Clientes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/EntradaProductos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/EntradaProductos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/Factura.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/Factura.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/FacturaSalida.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/Factura_entrada.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/Factura_entrada.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/Producto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/Producto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Modelo/Proveedores.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Modelo/Proveedores.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/FormularioNCliente$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/FormularioNCliente$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/FormularioNCliente$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/FormularioNCliente$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/FormularioNCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/FormularioNCliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelInicial.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/PanelProveedores.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista/Window.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelEntrada.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$18.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$20.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Formulario/PanelNuevoProducto$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevaFactura$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevaFactura$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevaFactura$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevaFactura$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevaFactura$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevaFactura$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevaFactura.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevaFactura.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Vista_Register/PanelNuevoProveedor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/demo-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/demo-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.AppTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.example.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.example.AppTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/example/AppTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674846439345</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Version 7.0.1&#10;&#10;Added classes">
+      <created>1674846641151</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674846641151</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -276,7 +145,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Version 7.0&#10;&#10;Added the basic login (incomplete), and added finally the settings panel. Something's no works pretty well, but, i working in it" />
     <MESSAGE value="Version 7.0&#10;&#10;Added the basic login (incomplete), and added finally the settings panel. Something's no works pretty well, but, I'm working in it" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 7.0&#10;&#10;Added the basic login (incomplete), and added finally the settings panel. Something's no works pretty well, but, I'm working in it" />
+    <MESSAGE value="Version 7.0.1&#10;&#10;Added classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 7.0.1&#10;&#10;Added classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
