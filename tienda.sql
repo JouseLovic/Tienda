@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2023 at 02:57 AM
+-- Generation Time: Jan 27, 2023 at 08:09 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -110,10 +110,11 @@ CREATE TABLE `entrada_de_productos` (
 --
 
 INSERT INTO `entrada_de_productos` (`id_de_factura`, `codigoProducto`, `descripcion_Producto`, `fecha`, `precio`, `cantidad`, `seccion`, `marca`, `id_proveedor`) VALUES
-('2304232947F', 'AR-40', 'Sueters rojos', '26/11/2008', 3000, 1000, 'invierno', 'Adidas', '209M'),
 ('2818232947F', '2001D', 'Pantalones', '20/11/2004', 2555, 300, 'Deportiva', 'Gucci', '201M'),
 ('28232947F', '19283M', 'Pantalones', '20/11/2004', 2555, 300, 'Deportiva', 'Gucci', '201M'),
+('28532947F', '19283M', 'Pantalones', '20/11/2004', 2555, 300, 'Deportiva', 'Gucci', '201M'),
 ('54287332947F', 'AF-401', 'Jeans veige', '01/05/2010', 2000, 200, 'Otoñal', 'Adidas', '205M'),
+('5494212947F', 'AR-45', 'Sueters cortos', '03/04/2009', 1740, 725, 'Verano', 'Gucci', '206M'),
 ('5494232947F', 'AR-45', 'Sueters cortos', '03/04/2009', 1740, 725, 'Verano', 'Gucci', '206M'),
 ('5682232229F', 'MD2835', 'Zapatos', '11/12/2007', 3000, 500, 'invierno', 'Gucci', '202M'),
 ('56829239F', 'MD2836', 'Zapatos', '11/12/2007', 2000, 100, 'Deportiva', 'Nike', '204M'),
@@ -142,11 +143,12 @@ INSERT INTO `factura` (`id_de_factura`, `fecha`, `precio`, `cantidad`, `E_S`) VA
 ('2039827493F', '19/02/2009', 2000, 40, 'Salida'),
 ('20478304493F', '09/07/2010', 1000, 10, 'Salida'),
 ('22039827493F', '19/02/2009', 2500, 50, 'Salida'),
-('2304232947F', '26/11/2008', 3000, 1000, 'Entrada'),
 ('2322111228F', '10/11/2015', 2500, 10, 'Salida'),
 ('2818232947F', '20/11/2004', 2555, 300, 'Entrada'),
 ('28232947F', '20/11/2004', 2555, 300, 'Entrada'),
+('28532947F', '20/11/2004', 2555, 300, 'Entrada'),
 ('54287332947F', '01/05/2010', 2000, 200, 'Entrada'),
+('5494212947F', '03/04/2009', 1740, 725, 'Entrada'),
 ('5494232947F', '03/04/2009', 1740, 725, 'Entrada'),
 ('5682232229F', '11/12/2007', 3000, 500, 'Entrada'),
 ('56829239F', '11/12/2007', 2000, 100, 'Entrada'),
@@ -172,10 +174,11 @@ CREATE TABLE `factura_entrada` (
 --
 
 INSERT INTO `factura_entrada` (`id_de_factura`, `fecha`, `precio`, `cantidad_productos`, `productos`, `id_proveedor`) VALUES
-('2304232947F', '26/11/2008', 3000, 1000, 'Sueters rojos', '209M'),
 ('2818232947F', '20/11/2004', 2555, 300, 'Pantalones', '201M'),
 ('28232947F', '20/11/2004', 2555, 300, 'Pantalones', '201M'),
+('28532947F', '20/11/2004', 2555, 300, 'Pantalones', '201M'),
 ('54287332947F', '01/05/2010', 2000, 200, 'Jeans veige', '205M'),
+('5494212947F', '03/04/2009', 1740, 725, 'Sueters cortos', '206M'),
 ('5494232947F', '03/04/2009', 1740, 725, 'Sueters cortos', '206M'),
 ('5682232229F', '11/12/2007', 3000, 500, 'Zapatos', '202M'),
 ('56829239F', '11/12/2007', 2000, 100, 'Zapatos', '204M'),
@@ -211,6 +214,19 @@ INSERT INTO `factura_salida` (`Id_de_factura`, `fecha`, `precio`, `cantidad`, `i
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pedidos`
+--
+
+CREATE TABLE `pedidos` (
+  `Cliente` int(45) NOT NULL,
+  `Email` int(25) NOT NULL,
+  `Producto` int(50) NOT NULL,
+  `Estado` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `productos_generales`
 --
 
@@ -234,12 +250,11 @@ CREATE TABLE `productos_generales` (
 
 INSERT INTO `productos_generales` (`id`, `descripcion`, `talla`, `marca`, `seccion`, `precio`, `edadDirigida`, `cantidad`, `sexo`, `id_proveedor`, `Producto_vendido`) VALUES
 ('1928M', 'Pantalones', 'M', 'Gucci', 'Deportiva', 60, '20-25', 260, 'M', '201M', 'No'),
-('2001D', 'Pantalones azules', 'N', 'Gucci', 'Deportiva', 200, '20-17', 970, 'M', '201M', 'No'),
-('4001MDF', 'Sueter de seda', 'M', 'Gucci', 'Otoñal', 150.25, '20-30', 500, 'M', '', 'No'),
-('4010F', 'Camisetas negras', 'M', 'Gucci', 'Deportiva', 50.25, '20-25', 155, 'FM', '', 'No'),
-('AF-401', 'Jeans veige', 'None', 'Adidas', 'Otoñal', 0, 'None', 160, 'N', '205M', 'No'),
+('2001D', 'Pantalones azules', 'N', 'Gucci', 'Deportiva', 200, '20-17', 960, 'M', '201M', 'No'),
+('4001MDF', 'Sueter de seda', 'M', 'Gucci', 'Otoñal', 150.25, '20-30', 500, 'M', '203M', 'No'),
+('AF-401', 'Jeans veige', 'None', 'Adidas', 'Otoñal', 0, 'None', 160, 'F', '205M', 'No'),
 ('AR-40', 'Sueters rojos', 'None', 'Adidas', 'invierno', 0, 'None', 910, 'N', '209M', 'No'),
-('AR-45', 'Sueters cortos', 'None', 'Gucci', 'Verano', 0, 'None', 725, 'N', '206M', 'No'),
+('AR-45', 'Sueters cortos', 'None', 'Gucci', 'Verano', 0, 'None', 1450, 'N', '206M', 'No'),
 ('MD2835', 'Zapatos', 'M', 'Gucci', 'invierno', 70.2, '19-24', 500, 'F', '202M', 'No'),
 ('MD2836', 'Zapatos', 'L', 'Nike', 'Deportiva', 40.3, '25-30', 600, 'M', '204M', 'No'),
 ('MD2837', 'Camisetas', 'S', 'Nike', 'Deportiva', 50, '20-17', 3201, 'F', '202M', 'No');
@@ -303,6 +318,26 @@ INSERT INTO `salida_de_productos` (`id_de_factura`, `id_producto`, `descripcion`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `Name` varchar(50) NOT NULL,
+  `Password` varchar(50) NOT NULL,
+  `Position` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+INSERT INTO `usuarios` (`Name`, `Password`, `Position`) VALUES
+('Jose Mendoza', '1111', 'Admin'),
+('Manuel Rojas', '2222', 'Employer');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `venta`
 --
 
@@ -351,6 +386,13 @@ ALTER TABLE `factura_salida`
   ADD KEY `Id_de_factura` (`Id_de_factura`);
 
 --
+-- Indexes for table `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD PRIMARY KEY (`Email`),
+  ADD KEY `Producto` (`Producto`);
+
+--
 -- Indexes for table `productos_generales`
 --
 ALTER TABLE `productos_generales`
@@ -368,6 +410,13 @@ ALTER TABLE `proveedor`
 --
 ALTER TABLE `salida_de_productos`
   ADD PRIMARY KEY (`id_de_factura`);
+
+--
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`Name`),
+  ADD UNIQUE KEY `Password` (`Password`);
 
 --
 -- Indexes for table `venta`

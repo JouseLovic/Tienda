@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bd8b4db-9d39-4beb-acf4-b6dea870a78a" name="Changes" comment="">
+    <list default="true" id="3bd8b4db-9d39-4beb-acf4-b6dea870a78a" name="Changes" comment="Version 7.0&#10;&#10;Added the basic login (incomplete), and added finally the settings panel. Something's no works pretty well, but, I'm working in it">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
@@ -252,7 +252,31 @@
       <option name="presentableId" value="Default" />
       <updated>1674797826226</updated>
     </task>
+    <task id="LOCAL-00001" summary="Version 7.0&#10;&#10;Added the basic login (incomplete), and added finally the settings panel. Something's no works pretty well, but, I'm working in it">
+      <created>1674846439345</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1674846439345</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Version 7.0&#10;&#10;Added the basic login (incomplete), and added finally the settings panel. Something's no works pretty well, but, i working in it" />
+    <MESSAGE value="Version 7.0&#10;&#10;Added the basic login (incomplete), and added finally the settings panel. Something's no works pretty well, but, I'm working in it" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 7.0&#10;&#10;Added the basic login (incomplete), and added finally the settings panel. Something's no works pretty well, but, I'm working in it" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
