@@ -14,7 +14,10 @@ public class AppTest
     @Test
     public void shouldSaveMyArraygSetting(){
 
-        String[] nArray = {"Light", "Arial", "Plain", "22"};
+        String[] nArray = {"Light",
+                "Arial", "Plain", "22",
+                "False", "Mi Empresa", "Gestion de inventario",
+                "Entradas de productos", "Facturas de entrada", "Proveedores", "", "", ""};
         SaveSetting save = new SaveSetting();
         save.saveSetting(nArray);
 
@@ -28,11 +31,13 @@ public class AppTest
         String tema = settings[0];
         String fuente = settings[1];
         String estilo = settings[2];
+        boolean language = Boolean.parseBoolean(settings[4]);
         int size = Integer.parseInt(settings[3]);
         Assert.assertEquals("Light", tema);
         Assert.assertEquals("Arial", fuente);
         Assert.assertEquals("Plain", estilo);
         Assert.assertEquals(22, size);
+        Assert.assertEquals(true, language);
 
     }
 
@@ -95,6 +100,15 @@ public class AppTest
 
     }
 
+    @Test
+    public void createUser(){
+
+    }
+
+    @Test
+    public void serializeOneUser(){
+
+    }
 
 
 }

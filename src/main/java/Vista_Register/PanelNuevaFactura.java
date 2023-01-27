@@ -2,6 +2,7 @@
 package Vista_Register;
 
 import Controlador.ControllerFacturasEntry;
+import Controlador.Settings.ReSettings;
 
 public class PanelNuevaFactura extends javax.swing.JPanel {
 
@@ -12,6 +13,7 @@ public class PanelNuevaFactura extends javax.swing.JPanel {
       public PanelNuevaFactura() {
             initComponents();
             isVisibleNFactura = false;
+            labelTitleBill.setText(ReSettings.getTitleBill());
             ControllerFacturasEntry.enviaDatosTabla(tablaFacturasE, "");
             ControllerFacturasEntry.llenaComboBox(listaProveedores);
       }
@@ -21,7 +23,7 @@ public class PanelNuevaFactura extends javax.swing.JPanel {
       private void initComponents() {
 
             contenedorFacturas = new javax.swing.JPanel();
-            labelTitle = new javax.swing.JLabel();
+            labelTitleBill = new javax.swing.JLabel();
             jScrollPane1 = new javax.swing.JScrollPane();
             tablaFacturasE = new javax.swing.JTable();
             campoNFactura = new javax.swing.JTextField();
@@ -35,11 +37,10 @@ public class PanelNuevaFactura extends javax.swing.JPanel {
             jLabel5 = new javax.swing.JLabel();
             jLabel6 = new javax.swing.JLabel();
             jLabel7 = new javax.swing.JLabel();
-            jButton1 = new javax.swing.JButton();
-            jButton2 = new javax.swing.JButton();
-            jButton3 = new javax.swing.JButton();
-            jButton4 = new javax.swing.JButton();
-            jLabel1 = new javax.swing.JLabel();
+            botonEliminar = new javax.swing.JButton();
+            botonActualiza = new javax.swing.JButton();
+            botonLimpiar = new javax.swing.JButton();
+            botonCreaRegistro = new javax.swing.JButton();
             jTextField1 = new javax.swing.JTextField();
             listaProveedores = new javax.swing.JComboBox<>();
             campoFecha = new javax.swing.JTextField();
@@ -57,12 +58,11 @@ public class PanelNuevaFactura extends javax.swing.JPanel {
             });
             contenedorFacturas.setLayout(null);
 
-            labelTitle.setFont(new java.awt.Font("Baskerville Old Face", 0, 36)); // NOI18N
-            labelTitle.setForeground(new java.awt.Color(0, 0, 0));
-            labelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            labelTitle.setText("Registro de facturas de entrada");
-            contenedorFacturas.add(labelTitle);
-            labelTitle.setBounds(20, 30, 460, 40);
+            labelTitleBill.setFont(new java.awt.Font("Baskerville Old Face", 0, 30)); // NOI18N
+            labelTitleBill.setForeground(new java.awt.Color(0, 0, 0));
+            labelTitleBill.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+            contenedorFacturas.add(labelTitleBill);
+            labelTitleBill.setBounds(10, 10, 360, 60);
 
             tablaFacturasE.setModel(new javax.swing.table.DefaultTableModel(
                   new Object [][] {
@@ -91,7 +91,7 @@ public class PanelNuevaFactura extends javax.swing.JPanel {
             jScrollPane1.setViewportView(tablaFacturasE);
 
             contenedorFacturas.add(jScrollPane1);
-            jScrollPane1.setBounds(20, 440, 1220, 460);
+            jScrollPane1.setBounds(30, 440, 1000, 520);
 
             campoNFactura.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -99,9 +99,9 @@ public class PanelNuevaFactura extends javax.swing.JPanel {
                   }
             });
             contenedorFacturas.add(campoNFactura);
-            campoNFactura.setBounds(160, 150, 250, 40);
+            campoNFactura.setBounds(90, 150, 250, 40);
             contenedorFacturas.add(campoPrecio);
-            campoPrecio.setBounds(940, 150, 180, 40);
+            campoPrecio.setBounds(760, 150, 150, 40);
 
             campoCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -109,83 +109,75 @@ public class PanelNuevaFactura extends javax.swing.JPanel {
                   }
             });
             contenedorFacturas.add(campoCantidad);
-            campoCantidad.setBounds(190, 270, 180, 40);
+            campoCantidad.setBounds(440, 270, 180, 40);
             contenedorFacturas.add(campoDesc);
-            campoDesc.setBounds(580, 280, 230, 40);
+            campoDesc.setBounds(90, 270, 230, 40);
 
             campoIdProveedor.setEditable(false);
             contenedorFacturas.add(campoIdProveedor);
-            campoIdProveedor.setBounds(960, 280, 150, 40);
+            campoIdProveedor.setBounds(760, 270, 150, 40);
 
             jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel2.setText("Id de la factura");
             contenedorFacturas.add(jLabel2);
-            jLabel2.setBounds(200, 100, 170, 40);
+            jLabel2.setBounds(90, 110, 170, 40);
 
             jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel3.setText("Cantidad");
             contenedorFacturas.add(jLabel3);
-            jLabel3.setBounds(210, 220, 140, 40);
+            jLabel3.setBounds(440, 230, 140, 40);
 
             jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel4.setText("Fecha");
             contenedorFacturas.add(jLabel4);
-            jLabel4.setBounds(640, 100, 80, 40);
+            jLabel4.setBounds(430, 110, 240, 40);
 
             jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel5.setText("Descripcion");
             contenedorFacturas.add(jLabel5);
-            jLabel5.setBounds(620, 230, 150, 40);
+            jLabel5.setBounds(90, 230, 150, 40);
 
             jLabel6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel6.setText("Precio");
             contenedorFacturas.add(jLabel6);
-            jLabel6.setBounds(980, 100, 100, 40);
+            jLabel6.setBounds(760, 110, 100, 40);
 
             jLabel7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel7.setText("Id del proveedor");
             contenedorFacturas.add(jLabel7);
-            jLabel7.setBounds(960, 230, 150, 40);
+            jLabel7.setBounds(760, 230, 150, 40);
 
-            jButton1.setText("Eliminar");
-            contenedorFacturas.add(jButton1);
-            jButton1.setBounds(130, 380, 110, 40);
-
-            jButton2.setText("Actualizar");
-            jButton2.addActionListener(new java.awt.event.ActionListener() {
+            botonEliminar.setText("Eliminar");
+            botonEliminar.addActionListener(new java.awt.event.ActionListener() {
                   public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        jButton2ActionPerformed(evt);
+                        botonEliminarActionPerformed(evt);
                   }
             });
-            contenedorFacturas.add(jButton2);
-            jButton2.setBounds(400, 380, 140, 40);
+            contenedorFacturas.add(botonEliminar);
+            botonEliminar.setBounds(150, 380, 110, 40);
 
-            jButton3.setText("Limpiar campos");
-            contenedorFacturas.add(jButton3);
-            jButton3.setBounds(720, 380, 130, 40);
+            botonActualiza.setText("Actualizar");
+            botonActualiza.addActionListener(new java.awt.event.ActionListener() {
+                  public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        botonActualizaActionPerformed(evt);
+                  }
+            });
+            contenedorFacturas.add(botonActualiza);
+            botonActualiza.setBounds(340, 380, 140, 40);
 
-            jButton4.setText("Subir factura");
-            contenedorFacturas.add(jButton4);
-            jButton4.setBounds(1020, 380, 130, 40);
+            botonLimpiar.setText("Limpiar campos");
+            contenedorFacturas.add(botonLimpiar);
+            botonLimpiar.setBounds(560, 380, 130, 40);
 
-            jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-            jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel1.setText("Buscar factura:");
-            contenedorFacturas.add(jLabel1);
-            jLabel1.setBounds(790, 30, 160, 50);
+            botonCreaRegistro.setText("Subir factura");
+            contenedorFacturas.add(botonCreaRegistro);
+            botonCreaRegistro.setBounds(770, 380, 130, 40);
 
             jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -193,14 +185,14 @@ public class PanelNuevaFactura extends javax.swing.JPanel {
                   }
             });
             contenedorFacturas.add(jTextField1);
-            jTextField1.setBounds(940, 40, 260, 30);
+            jTextField1.setBounds(390, 10, 370, 50);
 
             listaProveedores.setForeground(new java.awt.Color(0, 0, 0));
             listaProveedores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Null" }));
             contenedorFacturas.add(listaProveedores);
-            listaProveedores.setBounds(1120, 280, 72, 40);
+            listaProveedores.setBounds(940, 270, 80, 40);
             contenedorFacturas.add(campoFecha);
-            campoFecha.setBounds(560, 150, 250, 40);
+            campoFecha.setBounds(430, 150, 190, 40);
 
             add(contenedorFacturas, java.awt.BorderLayout.CENTER);
       }// </editor-fold>//GEN-END:initComponents
@@ -236,13 +228,17 @@ public class PanelNuevaFactura extends javax.swing.JPanel {
             
       }//GEN-LAST:event_campoNFacturaKeyTyped
 
-      private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      private void botonActualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizaActionPerformed
             // TODO add your handling code here:
-      }//GEN-LAST:event_jButton2ActionPerformed
+      }//GEN-LAST:event_botonActualizaActionPerformed
 
       private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
             // TODO add your handling code here:
       }//GEN-LAST:event_jTextField1KeyTyped
+
+      private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
+            // TODO add your handling code here:
+      }//GEN-LAST:event_botonEliminarActionPerformed
 
       public String getCampoCantidad() {
             return campoCantidad.getText();
@@ -325,6 +321,10 @@ public class PanelNuevaFactura extends javax.swing.JPanel {
       }
 
       // Variables declaration - do not modify//GEN-BEGIN:variables
+      private javax.swing.JButton botonActualiza;
+      private javax.swing.JButton botonCreaRegistro;
+      private javax.swing.JButton botonEliminar;
+      private javax.swing.JButton botonLimpiar;
       private javax.swing.JTextField campoCantidad;
       private javax.swing.JTextField campoDesc;
       private javax.swing.JTextField campoFecha;
@@ -332,11 +332,6 @@ public class PanelNuevaFactura extends javax.swing.JPanel {
       private javax.swing.JTextField campoNFactura;
       private javax.swing.JTextField campoPrecio;
       private javax.swing.JPanel contenedorFacturas;
-      private javax.swing.JButton jButton1;
-      private javax.swing.JButton jButton2;
-      private javax.swing.JButton jButton3;
-      private javax.swing.JButton jButton4;
-      private javax.swing.JLabel jLabel1;
       private javax.swing.JLabel jLabel2;
       private javax.swing.JLabel jLabel3;
       private javax.swing.JLabel jLabel4;
@@ -345,7 +340,7 @@ public class PanelNuevaFactura extends javax.swing.JPanel {
       private javax.swing.JLabel jLabel7;
       private javax.swing.JScrollPane jScrollPane1;
       private javax.swing.JTextField jTextField1;
-      private javax.swing.JLabel labelTitle;
+      private javax.swing.JLabel labelTitleBill;
       private javax.swing.JComboBox<String> listaProveedores;
       private javax.swing.JTable tablaFacturasE;
       // End of variables declaration//GEN-END:variables

@@ -1,8 +1,10 @@
 package ControladorThreads;
 
+import Modelo.DB;
 import Vista.PanelInicial;
 import Vista_Formulario.PanelNuevoProducto;
 import java.awt.*;
+import java.sql.*;
 import DAO.*;
 
 public class ControllerProducts extends Thread{

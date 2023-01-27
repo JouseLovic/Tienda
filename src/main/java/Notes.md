@@ -132,3 +132,42 @@ verificara que dia es. En el archivo de config guardaremos la fecha que se regis
 contando tanto el mes como el dia. Si detecta que es el mismo, no creara un registro nuevo, sino que continuará actualizando el mismo. Por el
 contrario, si no es el mismo dia que la ves pasara, creara otro nuevo registro, con la fecha de ese dia, y la cantidad en 0 (eso hasta que
 en la otra app de ventas se comiencen a hacer ventas a clientes)
+
+25
+Para rellenar un poco, se puede crear una tabla de pedidos en DB y añadir en el inicio los estados de cada pedido y quienes lo pidieron
+Asi es mas sencillo y dinamico
+
+26
+Para el cambio de idiomas, solo es cuestion de agarrar un metodo que tome el idioma seleccionado, y mande a todas los paneles, labels, botones
+y hasta los titulos un string nuevo. Esto sera mas sencillo si se hace un metodo controllerSelectLanguage, en el constructor tomar completara la
+instancia de cada clase panel, hasta la de window. Y de esta forma, junto con muchos string, mandaremos el cambio
+
+Otra opcion es tener un metodo de cambio con todos los strings listos y, ese metodo, sea el unico que instancia el controlador que le pertenezcaa
+de esta forma, en ese constructor del controlador, tomara cual es el idioma seleccionado, y llenara strings dependiendo de un condicional tipo:
+
+if(Español){
+String tableColumnId = "Id", String tableColumnName = "Name"
+}
+else{
+String tableColumnName = "Nombre"
+}
+
+Y de esta forma con todos los paneles y controladores.
+
+Pienso que es mejor probar ese controlador global y que inicialize de una todos los paneles y asi poder darle correctamente uno u otro idioma
+al programa 
+
+
+27
+Para que todo sea mas opcional, demos un pequeño frame dedicado para la edicion de los labels de los titulos. Es decir, una configuración especifica para ellos
+Se leeran varios y guardaran en un array junto a un .dat la idea es simple. Darle la opcion al cliente de modificar si lo desea ese titulo
+Simplemente ejecutamos esto, guardando nuestra configuracion y teniendo un metodo que mande el titulo seleccionado a donde queremos. De esta forma
+Al cargar, tendra y elegira el titulo que pusimos dentro de la configuracion. Obvio, esto hace que debamos crear uno por default
+
+En el login que diga "Mi empresa" y lo demas es igual
+
+Y para que sea mejor, hagamos que el usuario pueda elegir el tamaño de la letra, la fuente y y su estilo. 
+Complementando lo anterior, que se vea los cambio en un panel pequeño interno dentro del frame de config, para que pueda el usuario ver sus cambios
+y saber que no la anda cagando. 
+
+Recuerda: todo esto se guardara en un archivo aparte para que no se mezclen con otras configuraciones

@@ -2,6 +2,8 @@
 package Vista_Formulario;
 
 import Controlador.*;
+import Controlador.Settings.ReSettings;
+
 import java.awt.Color;
 import java.sql.SQLIntegrityConstraintViolationException;
 
@@ -13,13 +15,15 @@ public class PanelEntrada extends javax.swing.JPanel {
      private String idPSeleccionado = null;
     // private boolean campoRemovidos = false;
      
-     private String confirmaId;
+     private String confirmaId, nBillOriginal;
+     private int row;
      private static int actualizame = 0;
      private static boolean isVisibleEntries;
      
      public PanelEntrada() {
           initComponents();
           isVisibleEntries = false;
+          labelTitleEntrie.setText(ReSettings.getTitleEntries());
           ControllerEntradasP.llenaComboBox(listaProveedores);
           ControllerEntradasP.enviaDatosTabla(tablaEntradas, "");
      }
@@ -30,7 +34,7 @@ public class PanelEntrada extends javax.swing.JPanel {
 
             popupMenu1 = new java.awt.PopupMenu();
             jPanel1 = new javax.swing.JPanel();
-            labelTitulo = new javax.swing.JLabel();
+            labelTitleEntrie = new javax.swing.JLabel();
             labelFactura = new javax.swing.JLabel();
             labelFecha = new javax.swing.JLabel();
             labelCodigoProducto = new javax.swing.JLabel();
@@ -55,8 +59,12 @@ public class PanelEntrada extends javax.swing.JPanel {
             labelProveedor = new javax.swing.JLabel();
             campoProveedor = new javax.swing.JTextField();
             listaProveedores = new javax.swing.JComboBox<>();
-            labelBuscar = new javax.swing.JLabel();
             campoBuscar = new javax.swing.JTextField();
+            jSeparator1 = new javax.swing.JSeparator();
+            jLabel1 = new javax.swing.JLabel();
+            botonEditar = new javax.swing.JButton();
+            botonReporteExcel = new javax.swing.JButton();
+            botonAgregar = new javax.swing.JButton();
 
             popupMenu1.setLabel("popupMenu1");
 
@@ -73,40 +81,35 @@ public class PanelEntrada extends javax.swing.JPanel {
             });
             jPanel1.setLayout(null);
 
-            labelTitulo.setFont(new java.awt.Font("Baskerville Old Face", 0, 24)); // NOI18N
-            labelTitulo.setForeground(new java.awt.Color(0, 0, 0));
-            labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            labelTitulo.setText("Entrada de productos");
-            jPanel1.add(labelTitulo);
-            labelTitulo.setBounds(20, 10, 230, 90);
+            labelTitleEntrie.setFont(new java.awt.Font("Baskerville Old Face", 0, 30)); // NOI18N
+            labelTitleEntrie.setForeground(new java.awt.Color(0, 0, 0));
+            labelTitleEntrie.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+            jPanel1.add(labelTitleEntrie);
+            labelTitleEntrie.setBounds(10, 10, 360, 60);
 
             labelFactura.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelFactura.setForeground(new java.awt.Color(0, 0, 0));
-            labelFactura.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelFactura.setText("N° de factura");
             jPanel1.add(labelFactura);
-            labelFactura.setBounds(190, 90, 130, 30);
+            labelFactura.setBounds(110, 90, 200, 30);
 
             labelFecha.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelFecha.setForeground(new java.awt.Color(0, 0, 0));
-            labelFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelFecha.setText("Fecha");
             jPanel1.add(labelFecha);
-            labelFecha.setBounds(530, 100, 110, 30);
+            labelFecha.setBounds(430, 90, 200, 30);
 
             labelCodigoProducto.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelCodigoProducto.setForeground(new java.awt.Color(0, 0, 0));
-            labelCodigoProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelCodigoProducto.setText("Codigo del producto");
             jPanel1.add(labelCodigoProducto);
-            labelCodigoProducto.setBounds(890, 100, 200, 30);
+            labelCodigoProducto.setBounds(720, 90, 220, 30);
 
             labelCantidad.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelCantidad.setForeground(new java.awt.Color(0, 0, 0));
-            labelCantidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelCantidad.setText("Cantidad");
             jPanel1.add(labelCantidad);
-            labelCantidad.setBounds(880, 200, 120, 20);
+            labelCantidad.setBounds(720, 190, 130, 30);
 
             tablaEntradas = new javax.swing.JTable(){
 
@@ -130,30 +133,39 @@ public class PanelEntrada extends javax.swing.JPanel {
                         return canEdit [columnIndex];
                   }
             });
+            tablaEntradas.setDragEnabled(true);
+            tablaEntradas.setFillsViewportHeight(true);
+            tablaEntradas.setGridColor(new java.awt.Color(255, 255, 255));
             tablaEntradas.getTableHeader().setReorderingAllowed(false);
             tablaEntradas.addMouseListener(new java.awt.event.MouseAdapter() {
                   public void mouseClicked(java.awt.event.MouseEvent evt) {
                         tablaEntradasMouseClicked(evt);
                   }
             });
+            tablaEntradas.addKeyListener(new java.awt.event.KeyAdapter() {
+                  public void keyPressed(java.awt.event.KeyEvent evt) {
+                        tablaEntradasKeyPressed(evt);
+                  }
+                  public void keyReleased(java.awt.event.KeyEvent evt) {
+                        tablaEntradasKeyReleased(evt);
+                  }
+            });
             jScrollPane1.setViewportView(tablaEntradas);
 
             jPanel1.add(jScrollPane1);
-            jScrollPane1.setBounds(30, 490, 1210, 420);
+            jScrollPane1.setBounds(10, 500, 1030, 450);
 
             labelDesc.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelDesc.setForeground(new java.awt.Color(0, 0, 0));
-            labelDesc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelDesc.setText("Descripción");
             jPanel1.add(labelDesc);
-            labelDesc.setBounds(500, 190, 220, 30);
+            labelDesc.setBounds(430, 190, 200, 30);
 
             labelPrecio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelPrecio.setForeground(new java.awt.Color(0, 0, 0));
-            labelPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelPrecio.setText("Precio");
             jPanel1.add(labelPrecio);
-            labelPrecio.setBounds(180, 200, 90, 40);
+            labelPrecio.setBounds(110, 190, 90, 30);
 
             botonEliminar.setText("Eliminar");
             botonEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +174,7 @@ public class PanelEntrada extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(botonEliminar);
-            botonEliminar.setBounds(220, 410, 150, 50);
+            botonEliminar.setBounds(150, 440, 150, 40);
 
             botonLimpiarCampos.setText("Limpiar campos");
             botonLimpiarCampos.addActionListener(new java.awt.event.ActionListener() {
@@ -171,7 +183,7 @@ public class PanelEntrada extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(botonLimpiarCampos);
-            botonLimpiarCampos.setBounds(580, 410, 150, 50);
+            botonLimpiarCampos.setBounds(430, 440, 150, 40);
 
             botonSubirF.setText("Subir entrada");
             botonSubirF.addActionListener(new java.awt.event.ActionListener() {
@@ -180,7 +192,7 @@ public class PanelEntrada extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(botonSubirF);
-            botonSubirF.setBounds(910, 410, 150, 50);
+            botonSubirF.setBounds(720, 440, 150, 40);
 
             campoNFactura.addMouseListener(new java.awt.event.MouseAdapter() {
                   public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -188,11 +200,11 @@ public class PanelEntrada extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(campoNFactura);
-            campoNFactura.setBounds(200, 130, 200, 40);
+            campoNFactura.setBounds(110, 130, 200, 40);
             jPanel1.add(campoFecha);
-            campoFecha.setBounds(560, 140, 200, 40);
+            campoFecha.setBounds(430, 130, 200, 40);
             jPanel1.add(campoCodigoProducto);
-            campoCodigoProducto.setBounds(900, 140, 230, 40);
+            campoCodigoProducto.setBounds(720, 130, 230, 40);
 
             campoCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -200,7 +212,7 @@ public class PanelEntrada extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(campoCantidad);
-            campoCantidad.setBounds(900, 240, 230, 40);
+            campoCantidad.setBounds(720, 230, 160, 40);
 
             campoDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -208,7 +220,7 @@ public class PanelEntrada extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(campoDescripcion);
-            campoDescripcion.setBounds(560, 240, 200, 40);
+            campoDescripcion.setBounds(430, 230, 200, 40);
 
             campoPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -216,14 +228,13 @@ public class PanelEntrada extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(campoPrecio);
-            campoPrecio.setBounds(200, 240, 200, 40);
+            campoPrecio.setBounds(110, 230, 200, 40);
 
             labelSeccion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelSeccion.setForeground(new java.awt.Color(0, 0, 0));
-            labelSeccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelSeccion.setText("Seccion");
             jPanel1.add(labelSeccion);
-            labelSeccion.setBounds(20, 300, 410, 30);
+            labelSeccion.setBounds(110, 300, 220, 30);
 
             campoSeccionE.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -231,14 +242,13 @@ public class PanelEntrada extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(campoSeccionE);
-            campoSeccionE.setBounds(200, 340, 180, 40);
+            campoSeccionE.setBounds(110, 340, 180, 40);
 
             labelMarca.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelMarca.setForeground(new java.awt.Color(0, 0, 0));
-            labelMarca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelMarca.setText("Marca");
             jPanel1.add(labelMarca);
-            labelMarca.setBounds(380, 300, 410, 30);
+            labelMarca.setBounds(430, 300, 180, 30);
 
             campoMarcaE.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -246,35 +256,28 @@ public class PanelEntrada extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(campoMarcaE);
-            campoMarcaE.setBounds(560, 340, 190, 40);
+            campoMarcaE.setBounds(430, 340, 190, 40);
 
             labelProveedor.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelProveedor.setForeground(new java.awt.Color(0, 0, 0));
-            labelProveedor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelProveedor.setText("Id del proveedor");
             jPanel1.add(labelProveedor);
-            labelProveedor.setBounds(760, 300, 400, 30);
+            labelProveedor.setBounds(720, 300, 240, 30);
 
             campoProveedor.setEditable(false);
             jPanel1.add(campoProveedor);
-            campoProveedor.setBounds(900, 340, 160, 40);
+            campoProveedor.setBounds(720, 340, 160, 40);
 
             listaProveedores.setForeground(new java.awt.Color(0, 0, 0));
-            listaProveedores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Null" }));
+            listaProveedores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno" }));
+            listaProveedores.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
             listaProveedores.addActionListener(new java.awt.event.ActionListener() {
                   public void actionPerformed(java.awt.event.ActionEvent evt) {
                         listaProveedoresActionPerformed(evt);
                   }
             });
             jPanel1.add(listaProveedores);
-            listaProveedores.setBounds(1070, 340, 70, 40);
-
-            labelBuscar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-            labelBuscar.setForeground(new java.awt.Color(0, 0, 0));
-            labelBuscar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            labelBuscar.setText("Buscar factura: ");
-            jPanel1.add(labelBuscar);
-            labelBuscar.setBounds(820, 30, 130, 40);
+            listaProveedores.setBounds(900, 340, 100, 40);
 
             campoBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -282,38 +285,60 @@ public class PanelEntrada extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(campoBuscar);
-            campoBuscar.setBounds(950, 30, 300, 40);
+            campoBuscar.setBounds(460, 10, 320, 40);
+            jPanel1.add(jSeparator1);
+            jSeparator1.setBounds(900, 380, 100, 10);
+
+            jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+            jLabel1.setText("Proveedores");
+            jPanel1.add(jLabel1);
+            jLabel1.setBounds(900, 320, 70, 16);
+
+            botonEditar.setText("jButton1");
+            jPanel1.add(botonEditar);
+            botonEditar.setBounds(800, 23, 30, 30);
+
+            botonReporteExcel.setText("jButton1");
+            jPanel1.add(botonReporteExcel);
+            botonReporteExcel.setBounds(850, 23, 30, 30);
+
+            botonAgregar.setText("jButton1");
+            jPanel1.add(botonAgregar);
+            botonAgregar.setBounds(900, 20, 30, 30);
 
             add(jPanel1, java.awt.BorderLayout.CENTER);
       }// </editor-fold>//GEN-END:initComponents
 
      private void tablaEntradasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaEntradasMouseClicked
-               ControllerEntradasP.mandaCampos(tablaEntradas, this);
-               listaProveedores.setSelectedItem(String.valueOf(tablaEntradas.getValueAt(tablaEntradas.getSelectedRow(), 8)));                    
+                ControllerEntradasP.mandaCampos(tablaEntradas, this);
+                row = tablaEntradas.getSelectedRow();
+                nBillOriginal = (String) tablaEntradas.getValueAt(row, 0);
+                listaProveedores.setSelectedItem(String.valueOf(tablaEntradas.getValueAt(tablaEntradas.getSelectedRow(), 8)));
      }//GEN-LAST:event_tablaEntradasMouseClicked
 
      private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
-          ControllerEntradasP.eliminar(tablaEntradas);
+          ControllerEntradasP.eliminar(tablaEntradas, nBillOriginal);
           tablaEntradas.setSelectionMode(0);
      }//GEN-LAST:event_botonEliminarActionPerformed
 
      private void botonLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {                                                       
           tablaEntradas.setSelectionMode(0);
+          nBillOriginal = "";
           ControllerEntradasP.limpiaCampos(this);
      }                                                  
 
      private void botonSubirFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSubirFActionPerformed
          try {
-          ControllerEntradasP.insertar(tablaEntradas,this);
+             ControllerEntradasP.insertar(tablaEntradas,this, nBillOriginal);
      } catch (SQLIntegrityConstraintViolationException e) {
           JOptionPane.showMessageDialog(null, "Ningun campo puede estar vacio. Revise si algun campo le falta un dato");
      }
      }//GEN-LAST:event_botonSubirFActionPerformed
 
      private void listaProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaProveedoresActionPerformed
-       ControllerEntradasP.mandaProveedor(tablaEntradas, String.valueOf(listaProveedores.getSelectedItem()), this);   
-       labelProveedor.setText("Id del proveedor");
-       labelProveedor.setForeground(Color.BLACK);
+            ControllerEntradasP.mandaProveedor(tablaEntradas, String.valueOf(listaProveedores.getSelectedItem()), this);
+            labelProveedor.setText("Id del proveedor");
+            labelProveedor.setForeground(Color.BLACK);
      }//GEN-LAST:event_listaProveedoresActionPerformed
 
      private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
@@ -325,8 +350,8 @@ public class PanelEntrada extends javax.swing.JPanel {
           if(actualizame==0){
                 ControllerEntradasP.enviaDatosTabla(tablaEntradas, "");
                 listaProveedores.removeAllItems();;
-                listaProveedores.addItem("Null");
-                listaProveedores.setSelectedItem("Null");
+                listaProveedores.addItem("Ninguno");
+                listaProveedores.setSelectedItem("Ninguno");
                 ControllerEntradasP.llenaComboBox(listaProveedores);
                 actualizame++;
               }
@@ -365,6 +390,20 @@ public class PanelEntrada extends javax.swing.JPanel {
       private void campoNFacturaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campoNFacturaMouseReleased
            
       }//GEN-LAST:event_campoNFacturaMouseReleased
+
+      private void tablaEntradasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaEntradasKeyReleased
+          ControllerEntradasP.mandaCampos(tablaEntradas, this);
+          row = tablaEntradas.getSelectedRow();
+          nBillOriginal = (String) tablaEntradas.getValueAt(row, 0);
+          listaProveedores.setSelectedItem(String.valueOf(tablaEntradas.getValueAt(tablaEntradas.getSelectedRow(), 8)));
+      }//GEN-LAST:event_tablaEntradasKeyReleased
+
+      private void tablaEntradasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaEntradasKeyPressed
+          ControllerEntradasP.mandaCampos(tablaEntradas, this);
+          row = tablaEntradas.getSelectedRow();
+          nBillOriginal = (String) tablaEntradas.getValueAt(row, 0);
+          listaProveedores.setSelectedItem(String.valueOf(tablaEntradas.getValueAt(tablaEntradas.getSelectedRow(), 8)));
+      }//GEN-LAST:event_tablaEntradasKeyPressed
 
      public String getCampoCantidad() {
           return campoCantidad.getText();
@@ -499,9 +538,12 @@ public class PanelEntrada extends javax.swing.JPanel {
          PanelEntrada.isVisibleEntries = isVisibleEntries;
      }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+      // Variables declaration - do not modify//GEN-BEGIN:variables
+      private javax.swing.JButton botonAgregar;
+      private javax.swing.JButton botonEditar;
       private javax.swing.JButton botonEliminar;
       private javax.swing.JButton botonLimpiarCampos;
+      private javax.swing.JButton botonReporteExcel;
       private javax.swing.JButton botonSubirF;
       private javax.swing.JTextField campoBuscar;
       private javax.swing.JTextField campoCantidad;
@@ -513,9 +555,10 @@ public class PanelEntrada extends javax.swing.JPanel {
       private javax.swing.JTextField campoPrecio;
       private javax.swing.JTextField campoProveedor;
       private javax.swing.JTextField campoSeccionE;
+      private javax.swing.JLabel jLabel1;
       private javax.swing.JPanel jPanel1;
       private javax.swing.JScrollPane jScrollPane1;
-      private javax.swing.JLabel labelBuscar;
+      private javax.swing.JSeparator jSeparator1;
       private javax.swing.JLabel labelCantidad;
       private javax.swing.JLabel labelCodigoProducto;
       private javax.swing.JLabel labelDesc;
@@ -525,7 +568,7 @@ public class PanelEntrada extends javax.swing.JPanel {
       private javax.swing.JLabel labelPrecio;
       private javax.swing.JLabel labelProveedor;
       private javax.swing.JLabel labelSeccion;
-      private javax.swing.JLabel labelTitulo;
+      private javax.swing.JLabel labelTitleEntrie;
       private javax.swing.JComboBox<String> listaProveedores;
       private java.awt.PopupMenu popupMenu1;
       private javax.swing.JTable tablaEntradas;

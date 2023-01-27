@@ -6,7 +6,6 @@ import Modelo.*;
 import Vista.PanelInicial;
 import Vista_Formulario.*;
 import DAO.*;
-
 import java.awt.*;
 import java.util.*;
 import java.awt.event.*;
@@ -18,25 +17,63 @@ public class ControllerNewProduct {
      private static int intentos = 0;
      private static boolean voidFields;
      private static boolean sexValidate;
-     
-     public static void borrarCampos(PanelNuevoProducto producto){
+     private static String tableColumnBrand, tableColumnSection, tableColumnPrice, tableColumnAge, tableColumnQuantity, tableColumnSex;
+     private static String tableColumnIdVendors, tableColumnSell, tableColumnDesc, tableColumnId, tableColumnTalla;
+
+     public ControllerNewProduct(){}
+
+     public ControllerNewProduct(boolean stateLanguage) {
+        if(!stateLanguage){
+            tableColumnId = "Id";
+            tableColumnDesc = "Description";
+            tableColumnTalla = "Size";
+            tableColumnBrand = "Brand";
+            tableColumnSection = "Section";
+            tableColumnPrice = "Price";
+            tableColumnAge = "Age objetive";
+            tableColumnQuantity = "Quantity";
+            tableColumnSex = "Sex";
+            tableColumnIdVendors = "Vendor";
+            tableColumnSell = "Sell";
+        }
+        else{
+            tableColumnId = "Id";
+            tableColumnDesc = "Descripción";
+            tableColumnTalla = "Talla";
+            tableColumnBrand = "Marca";
+            tableColumnSection = "Sección";
+            tableColumnPrice = "Precio";
+            tableColumnAge = "Edad dirigida";
+            tableColumnQuantity = "Cantidad";
+            tableColumnSex = "Sexo";
+            tableColumnIdVendors = "Proveedor";
+            tableColumnSell = "Vendido";
+        }
+    }
+
+    public static void moveFieldsOrigin(JPanel panel){
+
+
+
+
+    }
+
+    public static void borrarCampos(PanelNuevoProducto producto){
 
           producto.setLabelIdDefault("ID");
           producto.setLabelSexoDefault("Sexo");
           producto.setLabelCantidadDefault("Cantidad");
           producto.setLabelPrecioDefault("Precio");
-          producto.setCampoDesc("");
-          producto.setCampoCantidad("");
-          producto.setCampoEdadDirigida("");
+          producto.setDescField("");
+          producto.setQuantityField("");
+          producto.setAgeObjetiveField("");
           producto.setCampoId("");
-          producto.setCampoMarca("");
-          producto.setCampoPrecio("");
-          producto.setCampoTalla("");
-          producto.setCampoSeccion("");
-          producto.setCampoSexo("");
-          producto.setCampoIdProveedor("");
-          producto.setCampoTalla("");
-          
+          producto.setBrandField("");
+          producto.setPriceField("");
+          producto.setTallaField("");
+          producto.setSectionField("");
+          producto.setSexField("");
+          producto.setIdVendorField("");
      }
 
      public static void actualizarProducto(PanelNuevoProducto nProductos){
@@ -46,16 +83,16 @@ public class ControllerNewProduct {
           boolean exist = false;
           listaCompara = productDao.mostrarTodos("");
           try{
-               String id = nProductos.getCampoId();
-               String desc = nProductos.getCampoDesc();
-               String talla = nProductos.getCampoTalla();
-               String marca = nProductos.getCampoMarca();
-               String seccion =  nProductos.getCampoSeccion();
-               double precio = Double.parseDouble(nProductos.getCampoPrecio());
-               String edadDirigida = nProductos.getCampoEdadDirigida();
-               int cantidad =  Integer.parseInt(nProductos.getCampoCantidad());
-               String sexo = nProductos.getCampoSexo();
-               String idProveedor = nProductos.getCampoIdProveedor();
+               String id = nProductos.getIdField();
+               String desc = nProductos.getDescField();
+               String talla = nProductos.getTallaField();
+               String marca = nProductos.getBrandField();
+               String seccion =  nProductos.getSectionField();
+               double precio = Double.parseDouble(nProductos.getPriceField());
+               String edadDirigida = nProductos.getAgeObjetiveField();
+               int cantidad =  Integer.parseInt(nProductos.getQuantityField());
+               String sexo = nProductos.getSexField();
+               String idProveedor = nProductos.getIdVendorField();
                String vendido = nProductos.getVendido();
 
                          producto = new Producto(id, desc, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
@@ -106,15 +143,15 @@ public class ControllerNewProduct {
           ArrayList<Producto> listaComparativa = productDao.mostrarTodos("");
 
           try{
-               String id = productoN.getCampoId();
-               String desc = productoN.getCampoDesc();
-               String talla = productoN.getCampoTalla();
-               String marca = productoN.getCampoMarca();
-               String seccion =  productoN.getCampoSeccion();
-               double precio = Double.parseDouble(productoN.getCampoPrecio());
-               String edadDirigida = productoN.getCampoEdadDirigida();
-               int cantidad =  Integer.parseInt(productoN.getCampoCantidad());
-               String sexo = productoN.getCampoSexo();
+               String id = productoN.getIdField();
+               String desc = productoN.getDescField();
+               String talla = productoN.getTallaField();
+               String marca = productoN.getBrandField();
+               String seccion =  productoN.getSectionField();
+               double precio = Double.parseDouble(productoN.getPriceField());
+               String edadDirigida = productoN.getAgeObjetiveField();
+               int cantidad =  Integer.parseInt(productoN.getQuantityField());
+               String sexo = productoN.getSexField();
                String idProveedor = "";
                String vendido = "No ";
 
@@ -139,18 +176,18 @@ public class ControllerNewProduct {
                     if(!copia && !voidFields && sexValidate){
                           producto = new Producto(id, desc, talla, marca, seccion, precio, edadDirigida, cantidad, sexo, idProveedor, vendido);
                           productDao.insertarProducto(producto);
-                          enviaDatosTablaOrdenar(tabla, productoN.getOrdenadoSeleccionado(), productoN.getCampoBuscar());
+                          enviaDatosTablaOrdenar(tabla, productoN.getOrdenadoSeleccionado(), productoN.getSearchField());
                           borrarCampos(productoN);
                     }
                     else if(copia){
                         label.setText("ID ya existente");
                         label.setForeground(Color.RED);
-                        productoN.setRequestFocusCampoId();
+                        productoN.setRequestFocusIdField();
                     }
                     if(!sexValidate) {
                         productoN.setLabelSexoAdvertencia("Dato invalido");
                         intentos++;
-                        productoN.setRequestFocusCampoSexo();
+                        productoN.setRequestFocusSexField();
                         if (intentos == 3) {
                             JOptionPane.showMessageDialog(null, "Esta intentando crear un sexo con mas de 3 caracteres\nU esta ingresando caracteres diferentes de: M, F, MF o FM");
                         } else if (intentos == 6) {
@@ -161,7 +198,7 @@ public class ControllerNewProduct {
                     if(id.equals("")) {
                         label.setText("ID vacio");
                         label.setForeground(Color.RED);
-                        productoN.setRequestFocusCampoId();
+                        productoN.setRequestFocusIdField();
                     }
            }catch(NumberFormatException ex){
               JOptionPane.showMessageDialog(null, "Yout cannot leave any fields empty");
@@ -199,9 +236,9 @@ public class ControllerNewProduct {
           productDao = new nProductoDao();
                ArrayList<Producto> listaProductos = productDao.mostrarTodos(nombre);
                DefaultTableModel modelo = new DefaultTableModel();
-               modelo.addColumn("Id"); modelo.addColumn("Descripcion"); modelo.addColumn("Talla"); modelo.addColumn("Marca");
-               modelo.addColumn("Seccion"); modelo.addColumn("Precio"); modelo.addColumn("Edad dirigida"); modelo.addColumn("Cantidad");
-               modelo.addColumn("Sexo"); modelo.addColumn("Id del proveedor"); modelo.addColumn("Producto vendido");
+               modelo.addColumn(tableColumnId); modelo.addColumn(tableColumnDesc); modelo.addColumn(tableColumnTalla); modelo.addColumn(tableColumnBrand);
+               modelo.addColumn(tableColumnSection); modelo.addColumn(tableColumnPrice); modelo.addColumn(tableColumnAge); modelo.addColumn(tableColumnQuantity);
+               modelo.addColumn(tableColumnSex); modelo.addColumn(tableColumnIdVendors); modelo.addColumn(tableColumnSell);
       
                     for(Producto productos : listaProductos){
                          
@@ -223,123 +260,129 @@ public class ControllerNewProduct {
           tabla.setModel(modelo);
       }
 
-      public static void enviaDatosTablaOrdenar(JTable tabla, String nombre, String texto) throws ArrayIndexOutOfBoundsException, IndexOutOfBoundsException {
-    
-          if(nombre.equals("Descripcion")){
+      public static void enviaDatosTablaOrdenar(JTable tabla, String nombre, String texto) {
 
-               productDao = new nProductoDao();
-               ArrayList<Producto> listaProductos = productDao.mostrarSeleccionDesc(texto);
-               DefaultTableModel modelo = new DefaultTableModel();
-               modelo.addColumn("Id"); modelo.addColumn("Descripcion"); modelo.addColumn("Talla"); modelo.addColumn("Marca");
-               modelo.addColumn("Seccion"); modelo.addColumn("Precio"); modelo.addColumn("Edad dirigida"); modelo.addColumn("Cantidad");
-               modelo.addColumn("Sexo"); modelo.addColumn("Id del proveedor"); modelo.addColumn("Producto vendido");
-      
-                    for(Producto productos : listaProductos){
-                         
-                          Object[] filas = new Object[11];
+         try {
+             if (nombre.equals("Descripcion")) {
 
-                              filas[0] = productos.getId();
-                              filas[1] = productos.getDesc();
-                              filas[2] = productos.getTamaño();
-                              filas[3] = productos.getMarca();
-                              filas[4] = productos.getSeccion();
-                              filas[5] = productos.getPrecio();
-                              filas[6] = productos.getEdadDirigida();
-                              filas[7] = productos.getCantidad();
-                              filas[8] = productos.getSexo();
-                              filas[9] = productos.getIdProveedor();
-                              filas[10] = productos.getVendido();
-                              modelo.addRow(filas);
-                    }
-          tabla.setModel(modelo);
-          }
+                 productDao = new nProductoDao();
+                 ArrayList<Producto> listaProductos = productDao.mostrarSeleccionDesc(texto);
+                 DefaultTableModel modelo = new DefaultTableModel();
+                 modelo.addColumn(tableColumnId); modelo.addColumn(tableColumnDesc); modelo.addColumn(tableColumnTalla); modelo.addColumn(tableColumnBrand);
+                 modelo.addColumn(tableColumnSection); modelo.addColumn(tableColumnPrice); modelo.addColumn(tableColumnAge); modelo.addColumn(tableColumnQuantity);
+                 modelo.addColumn(tableColumnSex); modelo.addColumn(tableColumnIdVendors); modelo.addColumn(tableColumnSell);
 
-          if(nombre.equals("ID")){
+                 for (Producto productos : listaProductos) {
 
-               productDao = new nProductoDao();
-               ArrayList<Producto> listaProductos = productDao.mostrarSeleccionId(texto);
-               DefaultTableModel modelo = new DefaultTableModel();
-               modelo.addColumn("Id"); modelo.addColumn("Descripcion"); modelo.addColumn("Talla"); modelo.addColumn("Marca");
-               modelo.addColumn("Seccion"); modelo.addColumn("Precio"); modelo.addColumn("Edad dirigida"); modelo.addColumn("Cantidad");
-               modelo.addColumn("Sexo"); modelo.addColumn("Id del proveedor"); modelo.addColumn("Producto vendido");
-      
-                    for(Producto productos : listaProductos){
-                         
-                          Object[] filas = new Object[11];
+                     Object[] filas = new Object[11];
 
-                              filas[0] = productos.getId();
-                              filas[1] = productos.getDesc();
-                              filas[2] = productos.getTamaño();
-                              filas[3] = productos.getMarca();
-                              filas[4] = productos.getSeccion();
-                              filas[5] = productos.getPrecio();
-                              filas[6] = productos.getEdadDirigida();
-                              filas[7] = productos.getCantidad();
-                              filas[8] = productos.getSexo();
-                              filas[9] = productos.getIdProveedor();
-                              filas[10] = productos.getVendido();
-                              modelo.addRow(filas);
-                    }
-          tabla.setModel(modelo);
-          }
+                     filas[0] = productos.getId();
+                     filas[1] = productos.getDesc();
+                     filas[2] = productos.getTamaño();
+                     filas[3] = productos.getMarca();
+                     filas[4] = productos.getSeccion();
+                     filas[5] = productos.getPrecio();
+                     filas[6] = productos.getEdadDirigida();
+                     filas[7] = productos.getCantidad();
+                     filas[8] = productos.getSexo();
+                     filas[9] = productos.getIdProveedor();
+                     filas[10] = productos.getVendido();
+                     modelo.addRow(filas);
+                 }
+                 tabla.setModel(modelo);
+             }
 
-          if(nombre.equals("Seccion")){
+             if (nombre.equals("ID")) {
 
-               productDao = new nProductoDao();
-               ArrayList<Producto> listaProductos = productDao.mostrarSeleccionSeccion(texto);
-               DefaultTableModel modelo = new DefaultTableModel();
-               modelo.addColumn("Id"); modelo.addColumn("Descripcion"); modelo.addColumn("Talla"); modelo.addColumn("Marca");
-               modelo.addColumn("Seccion"); modelo.addColumn("Precio"); modelo.addColumn("Edad dirigida"); modelo.addColumn("Cantidad");
-               modelo.addColumn("Sexo"); modelo.addColumn("Id del proveedor"); modelo.addColumn("Producto vendido");
-      
-                    for(Producto productos : listaProductos){
-                         
-                          Object[] filas = new Object[11];
+                 productDao = new nProductoDao();
+                 ArrayList<Producto> listaProductos = productDao.mostrarSeleccionId(texto);
+                 DefaultTableModel modelo = new DefaultTableModel();
+                 modelo.addColumn(tableColumnId); modelo.addColumn(tableColumnDesc); modelo.addColumn(tableColumnTalla); modelo.addColumn(tableColumnBrand);
+                 modelo.addColumn(tableColumnSection); modelo.addColumn(tableColumnPrice); modelo.addColumn(tableColumnAge); modelo.addColumn(tableColumnQuantity);
+                 modelo.addColumn(tableColumnSex); modelo.addColumn(tableColumnIdVendors); modelo.addColumn(tableColumnSell);
 
-                              filas[0] = productos.getId();
-                              filas[1] = productos.getDesc();
-                              filas[2] = productos.getTamaño();
-                              filas[3] = productos.getMarca();
-                              filas[4] = productos.getSeccion();
-                              filas[5] = productos.getPrecio();
-                              filas[6] = productos.getEdadDirigida();
-                              filas[7] = productos.getCantidad();
-                              filas[8] = productos.getSexo();
-                              filas[9] = productos.getIdProveedor();
-                              filas[10] = productos.getVendido();
-                              modelo.addRow(filas);
-                    }
-          tabla.setModel(modelo);
-          }
+                 for (Producto productos : listaProductos) {
 
-          if(nombre.equals("Marca")){
+                     Object[] filas = new Object[11];
 
-               productDao = new nProductoDao();
-               ArrayList<Producto> listaProductos = productDao.mostrarSeleccionMarca(texto);
-               DefaultTableModel modelo = new DefaultTableModel();
-               modelo.addColumn("Id"); modelo.addColumn("Descripcion"); modelo.addColumn("Talla"); modelo.addColumn("Marca");
-               modelo.addColumn("Seccion"); modelo.addColumn("Precio"); modelo.addColumn("Edad dirigida"); modelo.addColumn("Cantidad");
-               modelo.addColumn("Sexo"); modelo.addColumn("Id del proveedor"); modelo.addColumn("Producto vendido");
-      
-                    for(Producto productos : listaProductos){
-                         
-                          Object[] filas = new Object[11];
+                     filas[0] = productos.getId();
+                     filas[1] = productos.getDesc();
+                     filas[2] = productos.getTamaño();
+                     filas[3] = productos.getMarca();
+                     filas[4] = productos.getSeccion();
+                     filas[5] = productos.getPrecio();
+                     filas[6] = productos.getEdadDirigida();
+                     filas[7] = productos.getCantidad();
+                     filas[8] = productos.getSexo();
+                     filas[9] = productos.getIdProveedor();
+                     filas[10] = productos.getVendido();
+                     modelo.addRow(filas);
+                 }
+                 tabla.setModel(modelo);
+             }
 
-                              filas[0] = productos.getId();
-                              filas[1] = productos.getDesc();
-                              filas[2] = productos.getTamaño();
-                              filas[3] = productos.getMarca();
-                              filas[4] = productos.getSeccion();
-                              filas[5] = productos.getPrecio();
-                              filas[6] = productos.getEdadDirigida();
-                              filas[7] = productos.getCantidad();
-                              filas[8] = productos.getSexo();
-                              filas[9] = productos.getIdProveedor();
-                              filas[10] = productos.getVendido();
-                              modelo.addRow(filas);
-                    }
-                tabla.setModel(modelo);
-          }
+             if (nombre.equals("Seccion")) {
+
+                 productDao = new nProductoDao();
+                 ArrayList<Producto> listaProductos = productDao.mostrarSeleccionSeccion(texto);
+                 DefaultTableModel modelo = new DefaultTableModel();
+                 modelo.addColumn(tableColumnId); modelo.addColumn(tableColumnDesc); modelo.addColumn(tableColumnTalla); modelo.addColumn(tableColumnBrand);
+                 modelo.addColumn(tableColumnSection); modelo.addColumn(tableColumnPrice); modelo.addColumn(tableColumnAge); modelo.addColumn(tableColumnQuantity);
+                 modelo.addColumn(tableColumnSex); modelo.addColumn(tableColumnIdVendors); modelo.addColumn(tableColumnSell);
+
+                 for (Producto productos : listaProductos) {
+
+                     Object[] filas = new Object[11];
+
+                     filas[0] = productos.getId();
+                     filas[1] = productos.getDesc();
+                     filas[2] = productos.getTamaño();
+                     filas[3] = productos.getMarca();
+                     filas[4] = productos.getSeccion();
+                     filas[5] = productos.getPrecio();
+                     filas[6] = productos.getEdadDirigida();
+                     filas[7] = productos.getCantidad();
+                     filas[8] = productos.getSexo();
+                     filas[9] = productos.getIdProveedor();
+                     filas[10] = productos.getVendido();
+                     modelo.addRow(filas);
+                 }
+                 tabla.setModel(modelo);
+             }
+
+             if (nombre.equals("Marca")) {
+
+                 productDao = new nProductoDao();
+                 ArrayList<Producto> listaProductos = productDao.mostrarSeleccionMarca(texto);
+                 DefaultTableModel modelo = new DefaultTableModel();
+                 modelo.addColumn(tableColumnId); modelo.addColumn(tableColumnDesc); modelo.addColumn(tableColumnTalla); modelo.addColumn(tableColumnBrand);
+                 modelo.addColumn(tableColumnSection); modelo.addColumn(tableColumnPrice); modelo.addColumn(tableColumnAge); modelo.addColumn(tableColumnQuantity);
+                 modelo.addColumn(tableColumnSex); modelo.addColumn(tableColumnIdVendors); modelo.addColumn(tableColumnSell);
+
+                 for (Producto productos : listaProductos) {
+
+                     Object[] filas = new Object[11];
+
+                     filas[0] = productos.getId();
+                     filas[1] = productos.getDesc();
+                     filas[2] = productos.getTamaño();
+                     filas[3] = productos.getMarca();
+                     filas[4] = productos.getSeccion();
+                     filas[5] = productos.getPrecio();
+                     filas[6] = productos.getEdadDirigida();
+                     filas[7] = productos.getCantidad();
+                     filas[8] = productos.getSexo();
+                     filas[9] = productos.getIdProveedor();
+                     filas[10] = productos.getVendido();
+                     modelo.addRow(filas);
+                 }
+                 tabla.setModel(modelo);
+             }
+         }catch (ArrayIndexOutOfBoundsException ex){
+             JOptionPane.showMessageDialog(null, "Hubo un error en la App. Por favor, cierre y abra de nuevo para solucionarlo");
+         }catch (IndexOutOfBoundsException ex){
+             JOptionPane.showMessageDialog(null, "Hubo un error en la App. Por favor, cierre y abra de nuevo para solucionarlo");
+         }
      }
 
 
@@ -349,15 +392,15 @@ public class ControllerNewProduct {
           if(fila>=0){
                nProducto.setCampoId(String.valueOf(tabla.getValueAt(fila, 0)));
                nProducto.setConfirmaId((String) tabla.getValueAt(fila, 0));
-               nProducto.setCampoDesc((String.valueOf(tabla.getValueAt(fila, 1))));
-               nProducto.setCampoTalla((String.valueOf(tabla.getValueAt(fila, 2))));
-               nProducto.setCampoMarca(String.valueOf(tabla.getValueAt(fila,3)));
-               nProducto.setCampoSeccion(String.valueOf(tabla.getValueAt(fila, 4)));
-               nProducto.setCampoPrecio(String.valueOf(tabla.getValueAt(fila, 5)));
-               nProducto.setCampoEdadDirigida(String.valueOf(tabla.getValueAt(fila, 6)));
-               nProducto.setCampoCantidad(String.valueOf(tabla.getValueAt(fila, 7)));
-               nProducto.setCampoSexo(String.valueOf(tabla.getValueAt(fila, 8)));
-               nProducto.setCampoIdProveedor((String) tabla.getValueAt(fila, 9));
+               nProducto.setDescField((String.valueOf(tabla.getValueAt(fila, 1))));
+               nProducto.setTallaField((String.valueOf(tabla.getValueAt(fila, 2))));
+               nProducto.setBrandField(String.valueOf(tabla.getValueAt(fila,3)));
+               nProducto.setSectionField(String.valueOf(tabla.getValueAt(fila, 4)));
+               nProducto.setPriceField(String.valueOf(tabla.getValueAt(fila, 5)));
+               nProducto.setAgeObjetiveField(String.valueOf(tabla.getValueAt(fila, 6)));
+               nProducto.setQuantityField(String.valueOf(tabla.getValueAt(fila, 7)));
+               nProducto.setSexField(String.valueOf(tabla.getValueAt(fila, 8)));
+               nProducto.setIdVendorField((String) tabla.getValueAt(fila, 9));
                nProducto.setVendido(String.valueOf(tabla.getValueAt(fila, 10)));
           }
       }
@@ -371,10 +414,10 @@ public class ControllerNewProduct {
                valida.setEditableId(true);
          }
          else if(!valida.isLlaveActiva() && valida.isCampoActivo()){
-                   if(valida.getCampoId().isEmpty()){
+                   if(valida.getIdField().isEmpty()){
                         JOptionPane.showMessageDialog(null, "Seleccione una fila si desea usar esta opción");
                         valida.setEditableId(true);
-                   }else if(!valida.getCampoId().isEmpty()){
+                   }else if(!valida.getIdField().isEmpty()){
                         ImageIcon image = new ImageIcon("src\\main\\java\\images\\llaveDesactivada.png");
                         valida.setBotonLlave(image);
                         valida.setLlaveActiva(false);
@@ -458,10 +501,6 @@ public class ControllerNewProduct {
         if(keyNumeros == 3){
             a.consume();
         }
-      }
-
-      public static void moveFieldsOrigin(JPanel panel){
-
       }
 
       public static boolean state(){

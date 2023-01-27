@@ -1,43 +1,31 @@
-import javax.swing.UIManager;
 
+import javax.swing.*;
+import Controlador.ControllerMenu;
+import Controlador.ControllerNewProduct;
 import ControladorThreads.ControllerProducts;
 import ControladorThreads.ControllerVendors;
-import Vista_Formulario.PanelEntrada;
-import Vista_Formulario.PanelNuevoProducto;
-import Vista_Register.PanelNuevaFactura;
 import com.formdev.flatlaf.*;
-
 import Controlador.Settings.ReSettings;
 import Vista.*;
+
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
         ReSettings re = new ReSettings();
         String Sett = re.getTheme();
         PanelInicial inicio = new PanelInicial();
-        PanelNuevoProducto nProducto = new PanelNuevoProducto();
-        PanelNuevaFactura nFactura = new PanelNuevaFactura();
-        PanelEntrada entradas = new PanelEntrada();
 
-        if(Sett.equals("Dark")){
-                try {
-                    inicio.setState(false);
-                    UIManager.setLookAndFeel(new FlatDarkLaf());
-                }catch (Exception ex) {
-                    System.err.println( "Error al inicializar LaF" );
-                }
-        }
-        else if(Sett.equals("Light")){
-            try {
-                inicio.setState(true);
-                UIManager.setLookAndFeel(new FlatLightLaf());
-            }catch (Exception ex) {
-                System.err.println( "Error al inicializar LaF" );
-            }
+        try{
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (UnsupportedLookAndFeelException e) {
+            throw new RuntimeException(e);
         }
 
-         Window W = new Window();
-         W.setVisible(true);
+        ControllerMenu menu = new ControllerMenu(re.getLanguageSelected());
+        ControllerNewProduct nProduct = new ControllerNewProduct(re.getLanguageSelected());
+
+        Window W = new Window();
+        W.setVisible(true);
 
         ControllerProducts productsThread = new ControllerProducts();
         productsThread.start();

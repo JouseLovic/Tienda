@@ -120,7 +120,9 @@ public class EntradasDao {
                 factura.close();
                 db.cierraConexion(conecta);
             }catch(SQLIntegrityConstraintViolationException ex){
-                JOptionPane.showMessageDialog(null, "Esta intentando introducir una factura u producto ya existente. Si lo que busca es ingresar una cantidad \npara un producto que ya exista, escriba correctamente los valores correspondiente a ese producto que son:\nUna num° de factura nueva, Descripcion, Seccion, Marca y id del proveedor");
+                JOptionPane.showMessageDialog(null, "You are trying to enter an existing invoice or product. If you are looking to enter an amount\n" +
+                        "for a product that already exists, correctly type the values corresponding to that product, which are:\n" +
+                        "A new invoice number, Description, Section, Brand and supplier id");
                 try {
                   conecta.rollback();//regresamos el estado anterior de los datos en caso de error    
                 } catch (SQLException e) {

@@ -49,7 +49,10 @@ public class LoadSetting {
              }
         }
         if(!fileSetting.exists()){
-            String[] nArray = {"Light", "Arial", "Plain", "22"};
+            String[] nArray = {"Light",
+                    "Arial", "Plain", "22",
+                    "True", "Mi Empresa", "Gestion de inventario",
+                    "Entradas de productos", "Facturas de entrada", "Proveedores", "", "", ""};
             SaveSetting save = new SaveSetting();
             save.saveSetting(nArray);
             System.out.println("Configuraciones por defecto creadas");

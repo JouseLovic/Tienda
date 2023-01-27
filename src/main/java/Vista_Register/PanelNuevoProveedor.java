@@ -4,6 +4,8 @@ package Vista_Register;
 import javax.swing.ImageIcon;
 
 import Controlador.ControllerNewProveedor;
+import Controlador.Settings.ReSettings;
+
 import java.awt.Color;
 
 public class PanelNuevoProveedor extends javax.swing.JPanel {
@@ -15,6 +17,7 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
      public PanelNuevoProveedor() {
           initComponents();
           isVisibleNProv = false;
+          labelTitleVendor.setText(ReSettings.getTitleVendors());
           ControllerNewProveedor.enviaDatosTabla(tablaProveedores);
      }
 
@@ -48,7 +51,7 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
             tablaProveedores = new javax.swing.JTable();
             panelUtilities = new javax.swing.JPanel();
             panelTitle = new javax.swing.JPanel();
-            jLabel3 = new javax.swing.JLabel();
+            labelTitleVendor = new javax.swing.JLabel();
 
             setLayout(new java.awt.BorderLayout());
 
@@ -217,7 +220,7 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
             });
             jScrollPane2.setViewportView(tablaProveedores);
 
-            jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 1020, 410));
+            jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 1010, 410));
 
             panelUtilities.setBackground(new java.awt.Color(255, 255, 255));
             panelUtilities.setLayout(new java.awt.BorderLayout());
@@ -225,17 +228,17 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
             panelTitle.setBackground(new java.awt.Color(255, 255, 255));
             panelTitle.setLayout(new java.awt.GridBagLayout());
 
-            jLabel3.setFont(new java.awt.Font("Baskerville Old Face", 0, 36)); // NOI18N
-            jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel3.setText("Proveedores");
+            labelTitleVendor.setFont(new java.awt.Font("Baskerville Old Face", 0, 36)); // NOI18N
+            labelTitleVendor.setForeground(new java.awt.Color(0, 0, 0));
+            labelTitleVendor.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             gridBagConstraints = new java.awt.GridBagConstraints();
+            gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
             gridBagConstraints.insets = new java.awt.Insets(5, 24, 7, 12);
-            panelTitle.add(jLabel3, gridBagConstraints);
+            panelTitle.add(labelTitleVendor, gridBagConstraints);
 
             panelUtilities.add(panelTitle, java.awt.BorderLayout.LINE_START);
 
-            jPanel1.add(panelUtilities, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 50));
+            jPanel1.add(panelUtilities, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 50));
 
             add(jPanel1, java.awt.BorderLayout.CENTER);
       }// </editor-fold>//GEN-END:initComponents
@@ -422,7 +425,7 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
          PanelNuevoProveedor.isVisibleNProv = isVisibleNProv;
      }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+      // Variables declaration - do not modify//GEN-BEGIN:variables
       private javax.swing.JButton botonActualizar;
       private javax.swing.JButton botonColocaImagen;
       private javax.swing.JButton botonEliminar;
@@ -437,7 +440,6 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
       private javax.swing.JTextField campoNombre;
       private javax.swing.JLabel jLabel1;
       private javax.swing.JLabel jLabel2;
-      private javax.swing.JLabel jLabel3;
       private javax.swing.JLabel jLabel5;
       private javax.swing.JLabel jLabel6;
       private javax.swing.JPanel jPanel1;
@@ -446,6 +448,7 @@ public class PanelNuevoProveedor extends javax.swing.JPanel {
       private javax.swing.JLabel labelEmail;
       private javax.swing.JLabel labelIdProv;
       private javax.swing.JLabel labelPerson;
+      private javax.swing.JLabel labelTitleVendor;
       private javax.swing.JPanel panelTitle;
       private javax.swing.JPanel panelUtilities;
       private javax.swing.JTable tablaProveedores;

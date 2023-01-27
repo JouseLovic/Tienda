@@ -12,49 +12,48 @@ import javax.swing.table.*;
 public class ControllerEntradasP {
 
     private static EntradasDao eDao;
-    private static boolean Exist = false;
-    private static boolean sumaCantidad = false;
+    private static boolean Exist;
+    private static boolean sumaCantidad;
+    private static boolean nBillExist;
     private static nProductoDao nDao;
 
-    public static void eliminar(JTable tabla){
+    public static void eliminar(JTable tabla, String nBillOriginal){
 
-        int fila = tabla.getSelectedRow();
         eDao = new EntradasDao();
+        eDao.eliminar(nBillOriginal);
+        enviaDatosTabla(tabla, "");
 
-        if(fila>=0){
-            String id_de_factura = (String) tabla.getValueAt(fila, 0);
-            eDao.eliminar(id_de_factura);
-            enviaDatosTabla(tabla, "");
-        }
     }
     
     public static void compruebaCampos(Producto productos, PanelEntrada entrada, String descripcion, String seccion, String marca, String idProveedor){
 
-        if(!productos.getSeccion().equals(seccion)){
+        if(!productos.getSeccion().equalsIgnoreCase(seccion)){
             entrada.setLabelSeccion("La seccion no corresponde al producto");
         }
 
-        if(!productos.getDesc().equals(descripcion)){
+        if(!productos.getDesc().equalsIgnoreCase(descripcion)){
             entrada.setLabelDesc("La descripción no corresponde al producto");
         }
 
-        if(!productos.getMarca().equals(marca)){
+        if(!productos.getMarca().equalsIgnoreCase(marca)){
             entrada.setLabelMarca("La marca no corresponde al producto");
         }
-        if(!productos.getIdProveedor().equals(idProveedor)){
-            entrada.setLabelProveedor("El proveedor no corresponde al producto");
+        if(!productos.getIdProveedor().equalsIgnoreCase(idProveedor)){
+            entrada.setLabelProveedor("Proveedor invalido");
         }
     }
 
-    public static void insertar(JTable tabla, PanelEntrada entrada) throws SQLIntegrityConstraintViolationException{
+    public static void insertar(JTable tabla, PanelEntrada entrada, String nBillOriginal) throws SQLIntegrityConstraintViolationException{
 
         eDao = new EntradasDao();
         Exist = false;
         sumaCantidad = false;
+        nBillExist = false;
         ArrayList<Producto> comparativa = null;
         nDao = new nProductoDao();
         comparativa = nDao.mostrarTodos("");
-        
+
+
          try{
             String nFactura = entrada.getCampoNFactura();
             String codigoP = entrada.getCampoCodigoProducto();
@@ -66,14 +65,19 @@ public class ControllerEntradasP {
             String marca = entrada.getCampoMarcaE();
             String idProveedor = entrada.getCampoProveedor();
 
+             if(nFactura.equalsIgnoreCase(nBillOriginal)) {
+                 JOptionPane.showMessageDialog(null, "This bill is exist. Please, change it");
+                 nBillExist = true;
+             }
+
                 for (Producto productos : comparativa){
-                    if(productos.getId().equalsIgnoreCase(codigoP) && productos.getDesc().equalsIgnoreCase(desc) && productos.getSeccion().equalsIgnoreCase(seccion) && productos.getMarca().equalsIgnoreCase(marca) && productos.getIdProveedor().equals(idProveedor)){
-                        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea sumar la cantidad de entrada al producto ya existente que tiene el id de: "+codigoP+"?");
-                            if(opcion == 0){
-                                Exist = true;
-                                sumaCantidad = true;
-                                break;
-                            }
+                        if(!nBillExist && productos.getId().equalsIgnoreCase(codigoP) && productos.getDesc().equalsIgnoreCase(desc) && productos.getSeccion().equalsIgnoreCase(seccion) && productos.getMarca().equalsIgnoreCase(marca) && productos.getIdProveedor().equals(idProveedor)){
+                            int opcion = JOptionPane.showConfirmDialog(null, "¿Desea sumar la cantidad de entrada al producto ya existente que tiene el id de: "+codigoP+"?");
+                                if(opcion == 0){
+                                    Exist = true;
+                                    sumaCantidad = true;
+                                    break;
+                                }
                         }
                         else if(productos.getId().equalsIgnoreCase(codigoP) && !productos.getDesc().equalsIgnoreCase(desc)){
                             compruebaCampos(productos, entrada, desc, seccion, marca, idProveedor);
@@ -93,14 +97,15 @@ public class ControllerEntradasP {
                         else if(productos.getId().equalsIgnoreCase(codigoP) && !productos.getMarca().equalsIgnoreCase(marca)){
                             compruebaCampos(productos, entrada, desc, seccion, marca, idProveedor);
                             Exist = true;
-                        }     
+                        }
                     }
-            if(Exist == false){
+
+            if(!Exist && !nBillExist){
                 EntradaProductos EntryProducts = new EntradaProductos(nFactura, codigoP, desc, fecha, precio, cantidad, seccion, marca, idProveedor);
                 eDao.insertarEntradaP(EntryProducts);
                 enviaDatosTabla(tabla, "");
             }
-            else if(sumaCantidad == true){
+            else if(sumaCantidad && !nBillExist){
                 EntradaProductos EntryProducts = new EntradaProductos(nFactura, codigoP, desc, fecha, precio, cantidad, seccion, marca, idProveedor);
                 eDao.insertarProductoExistente(EntryProducts);
                 enviaDatosTabla(tabla, "");
@@ -161,9 +166,9 @@ public class ControllerEntradasP {
 
     public static void mandaProveedor(JTable tabla, String proveedor, PanelEntrada entradas){
 
-            if(!proveedor.equals("Null"))  entradas.setCampoProveedor(proveedor);
+            if(!proveedor.equals("Ninguno"))  entradas.setCampoProveedor(proveedor);
         
-            else if(proveedor.equals("Null"))  entradas.setCampoProveedor(null);
+            else if(proveedor.equals("Ninguno"))  entradas.setCampoProveedor(null);
 
     }
 

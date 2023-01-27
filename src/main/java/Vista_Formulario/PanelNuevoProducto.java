@@ -1,9 +1,10 @@
 package Vista_Formulario;
 
 import Controlador.ControllerNewProduct;
-import ControladorThreads.ControllerProducts;
+import Controlador.Settings.ReSettings;
 
 import java.awt.*;
+import java.awt.geom.RectangularShape;
 import javax.swing.*;
 
 public class PanelNuevoProducto extends javax.swing.JPanel {
@@ -26,14 +27,12 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           initComponents();
           seleccionFiltrada = filtroId.getText();
           ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, "");
-          campoBuscar.setText(null);
-            if(ControllerNewProduct.state()==false){
-               configDark();
-            }
-            isVisible = true;
+          this.labelTitleInventary.setText(ReSettings.getTitleInventary());
+          searchField.setText(null);
+          isVisible = true;
           setEditableProveedor(false);
-          botonActualiza.setEnabled(false);
-          botonConfirma.setEnabled(false); 
+          buttonUpdateProduct.setEnabled(false);
+          buttonConfirmProduct.setEnabled(false); 
      }
      
      
@@ -46,56 +45,48 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             labelId = new javax.swing.JLabel();
             labelDesc = new javax.swing.JLabel();
             labelTalla = new javax.swing.JLabel();
-            campoId = new javax.swing.JTextField();
-            campoDesc = new javax.swing.JTextField();
-            campoTalla = new javax.swing.JTextField();
-            campoMarca = new javax.swing.JTextField();
-            campoSeccion = new javax.swing.JTextField();
-            campoPrecio = new javax.swing.JTextField();
-            campoEdadDirigida = new javax.swing.JTextField();
             labelPrecio = new javax.swing.JLabel();
             labelSeccion = new javax.swing.JLabel();
             labelMarca = new javax.swing.JLabel();
             labelCantidad = new javax.swing.JLabel();
             labelEdadDirigida = new javax.swing.JLabel();
-            botonLimpiaCampos = new javax.swing.JButton();
-            campoSexo = new javax.swing.JTextField();
             labelSexo = new javax.swing.JLabel();
-            labelNombreEmpresa = new javax.swing.JLabel();
-            botonEliminar = new javax.swing.JButton();
-            botonActualiza = new javax.swing.JButton();
+            labelTitleInventary = new javax.swing.JLabel();
             botonLlave = new javax.swing.JButton();
-            botonConfirma = new javax.swing.JButton();
             labelIdProveedor = new javax.swing.JLabel();
-            campoIdProveedor = new javax.swing.JTextField();
-            campoBuscar = new javax.swing.JTextField();
-            jLabel1 = new javax.swing.JLabel();
             jLabel2 = new javax.swing.JLabel();
-            botonCrear = new javax.swing.JButton();
             filtroId = new javax.swing.JRadioButton();
             filtroDesc = new javax.swing.JRadioButton();
             filtroSeccion = new javax.swing.JRadioButton();
             filtroMarca = new javax.swing.JRadioButton();
+            buttonDelete = new Utilities.Button();
+            buttonConfirmProduct = new Utilities.Button();
+            buttonCreateProduct = new Utilities.Button();
+            buttonClearFields = new Utilities.Button();
+            buttonUpdateProduct = new Utilities.Button();
+            quantityField = new Utilities.TextField();
+            panelData21 = new Utilities.PanelData2();
             jScrollPane2 = new javax.swing.JScrollPane();
             tablaNProductos = new javax.swing.JTable();
-            jSeparator1 = new javax.swing.JSeparator();
-            jSeparator2 = new javax.swing.JSeparator();
-            jSeparator3 = new javax.swing.JSeparator();
-            jSeparator4 = new javax.swing.JSeparator();
-            jSeparator5 = new javax.swing.JSeparator();
-            jSeparator6 = new javax.swing.JSeparator();
-            jSeparator7 = new javax.swing.JSeparator();
-            jSeparator8 = new javax.swing.JSeparator();
-            jSeparator9 = new javax.swing.JSeparator();
-            jSeparator11 = new javax.swing.JSeparator();
+            priceField = new Utilities.TextField();
+            idVendorField = new Utilities.TextField();
+            sexField = new Utilities.TextField();
+            ageObjetiveField = new Utilities.TextField();
+            brandField = new Utilities.TextField();
+            tallaField = new Utilities.TextField();
+            descField = new Utilities.TextField();
+            sectionField = new Utilities.TextField();
+            idField = new Utilities.TextField();
+            jLabel1 = new javax.swing.JLabel();
+            searchField = new Utilities.TextField();
+            panelDecorationSearch = new Utilities.PanelData2();
+            labelDecorationBackground2 = new javax.swing.JLabel();
+            labelDecorationBackground = new javax.swing.JLabel();
             jLabel3 = new javax.swing.JLabel();
-            campoCantidad = new javax.swing.JTextField();
-            jSeparator12 = new javax.swing.JSeparator();
-            botonEditar = new javax.swing.JButton();
 
             setLayout(new java.awt.BorderLayout());
 
-            containerComponents.setBackground(new java.awt.Color(252, 252, 252));
+            containerComponents.setBackground(new java.awt.Color(248, 248, 248));
             containerComponents.addMouseListener(new java.awt.event.MouseAdapter() {
                   public void mouseClicked(java.awt.event.MouseEvent evt) {
                         containerComponentsMouseClicked(evt);
@@ -106,60 +97,23 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             labelId.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelId.setForeground(new java.awt.Color(0, 0, 0));
             labelId.setText("ID");
-            containerComponents.add(labelId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 210, 30));
+            containerComponents.add(labelId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 200, 30));
 
             labelDesc.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelDesc.setForeground(new java.awt.Color(0, 0, 0));
             labelDesc.setText("Descripción");
-            containerComponents.add(labelDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 270, 30));
+            containerComponents.add(labelDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 270, 30));
 
             labelTalla.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelTalla.setForeground(new java.awt.Color(0, 0, 0));
             labelTalla.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             labelTalla.setText("Talla");
-            containerComponents.add(labelTalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 60, -1));
-
-            campoId.setBorder(null);
-            campoId.addKeyListener(new java.awt.event.KeyAdapter() {
-                  public void keyReleased(java.awt.event.KeyEvent evt) {
-                        campoIdKeyReleased(evt);
-                  }
-            });
-            containerComponents.add(campoId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 170, 30));
-
-            campoDesc.setBorder(null);
-            containerComponents.add(campoDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 270, 30));
-
-            campoTalla.setBorder(null);
-            containerComponents.add(campoTalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, 140, 30));
-
-            campoMarca.setBorder(null);
-            containerComponents.add(campoMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 170, 30));
-
-            campoSeccion.setBorder(null);
-            containerComponents.add(campoSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, 180, 30));
-
-            campoPrecio.setBorder(null);
-            campoPrecio.setDoubleBuffered(true);
-            campoPrecio.setDragEnabled(true);
-            campoPrecio.setOpaque(true);
-            campoPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
-                  public void keyReleased(java.awt.event.KeyEvent evt) {
-                        campoPrecioKeyReleased(evt);
-                  }
-                  public void keyTyped(java.awt.event.KeyEvent evt) {
-                        campoPrecioKeyTyped(evt);
-                  }
-            });
-            containerComponents.add(campoPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 160, 30));
-
-            campoEdadDirigida.setBorder(null);
-            containerComponents.add(campoEdadDirigida, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 140, 30));
+            containerComponents.add(labelTalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 60, -1));
 
             labelPrecio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelPrecio.setForeground(new java.awt.Color(0, 0, 0));
             labelPrecio.setText("Precio");
-            containerComponents.add(labelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 280, 30));
+            containerComponents.add(labelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 180, 30));
 
             labelSeccion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelSeccion.setForeground(new java.awt.Color(0, 0, 0));
@@ -169,75 +123,39 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             labelMarca.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelMarca.setForeground(new java.awt.Color(0, 0, 0));
             labelMarca.setText("Marca");
-            containerComponents.add(labelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 150, 30));
+            containerComponents.add(labelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 80, 150, 30));
 
             labelCantidad.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelCantidad.setForeground(new java.awt.Color(0, 0, 0));
             labelCantidad.setText("Cantidad ");
-            containerComponents.add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 250, 30));
+            containerComponents.add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 180, 30));
 
             labelEdadDirigida.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelEdadDirigida.setForeground(new java.awt.Color(0, 0, 0));
             labelEdadDirigida.setText("Edad dirigida");
             containerComponents.add(labelEdadDirigida, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 110, 30));
 
-            botonLimpiaCampos.setText("Limpiar campos");
-            botonLimpiaCampos.addActionListener(new java.awt.event.ActionListener() {
-                  public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        botonLimpiaCamposActionPerformed(evt);
-                  }
-            });
-            containerComponents.add(botonLimpiaCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 560, 180, 40));
-
-            campoSexo.setBorder(null);
-            campoSexo.addKeyListener(new java.awt.event.KeyAdapter() {
-                  public void keyPressed(java.awt.event.KeyEvent evt) {
-                        campoSexoKeyPressed(evt);
-                  }
-                  public void keyReleased(java.awt.event.KeyEvent evt) {
-                        campoSexoKeyReleased(evt);
-                  }
-            });
-            containerComponents.add(campoSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 80, 30));
-
             labelSexo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelSexo.setForeground(new java.awt.Color(0, 0, 0));
             labelSexo.setText("Sexo");
-            containerComponents.add(labelSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, 120, 30));
+            containerComponents.add(labelSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 200, 120, 30));
 
-            labelNombreEmpresa.setFont(new java.awt.Font("Baskerville Old Face", 0, 30)); // NOI18N
-            labelNombreEmpresa.setForeground(new java.awt.Color(0, 0, 0));
-            labelNombreEmpresa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            labelNombreEmpresa.setText("Gestion de inventario");
-            containerComponents.add(labelNombreEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 270, 40));
-
-            botonEliminar.setText("Eliminar");
-            botonEliminar.addActionListener(new java.awt.event.ActionListener() {
-                  public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        botonEliminarActionPerformed(evt);
-                  }
-            });
-            containerComponents.add(botonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 560, 170, 40));
-
-            botonActualiza.setText("Actualizar");
-            botonActualiza.addActionListener(new java.awt.event.ActionListener() {
-                  public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        botonActualizaActionPerformed(evt);
-                  }
-            });
-            containerComponents.add(botonActualiza, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 560, 180, 40));
+            labelTitleInventary.setFont(new java.awt.Font("Baskerville Old Face", 0, 30)); // NOI18N
+            labelTitleInventary.setForeground(new java.awt.Color(0, 0, 0));
+            labelTitleInventary.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+            containerComponents.add(labelTitleInventary, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 350, 60));
 
             botonLlave.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-            botonLlave.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\ProyectosIDEA\\demo\\src\\main\\java\\images\\llaveDesactivada.png")); // NOI18N
+            botonLlave.setIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\llaveDesactivada.png")); // NOI18N
             botonLlave.setBorder(null);
             botonLlave.setBorderPainted(false);
             botonLlave.setContentAreaFilled(false);
             botonLlave.setFocusPainted(false);
             botonLlave.setFocusable(false);
             botonLlave.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            botonLlave.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\ProyectosIDEA\\demo\\src\\main\\java\\images\\llaveDesactivadaOscura.png")); // NOI18N
+            botonLlave.setPressedIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\llaveDesactivadaOscura.png")); // NOI18N
             botonLlave.setRequestFocusEnabled(false);
-            botonLlave.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\ProyectosIDEA\\demo\\src\\main\\java\\images\\llaveDesactivada.png")); // NOI18N
+            botonLlave.setRolloverIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\llaveDesactivada.png")); // NOI18N
             botonLlave.addActionListener(new java.awt.event.ActionListener() {
                   public void actionPerformed(java.awt.event.ActionEvent evt) {
                         botonLlaveActionPerformed(evt);
@@ -245,52 +163,16 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             });
             containerComponents.add(botonLlave, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 60, 50));
 
-            botonConfirma.setText("Confirmar alta de pedido");
-            botonConfirma.addActionListener(new java.awt.event.ActionListener() {
-                  public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        botonConfirmaActionPerformed(evt);
-                  }
-            });
-            containerComponents.add(botonConfirma, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 510, 180, 40));
-
             labelIdProveedor.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelIdProveedor.setForeground(new java.awt.Color(0, 0, 0));
             labelIdProveedor.setText("Id del proveedor");
-            containerComponents.add(labelIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 170, 30));
-
-            campoIdProveedor.setText("Ninguno");
-            campoIdProveedor.setBorder(null);
-            containerComponents.add(campoIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 180, 30));
-
-            campoBuscar.setBorder(null);
-            campoBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
-                  public void keyPressed(java.awt.event.KeyEvent evt) {
-                        campoBuscarKeyPressed(evt);
-                  }
-                  public void keyReleased(java.awt.event.KeyEvent evt) {
-                        campoBuscarKeyReleased(evt);
-                  }
-            });
-            containerComponents.add(campoBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 320, 40));
-
-            jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-            jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel1.setText("Buscar producto:");
-            containerComponents.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 150, 40));
+            containerComponents.add(labelIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 200, 170, 30));
 
             jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             jLabel2.setForeground(new java.awt.Color(0, 0, 0));
             jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel2.setText("Ordernar por: ");
-            containerComponents.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 140, 40));
-
-            botonCrear.setText("Subir producto");
-            botonCrear.addActionListener(new java.awt.event.ActionListener() {
-                  public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        botonCrearActionPerformed(evt);
-                  }
-            });
-            containerComponents.add(botonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 560, 160, 40));
+            containerComponents.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 140, 20));
 
             filtroId.setBackground(new java.awt.Color(255, 255, 255));
             grupo.add(filtroId);
@@ -301,7 +183,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         filtroIdActionPerformed(evt);
                   }
             });
-            containerComponents.add(filtroId, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 440, 50, 20));
+            containerComponents.add(filtroId, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 40, 20));
 
             filtroDesc.setBackground(new java.awt.Color(255, 255, 255));
             grupo.add(filtroDesc);
@@ -311,7 +193,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         filtroDescActionPerformed(evt);
                   }
             });
-            containerComponents.add(filtroDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 440, 150, -1));
+            containerComponents.add(filtroDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 300, 100, -1));
 
             filtroSeccion.setBackground(new java.awt.Color(255, 255, 255));
             grupo.add(filtroSeccion);
@@ -321,7 +203,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         filtroSeccionActionPerformed(evt);
                   }
             });
-            containerComponents.add(filtroSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 460, 70, -1));
+            containerComponents.add(filtroSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 300, 80, -1));
 
             filtroMarca.setBackground(new java.awt.Color(255, 255, 255));
             grupo.add(filtroMarca);
@@ -331,7 +213,75 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                         filtroMarcaActionPerformed(evt);
                   }
             });
-            containerComponents.add(filtroMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 90, -1));
+            containerComponents.add(filtroMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 300, 70, -1));
+
+            buttonDelete.setForeground(new java.awt.Color(0, 0, 0));
+            buttonDelete.setText("Eliminar");
+            buttonDelete.setShadowColor(new java.awt.Color(0, 0, 0));
+            buttonDelete.addActionListener(new java.awt.event.ActionListener() {
+                  public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        buttonDeleteActionPerformed(evt);
+                  }
+            });
+            containerComponents.add(buttonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, 170, 50));
+
+            buttonConfirmProduct.setForeground(new java.awt.Color(0, 0, 0));
+            buttonConfirmProduct.setText("Confirmar alta de producto");
+            buttonConfirmProduct.setShadowColor(new java.awt.Color(0, 0, 0));
+            buttonConfirmProduct.addActionListener(new java.awt.event.ActionListener() {
+                  public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        buttonConfirmProductActionPerformed(evt);
+                  }
+            });
+            containerComponents.add(buttonConfirmProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 180, 50));
+
+            buttonCreateProduct.setForeground(new java.awt.Color(0, 0, 0));
+            buttonCreateProduct.setText("Crear producto");
+            buttonCreateProduct.setShadowColor(new java.awt.Color(0, 0, 0));
+            buttonCreateProduct.addActionListener(new java.awt.event.ActionListener() {
+                  public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        buttonCreateProductActionPerformed(evt);
+                  }
+            });
+            containerComponents.add(buttonCreateProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 440, 170, 50));
+
+            buttonClearFields.setForeground(new java.awt.Color(0, 0, 0));
+            buttonClearFields.setText("Limpia campos");
+            buttonClearFields.setShadowColor(new java.awt.Color(0, 0, 0));
+            buttonClearFields.addActionListener(new java.awt.event.ActionListener() {
+                  public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        buttonClearFieldsActionPerformed(evt);
+                  }
+            });
+            containerComponents.add(buttonClearFields, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, 170, 50));
+
+            buttonUpdateProduct.setForeground(new java.awt.Color(0, 0, 0));
+            buttonUpdateProduct.setText("Actualizar");
+            buttonUpdateProduct.setShadowColor(new java.awt.Color(0, 0, 0));
+            buttonUpdateProduct.addActionListener(new java.awt.event.ActionListener() {
+                  public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        buttonUpdateProductActionPerformed(evt);
+                  }
+            });
+            containerComponents.add(buttonUpdateProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, 180, 50));
+
+            quantityField.setForeground(new java.awt.Color(0, 0, 0));
+            quantityField.setShadowColor(new java.awt.Color(0, 0, 0));
+            quantityField.addKeyListener(new java.awt.event.KeyAdapter() {
+                  public void keyReleased(java.awt.event.KeyEvent evt) {
+                        quantityFieldKeyReleased(evt);
+                  }
+                  public void keyTyped(java.awt.event.KeyEvent evt) {
+                        quantityFieldKeyTyped(evt);
+                  }
+            });
+            containerComponents.add(quantityField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 190, 50));
+
+            panelData21.setBackground(new java.awt.Color(255, 255, 255));
+            panelData21.setRoundBottonLeft(10);
+            panelData21.setRoundBottonRight(10);
+            panelData21.setRoundTopLeft(10);
+            panelData21.setRoundTopRight(10);
 
             tablaNProductos = new javax.swing.JTable(){
 
@@ -375,94 +325,115 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             });
             jScrollPane2.setViewportView(tablaNProductos);
 
-            containerComponents.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 1020, 340));
+            javax.swing.GroupLayout panelData21Layout = new javax.swing.GroupLayout(panelData21);
+            panelData21.setLayout(panelData21Layout);
+            panelData21Layout.setHorizontalGroup(
+                  panelData21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                  .addGroup(panelData21Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 982, Short.MAX_VALUE)
+                        .addGap(18, 18, 18))
+            );
+            panelData21Layout.setVerticalGroup(
+                  panelData21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                  .addGroup(panelData21Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+                        .addGap(14, 14, 14))
+            );
 
-            jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
-            jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 160, 20));
+            containerComponents.add(panelData21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 1020, 440));
 
-            jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
-            jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 180, 20));
-
-            jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
-            jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 270, 20));
-
-            jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
-            jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 320, 20));
-
-            jSeparator5.setBackground(new java.awt.Color(255, 255, 255));
-            jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 170, 20));
-
-            jSeparator6.setBackground(new java.awt.Color(255, 255, 255));
-            jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 140, 20));
-
-            jSeparator7.setBackground(new java.awt.Color(255, 255, 255));
-            jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 80, 20));
-
-            jSeparator8.setBackground(new java.awt.Color(255, 255, 255));
-            jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 170, 20));
-
-            jSeparator9.setBackground(new java.awt.Color(255, 255, 255));
-            jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 180, 20));
-
-            jSeparator11.setBackground(new java.awt.Color(255, 255, 255));
-            jSeparator11.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, 180, 20));
-
-            jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-            jLabel3.setText("$");
-            containerComponents.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 20, 30));
-
-            campoCantidad.setBorder(null);
-            campoCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            priceField.setForeground(new java.awt.Color(0, 0, 0));
+            priceField.setShadowColor(new java.awt.Color(0, 0, 0));
+            priceField.addKeyListener(new java.awt.event.KeyAdapter() {
                   public void keyReleased(java.awt.event.KeyEvent evt) {
-                        campoCantidadKeyReleased(evt);
+                        priceFieldKeyReleased(evt);
                   }
                   public void keyTyped(java.awt.event.KeyEvent evt) {
-                        campoCantidadKeyTyped(evt);
+                        priceFieldKeyTyped(evt);
                   }
             });
-            containerComponents.add(campoCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 180, 30));
+            containerComponents.add(priceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 190, 50));
 
-            jSeparator12.setBackground(new java.awt.Color(255, 255, 255));
-            jSeparator12.setForeground(new java.awt.Color(0, 0, 0));
-            containerComponents.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 140, 20));
+            idVendorField.setText("Ninguno");
+            idVendorField.setShadowColor(new java.awt.Color(0, 0, 0));
+            containerComponents.add(idVendorField, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 230, 180, 50));
 
-            botonEditar.setText("jButton1");
-            containerComponents.add(botonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 13, 40, 30));
+            sexField.setForeground(new java.awt.Color(0, 0, 0));
+            sexField.setShadowColor(new java.awt.Color(0, 0, 0));
+            sexField.addKeyListener(new java.awt.event.KeyAdapter() {
+                  public void keyReleased(java.awt.event.KeyEvent evt) {
+                        sexFieldKeyReleased(evt);
+                  }
+            });
+            containerComponents.add(sexField, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 230, 130, 50));
+
+            ageObjetiveField.setForeground(new java.awt.Color(0, 0, 0));
+            ageObjetiveField.setShadowColor(new java.awt.Color(0, 0, 0));
+            containerComponents.add(ageObjetiveField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 180, 50));
+
+            brandField.setForeground(new java.awt.Color(0, 0, 0));
+            brandField.setShadowColor(new java.awt.Color(0, 0, 0));
+            containerComponents.add(brandField, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 110, 180, 50));
+
+            tallaField.setForeground(new java.awt.Color(0, 0, 0));
+            tallaField.setShadowColor(new java.awt.Color(0, 0, 0));
+            containerComponents.add(tallaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, 100, 50));
+
+            descField.setForeground(new java.awt.Color(0, 0, 0));
+            descField.setShadowColor(new java.awt.Color(0, 0, 0));
+            containerComponents.add(descField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 111, 290, 50));
+
+            sectionField.setForeground(new java.awt.Color(0, 0, 0));
+            sectionField.setShadowColor(new java.awt.Color(0, 0, 0));
+            containerComponents.add(sectionField, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, 200, 50));
+
+            idField.setForeground(new java.awt.Color(0, 0, 0));
+            idField.setShadowColor(new java.awt.Color(0, 0, 0));
+            idField.addKeyListener(new java.awt.event.KeyAdapter() {
+                  public void keyReleased(java.awt.event.KeyEvent evt) {
+                        idFieldKeyReleased(evt);
+                  }
+            });
+            containerComponents.add(idField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 180, 50));
+
+            jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+            jLabel1.setIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\Search.png")); // NOI18N
+            containerComponents.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 50, 40));
+
+            searchField.setForeground(new java.awt.Color(0, 0, 0));
+            searchField.setShadowColor(new java.awt.Color(0, 0, 0));
+            searchField.addKeyListener(new java.awt.event.KeyAdapter() {
+                  public void keyPressed(java.awt.event.KeyEvent evt) {
+                        searchFieldKeyPressed(evt);
+                  }
+                  public void keyReleased(java.awt.event.KeyEvent evt) {
+                        searchFieldKeyReleased(evt);
+                  }
+                  public void keyTyped(java.awt.event.KeyEvent evt) {
+                        searchFieldKeyTyped(evt);
+                  }
+            });
+            containerComponents.add(searchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 410, 60));
+
+            panelDecorationSearch.setBackground(new java.awt.Color(45, 141, 252));
+            panelDecorationSearch.setRoundBottonLeft(12);
+            panelDecorationSearch.setRoundBottonRight(10);
+            panelDecorationSearch.setRoundTopRight(10);
+            containerComponents.add(panelDecorationSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 22, 400, 48));
+
+            labelDecorationBackground2.setIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\PanelNProduct\\fluido-transformedInvertido.png")); // NOI18N
+            containerComponents.add(labelDecorationBackground2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 570, 690, 300));
+
+            labelDecorationBackground.setIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\PanelNProduct\\fluido-transformed.png")); // NOI18N
+            containerComponents.add(labelDecorationBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 810, 320));
+
+            jLabel3.setIcon(new javax.swing.ImageIcon("src\\main\\java\\images\\PanelNProduct\\fluido-transformedInvertido90Grados.png")); // NOI18N
+            containerComponents.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, -60, 630, 210));
 
             add(containerComponents, java.awt.BorderLayout.CENTER);
       }// </editor-fold>//GEN-END:initComponents
-
-     private void botonLimpiaCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiaCamposActionPerformed
-         ControllerNewProduct.borrarCampos(this);
-         setEditableProveedor(false);
-         new ControllerNewProduct().paraBotonLimpiar(tablaNProductos, this);
-     }//GEN-LAST:event_botonLimpiaCamposActionPerformed
-
-     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
-          ControllerNewProduct.eliminar(tablaNProductos, this);
-          ControllerNewProduct.borrarCampos(this);
-          setEditableProveedor(false);
-          ControllerNewProduct.paraBotonEliminar(tablaNProductos, this);
-     }//GEN-LAST:event_botonEliminarActionPerformed
-
-     private void botonActualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizaActionPerformed
-          ControllerNewProduct.actualizarProducto(this);
-          ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText());
-          new ControllerNewProduct().paraBotonActualizar(tablaNProductos, this);
-          setEditableProveedor(false);
-     }//GEN-LAST:event_botonActualizaActionPerformed
 
      private void tablaNProductosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaNProductosMouseReleased
           new ControllerNewProduct().filaSeleccionada(tablaNProductos, this);
@@ -470,31 +441,9 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           ControllerNewProduct.mandaDatosCampos(tablaNProductos, this);
      }//GEN-LAST:event_tablaNProductosMouseReleased
 
-     private void campoIdKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoIdKeyReleased
-          ControllerNewProduct.labelDefault(labelId, "ID");
-     }//GEN-LAST:event_campoIdKeyReleased
-
-     private void campoPrecioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoPrecioKeyReleased
-          ControllerNewProduct.labelDefault(labelPrecio, "Precio");
-     }//GEN-LAST:event_campoPrecioKeyReleased
-
-     private void campoCantidadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoCantidadKeyReleased
-          ControllerNewProduct.labelDefault(labelCantidad, "Cantidad");
-     }//GEN-LAST:event_campoCantidadKeyReleased
-
      private void botonLlaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLlaveActionPerformed
           new ControllerNewProduct().activacionDeLlave(this);
      }//GEN-LAST:event_botonLlaveActionPerformed
-
-     private void botonConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmaActionPerformed
-         boolean selection = ControllerNewProduct.confirmar(this);
-            if(selection) {
-                ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText());
-                tablaNProductos.setSelectionMode(0);
-                setEditableProveedor(false);
-                botonConfirma.setEnabled(false);
-            }
-     }//GEN-LAST:event_botonConfirmaActionPerformed
 
      private void tablaNProductosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaNProductosKeyReleased
           new ControllerNewProduct().filaSeleccionada(tablaNProductos, this);
@@ -502,23 +451,10 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
           ControllerNewProduct.mandaDatosCampos(tablaNProductos, this);
      }//GEN-LAST:event_tablaNProductosKeyReleased
 
-     private void campoBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoBuscarKeyReleased
-               ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText()); 
-               botonCrear.setEnabled(false);
-                    if(campoBuscar.getText().isEmpty()){
-                          ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, "");
-                         botonCrear.setEnabled(true);
-          }
-     }//GEN-LAST:event_campoBuscarKeyReleased
-
      private void containerComponentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_containerComponentsMouseClicked
           tablaNProductos.setSelectionMode(0);
-          botonConfirma.setEnabled(false);
+          buttonConfirmProduct.setEnabled(false);
      }//GEN-LAST:event_containerComponentsMouseClicked
-
-      private void botonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearActionPerformed
-            ControllerNewProduct.subir(this, tablaNProductos, labelId);
-      }//GEN-LAST:event_botonCrearActionPerformed
 
       private void tablaNProductosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaNProductosKeyPressed
         ControllerNewProduct.mandaDatosCampos(tablaNProductos, this);
@@ -526,141 +462,194 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
 
       private void filtroIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtroIdActionPerformed
             seleccionFiltrada = filtroId.getText();
-            ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText());
+            ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, searchField.getText());
       }//GEN-LAST:event_filtroIdActionPerformed
 
       private void filtroSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtroSeccionActionPerformed
            seleccionFiltrada = filtroSeccion.getText();
-            ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText());
+            ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, searchField.getText());
       }//GEN-LAST:event_filtroSeccionActionPerformed
 
       private void filtroDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtroDescActionPerformed
             seleccionFiltrada = filtroDesc.getText();
-            ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText());
+            ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, searchField.getText());
       }//GEN-LAST:event_filtroDescActionPerformed
 
       private void filtroMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtroMarcaActionPerformed
             seleccionFiltrada = filtroMarca.getText();
-            ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText());   
+            ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, searchField.getText());   
       }//GEN-LAST:event_filtroMarcaActionPerformed
 
-      private void campoBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoBuscarKeyPressed
-           ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, campoBuscar.getText()); 
-               botonCrear.setEnabled(false);
-                    if(campoBuscar.getText().isEmpty()){
-                          ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, "");
-                         botonCrear.setEnabled(true);
-          }
-      }//GEN-LAST:event_campoBuscarKeyPressed
+      private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
+           ControllerNewProduct.eliminar(tablaNProductos, this);
+          ControllerNewProduct.borrarCampos(this);
+          setEditableProveedor(false);
+          ControllerNewProduct.paraBotonEliminar(tablaNProductos, this);
+      }//GEN-LAST:event_buttonDeleteActionPerformed
 
-      private void campoSexoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoSexoKeyReleased
-            ControllerNewProduct.labelDefault(labelSexo, "Sexo");
-      }//GEN-LAST:event_campoSexoKeyReleased
+      private void buttonConfirmProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonConfirmProductActionPerformed
+            boolean selection = ControllerNewProduct.confirmar(this);
+            if(selection) {
+                ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, searchField.getText());
+                tablaNProductos.setSelectionMode(0);
+                setEditableProveedor(false);
+                buttonConfirmProduct.setEnabled(false);
+            }
+      }//GEN-LAST:event_buttonConfirmProductActionPerformed
 
-      private void campoPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoPrecioKeyTyped
+      private void buttonUpdateProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateProductActionPerformed
+            ControllerNewProduct.actualizarProducto(this);
+            ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, searchField.getText());
+            new ControllerNewProduct().paraBotonActualizar(tablaNProductos, this);
+            setEditableProveedor(false);
+      }//GEN-LAST:event_buttonUpdateProductActionPerformed
+
+      private void buttonClearFieldsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonClearFieldsActionPerformed
+            ControllerNewProduct.borrarCampos(this);
+            setEditableProveedor(false);
+            new ControllerNewProduct().paraBotonLimpiar(tablaNProductos, this);
+      }//GEN-LAST:event_buttonClearFieldsActionPerformed
+
+      private void buttonCreateProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateProductActionPerformed
+            ControllerNewProduct.subir(this, tablaNProductos, labelId);
+      }//GEN-LAST:event_buttonCreateProductActionPerformed
+
+      private void priceFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_priceFieldKeyReleased
+           ControllerNewProduct.labelDefault(labelPrecio, "Precio");
+      }//GEN-LAST:event_priceFieldKeyReleased
+
+      private void priceFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_priceFieldKeyTyped
           int keyNumeros = evt.getKeyChar();
           ControllerNewProduct.bloqueaLetrasPrecio(keyNumeros, evt);
-      }//GEN-LAST:event_campoPrecioKeyTyped
+      }//GEN-LAST:event_priceFieldKeyTyped
 
-      private void campoCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoCantidadKeyTyped
-          int keyNumeros = evt.getKeyChar();
-          ControllerNewProduct.bloqueaLetrasCantidad(keyNumeros, evt);
-      }//GEN-LAST:event_campoCantidadKeyTyped
+      private void quantityFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityFieldKeyTyped
+            int keyNumeros = evt.getKeyChar();
+            ControllerNewProduct.bloqueaLetrasPrecio(keyNumeros, evt);
+      }//GEN-LAST:event_quantityFieldKeyTyped
 
-      private void campoSexoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoSexoKeyPressed
-           
-      }//GEN-LAST:event_campoSexoKeyPressed
+      private void quantityFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityFieldKeyReleased
+            ControllerNewProduct.labelDefault(labelCantidad, "Cantidad");
+      }//GEN-LAST:event_quantityFieldKeyReleased
 
-     public String getCampoIdProveedor() {
-          return campoIdProveedor.getText();
+      private void sexFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sexFieldKeyReleased
+           ControllerNewProduct.labelDefault(labelSexo, "Sexo");
+      }//GEN-LAST:event_sexFieldKeyReleased
+
+      private void idFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idFieldKeyReleased
+            ControllerNewProduct.labelDefault(labelId, "ID");
+      }//GEN-LAST:event_idFieldKeyReleased
+
+      private void searchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyReleased
+            ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, searchField.getText()); 
+                    if(searchField.getText().isEmpty()){
+                          ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, "");  
+                    }
+      }//GEN-LAST:event_searchFieldKeyReleased
+
+      private void searchFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyPressed
+           ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, searchField.getText());
+                    if(searchField.getText().isEmpty()){
+                          ControllerNewProduct.enviaDatosTablaOrdenar(tablaNProductos, seleccionFiltrada, "");
+                    }
+      }//GEN-LAST:event_searchFieldKeyPressed
+
+      private void searchFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyTyped
+                    if(searchField.getText().length()>=57){
+                            evt.consume();
+                    }
+      }//GEN-LAST:event_searchFieldKeyTyped
+
+     public String getIdVendorField() {
+          return idVendorField.getText();
      }
 
-     public void setCampoIdProveedor(String campoIdProveedor) {
-          this.campoIdProveedor.setText(campoIdProveedor);
+     public void setIdVendorField(String campoIdProveedor) {
+          this.idVendorField.setText(campoIdProveedor);
      }
 
 
-     public String getCampoCantidad() {
-         if(campoCantidad.getText().equalsIgnoreCase("")) {
+     public String getQuantityField() {
+         if(quantityField.getText().equalsIgnoreCase("")) {
             return  String.valueOf(cantidadAux);
          }
          else {
-             return campoCantidad.getText();
+             return quantityField.getText();
          }
      }
 
-     public void setCampoCantidad(String texto) {
-          campoCantidad.setText(texto);
+     public void setQuantityField(String texto) {
+          quantityField.setText(texto);
      }
 
-     public String getCampoDesc() {
-          return campoDesc.getText();
+     public String getDescField() {
+          return descField.getText();
      }
 
-     public void setCampoDesc(String texto) {
-          campoDesc.setText(texto);
+     public void setDescField(String texto) {
+          descField.setText(texto);
      }
 
-     public String getCampoEdadDirigida() {
-          return campoEdadDirigida.getText();
+     public String getAgeObjetiveField() {
+          return ageObjetiveField.getText();
      }
 
-     public void setCampoEdadDirigida(String texto) {
-          campoEdadDirigida.setText(texto);
+     public void setAgeObjetiveField(String texto) {
+          ageObjetiveField.setText(texto);
      }
 
-     public String getCampoId() {
-          return campoId.getText();
+     public String getIdField() {
+          return idField.getText();
      }
 
      public void setCampoId(String texto) {
-          campoId.setText(texto);
+          idField.setText(texto);
      }
 
-     public String getCampoMarca() {
-          return campoMarca.getText();
+     public String getBrandField() {
+          return brandField.getText();
      }
 
-     public void setCampoMarca(String texto) {
-          campoMarca.setText(texto);
+     public void setBrandField(String texto) {
+          brandField.setText(texto);
      }
 
-     public String getCampoPrecio() {
-         if(campoPrecio.getText().equalsIgnoreCase("")){
+     public String getPriceField() {
+         if(priceField.getText().equalsIgnoreCase("")){
              return String.valueOf(precioAux);
          }
          else{
-             return campoPrecio.getText();
+             return priceField.getText();
          }
 
      }
 
-     public void setCampoPrecio(String texto) {
-          campoPrecio.setText(String.valueOf(texto));
+     public void setPriceField(String texto) {
+          priceField.setText(String.valueOf(texto));
      }
 
-     public String getCampoTalla() {
-          return campoTalla.getText();
+     public String getTallaField() {
+          return tallaField.getText();
      }
 
-     public void setCampoTalla(String texto) {
-          campoTalla.setText(texto);
+     public void setTallaField(String texto) {
+          tallaField.setText(texto);
      }
 
-     public String getCampoSeccion() {
-          return campoSeccion.getText();
+     public String getSectionField() {
+          return sectionField.getText();
      }
 
-     public void setCampoSeccion(String texto) {
-          campoSeccion.setText(texto);
+     public void setSectionField(String texto) {
+          sectionField.setText(texto);
      }
 
-     public String getCampoSexo() {
-          return campoSexo.getText();
+     public String getSexField() {
+          return sexField.getText();
      }
 
-     public void setCampoSexo(String texto) {
-          campoSexo.setText(texto);
+     public void setSexField(String texto) {
+          this.sexField.setText(texto);
      }
 
      public String getConfirmaId() {
@@ -692,22 +681,22 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
      }
 
      public void setEditableId(boolean act) {
-          campoId.setEditable(act);
-          campoId.setBackground(Color.WHITE);
-          campoId.setForeground(Color.BLACK);
+          idField.setEditable(act);
+          idField.setBackground(Color.WHITE);
+          idField.setForeground(Color.BLACK);
           if(act==false){
-             campoId.setForeground(Color.GRAY);
+             idField.setForeground(Color.GRAY);
           }
      }
 
       public void setEditableProveedor(boolean act) {
-          campoIdProveedor.setEditable(act);
-          campoIdProveedor.setBackground(Color.WHITE);
-          campoIdProveedor.setForeground(Color.BLACK);
-          campoIdProveedor.setText(null);
+          idVendorField.setEditable(act);
+          idVendorField.setBackground(Color.WHITE);
+          idVendorField.setForeground(Color.BLACK);
+          idVendorField.setText(null);
           if(!act){
-             campoIdProveedor.setForeground(Color.GRAY);
-             campoIdProveedor.setText("Ninguno");
+             idVendorField.setForeground(Color.GRAY);
+             idVendorField.setText("Ninguno");
           }  
      }
 
@@ -721,36 +710,36 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
 
 
      public void setActualiza(boolean act) {
-          botonActualiza.setEnabled(act);
+          buttonUpdateProduct.setEnabled(act);
      }
 
      public void setConfirmaVendido(boolean act) {
-          botonConfirma.setEnabled(act);
+          buttonConfirmProduct.setEnabled(act);
      }
 
      public void dameIcono(ImageIcon icon){
           botonLlave.setIcon(icon);
      }
 
-     public String getCampoBuscar() {
-          if(!campoBuscar.getText().equalsIgnoreCase("") || !campoBuscar.getText().equalsIgnoreCase("") || !campoBuscar.getText().equalsIgnoreCase(null)){
-             return campoBuscar.getText();  
+     public String getSearchField() {
+          if(!searchField.getText().equalsIgnoreCase("") || !searchField.getText().equalsIgnoreCase(null)){
+             return searchField.getText();  
           }
           else{
                return "";
           }
      }
 
-     public void setColorCampoProveedorFore(Color color){
-          this.campoIdProveedor.setForeground(color);
+     public void setColorIdVendorField(Color color){
+          this.idVendorField.setForeground(color);
      }
 
      public void setColorCampoProveedorBack(Color color){
-          this.campoIdProveedor.setBackground(color);
+          this.idVendorField.setBackground(color);
      }
 
-     public void setCampoBuscar(String texto) {
-          this.campoBuscar.setText(texto);
+     public void setSearchField(String texto) {
+          this.searchField.setText(texto);
      }
      
      public String getOrdenadoSeleccionado(){
@@ -800,12 +789,12 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
     //Is probaly to do a methon general to receive a parameter. How this: labelDefault(String text, Color color)
     //Since are much methods for only one thing
 
-    public void setRequestFocusCampoSexo(){
-         this.campoSexo.requestFocus();
+    public void setRequestFocusSexField(){
+         this.sexField.requestFocus();
     }
 
-    public void setRequestFocusCampoId(){
-        this.campoId.requestFocus();
+    public void setRequestFocusIdField(){
+        this.idField.requestFocus();
     }
 
     public static boolean getIsVisible(){
@@ -828,68 +817,52 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
         PanelNuevoProducto.contador = contador;
     }
 
-    public void configDark(){
-          containerComponents.setBackground(new Color(47,47,47));
-          jSeparator1.setForeground(Color.WHITE); jSeparator2.setForeground(Color.WHITE);
-          jSeparator3.setForeground(Color.WHITE); jSeparator4.setForeground(Color.WHITE);
-          jSeparator5.setForeground(Color.WHITE); jSeparator6.setForeground(Color.WHITE);
-          jSeparator7.setForeground(Color.WHITE); jSeparator8.setForeground(Color.WHITE);
-          jSeparator9.setForeground(Color.WHITE);
-          jSeparator11.setForeground(Color.WHITE);
-     }
+
 
       // Variables declaration - do not modify//GEN-BEGIN:variables
-      private javax.swing.JButton botonActualiza;
-      private javax.swing.JButton botonConfirma;
-      private javax.swing.JButton botonCrear;
-      private javax.swing.JButton botonEditar;
-      private javax.swing.JButton botonEliminar;
-      private javax.swing.JButton botonLimpiaCampos;
+      private Utilities.TextField ageObjetiveField;
       private javax.swing.JButton botonLlave;
-      private static javax.swing.JTextField campoBuscar;
-      private javax.swing.JTextField campoCantidad;
-      private javax.swing.JTextField campoDesc;
-      private javax.swing.JTextField campoEdadDirigida;
-      private javax.swing.JTextField campoId;
-      private javax.swing.JTextField campoIdProveedor;
-      private javax.swing.JTextField campoMarca;
-      private javax.swing.JTextField campoPrecio;
-      private javax.swing.JTextField campoSeccion;
-      private javax.swing.JTextField campoSexo;
-      private javax.swing.JTextField campoTalla;
+      private Utilities.TextField brandField;
+      private Utilities.Button buttonClearFields;
+      private Utilities.Button buttonConfirmProduct;
+      private Utilities.Button buttonCreateProduct;
+      private Utilities.Button buttonDelete;
+      private Utilities.Button buttonUpdateProduct;
       private javax.swing.JPanel containerComponents;
+      private Utilities.TextField descField;
       private javax.swing.JRadioButton filtroDesc;
       private javax.swing.JRadioButton filtroId;
       private javax.swing.JRadioButton filtroMarca;
       private javax.swing.JRadioButton filtroSeccion;
       private javax.swing.ButtonGroup grupo;
+      private Utilities.TextField idField;
+      private Utilities.TextField idVendorField;
       private javax.swing.JLabel jLabel1;
       private javax.swing.JLabel jLabel2;
       private javax.swing.JLabel jLabel3;
       private javax.swing.JScrollPane jScrollPane2;
-      private javax.swing.JSeparator jSeparator1;
-      private javax.swing.JSeparator jSeparator11;
-      private javax.swing.JSeparator jSeparator12;
-      private javax.swing.JSeparator jSeparator2;
-      private javax.swing.JSeparator jSeparator3;
-      private javax.swing.JSeparator jSeparator4;
-      private javax.swing.JSeparator jSeparator5;
-      private javax.swing.JSeparator jSeparator6;
-      private javax.swing.JSeparator jSeparator7;
-      private javax.swing.JSeparator jSeparator8;
-      private javax.swing.JSeparator jSeparator9;
       private javax.swing.JLabel labelCantidad;
+      private javax.swing.JLabel labelDecorationBackground;
+      private javax.swing.JLabel labelDecorationBackground2;
       private javax.swing.JLabel labelDesc;
       private javax.swing.JLabel labelEdadDirigida;
       private javax.swing.JLabel labelId;
       private javax.swing.JLabel labelIdProveedor;
       private javax.swing.JLabel labelMarca;
-      private javax.swing.JLabel labelNombreEmpresa;
       private javax.swing.JLabel labelPrecio;
       private javax.swing.JLabel labelSeccion;
       private javax.swing.JLabel labelSexo;
       private javax.swing.JLabel labelTalla;
+      private javax.swing.JLabel labelTitleInventary;
+      private Utilities.PanelData2 panelData21;
+      private Utilities.PanelData2 panelDecorationSearch;
+      private Utilities.TextField priceField;
+      private Utilities.TextField quantityField;
+      private Utilities.TextField searchField;
+      private Utilities.TextField sectionField;
+      private Utilities.TextField sexField;
       private static javax.swing.JTable tablaNProductos;
+      private Utilities.TextField tallaField;
       // End of variables declaration//GEN-END:variables
 
     
