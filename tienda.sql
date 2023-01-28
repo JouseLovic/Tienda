@@ -197,7 +197,7 @@ CREATE TABLE `factura_salida` (
   `cantidad` int(11) NOT NULL,
   `id_producto` varchar(50) NOT NULL,
   `cedula_cliente` varchar(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='Esta relacionada con venta y de alli saca el id del producto';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='Esta relacionada con venta y de alli saca el id del product';
 
 --
 -- Dumping data for table `factura_salida`

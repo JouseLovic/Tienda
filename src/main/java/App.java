@@ -1,12 +1,12 @@
 
 import javax.swing.*;
-import Controlador.ControllerMenu;
-import Controlador.ControllerNewProduct;
-import ControladorThreads.ControllerProducts;
-import ControladorThreads.ControllerVendors;
+import Controllers.ControllerMenu;
+import Controllers.ControllerNProduct;
+import Threads.ProductsThread;
+import Threads.VendorsThread;
 import com.formdev.flatlaf.*;
-import Controlador.Settings.ReSettings;
-import Vista.*;
+import Controllers.Settings.ReSettings;
+import View.*;
 
 public class App {
     public static void main(String[] args) {
@@ -22,14 +22,14 @@ public class App {
         }
 
         ControllerMenu menu = new ControllerMenu(re.getLanguageSelected());
-        ControllerNewProduct nProduct = new ControllerNewProduct(re.getLanguageSelected());
+        ControllerNProduct nProduct = new ControllerNProduct(re.getLanguageSelected());
 
         Window W = new Window();
         W.setVisible(true);
 
-        ControllerProducts productsThread = new ControllerProducts();
+        ProductsThread productsThread = new ProductsThread();
         productsThread.start();
-        ControllerVendors provThread = new ControllerVendors();
+        VendorsThread provThread = new VendorsThread();
         provThread.start();
 
     }

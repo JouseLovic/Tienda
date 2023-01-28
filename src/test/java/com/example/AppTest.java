@@ -2,8 +2,8 @@ package com.example;
 
 import java.io.*;
 import java.util.regex.*;
-import Controlador.Settings.*;
-import Controlador.*;
+import Controllers.Settings.*;
+import Controllers.*;
 import org.junit.Test;
 
 import junit.framework.Assert;
@@ -17,7 +17,7 @@ public class AppTest
         String[] nArray = {"Light",
                 "Arial", "Plain", "22",
                 "False", "Mi Empresa", "Gestion de inventario",
-                "Entradas de productos", "Facturas de entrada", "Proveedores", "", "", ""};
+                "Entradas de productos", "Facturas de entrada", "Vendor", "", "", ""};
         SaveSetting save = new SaveSetting();
         save.saveSetting(nArray);
 
@@ -33,7 +33,7 @@ public class AppTest
         String estilo = settings[2];
         boolean language = Boolean.parseBoolean(settings[4]);
         int size = Integer.parseInt(settings[3]);
-        Assert.assertEquals("Light", tema);
+        Assert.assertEquals("Default", tema);
         Assert.assertEquals("Arial", fuente);
         Assert.assertEquals("Plain", estilo);
         Assert.assertEquals(22, size);

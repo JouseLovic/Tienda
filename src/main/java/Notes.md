@@ -10,43 +10,13 @@
 
 ## Notas para mejorar la App:
 
-1
- si se activa la ordenanza que este sea un comboBox, para elegir el tipo y que no varie (Ejem: por tipo de ropa, o por marcas)
- sino, será la otra (producto)
- Esto sera posible a traves de dos paneles que usen su respectiva clase (una de producto y otra de ordenaproducto)
 
-Nota: tal vez lo mejor sea crear dos modelos default de la tabla, y que dependiendo de la opcion, sea una u otra y ya, quitas
-el peso de andar creando distintos paneles
-     
-2.1
-En cada panel se usara un JTabbed para poder pasar por diferentes listas y no tener que volverte un culo
-
-3.0 
-Las tablas de empleados, clientes, y proveedores tengan una relacion. Aunque primero debes entender como funciona eso
-
-3.1 Hara de llave foranea es productos generales, y la original sera la que se cree de entrada (codigo de producto). 
-
-4.0 
-Para que se haga posible la creacion de un producto default con subir una entrada, es usar un procedimiento almacenado que pida normal los datos de la entrada, y que tome los que necesita para crear otro producto en la tabla de productos_generales que tenga valores default, solo teniendo de la entrada el id (que es la referencia directa de codigo de producto), la seccion que ingresamos y su marca, los demas estaran en "none"
-
-
-4.5 
-Y para resolver la actualizacion, haz una clase que realice una accion de actualizar (que tome al panel para que siempre se esta actualizando al pasar el mouse por el), pero que este tenga un contado definido en cero, y un if que verifique si es cero. Si lo es, actualiza la tabla (enviaTabla), y suma al contado un numero. Para que siempre cargue al poner el cursor en el panel (y que sea solo una vez) hacemos que en window, en cualquier accion que no sea la del inventario (o sea cuando cambia de panel), un set para que contador vuelva a ser a cero (antes de borraPaneles). Eso lo logras con un get y set
-
-
-4.6
-Toca crear en la tabla otro campo que es para id del proveedor, esto es tanto para entrada de productos como para la de C.R.U.D. es relativamente sencillo, en mysql añadimos los campos en ambos, y los relacionamos de alguna manera. Entonces, para esto, en la tabla de añadir productos creamos otro campo mas, y otro textfield para poder ingresar o incluso modificar ese dato. Esto claro, teniendo en cuenta que ese es el id de otra tabla. Entonces, toca mejorar este punto
 
 5.0
-Esta tambien que toca añadir un campo de venta y este, tendra para sus eventos un procedimiento almacenado especial, que tomara la cantidad vendida de ese producto y lo restara a la tabla de productos_generales
+Esta tambien que toca añadir un campo de venta y este, tendra para sus eventos un procedimiento almacenado especial, que tomara la cantidad vendida de ese product y lo restara a la tabla de productos_generales
 
 6.0
-Toca crear 1 procedimiento almacenado para poder actualizar las entradas y, que si se actualiza cualquiera de los campos del producto, pues que se inserten esos datos (actualice(Update)) y asi pueda ser mas libertario en ese punto
-
-7.5
-Falta colocar una tabla para imagenes y crear un procedimiento almacenado para que las lee y deposite con el id de un proveedor en especifico (foreign key). Claro, para esto hay que colocar condicionales (if aninados o no), porque cuando no encuentre una foto, puede dar error. Esto se resuelve con la condicion, que si ocurre, elige la foto, y si no, pues elige la por default que tienes ya en los archivos del proyecto
-
-Nota 7.6:  if(condicion, siOcurre, siNoOcurre)
+Toca crear 1 procedimiento almacenado para poder actualizar las entradas y, que si se actualiza cualquiera de los campos del product, pues que se inserten esos datos (actualice(Update)) y asi pueda ser mas libertario en ese punto
 
 8.0
 Para el inicio y crear un menu (para las listas de inventario de solo vista) puedes crear un tabbedPane (que las ventanas se escondan con un label con su opaque en false) y de los botones, solo cambiaria a su respectivo tabbedPane (pestaña). Evitamos crear locuras 
@@ -74,7 +44,7 @@ O tal vez, solo se hagan unos radioButtons, y que cuando escriba, verifique el q
 Toca añadir tres spinners en las fechas y que estas mismas siempre tengan la fecha de actual en la que se abra el programa. Ya lo haz hecho, solo es cuestion de darle su respectivo valor a cada spinner
 
 12
-Hay que añadir el precio por unidad de cada producto. Esto tanto para las entradas como para las salidas
+Hay que añadir el precio por unidad de cada product. Esto tanto para las entradas como para las salidas
 
 13
 Con SWING AVANZADO se pueden hacer animaciones y todo. Lo mejor es ver alguno de esos para mejorar en la parte del diseño de la APP
@@ -171,3 +141,12 @@ Complementando lo anterior, que se vea los cambio en un panel pequeño interno d
 y saber que no la anda cagando. 
 
 Recuerda: todo esto se guardara en un archivo aparte para que no se mezclen con otras configuraciones
+
+28
+Para que los componentes se recoloquen, haz un metodo de este estilo
+
+public static void moveComponent(JComponent comp, Location locat, int sizeX, int sizeY){
+}
+
+Con esto podras mover a todos los componentes sin tener que crear cosas demas. De paso, encargate de crear un panel y añadirlo a la ventana
+Es decir, un panel que NO pertenezca a la creacion de Window, porque es esto lo que te crea el problema al redimensionar
