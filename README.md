@@ -15,16 +15,12 @@ to do everything manually.
 
 - It has a process of remembering the theme that we have chosen every time the App is started
 
-- It has complete lists of all invoices in the database, from suppliers, and even from customers
+- It has complete list of all invoices in the database, from suppliers, and even from customers
 
 
 ## promises:
 
-- An interface improvement (more intuitive), and much more attractive
-
 - A bug reporting system
-
-- Load, overwrite, create and show excel tables
 
 - Keyboard shortcuts that avoid being glued to the mouse
 
