@@ -14,12 +14,13 @@ public class PanelInicial extends javax.swing.JPanel {
 
      public PanelInicial() {
           initComponents();
-          stockP = new LabelDataThread(labelCantidadStock);
+          stockP = new LabelDataThread(labelCantidadStock, labelCantidadVendors);
           stockP.start();
           isVisibleInitial = true;
           PanelNuevoProducto.setIsVisible(false);
           PanelProveedores.setIsVisibleProv(false);
      }
+
 
      @SuppressWarnings("")
       // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -34,7 +35,7 @@ public class PanelInicial extends javax.swing.JPanel {
             jLabel3 = new javax.swing.JLabel();
             panelDataSalidas = new Utilities.PanelData2();
             jLabel5 = new javax.swing.JLabel();
-            labelCantidadSalidas = new javax.swing.JLabel();
+            labelCantidadVendors = new javax.swing.JLabel();
             panelDataEntries = new Utilities.PanelData2();
             jLabel4 = new javax.swing.JLabel();
             jLabel1 = new javax.swing.JLabel();
@@ -42,9 +43,9 @@ public class PanelInicial extends javax.swing.JPanel {
             jLabel2 = new javax.swing.JLabel();
             labelCantidadStock = new javax.swing.JLabel();
             panelDataFacturas = new Utilities.PanelData2();
+            labelPedidos = new javax.swing.JLabel();
             jScrollPane2 = new javax.swing.JScrollPane();
             jTable2 = new javax.swing.JTable();
-            labelPedidos = new javax.swing.JLabel();
             panelDecorationStok = new Utilities.PanelData2();
             panelDecorationEntries2 = new Utilities.PanelData2();
             panelDecorationEntries = new Utilities.PanelData2();
@@ -116,7 +117,7 @@ public class PanelInicial extends javax.swing.JPanel {
 
             jLabel5.setFont(new java.awt.Font("Arial", 1, 17)); // NOI18N
             jLabel5.setForeground(new java.awt.Color(0, 153, 255));
-            jLabel5.setText("Vendor:");
+            jLabel5.setText("Proveedores:");
             gridBagConstraints = new java.awt.GridBagConstraints();
             gridBagConstraints.gridx = 0;
             gridBagConstraints.gridy = 0;
@@ -124,10 +125,10 @@ public class PanelInicial extends javax.swing.JPanel {
             gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
             panelDataSalidas.add(jLabel5, gridBagConstraints);
 
-            labelCantidadSalidas.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-            labelCantidadSalidas.setForeground(new java.awt.Color(12, 12, 12));
-            labelCantidadSalidas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            labelCantidadSalidas.setText("0");
+            labelCantidadVendors.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+            labelCantidadVendors.setForeground(new java.awt.Color(12, 12, 12));
+            labelCantidadVendors.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            labelCantidadVendors.setText("0");
             gridBagConstraints = new java.awt.GridBagConstraints();
             gridBagConstraints.gridx = 0;
             gridBagConstraints.gridy = 1;
@@ -135,10 +136,10 @@ public class PanelInicial extends javax.swing.JPanel {
             gridBagConstraints.gridheight = java.awt.GridBagConstraints.RELATIVE;
             gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
             gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 110);
-            panelDataSalidas.add(labelCantidadSalidas, gridBagConstraints);
+            panelDataSalidas.add(labelCantidadVendors, gridBagConstraints);
 
             panelContentInicial.add(panelDataSalidas);
-            panelDataSalidas.setBounds(570, 30, 210, 130);
+            panelDataSalidas.setBounds(670, 30, 210, 130);
 
             panelDataEntries.setBackground(new java.awt.Color(255, 255, 255));
             panelDataEntries.setRoundBottonLeft(35);
@@ -171,7 +172,7 @@ public class PanelInicial extends javax.swing.JPanel {
             panelDataEntries.add(jLabel1, gridBagConstraints);
 
             panelContentInicial.add(panelDataEntries);
-            panelDataEntries.setBounds(830, 30, 202, 130);
+            panelDataEntries.setBounds(980, 30, 202, 130);
 
             panelDataStock.setBackground(new java.awt.Color(255, 255, 255));
             panelDataStock.setRoundBottonLeft(35);
@@ -204,7 +205,7 @@ public class PanelInicial extends javax.swing.JPanel {
             panelDataStock.add(labelCantidadStock, gridBagConstraints);
 
             panelContentInicial.add(panelDataStock);
-            panelDataStock.setBounds(320, 30, 210, 130);
+            panelDataStock.setBounds(370, 30, 210, 130);
 
             panelDataFacturas.setBackground(new java.awt.Color(255, 255, 255));
             panelDataFacturas.setRoundBottonLeft(50);
@@ -212,18 +213,19 @@ public class PanelInicial extends javax.swing.JPanel {
             panelDataFacturas.setRoundTopLeft(50);
             panelDataFacturas.setRoundTopRight(50);
 
-            jTable2 = new javax.swing.JTable(){
-                  public boolean isCellEditable(int rowIndex, int columnIndex){
-                        return false;
-                  }
-            };
-            jTable2.setForeground(new java.awt.Color(0, 0, 0));
+            labelPedidos.setFont(new java.awt.Font("Segoe UI Symbol", 1, 24)); // NOI18N
+            labelPedidos.setForeground(new java.awt.Color(255, 204, 153));
+            labelPedidos.setText("Pedidos");
+
             jTable2.setModel(new javax.swing.table.DefaultTableModel(
                   new Object [][] {
-
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null}
                   },
                   new String [] {
-                        "Cliente", "Email", "Product", "Estado"
+                        "Client", "Email", "Product(s)", "State"
                   }
             ) {
                   boolean[] canEdit = new boolean [] {
@@ -234,50 +236,38 @@ public class PanelInicial extends javax.swing.JPanel {
                         return canEdit [columnIndex];
                   }
             });
-            jTable2.setFocusable(false);
-            jTable2.setGridColor(new java.awt.Color(255, 255, 255));
-            jTable2.setRequestFocusEnabled(false);
-            jTable2.setRowHeight(40);
-            jTable2.setShowHorizontalLines(true);
-            jTable2.getTableHeader().setResizingAllowed(false);
-            jTable2.getTableHeader().setReorderingAllowed(false);
             jScrollPane2.setViewportView(jTable2);
             if (jTable2.getColumnModel().getColumnCount() > 0) {
-                  jTable2.getColumnModel().getColumn(0).setResizable(false);
-                  jTable2.getColumnModel().getColumn(1).setResizable(false);
                   jTable2.getColumnModel().getColumn(2).setResizable(false);
                   jTable2.getColumnModel().getColumn(3).setResizable(false);
             }
-
-            labelPedidos.setFont(new java.awt.Font("Segoe UI Symbol", 1, 24)); // NOI18N
-            labelPedidos.setForeground(new java.awt.Color(255, 204, 153));
-            labelPedidos.setText("Pedidos");
 
             javax.swing.GroupLayout panelDataFacturasLayout = new javax.swing.GroupLayout(panelDataFacturas);
             panelDataFacturas.setLayout(panelDataFacturasLayout);
             panelDataFacturasLayout.setHorizontalGroup(
                   panelDataFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                   .addGroup(panelDataFacturasLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 941, Short.MAX_VALUE)
-                        .addGap(35, 35, 35))
-                  .addGroup(panelDataFacturasLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(labelPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(panelDataFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                              .addGroup(panelDataFacturasLayout.createSequentialGroup()
+                                    .addGap(51, 51, 51)
+                                    .addComponent(labelPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                              .addGroup(panelDataFacturasLayout.createSequentialGroup()
+                                    .addGap(22, 22, 22)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(22, Short.MAX_VALUE))
             );
             panelDataFacturasLayout.setVerticalGroup(
                   panelDataFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                   .addGroup(panelDataFacturasLayout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addComponent(labelPedidos)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
-                        .addGap(54, 54, 54))
+                        .addGap(26, 26, 26)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(19, Short.MAX_VALUE))
             );
 
             panelContentInicial.add(panelDataFacturas);
-            panelDataFacturas.setBounds(60, 254, 1010, 726);
+            panelDataFacturas.setBounds(30, 260, 1170, 690);
 
             panelDecorationStok.setBackground(new java.awt.Color(248, 176, 176));
             panelDecorationStok.setRoundBottonLeft(20);
@@ -286,7 +276,7 @@ public class PanelInicial extends javax.swing.JPanel {
             panelDecorationStok.setRoundTopRight(10);
             panelDecorationStok.setLayout(new java.awt.GridBagLayout());
             panelContentInicial.add(panelDecorationStok);
-            panelDecorationStok.setBounds(310, 50, 20, 120);
+            panelDecorationStok.setBounds(360, 50, 20, 120);
 
             panelDecorationEntries2.setBackground(new java.awt.Color(204, 204, 255));
             panelDecorationEntries2.setRoundBottonLeft(35);
@@ -295,7 +285,7 @@ public class PanelInicial extends javax.swing.JPanel {
             panelDecorationEntries2.setRoundTopRight(35);
             panelDecorationEntries2.setLayout(new java.awt.GridBagLayout());
             panelContentInicial.add(panelDecorationEntries2);
-            panelDecorationEntries2.setBounds(820, 150, 200, 20);
+            panelDecorationEntries2.setBounds(970, 150, 200, 20);
 
             panelDecorationEntries.setBackground(new java.awt.Color(204, 204, 255));
             panelDecorationEntries.setRoundBottonLeft(20);
@@ -304,7 +294,7 @@ public class PanelInicial extends javax.swing.JPanel {
             panelDecorationEntries.setRoundTopRight(10);
             panelDecorationEntries.setLayout(null);
             panelContentInicial.add(panelDecorationEntries);
-            panelDecorationEntries.setBounds(820, 50, 20, 120);
+            panelDecorationEntries.setBounds(970, 50, 20, 120);
 
             panelDecorationS.setBackground(new java.awt.Color(73, 182, 255));
             panelDecorationS.setRoundBottonLeft(20);
@@ -313,7 +303,7 @@ public class PanelInicial extends javax.swing.JPanel {
             panelDecorationS.setRoundTopRight(10);
             panelDecorationS.setLayout(new java.awt.GridBagLayout());
             panelContentInicial.add(panelDecorationS);
-            panelDecorationS.setBounds(560, 50, 20, 120);
+            panelDecorationS.setBounds(660, 50, 20, 120);
 
             panelDecorationProv2.setBackground(new java.awt.Color(73, 182, 255));
             panelDecorationProv2.setRoundBottonLeft(35);
@@ -322,7 +312,7 @@ public class PanelInicial extends javax.swing.JPanel {
             panelDecorationProv2.setRoundTopRight(35);
             panelDecorationProv2.setLayout(new java.awt.GridBagLayout());
             panelContentInicial.add(panelDecorationProv2);
-            panelDecorationProv2.setBounds(560, 140, 210, 30);
+            panelDecorationProv2.setBounds(660, 150, 210, 20);
 
             panelDecorationStok2.setBackground(new java.awt.Color(248, 176, 176));
             panelDecorationStok2.setRoundBottonLeft(35);
@@ -331,7 +321,7 @@ public class PanelInicial extends javax.swing.JPanel {
             panelDecorationStok2.setRoundTopRight(35);
             panelDecorationStok2.setLayout(new java.awt.GridBagLayout());
             panelContentInicial.add(panelDecorationStok2);
-            panelDecorationStok2.setBounds(311, 130, 210, 40);
+            panelDecorationStok2.setBounds(360, 150, 210, 20);
 
             panelDecorationV.setBackground(new java.awt.Color(153, 153, 255));
             panelDecorationV.setRoundBottonLeft(20);
@@ -499,8 +489,8 @@ public class PanelInicial extends javax.swing.JPanel {
       private javax.swing.JLabel jLabel8;
       private javax.swing.JScrollPane jScrollPane2;
       private javax.swing.JTable jTable2;
-      private javax.swing.JLabel labelCantidadSalidas;
       private static javax.swing.JLabel labelCantidadStock;
+      private javax.swing.JLabel labelCantidadVendors;
       private javax.swing.JLabel labelCantidadVentas1;
       private javax.swing.JLabel labelPedidos;
       private javax.swing.JPanel panelContentInicial;

@@ -51,13 +51,6 @@ public class ControllerNProduct {
         }
     }
 
-    public static void moveFieldsOrigin(JPanel panel){
-
-
-
-
-    }
-
     public static void borrarCampos(PanelNuevoProducto producto){
 
           producto.setLabelIdDefault("ID");

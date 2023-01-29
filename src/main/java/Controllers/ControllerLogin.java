@@ -25,7 +25,9 @@ public class ControllerLogin {
         pass = "";
         username = "";
 
-        pass = ReSettings.getPasswordUser();
+
+        //haz una consulta para obtener un user con el nombre que le pongamos y de ahí obtenemos la contra
+        //Tras eso comparamos y determinamos si puede o no pasar la gente
         attemps++;
 
             System.out.println(attemps);
@@ -49,7 +51,7 @@ public class ControllerLogin {
                     ReSettings.getTitleEntries(),
                     ReSettings.getTitleBill(),
                     ReSettings.getTitleVendors(),
-                    "", "", ""};
+                    "", ""};
             attemps = 0;
             JOptionPane.showMessageDialog(null, "Ha intentado el maximo de 3 veces. Se eliminara el registro que hubo de la cuenta anterior");
         }

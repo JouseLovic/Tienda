@@ -13,7 +13,7 @@ import javax.swing.table.*;
 public class ControllerEntBills {
   
     private static FacturaEDao fDao;
-    private static nProveedorDao proveedor;
+    private static VendorRepo proveedor;
 
     public static void eliminar(JTable tabla){
 
@@ -108,7 +108,7 @@ public class ControllerEntBills {
     
     public static void llenaComboBox(JComboBox<String> laLista){
 
-        proveedor = new nProveedorDao();
+        proveedor = new VendorRepo();
         ArrayList<Vendor> lista = null;
         lista = proveedor.mostrar();
   

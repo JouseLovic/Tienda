@@ -124,7 +124,7 @@ public class ControllerSettings {
                 textEntri,
                 textBill,
                 textVendor,
-                ReSettings.getUser(), ReSettings.getPasswordUser(), ReSettings.getRol()};
+                ReSettings.getUser(), ReSettings.getRol()};
         save.saveSetting(array);
     }
 
@@ -159,7 +159,7 @@ public class ControllerSettings {
                 textEntri,
                 textBill,
                 textVendor,
-                ReSettings.getUser(), ReSettings.getPasswordUser(), ReSettings.getRol()};
+                ReSettings.getUser(), ReSettings.getRol()};
         save.saveSetting(array);
     }
 

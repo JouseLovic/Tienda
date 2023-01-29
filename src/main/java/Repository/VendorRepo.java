@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-public class nProveedorDao {
+public class VendorRepo {
       
       private DB db;
 
@@ -145,6 +145,33 @@ public class nProveedorDao {
           }
         return listaEspecifica;
      }
+
+    public int getQuantityVendors(){
+        db = new DB();
+        Connection conecta = db.dameConexion();
+        int quantity = 0;
+        Statement ps;
+        ResultSet rs = null;
+
+
+        try{
+            ps = conecta.createStatement();
+
+            rs = ps.executeQuery("Select * from proveedor order by id_proveedor");
+
+            while(rs.next()){
+                quantity++;
+            }
+            rs.close();
+            db.cierraConexion(conecta);
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "La operacion mostrar ha fallado por: "+ex.getMessage());
+
+        }catch(NullPointerException ex){
+            ex.printStackTrace();
+        }
+        return quantity;
+    }
 
       
       

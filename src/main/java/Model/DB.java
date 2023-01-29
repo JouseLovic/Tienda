@@ -7,7 +7,7 @@ import java.sql.*;
 public class DB {
 
     private static final String user = "root";
-    private static final String pass = "";
+    private static final String pass = "inari-sama100";
     private static final String url = "jdbc:mysql://localhost:3306/tienda";
     private Connection miConexion;
 

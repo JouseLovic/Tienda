@@ -3,6 +3,7 @@ package Controllers;
 import View.*;
 import View.Window;
 import ViewFormulary.*;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,6 +12,7 @@ public class ControllerMenu {
 
     //Panel inicial
     private static PanelInicial inicio;
+    private static int desplaceCount = 0;
 
     //For the change to other language
     private boolean languageSelected;
@@ -28,7 +30,7 @@ public class ControllerMenu {
     //Settings
     private static PanelSettings settings;
 
-    //Menu string
+    //ss23 string
     private static String home, inventary, entries, bill, vendors, addUser;
 
     public ControllerMenu(boolean stateLanguage){

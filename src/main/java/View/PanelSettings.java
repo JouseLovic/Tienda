@@ -36,7 +36,6 @@ public class PanelSettings extends javax.swing.JPanel {
             comboLanguages = new javax.swing.JComboBox<>();
             labletTitleChange = new javax.swing.JLabel();
             jLabel2 = new javax.swing.JLabel();
-            jSeparator1 = new javax.swing.JSeparator();
             jPanel2 = new javax.swing.JPanel();
             labelExample = new javax.swing.JLabel();
             labelTitlePrevious = new javax.swing.JLabel();
@@ -58,7 +57,7 @@ public class PanelSettings extends javax.swing.JPanel {
             labelTitleSettings.setForeground(new java.awt.Color(0, 0, 0));
             labelTitleSettings.setText("Settings");
             jPanel1.add(labelTitleSettings);
-            labelTitleSettings.setBounds(10, 10, 160, 60);
+            labelTitleSettings.setBounds(20, 10, 160, 60);
 
             titleLoginField.setForeground(new java.awt.Color(0, 0, 0));
             titleLoginField.setShadowColor(new java.awt.Color(0, 0, 0));
@@ -73,7 +72,7 @@ public class PanelSettings extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(titleLoginField);
-            titleLoginField.setBounds(10, 220, 210, 41);
+            titleLoginField.setBounds(100, 110, 210, 41);
 
             titleInventaryField.setForeground(new java.awt.Color(0, 0, 0));
             titleInventaryField.setShadowColor(new java.awt.Color(0, 0, 0));
@@ -88,7 +87,7 @@ public class PanelSettings extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(titleInventaryField);
-            titleInventaryField.setBounds(10, 280, 210, 41);
+            titleInventaryField.setBounds(100, 170, 210, 41);
 
             titleEntriesField.setForeground(new java.awt.Color(0, 0, 0));
             titleEntriesField.setShadowColor(new java.awt.Color(0, 0, 0));
@@ -103,7 +102,7 @@ public class PanelSettings extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(titleEntriesField);
-            titleEntriesField.setBounds(10, 350, 210, 41);
+            titleEntriesField.setBounds(100, 240, 210, 41);
 
             titleBillField.setForeground(new java.awt.Color(0, 0, 0));
             titleBillField.setShadowColor(new java.awt.Color(0, 0, 0));
@@ -118,7 +117,7 @@ public class PanelSettings extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(titleBillField);
-            titleBillField.setBounds(10, 420, 210, 41);
+            titleBillField.setBounds(100, 310, 210, 41);
 
             titleVendorsField.setForeground(new java.awt.Color(0, 0, 0));
             titleVendorsField.setShadowColor(new java.awt.Color(0, 0, 0));
@@ -133,7 +132,7 @@ public class PanelSettings extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(titleVendorsField);
-            titleVendorsField.setBounds(10, 490, 210, 41);
+            titleVendorsField.setBounds(100, 390, 210, 41);
 
             comboLanguages.addActionListener(new java.awt.event.ActionListener() {
                   public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,75 +140,58 @@ public class PanelSettings extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(comboLanguages);
-            comboLanguages.setBounds(220, 50, 90, 30);
+            comboLanguages.setBounds(520, 40, 90, 30);
 
             labletTitleChange.setFont(new java.awt.Font("Baskerville Old Face", 0, 18)); // NOI18N
             labletTitleChange.setForeground(new java.awt.Color(0, 0, 0));
             labletTitleChange.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             jPanel1.add(labletTitleChange);
-            labletTitleChange.setBounds(20, 180, 60, 30);
+            labletTitleChange.setBounds(110, 80, 130, 30);
 
             jLabel2.setFont(new java.awt.Font("Baskerville Old Face", 0, 18)); // NOI18N
             jLabel2.setForeground(new java.awt.Color(0, 0, 0));
             jLabel2.setText("Language");
             jPanel1.add(jLabel2);
-            jLabel2.setBounds(220, 20, 90, 30);
-            jPanel1.add(jSeparator1);
-            jSeparator1.setBounds(-2, 90, 990, 10);
+            jLabel2.setBounds(520, 10, 90, 30);
 
             jPanel2.setBackground(new java.awt.Color(255, 255, 255));
             jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-
-            javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-            jPanel2.setLayout(jPanel2Layout);
-            jPanel2Layout.setHorizontalGroup(
-                  jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                  .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(labelExample, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
-                        .addContainerGap())
-            );
-            jPanel2Layout.setVerticalGroup(
-                  jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                  .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(labelExample, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(50, Short.MAX_VALUE))
-            );
+            jPanel2.setLayout(new java.awt.BorderLayout());
+            jPanel2.add(labelExample, java.awt.BorderLayout.CENTER);
 
             jPanel1.add(jPanel2);
-            jPanel2.setBounds(20, 580, 360, 210);
+            jPanel2.setBounds(520, 150, 360, 230);
 
             labelTitlePrevious.setFont(new java.awt.Font("Baskerville Old Face", 0, 18)); // NOI18N
             labelTitlePrevious.setForeground(new java.awt.Color(0, 0, 0));
             labelTitlePrevious.setText("Previsualization of title");
             jPanel1.add(labelTitlePrevious);
-            labelTitlePrevious.setBounds(20, 540, 190, 40);
+            labelTitlePrevious.setBounds(520, 110, 190, 40);
 
             labelTitleV.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
             labelTitleV.setForeground(new java.awt.Color(0, 0, 0));
             jPanel1.add(labelTitleV);
-            labelTitleV.setBounds(230, 480, 130, 40);
+            labelTitleV.setBounds(320, 390, 130, 40);
 
             labelTitleCompany.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
             labelTitleCompany.setForeground(new java.awt.Color(0, 0, 0));
             jPanel1.add(labelTitleCompany);
-            labelTitleCompany.setBounds(230, 220, 130, 40);
+            labelTitleCompany.setBounds(320, 110, 130, 40);
 
             labelTitleInventary.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
             labelTitleInventary.setForeground(new java.awt.Color(0, 0, 0));
             jPanel1.add(labelTitleInventary);
-            labelTitleInventary.setBounds(230, 280, 130, 40);
+            labelTitleInventary.setBounds(320, 170, 130, 40);
 
             labelTitleEntries.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
             labelTitleEntries.setForeground(new java.awt.Color(0, 0, 0));
             jPanel1.add(labelTitleEntries);
-            labelTitleEntries.setBounds(230, 340, 130, 40);
+            labelTitleEntries.setBounds(320, 240, 130, 40);
 
             labelTitleBill.setFont(new java.awt.Font("Baskerville Old Face", 0, 14)); // NOI18N
             labelTitleBill.setForeground(new java.awt.Color(0, 0, 0));
             jPanel1.add(labelTitleBill);
-            labelTitleBill.setBounds(230, 410, 130, 40);
+            labelTitleBill.setBounds(320, 310, 130, 40);
 
             buttonCancel.setForeground(new java.awt.Color(0, 0, 0));
             buttonCancel.setText("Cancel");
@@ -248,7 +230,7 @@ public class PanelSettings extends javax.swing.JPanel {
             jLabel1.setForeground(new java.awt.Color(0, 0, 0));
             jLabel1.setText("Theme");
             jPanel1.add(jLabel1);
-            jLabel1.setBounds(330, 20, 90, 30);
+            jLabel1.setBounds(620, 10, 90, 30);
 
             comboThemes.addActionListener(new java.awt.event.ActionListener() {
                   public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,7 +238,7 @@ public class PanelSettings extends javax.swing.JPanel {
                   }
             });
             jPanel1.add(comboThemes);
-            comboThemes.setBounds(330, 50, 90, 30);
+            comboThemes.setBounds(620, 40, 90, 30);
 
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
             this.setLayout(layout);
@@ -287,9 +269,9 @@ public class PanelSettings extends javax.swing.JPanel {
                     titleInventaryField.getText(), titleEntriesField.getText(),
                     titleBillField.getText(),
                     titleVendorsField.getText());
+
             ControllerSettings.applyNewSettings(select);
       }//GEN-LAST:event_buttonApplyChangesActionPerformed
-
       private void buttonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetActionPerformed
             // TODO add your handling code here:
       }//GEN-LAST:event_buttonResetActionPerformed
@@ -384,7 +366,6 @@ public class PanelSettings extends javax.swing.JPanel {
       private javax.swing.JLabel jLabel2;
       private javax.swing.JPanel jPanel1;
       private javax.swing.JPanel jPanel2;
-      private javax.swing.JSeparator jSeparator1;
       private javax.swing.JLabel labelExample;
       private javax.swing.JLabel labelTitleBill;
       private javax.swing.JLabel labelTitleCompany;

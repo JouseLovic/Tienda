@@ -16,7 +16,7 @@ public class Window extends JFrame {
     private JLabel username, levelUser;
     private String userLogin, level;
 
-    private JButton buttonSettings, buttonReports, buttonInfo, buttonLogOut, buttonCreateUser;
+    private JButton buttonSettings, buttonReports, buttonInfo, buttonLogOut, buttonCreateUser, buttonResize;
 
     public Window() {
         Dimension Screen = Toolkit.getDefaultToolkit().getScreenSize();
@@ -44,7 +44,7 @@ public class Window extends JFrame {
 
         panelMenu = new JPanel();
         panelMenu.setLayout(null);
-        panelMenu.setPreferredSize(new Dimension(200, 1200));
+        panelMenu.setPreferredSize(new Dimension(40, 1200));
         panelMenu.setBackground(new Color(154, 82,255));
         panelMenu.setVisible(true);
 
@@ -58,27 +58,14 @@ public class Window extends JFrame {
 
     private void Menu() {
 
-        username = new JLabel("User: ");
-        username.setForeground(Color.WHITE);
-        username.setHorizontalAlignment(0);
-        username.setBounds(10, 100, 80, 30);
-
-        levelUser = new JLabel("Level: ");
-        levelUser.setForeground(Color.WHITE);
-        levelUser.setHorizontalAlignment(0);
-        levelUser.setBounds(10, 120, 80, 30);
-
-        panelMenu.add(username);
-        panelMenu.add(levelUser);
-
-        buttonHome = new JButton(ControllerMenu.getHome());
+        buttonHome = new JButton();
         buttonHome.setFocusable(false);
         buttonHome.setFocusPainted(false);
         buttonHome.setIcon(new ImageIcon("src\\main\\java\\images\\Icons\\Home.png"));
         buttonHome.setBorder(BorderFactory.createEmptyBorder());
         buttonHome.setForeground(Color.WHITE);
         buttonHome.setBackground(new Color(126, 72, 208));
-        buttonHome.setBounds(0, 180, 200, 45);
+        buttonHome.setBounds(0, 180, 40, 45);
         panelMenu.add(buttonHome);
         buttonHome.addMouseListener(new MouseAdapter() {
             @Override
@@ -131,14 +118,14 @@ public class Window extends JFrame {
             }
         });
 
-        buttonCRUD = new JButton(ControllerMenu.getInventary());
+        buttonCRUD = new JButton();
         buttonCRUD.setFocusable(false);
         buttonCRUD.setFocusPainted(false);
         buttonCRUD.setIcon(new ImageIcon("src\\main\\java\\images\\Icons\\Inventary.png"));
         buttonCRUD.setBorder(BorderFactory.createEmptyBorder());
         buttonCRUD.setForeground(Color.WHITE);
         buttonCRUD.setBackground(new Color(154, 82,255));
-        buttonCRUD.setBounds(0, 235, 200, 45);
+        buttonCRUD.setBounds(0, 235, 40, 45);
         panelMenu.add(buttonCRUD);
         buttonCRUD.addMouseListener(new MouseAdapter() {
 
@@ -200,14 +187,14 @@ public class Window extends JFrame {
             }
         });
 
-        buttonEntries = new JButton(ControllerMenu.getEntries());
+        buttonEntries = new JButton();
         buttonEntries.setFocusable(false);
         buttonEntries.setFocusPainted(false);
         buttonEntries.setIcon(new ImageIcon("src\\main\\java\\images\\Icons\\Entries.png"));
         buttonEntries.setBorder(BorderFactory.createEmptyBorder());
         buttonEntries.setForeground(Color.WHITE);
         buttonEntries.setBackground(new Color(154, 82,255));
-        buttonEntries.setBounds(0, 290, 200, 45);
+        buttonEntries.setBounds(0, 290, 40, 45);
         panelMenu.add(buttonEntries);
         buttonEntries.addMouseListener(new MouseAdapter() {
             @Override
@@ -266,14 +253,14 @@ public class Window extends JFrame {
             }
         });
 
-        buttonBill = new JButton(ControllerMenu.getBill());
+        buttonBill = new JButton();
         buttonBill.setFocusable(false);
         buttonBill.setFocusPainted(false);
         buttonBill.setBorder(BorderFactory.createEmptyBorder());
         buttonBill.setIcon(new ImageIcon("src\\main\\java\\images\\Icons\\Bill.png"));
         buttonBill.setForeground(Color.WHITE);
         buttonBill.setBackground(new Color(154, 82,255));
-        buttonBill.setBounds(0, 345, 200, 45);
+        buttonBill.setBounds(0, 345, 40, 45);
         panelMenu.add(buttonBill);
         buttonBill.addMouseListener(new MouseAdapter() {
             @Override
@@ -332,14 +319,14 @@ public class Window extends JFrame {
             }
         });
 
-        buttonVendors = new JButton(ControllerMenu.getVendors());
+        buttonVendors = new JButton();
         buttonVendors.setFocusable(false);
         buttonVendors.setIcon(new ImageIcon("src\\main\\java\\images\\Icons\\proveedores.png"));
         buttonVendors.setFocusPainted(false);
         buttonVendors.setBorder(BorderFactory.createEmptyBorder());
         buttonVendors.setForeground(Color.WHITE);
         buttonVendors.setBackground(new Color(154, 82,255));
-        buttonVendors.setBounds(0, 400, 200, 45);
+        buttonVendors.setBounds(0, 400, 40, 45);
         panelMenu.add(buttonVendors);
         buttonVendors.addMouseListener(new MouseAdapter() {
             @Override
@@ -406,7 +393,7 @@ public class Window extends JFrame {
         buttonSettings.setForeground(Color.WHITE);
         buttonSettings.setBorder(BorderFactory.createEmptyBorder());
         buttonSettings.setBackground(panelMenu.getBackground());
-        buttonSettings.setBounds(150,10,40,40);
+        buttonSettings.setBounds(0,890,40,40);
         panelMenu.add(buttonSettings);
 
         buttonSettings.addMouseListener(new MouseAdapter() {
@@ -464,7 +451,7 @@ public class Window extends JFrame {
         buttonLogOut.setForeground(Color.WHITE);
         buttonLogOut.setBorder(BorderFactory.createEmptyBorder());
         buttonLogOut.setBackground(panelMenu.getBackground());
-        buttonLogOut.setBounds(10,890,40,40);
+        buttonLogOut.setBounds(0,840,40,40);
         panelMenu.add(buttonLogOut);
 
         buttonLogOut.addMouseListener(new MouseAdapter() {
@@ -508,7 +495,7 @@ public class Window extends JFrame {
         buttonInfo.setForeground(Color.WHITE);
         buttonInfo.setBorder(BorderFactory.createEmptyBorder());
         buttonInfo.setBackground(panelMenu.getBackground());
-        buttonInfo.setBounds(10,840,40,40);
+        buttonInfo.setBounds(0,790,40,40);
         panelMenu.add(buttonInfo);
 
         buttonInfo.addMouseListener(new MouseAdapter() {
@@ -546,7 +533,7 @@ public class Window extends JFrame {
         buttonReports.setForeground(Color.WHITE);
         buttonReports.setBorder(BorderFactory.createEmptyBorder());
         buttonReports.setBackground(panelMenu.getBackground());
-        buttonReports.setBounds(150,60,40,40);
+        buttonReports.setBounds(0,740,40,40);
         panelMenu.add(buttonReports);
 
         buttonReports.addMouseListener(new MouseAdapter() {
@@ -585,14 +572,14 @@ public class Window extends JFrame {
         });
 
         //if(isAdmin) {
-            buttonCreateUser = new JButton(ControllerMenu.getAddUser());
+            buttonCreateUser = new JButton();
             buttonCreateUser.setFocusable(false);
             buttonCreateUser.setFocusPainted(false);
             buttonCreateUser.setIcon(new ImageIcon("src\\main\\java\\images\\Icons\\AddUser.png"));
             buttonCreateUser.setBorder(BorderFactory.createEmptyBorder());
             buttonCreateUser.setForeground(Color.WHITE);
             buttonCreateUser.setBackground(new Color(154, 82, 255));
-            buttonCreateUser.setBounds(0, 455, 200, 45);
+            buttonCreateUser.setBounds(0, 455, 40, 45);
             panelMenu.add(buttonCreateUser);
             buttonCreateUser.addMouseListener(new MouseAdapter() {
                 @Override

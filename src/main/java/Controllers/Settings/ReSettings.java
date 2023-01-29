@@ -9,7 +9,7 @@ public class ReSettings {
 
     public ReSettings(){
         load = new LoadSetting();
-        Settings = new String[11];
+        Settings = new String[12];
         Settings = load.loadSetting();
     }
 
@@ -47,9 +47,7 @@ public class ReSettings {
 
     public static String getUser(){ return Settings[10]; }
 
-    public static String getPasswordUser(){ return Settings[11]; }
-
-    public static String getRol(){ return Settings[12]; }
+    public static String getRol(){ return Settings[11]; }
 
     @Override
     public String toString() {

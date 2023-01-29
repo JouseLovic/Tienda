@@ -1,6 +1,6 @@
 package Controllers;
 
-import Repository.nProveedorDao;
+import Repository.VendorRepo;
 import Model.*;
 import ViewFormulary.PanelNuevoProveedor;
 import java.util.*;
@@ -13,12 +13,12 @@ import javax.swing.table.DefaultTableModel;
 
 public class ControllerNVendor {
 
-    private static nProveedorDao pDao;
+    private static VendorRepo pDao;
     private static Vendor proveedor;
 
     public static void actualizaProveedor(JTable tabla, PanelNuevoProveedor proveedorP){
             
-          pDao = new nProveedorDao();
+          pDao = new VendorRepo();
           try{
                 String id = proveedorP.getCampoIdProv();
                 String nombre = proveedorP.getCampoNombre(); 
@@ -47,7 +47,7 @@ public class ControllerNVendor {
             nombre = (String) tabla.getValueAt(filaNombre, 1);
         }
 
-        pDao = new nProveedorDao();
+        pDao = new VendorRepo();
         pDao.eliminar(nombre);
         enviaDatosTabla(tabla);
         borrarCampos(nProveedor);
@@ -56,7 +56,7 @@ public class ControllerNVendor {
 
     public static void subir(JTable tabla, PanelNuevoProveedor nProveedor){
 
-        pDao = new nProveedorDao();
+        pDao = new VendorRepo();
         boolean validate = false, emailExist = false, cedulaExist = false, idExist = false, voidFields = false;
         ArrayList<Vendor> listaCompara = pDao.mostrar();
         String idProv = nProveedor.getCampoIdProv();
@@ -126,7 +126,7 @@ public class ControllerNVendor {
 
     public static void enviaDatosTabla(JTable tabla){
     
-       pDao = new nProveedorDao();
+       pDao = new VendorRepo();
              ArrayList<Vendor> listProducts = pDao.mostrar();
              DefaultTableModel model = new DefaultTableModel();
              model.addColumn("Id de proveedor"); model.addColumn("Nombre"); model.addColumn("Fecha de nacimiento");
@@ -201,7 +201,13 @@ public class ControllerNVendor {
             nProveedor.setCampoEmpresa((String) tabla.getValueAt(fila, 5));
             nProveedor.setCampoArticulos((String) tabla.getValueAt(fila, 6));
         }
+    }
 
+    public static void getQuantityVendor(JLabel label){
+
+        pDao = new VendorRepo();
+        int quantity = pDao.getQuantityVendors();
+        label.setText(String.valueOf(quantity));
     }
 
     

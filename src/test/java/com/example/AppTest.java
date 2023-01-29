@@ -17,7 +17,7 @@ public class AppTest
         String[] nArray = {"Light",
                 "Arial", "Plain", "22",
                 "False", "Mi Empresa", "Gestion de inventario",
-                "Entradas de productos", "Facturas de entrada", "Vendor", "", "", ""};
+                "Entradas de productos", "Facturas de entrada", "Vendor", "", ""};
         SaveSetting save = new SaveSetting();
         save.saveSetting(nArray);
 

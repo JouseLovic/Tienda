@@ -1,7 +1,7 @@
 package Controllers;
 
 import Model.Vendor;
-import Repository.nProveedorDao;
+import Repository.VendorRepo;
 import View.PanelProveedores;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter; 
@@ -11,11 +11,11 @@ import java.io.*;
 
 public class ControllerListVendors {
 
-    private static nProveedorDao pDao;
+    private static VendorRepo pDao;
 
         public static void enviaDatosTabla(JTable tabla){
 
-                pDao = new nProveedorDao();
+                pDao = new VendorRepo();
                 ArrayList<Vendor> listaProveedores = pDao.mostrar();
                 DefaultTableModel modelo = new DefaultTableModel();
                 modelo.addColumn("Nombre"); modelo.addColumn("Cedula");
@@ -37,7 +37,7 @@ public class ControllerListVendors {
     
         public static void mandaDatos(JTable tabla, PanelProveedores panel){
 
-            pDao = new nProveedorDao();
+            pDao = new VendorRepo();
             ArrayList<Vendor> listaProveedores = null;
             int fila = tabla.getSelectedRow();
             String cedula = null;//for search the id original of vendor

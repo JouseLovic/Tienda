@@ -36,7 +36,6 @@ public class ControllerPInitial {
 
       public static void getCantidadStock(JLabel label){
             productoDao = new ProductRepo();
-            ArrayList<Product> listProducts = productoDao.mostrarTodos("");
             cantidad = productoDao.mostrarCantidad();
             label.setText(String.valueOf(cantidad));
       }

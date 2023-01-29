@@ -52,7 +52,7 @@ public class LoadSetting {
             String[] nArray = {"Light",
                     "Arial", "Plain", "22",
                     "True", "My company", "Gestion inventary",
-                    "Entries of products", "Entries bill", "Vendor", "", "", ""};
+                    "Entries of products", "Entries bill", "Vendor", "", ""};
             SaveSetting save = new SaveSetting();
             save.saveSetting(nArray);
             System.out.println("Configuraciones por defecto creadas");
