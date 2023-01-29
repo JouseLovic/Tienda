@@ -29,8 +29,7 @@ to do everything manually.
  
 ### On the inventory
 
-![Screenshot](https://user-images.githubusercontent.com/114286961/215176130-64aa35f6-fc25-4735-8a82-3a1e23dbfe41.png)
-
+![Screenshot (12)](https://user-images.githubusercontent.com/114286961/215320107-dd4edec6-162f-4d3f-94f7-4d737baf1564.png)
 
 * Recognizes if the product already exists.
 
