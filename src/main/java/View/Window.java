@@ -82,7 +82,6 @@ public class Window extends JFrame {
                 buttonReports.setBackground(panelMenu.getBackground());
                 buttonHome.setBackground(new Color(126, 72, 208));
                 ControllerMenu.ocultarPanelInicial(panelContent, inicio);
-                PanelEntrada.setActualizame(0);
                 PanelNuevaFactura.setActualizame(0);
                 PanelNuevaFactura.setEstado(false);
                 PanelNuevoProveedor.setActualizame(0);
@@ -100,7 +99,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorEntered(buttonHome,
                         new Color(195, 162, 255),
                         new Color(160, 183, 252),
-                        new Color(255, 188, 153),
+                        new Color(255, 195, 120),
                         new Color(255, 171, 222),
                         new Color(255, 164, 166),
                         new Color(190, 190, 190));
@@ -111,7 +110,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorExited(buttonHome,
                         new Color(126, 72, 208),
                         new Color(45,141,252),
-                        new Color(255, 156, 103),
+                        new Color(253, 165, 55),
                         new Color(255, 101, 184),
                         new Color(255, 53, 59),
                         new Color(134, 134, 134));
@@ -143,7 +142,6 @@ public class Window extends JFrame {
                 buttonCreateUser.setBackground(panelMenu.getBackground());
                 buttonSettings.setBackground(panelMenu.getBackground());
                 if (inicio.isVisible()) {
-                    PanelEntrada.setActualizame(0);
                     PanelNuevaFactura.setActualizame(0);
                     PanelNuevaFactura.setEstado(false);
                     PanelNuevoProveedor.setActualizame(0);
@@ -151,7 +149,6 @@ public class Window extends JFrame {
                     ControllerMenu.mostrarNuevoProductos(Window.this);
                 } else {
                     ControllerMenu.BorraPaneles();
-                    PanelEntrada.setActualizame(0);
                     PanelNuevaFactura.setEstado(false);
                     PanelNuevaFactura.setActualizame(0);
                     PanelNuevoProveedor.setActualizame(0);
@@ -169,7 +166,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorEntered(buttonCRUD,
                         new Color(195, 162, 255),
                         new Color(160, 183, 252),
-                        new Color(255, 188, 153),
+                        new Color(255, 195, 120),
                         new Color(255, 171, 222),
                         new Color(255, 164, 166),
                         new Color(190, 190, 190));
@@ -180,7 +177,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorExited(buttonCRUD,
                         new Color(154, 82,255),
                         new Color(58, 95, 245),
-                        new Color(255, 156, 103),
+                        new Color(254, 138, 63),
                         new Color(255, 101, 184),
                         new Color(255, 53, 59),
                         new Color(134, 134, 134));
@@ -199,17 +196,17 @@ public class Window extends JFrame {
         buttonEntries.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseReleased(MouseEvent e) {
-                buttonBill.setBackground(new Color(255, 156, 103));
-                buttonHome.setBackground(new Color(255, 156, 103));
-                buttonVendors.setBackground(new Color(255, 156, 103));
-                buttonLogOut.setBackground(new Color(255, 156, 103));
-                buttonCRUD.setBackground(new Color(255, 156, 103));
-                panelMenu.setBackground(new Color(255, 156, 103));
+                buttonBill.setBackground(new Color(254, 138, 63));
+                buttonHome.setBackground(new Color(254, 138, 63));
+                buttonVendors.setBackground(new Color(254, 138, 63));
+                buttonLogOut.setBackground(new Color(254, 138, 63));
+                buttonCRUD.setBackground(new Color(254, 138, 63));
+                panelMenu.setBackground(new Color(254, 138, 63));
                 buttonReports.setBackground(panelMenu.getBackground());
                 buttonCreateUser.setBackground(panelMenu.getBackground());
                 buttonInfo.setBackground(panelMenu.getBackground());
                 buttonSettings.setBackground(panelMenu.getBackground());
-                buttonEntries.setBackground(new Color(163, 83, 44));
+                buttonEntries.setBackground(new Color(150, 85, 41));
                 if (inicio.isVisible()) {
                     PanelNuevaFactura.setActualizame(0);
                     PanelNuevaFactura.setEstado(false);
@@ -235,7 +232,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorEntered(buttonEntries,
                         new Color(195, 162, 255),
                         new Color(160, 183, 252),
-                        new Color(255, 188, 153),
+                        new Color(255, 195, 120),
                         new Color(255, 171, 222),
                         new Color(255, 164, 166),
                         new Color(190, 190, 190));
@@ -246,7 +243,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorExited(buttonEntries,
                         new Color(154, 82, 255),
                         new Color(45, 141, 252),
-                        new Color(163, 83, 44),
+                        new Color(150, 85, 41),
                         new Color(255, 101, 184),
                         new Color(255, 53, 59),
                         new Color(134, 134, 134));
@@ -277,13 +274,11 @@ public class Window extends JFrame {
                 buttonVendors.setBackground(new Color(255, 101, 184));
                 buttonBill.setBackground(new Color(163, 54, 119));
                 if (inicio.isVisible()) {
-                    PanelEntrada.setActualizame(0);
                     PanelNuevaFactura.setEstado(true);
                     PanelNuevoProveedor.setActualizame(0);
                     ControllerMenu.ocultarPanelInicial(panelContent, inicio);
                     ControllerMenu.mostrarRegistroFacturas(Window.this);
                 } else {
-                    PanelEntrada.setActualizame(0);
                     PanelNuevaFactura.setEstado(true);
                     PanelNuevoProveedor.setActualizame(0);
                     ControllerMenu.BorraPaneles();
@@ -301,7 +296,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorEntered(buttonBill,
                         new Color(195, 162, 255),
                         new Color(160, 183, 252),
-                        new Color(255, 188, 153),
+                        new Color(255, 195, 120),
                         new Color(255, 171, 222),
                         new Color(255, 164, 166),
                         new Color(190, 190, 190));
@@ -312,7 +307,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorExited(buttonBill,
                         new Color(154, 82, 255),
                         new Color(45, 141, 252),
-                        new Color(255, 156, 103),
+                        new Color(254, 138, 63),
                         new Color(163, 54, 119),
                         new Color(255, 53, 59),
                         new Color(134, 134, 134));
@@ -343,14 +338,12 @@ public class Window extends JFrame {
                 buttonSettings.setBackground(panelMenu.getBackground());
                 buttonVendors.setBackground(new Color(156, 34, 38));
                     if(inicio.isVisible()){
-                        PanelEntrada.setActualizame(0);
                         PanelNuevaFactura.setActualizame(0);
                         PanelNuevaFactura.setEstado(false);
                         ControllerMenu.ocultarPanelInicial(panelContent, inicio);
                         ControllerMenu.mostrarRegistroProveedores(Window.this);
                     }
                     else{
-                        PanelEntrada.setActualizame(0);
                         PanelNuevaFactura.setActualizame(0);
                         PanelNuevaFactura.setEstado(false);
                         ControllerMenu.BorraPaneles();
@@ -368,7 +361,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorEntered(buttonVendors,
                         new Color(195, 162, 255),
                         new Color(160, 183, 252),
-                        new Color(255, 188, 153),
+                        new Color(255, 195, 120),
                         new Color(255, 171, 222),
                         new Color(255, 164, 166),
                         new Color(190, 190, 190));
@@ -379,7 +372,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorExited(buttonVendors,
                         new Color(154, 82, 255),
                         new Color(45, 141, 252),
-                        new Color(255, 156, 103),
+                        new Color(254, 138, 63),
                         new Color(255, 101, 184),
                         new Color(156, 34, 38),
                         new Color(134, 134, 134));
@@ -424,7 +417,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorEntered(buttonSettings,
                         new Color(195, 162, 255),
                         new Color(160, 183, 252),
-                        new Color(255, 188, 153),
+                        new Color(255, 195, 120),
                         new Color(255, 171, 222),
                         new Color(255, 164, 166),
                         new Color(190, 190, 190));
@@ -436,7 +429,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorExited(buttonSettings,
                         new Color(154, 82,255),
                         new Color(45, 141, 252),
-                        new Color(255, 156, 103),
+                        new Color(254, 138, 63),
                         new Color(255, 101, 184),
                         new Color(255, 53, 59),
                         new Color(77, 77, 77));
@@ -469,7 +462,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorEntered(buttonLogOut,
                         new Color(195, 162, 255),
                         new Color(160, 183, 252),
-                        new Color(255, 188, 153),
+                        new Color(255, 195, 120),
                         new Color(255, 171, 222),
                         new Color(255, 164, 166),
                         new Color(190, 190, 190));
@@ -481,7 +474,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorExited(buttonLogOut,
                         new Color(154, 82,255),
                         new Color(45, 141, 252),
-                        new Color(255, 156, 103),
+                        new Color(254, 138, 63),
                         new Color(255, 101, 184),
                         new Color(255, 53, 59),
                         new Color(77, 77, 77));
@@ -508,7 +501,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorEntered(buttonInfo,
                         new Color(195, 162, 255),
                         new Color(160, 183, 252),
-                        new Color(255, 188, 153),
+                        new Color(255, 195, 120),
                         new Color(255, 171, 222),
                         new Color(255, 164, 166),
                         new Color(190, 190, 190));
@@ -519,7 +512,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorExited(buttonInfo,
                         new Color(154, 82,255),
                         new Color(45, 141, 252),
-                        new Color(255, 156, 103),
+                        new Color(254, 138, 63),
                         new Color(255, 101, 184),
                         new Color(255, 53, 59),
                         new Color(77, 77, 77));
@@ -552,7 +545,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorEntered(buttonReports,
                         new Color(195, 162, 255),
                         new Color(160, 183, 252),
-                        new Color(255, 188, 153),
+                        new Color(255, 195, 120),
                         new Color(255, 171, 222),
                         new Color(255, 164, 166),
                         new Color(190, 190, 190));
@@ -564,7 +557,7 @@ public class Window extends JFrame {
                 ControllerMenu.cambiaColorExited(buttonReports,
                         new Color(154, 82,255),
                         new Color(45, 141, 252),
-                        new Color(255, 156, 103),
+                        new Color(254, 138, 63),
                         new Color(255, 101, 184),
                         new Color(255, 53, 59),
                         new Color(77, 77, 77));
@@ -607,7 +600,7 @@ public class Window extends JFrame {
                     ControllerMenu.cambiaColorEntered(buttonCreateUser,
                             new Color(195, 162, 255),
                             new Color(160, 183, 252),
-                            new Color(255, 188, 153),
+                            new Color(255, 195, 120),
                             new Color(255, 171, 222),
                             new Color(255, 164, 166),
                             new Color(190, 190, 190));
@@ -618,7 +611,7 @@ public class Window extends JFrame {
                     ControllerMenu.cambiaColorExited(buttonCreateUser,
                             new Color(154, 82, 255),
                             new Color(45, 141, 252),
-                            new Color(163, 83, 44),
+                            new Color(254, 138, 63),
                             new Color(255, 101, 184),
                             new Color(255, 53, 59),
                             new Color(134, 134, 134));

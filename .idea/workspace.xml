@@ -4,45 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bd8b4db-9d39-4beb-acf4-b6dea870a78a" name="Changes" comment="Package and class name changes for better translation">
+    <list default="true" id="3bd8b4db-9d39-4beb-acf4-b6dea870a78a" name="Changes" comment="NA changes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Threads/EntriesThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/images/PanelEntries/FluidoEntries-transformed90G.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerEntBills.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerEntBills.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerListVendors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerListVendors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerEntriesP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerEntriesP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerNProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerNProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerNVendor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerNVendor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerPInitial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerPInitial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Settings/LoadSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Settings/LoadSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Settings/ReSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Settings/ReSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Repository/nProveedorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Repository/VendorRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Threads/LabelDataThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Threads/LabelDataThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/PanelInicial.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/PanelInicial.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Settings/Config.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Settings/Config.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/PanelInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/PanelInicial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/PanelSettings.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/PanelSettings.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/PanelSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/PanelSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ViewFormulary/PanelEntrada.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ViewFormulary/PanelEntrada.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ViewFormulary/PanelEntrada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ViewFormulary/PanelEntrada.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ViewFormulary/PanelNuevoProducto.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ViewFormulary/PanelNuevoProducto.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ViewFormulary/PanelNuevoProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ViewFormulary/PanelNuevoProducto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/example/AppTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="DaemonCodeAnalyzer">
-    <disable_hints>
-      <file url="mock:///Body" />
-      <file url="mock:///Config" />
-      <file url="mock:///Headers" />
-      <file url="mock:///Info" />
-      <file url="mock:///Params" />
-      <file url="mock:///Response" />
-    </disable_hints>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -78,6 +59,7 @@
     <setting file="file://$PROJECT_DIR$/src/main/java/View/PanelSettings.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/View/Window.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/View/WindowLogin.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/ViewFormulary/PanelEntrada.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ViewFormulary/PanelNuevaFactura.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ViewFormulary/PanelNuevoProducto.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/test/java/com/example/AppTest.java" root0="SKIP_INSPECTION" />
@@ -105,21 +87,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RESTKit.sync.cert.Ide": "true",
-    "RESTKit.sync.env.Ide": "true",
-    "RESTKit.sync.requestConfig.Ide": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Usuario/Downloads/ProyectosIDEA/MavenProjects/demo/src/main/java/Utilities",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.37448558",
-    "settings.editor.selected.configurable": "preferences.fileTypes"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RESTKit.sync.cert.Ide&quot;: &quot;true&quot;,
+    &quot;RESTKit.sync.env.Ide&quot;: &quot;true&quot;,
+    &quot;RESTKit.sync.requestConfig.Ide&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Downloads/ProyectosIDEA/MavenProjects/demo/src/main/java/Utilities&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.37448558&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Usuario\Downloads\ProyectosIDEA\MavenProjects\demo\src\main\java\Utilities" />
@@ -226,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674927024628</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="NA changes">
+      <created>1674987947386</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1674987947386</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -241,13 +231,15 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Version 7.0&#10;&#10;Added the basic login (incomplete), and added finally the settings panel. Something's no works pretty well, but, i working in it" />
     <MESSAGE value="Version 7.0&#10;&#10;Added the basic login (incomplete), and added finally the settings panel. Something's no works pretty well, but, I'm working in it" />
     <MESSAGE value="Version 7.0.1&#10;&#10;Added classes" />
     <MESSAGE value="Added utilities" />
     <MESSAGE value="Change a error in the traduction to the read the file." />
     <MESSAGE value="Package and class name changes for better translation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Package and class name changes for better translation" />
+    <MESSAGE value="NA changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="NA changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

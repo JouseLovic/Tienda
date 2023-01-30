@@ -2,6 +2,7 @@
 import javax.swing.*;
 import Controllers.ControllerMenu;
 import Controllers.ControllerNProduct;
+import Threads.EntriesThread;
 import Threads.ProductsThread;
 import Threads.VendorsThread;
 import com.formdev.flatlaf.*;
@@ -31,6 +32,8 @@ public class App {
         productsThread.start();
         VendorsThread provThread = new VendorsThread();
         provThread.start();
+        EntriesThread entThread = new EntriesThread();
+        entThread.run();
 
     }
 

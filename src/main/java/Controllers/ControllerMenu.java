@@ -162,7 +162,7 @@ public class ControllerMenu {
             button.setBackground(new Color(58, 95, 245));
         }
         else if(PanelEntrada.isIsVisibleEntries()){
-            button.setBackground(new Color(163, 83, 44));
+            button.setBackground(new Color(109, 60, 31));
         }
         else if(PanelNuevaFactura.isIsVisibleNFactura()){
             button.setBackground(new Color(163, 54, 119));

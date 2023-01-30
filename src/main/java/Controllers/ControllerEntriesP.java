@@ -3,10 +3,14 @@ package Controllers;
 import Model.*;
 import Repository.*;
 import ViewFormulary.*;
+
+import java.awt.*;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.Date;
 import javax.swing.table.*;
 
 public class ControllerEntriesP {
@@ -16,6 +20,39 @@ public class ControllerEntriesP {
     private static boolean sumaCantidad;
     private static boolean nBillExist;
     private static ProductRepo nDao;
+    private static SimpleDateFormat dateFormat;
+
+    private static String tableColumnIdF, tableColumnCodeP, tableColumnDescP, tableColumnDate, tableColumnPrice, tableColumnQuantity;
+    private static String tableColumnSection, tableColumnBrand, tableColumnVendorId;
+
+    public ControllerEntriesP(boolean selectedLanguage) {
+
+        if(selectedLanguage){
+            tableColumnIdF = "Id bill";
+            tableColumnCodeP = "Id product";
+            tableColumnDescP = "Description";
+            tableColumnDate = "Date entrie";
+            tableColumnPrice = "Price";
+            tableColumnQuantity = "Quantity";
+            tableColumnSection = "Section product";
+            tableColumnBrand = "Brand product";
+            tableColumnVendorId = "Id of vendor";
+        }
+        else{
+            tableColumnIdF = "Numero de factura";
+            tableColumnCodeP = "Id del producto";
+            tableColumnDescP = "Descripción";
+            tableColumnDate = "Fecha";
+            tableColumnPrice = "Precio";
+            tableColumnQuantity = "Cantidad";
+            tableColumnSection = "Seccion";
+            tableColumnBrand = "Marca";
+            tableColumnVendorId = "Id del proveedor";
+        }
+
+
+
+    }
 
     public static void eliminar(JTable tabla, String nBillOriginal){
 
@@ -25,21 +62,21 @@ public class ControllerEntriesP {
 
     }
     
-    public static void compruebaCampos(Product productos, PanelEntrada entrada, String descripcion, String seccion, String marca, String idProveedor){
+    public static void compruebaCampos(Product productos, PanelEntrada entrada, String descripcion, String seccion, String marca, String idProveedor) {
 
-        if(!productos.getSeccion().equalsIgnoreCase(seccion)){
-            entrada.setLabelSeccion("La seccion no corresponde al producto");
+        if (!productos.getSeccion().equalsIgnoreCase(seccion)) {
+            entrada.setLabelSection("La seccion no corresponde al producto");
         }
 
-        if(!productos.getDesc().equalsIgnoreCase(descripcion)){
+        if (!productos.getDesc().equalsIgnoreCase(descripcion)) {
             entrada.setLabelDesc("La descripción no corresponde al producto");
         }
 
-        if(!productos.getMarca().equalsIgnoreCase(marca)){
-            entrada.setLabelMarca("La marca no corresponde al producto");
+        if (!productos.getMarca().equalsIgnoreCase(marca)) {
+            entrada.setLabelBrand("La marca no corresponde al producto");
         }
-        if(!productos.getIdProveedor().equalsIgnoreCase(idProveedor)){
-            entrada.setLabelProveedor("Proveedor invalido");
+        if (!productos.getIdProveedor().equalsIgnoreCase(idProveedor)) {
+            entrada.setLabelVendor("Id invalido");
         }
     }
 
@@ -55,18 +92,17 @@ public class ControllerEntriesP {
 
 
          try{
-            String nFactura = entrada.getCampoNFactura();
-            String codigoP = entrada.getCampoCodigoProducto();
-            String desc = entrada.getCampoDescripcion();
-            String fecha = entrada.getCampoFecha();
-            double precio = entrada.getCampoPrecio();
-            int cantidad = Integer.parseInt(entrada.getCampoCantidad());
-            String seccion = entrada.getCampoSeccionE();
-            String marca = entrada.getCampoMarcaE();
-            String idProveedor = entrada.getCampoProveedor();
+            String nFactura = entrada.getBillField();
+            String codigoP = entrada.getCodePField();
+            String desc = entrada.getDescField();
+            String fecha = entrada.getDateField();
+            double precio = entrada.TakePriceField();//this take is for give to the variable the price
+            int cantidad = Integer.parseInt(entrada.getQuantityField());
+            String seccion = entrada.getSectionField();
+            String marca = entrada.getBrandField();
+            String idProveedor = entrada.getVendorField();
 
              if(nFactura.equalsIgnoreCase(nBillOriginal)) {
-                 JOptionPane.showMessageDialog(null, "This bill is exist. Please, change it");
                  nBillExist = true;
              }
 
@@ -110,6 +146,9 @@ public class ControllerEntriesP {
                 eDao.insertarProductoExistente(EntryProducts);
                 enviaDatosTabla(tabla, "");
             }
+            else if(nBillExist){
+                entrada.setLabelBill("Bill is exist", Color.RED);
+            }
 
             }catch(NumberFormatException ex){
                JOptionPane.showMessageDialog(null, "El precio o la cantidad estan vacios. Por favor, llenelos");
@@ -121,11 +160,11 @@ public class ControllerEntriesP {
         eDao = new EntriesRepo();
         ArrayList<EntriesProducts> listEntries = eDao.mostrar(nombre);
         DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("Id de factura"); model.addColumn("Codigo de producto");
-        model.addColumn("Descripcion del producto"); model.addColumn("Fecha");
-        model.addColumn("Precio de factura"); model.addColumn("Cantidad de entrada");
-        model.addColumn("Seccion del producto"); model.addColumn("Marca del producto");
-        model.addColumn("id del proveedor");
+        model.addColumn(tableColumnIdF); model.addColumn(tableColumnCodeP);
+        model.addColumn(tableColumnDescP); model.addColumn(tableColumnDate);
+        model.addColumn(tableColumnPrice); model.addColumn(tableColumnQuantity);
+        model.addColumn(tableColumnSection); model.addColumn(tableColumnBrand);
+        model.addColumn(tableColumnVendorId);
 
              for(EntriesProducts productos : listEntries){
                   
@@ -154,6 +193,14 @@ public class ControllerEntriesP {
   
     }
 
+    public static void blockSearchLenght(JTextField searchField, KeyEvent a){
+
+        if(searchField.getText().length()==57){
+            a.consume();
+        }
+
+    }
+
     public static void bloqueaLetrasCantidad(int keyNumeros, KeyEvent a){
 
         boolean numeros = keyNumeros>=48 && keyNumeros>69;
@@ -166,9 +213,9 @@ public class ControllerEntriesP {
 
     public static void mandaProveedor(JTable tabla, String proveedor, PanelEntrada entradas){
 
-            if(!proveedor.equals("Ninguno"))  entradas.setCampoProveedor(proveedor);
+            if(!proveedor.equals("Ninguno"))  entradas.setVendorField(proveedor);
         
-            else if(proveedor.equals("Ninguno"))  entradas.setCampoProveedor(null);
+            else if(proveedor.equals("Ninguno"))  entradas.setVendorField(null);
 
     }
 
@@ -187,32 +234,32 @@ public class ControllerEntriesP {
         int fila = tabla.getSelectedRow();
       
             if(fila>=0){
-                entradas.setCampoNFactura((String) tabla.getValueAt(fila, 0));
-                entradas.setCampoCodigoProducto((String) tabla.getValueAt(fila, 1));
-                entradas.setCampoDescripcion((String) tabla.getValueAt(fila, 2));
-                entradas.setCampoFecha((String) tabla.getValueAt(fila, 3));
-                entradas.setCampoPrecio(String.valueOf(tabla.getValueAt(fila, 4)));
-                entradas.setCampoCantidad(String.valueOf(tabla.getValueAt(fila, 5)));
-                entradas.setCampoSeccionE((String) tabla.getValueAt(fila, 6));
-                entradas.setCampoMarcaE((String) tabla.getValueAt(fila, 7));
-                entradas.setCampoProveedor((String) tabla.getValueAt(fila, 8));
+                entradas.setBillField((String) tabla.getValueAt(fila, 0));
+                entradas.setCodePField((String) tabla.getValueAt(fila, 1));
+                entradas.setDescField((String) tabla.getValueAt(fila, 2));
+                entradas.setDateField((String) tabla.getValueAt(fila, 3));
+                entradas.setPriceField(String.valueOf(tabla.getValueAt(fila, 4)));
+                entradas.setQuantityField(String.valueOf(tabla.getValueAt(fila, 5)));
+                entradas.setSectionField((String) tabla.getValueAt(fila, 6));
+                entradas.setBrandField((String) tabla.getValueAt(fila, 7));
+                entradas.setVendorField((String) tabla.getValueAt(fila, 8));
             }
 
     }
 
 
     public static void limpiaCampos(PanelEntrada entrada){
-            Exist = false;
-                entrada.setCampoNFactura("");
-                entrada.setCampoCodigoProducto("");
-                entrada.setCampoDescripcion("");
-                entrada.setCampoFecha("");
-                entrada.setSeleccionLista(0);
-                entrada.setCampoPrecio("");
-                entrada.setCampoCantidad("");
-                entrada.setCampoSeccionE("");
-                entrada.setCampoMarcaE("");
-                 entrada.setCampoProveedor("");
+                Exist = false;
+                entrada.setBillField("");
+                entrada.setCodePField("");
+                entrada.setDescField("");
+                entrada.setDateField(toStringDate());
+                entrada.setSelectedItemList(0);
+                entrada.setPriceField("");
+                entrada.setQuantityField("");
+                entrada.setSectionField("");
+                entrada.setBrandField("");
+                entrada.setVendorField("");
     }
 
 
@@ -227,6 +274,16 @@ public class ControllerEntriesP {
      public static void setExist(boolean reemplaza){
          Exist = reemplaza;
      }
+
+
+     public static String toStringDate(){
+        Date date = new Date();
+        dateFormat = new SimpleDateFormat("dd/MM/YYYY");
+        return dateFormat.format(date);
+    }
+
+
+
 
 
 }

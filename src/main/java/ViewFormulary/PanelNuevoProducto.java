@@ -41,6 +41,8 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
 
             grupo = new javax.swing.ButtonGroup();
             containerComponents = new javax.swing.JPanel();
+            jScrollPane2 = new javax.swing.JScrollPane();
+            tablaNProductos = new javax.swing.JTable();
             labelId = new javax.swing.JLabel();
             labelDesc = new javax.swing.JLabel();
             labelTalla = new javax.swing.JLabel();
@@ -53,7 +55,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             labelTitleInventary = new javax.swing.JLabel();
             botonLlave = new javax.swing.JButton();
             labelIdProveedor = new javax.swing.JLabel();
-            jLabel2 = new javax.swing.JLabel();
             filtroId = new javax.swing.JRadioButton();
             filtroDesc = new javax.swing.JRadioButton();
             filtroSeccion = new javax.swing.JRadioButton();
@@ -64,9 +65,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             buttonClearFields = new Utilities.Button();
             buttonUpdateProduct = new Utilities.Button();
             quantityField = new Utilities.TextField();
-            panelContainerTable = new Utilities.PanelData2();
-            jScrollPane2 = new javax.swing.JScrollPane();
-            tablaNProductos = new javax.swing.JTable();
             priceField = new Utilities.TextField();
             idVendorField = new Utilities.TextField();
             sexField = new Utilities.TextField();
@@ -92,6 +90,51 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                   }
             });
             containerComponents.setLayout(null);
+
+            tablaNProductos = new javax.swing.JTable(){
+
+                  public boolean isCellEditable(int rowIndex, int columnIndex){
+                        return false;
+                  }
+
+            };
+            tablaNProductos.setModel(new javax.swing.table.DefaultTableModel(
+                  new Object [][] {
+
+                  },
+                  new String [] {
+                        "Id", "Descripcion", "Talla", "Marca", "Seccion", "Precio", "Edad Dirigidida", "Cantidad", "Sexo", "Id del proveedor", "Vendido"
+                  }
+            ) {
+                  boolean[] canEdit = new boolean [] {
+                        false, false, false, false, false, false, false, false, false, false, false
+                  };
+
+                  public boolean isCellEditable(int rowIndex, int columnIndex) {
+                        return canEdit [columnIndex];
+                  }
+            });
+            tablaNProductos.setGridColor(new java.awt.Color(255, 255, 255));
+            tablaNProductos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+            tablaNProductos.getTableHeader().setResizingAllowed(false);
+            tablaNProductos.getTableHeader().setReorderingAllowed(false);
+            tablaNProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+                  public void mouseReleased(java.awt.event.MouseEvent evt) {
+                        tablaNProductosMouseReleased(evt);
+                  }
+            });
+            tablaNProductos.addKeyListener(new java.awt.event.KeyAdapter() {
+                  public void keyPressed(java.awt.event.KeyEvent evt) {
+                        tablaNProductosKeyPressed(evt);
+                  }
+                  public void keyReleased(java.awt.event.KeyEvent evt) {
+                        tablaNProductosKeyReleased(evt);
+                  }
+            });
+            jScrollPane2.setViewportView(tablaNProductos);
+
+            containerComponents.add(jScrollPane2);
+            jScrollPane2.setBounds(30, 500, 1170, 440);
 
             labelId.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelId.setForeground(new java.awt.Color(0, 0, 0));
@@ -155,33 +198,29 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             labelTitleInventary.setBounds(10, 10, 350, 60);
 
             botonLlave.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+            botonLlave.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\ProyectosIDEA\\MavenProjects\\demo\\src\\main\\java\\images\\llaveDesactivada.png")); // NOI18N
             botonLlave.setBorder(null);
             botonLlave.setBorderPainted(false);
             botonLlave.setContentAreaFilled(false);
             botonLlave.setFocusPainted(false);
             botonLlave.setFocusable(false);
             botonLlave.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            botonLlave.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\ProyectosIDEA\\MavenProjects\\demo\\src\\main\\java\\images\\llaveDesactivadaOscura.png")); // NOI18N
             botonLlave.setRequestFocusEnabled(false);
+            botonLlave.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\ProyectosIDEA\\MavenProjects\\demo\\src\\main\\java\\images\\llaveDesactivada.png")); // NOI18N
             botonLlave.addActionListener(new java.awt.event.ActionListener() {
                   public void actionPerformed(java.awt.event.ActionEvent evt) {
                         botonLlaveActionPerformed(evt);
                   }
             });
             containerComponents.add(botonLlave);
-            botonLlave.setBounds(240, 110, 60, 50);
+            botonLlave.setBounds(250, 100, 60, 60);
 
             labelIdProveedor.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
             labelIdProveedor.setForeground(new java.awt.Color(0, 0, 0));
             labelIdProveedor.setText("Id del proveedor");
             containerComponents.add(labelIdProveedor);
             labelIdProveedor.setBounds(940, 200, 170, 30);
-
-            jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-            jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-            jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel2.setText("Ordernar por: ");
-            containerComponents.add(jLabel2);
-            jLabel2.setBounds(310, 350, 140, 20);
 
             filtroId.setBackground(new java.awt.Color(255, 255, 255));
             grupo.add(filtroId);
@@ -193,7 +232,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                   }
             });
             containerComponents.add(filtroId);
-            filtroId.setBounds(440, 350, 40, 20);
+            filtroId.setBounds(810, 60, 50, 20);
 
             filtroDesc.setBackground(new java.awt.Color(255, 255, 255));
             grupo.add(filtroDesc);
@@ -204,7 +243,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                   }
             });
             containerComponents.add(filtroDesc);
-            filtroDesc.setBounds(480, 350, 90, 21);
+            filtroDesc.setBounds(880, 60, 90, 21);
 
             filtroSeccion.setBackground(new java.awt.Color(255, 255, 255));
             grupo.add(filtroSeccion);
@@ -215,7 +254,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                   }
             });
             containerComponents.add(filtroSeccion);
-            filtroSeccion.setBounds(570, 350, 70, 21);
+            filtroSeccion.setBounds(880, 30, 70, 21);
 
             filtroMarca.setBackground(new java.awt.Color(255, 255, 255));
             grupo.add(filtroMarca);
@@ -226,7 +265,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
                   }
             });
             containerComponents.add(filtroMarca);
-            filtroMarca.setBounds(640, 350, 70, 21);
+            filtroMarca.setBounds(810, 30, 70, 21);
 
             buttonDelete.setForeground(new java.awt.Color(0, 0, 0));
             buttonDelete.setText("Eliminar");
@@ -295,74 +334,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
             });
             containerComponents.add(quantityField);
             quantityField.setBounds(70, 230, 190, 50);
-
-            panelContainerTable.setBackground(new java.awt.Color(255, 255, 255));
-            panelContainerTable.setRoundBottonLeft(10);
-            panelContainerTable.setRoundBottonRight(10);
-            panelContainerTable.setRoundTopLeft(10);
-            panelContainerTable.setRoundTopRight(10);
-
-            tablaNProductos = new javax.swing.JTable(){
-
-                  public boolean isCellEditable(int rowIndex, int columnIndex){
-                        return false;
-                  }
-
-            };
-            tablaNProductos.setModel(new javax.swing.table.DefaultTableModel(
-                  new Object [][] {
-
-                  },
-                  new String [] {
-                        "Id", "Descripcion", "Talla", "Marca", "Seccion", "Precio", "Edad Dirigidida", "Cantidad", "Sexo", "Id del proveedor", "Vendido"
-                  }
-            ) {
-                  boolean[] canEdit = new boolean [] {
-                        false, false, false, false, false, false, false, false, false, false, false
-                  };
-
-                  public boolean isCellEditable(int rowIndex, int columnIndex) {
-                        return canEdit [columnIndex];
-                  }
-            });
-            tablaNProductos.setGridColor(new java.awt.Color(255, 255, 255));
-            tablaNProductos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-            tablaNProductos.getTableHeader().setResizingAllowed(false);
-            tablaNProductos.getTableHeader().setReorderingAllowed(false);
-            tablaNProductos.addMouseListener(new java.awt.event.MouseAdapter() {
-                  public void mouseReleased(java.awt.event.MouseEvent evt) {
-                        tablaNProductosMouseReleased(evt);
-                  }
-            });
-            tablaNProductos.addKeyListener(new java.awt.event.KeyAdapter() {
-                  public void keyPressed(java.awt.event.KeyEvent evt) {
-                        tablaNProductosKeyPressed(evt);
-                  }
-                  public void keyReleased(java.awt.event.KeyEvent evt) {
-                        tablaNProductosKeyReleased(evt);
-                  }
-            });
-            jScrollPane2.setViewportView(tablaNProductos);
-
-            javax.swing.GroupLayout panelContainerTableLayout = new javax.swing.GroupLayout(panelContainerTable);
-            panelContainerTable.setLayout(panelContainerTableLayout);
-            panelContainerTableLayout.setHorizontalGroup(
-                  panelContainerTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                  .addGroup(panelContainerTableLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1152, Short.MAX_VALUE)
-                        .addGap(18, 18, 18))
-            );
-            panelContainerTableLayout.setVerticalGroup(
-                  panelContainerTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                  .addGroup(panelContainerTableLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
-                        .addGap(14, 14, 14))
-            );
-
-            containerComponents.add(panelContainerTable);
-            panelContainerTable.setBounds(20, 500, 1190, 440);
 
             priceField.setForeground(new java.awt.Color(0, 0, 0));
             priceField.setShadowColor(new java.awt.Color(0, 0, 0));
@@ -462,7 +433,7 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
 
             labelDecorationBackground.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\ProyectosIDEA\\MavenProjects\\demo\\src\\main\\java\\images\\PanelNProduct\\fluido-transformed.png")); // NOI18N
             containerComponents.add(labelDecorationBackground);
-            labelDecorationBackground.setBounds(420, 260, 810, 320);
+            labelDecorationBackground.setBounds(420, 275, 810, 315);
 
             jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\ProyectosIDEA\\MavenProjects\\demo\\src\\main\\java\\images\\PanelNProduct\\fluido-transformedInvertido90Grados.png")); // NOI18N
             containerComponents.add(jLabel3);
@@ -871,7 +842,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
       private javax.swing.ButtonGroup grupo;
       private Utilities.TextField idField;
       private Utilities.TextField idVendorField;
-      private javax.swing.JLabel jLabel2;
       private javax.swing.JLabel jLabel3;
       private javax.swing.JScrollPane jScrollPane2;
       private static javax.swing.JLabel labelCantidad;
@@ -888,7 +858,6 @@ public class PanelNuevoProducto extends javax.swing.JPanel {
       private static javax.swing.JLabel labelSexo;
       private static javax.swing.JLabel labelTalla;
       private javax.swing.JLabel labelTitleInventary;
-      private static Utilities.PanelData2 panelContainerTable;
       private Utilities.PanelData2 panelDecorationSearch;
       private Utilities.TextField priceField;
       private Utilities.TextField quantityField;

@@ -1,6 +1,7 @@
 
 package View;
 
+import Threads.EntriesThread;
 import Threads.LabelDataThread;
 import ViewFormulary.PanelNuevoProducto;
 import Utilities.PanelData2;
@@ -9,7 +10,8 @@ public class PanelInicial extends javax.swing.JPanel {
 
      private static boolean state = true;
      private PanelProveedores proveedor = new PanelProveedores();
-     LabelDataThread stockP;
+     private LabelDataThread stockP;
+     private EntriesThread entThread;
      private static boolean isVisibleInitial;
 
      public PanelInicial() {
