@@ -29,7 +29,7 @@ to do everything manually.
  
 ### On the inventory
 
-![Screenshot (12)](https://user-images.githubusercontent.com/114286961/215320107-dd4edec6-162f-4d3f-94f7-4d737baf1564.png)
+![Screenshot (17)](https://user-images.githubusercontent.com/114286961/215383349-1d742add-1402-4cd4-bbcf-7dbe28af5ae7.png)
 
 * Recognizes if the product already exists.
 
@@ -44,6 +44,8 @@ to do everything manually.
 * Search for products that fit the filter that we have chosen for the table.
 
 ### In entries
+
+![Screenshot (18)](https://user-images.githubusercontent.com/114286961/215383329-bcba035a-3cb0-4006-a1f7-df85829e8cc2.png)
 
 * Recognizes if a product exists or not. If it does, it will ask the user if what he wants is to add the quantity of a product to its stock. If you press "Yes", it will create a simple and new record, where it will say the amount that entered and in inventory the amount that we entered will have been added.
 
